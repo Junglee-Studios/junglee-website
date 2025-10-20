@@ -1,0 +1,428 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junglee Studios — Go Wild</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ================================
+       JUNGLEE — GO WILD THEME (4 colors)
+       Palette: ink, ivory, vine, ember
+       ================================ */
+    :root {
+      --ink: #0b0b0b;          /* near-black */
+      --ivory: #fffaf0;        /* warm light */
+      --vine: #00e08a;         /* neon jungle green */
+      --ember: #ff6a00;        /* tiger orange */
+
+      /* derived tokens (no new hues) */
+      --ink-70: rgba(11,11,11,.7);
+      --ink-40: rgba(11,11,11,.4);
+      --vine-15: rgba(0,224,138,.15);
+      --ember-12: rgba(255,106,0,.12);
+      --ivory-90: rgba(255,250,240,.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ================================
+       BACKGROUND — animated stripes + canopy glow
+       ================================ */
+    .wild-bg {
+      position: fixed; inset: 0; z-index: -2;
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(0,224,138,.08), transparent 60%),
+        radial-gradient(900px 700px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
+        #ffffff;
+    }
+
+    .canopy-shadows {
+      display: none;
+    }
+
+    /* ================================
+       HEADER
+       ================================ */
+    header { position: sticky; top: 0; z-index: 1000; }
+    .nav {
+      display:flex; align-items:center; justify-content:space-between;
+      max-width: 1200px; margin: 0 auto; padding: .9rem 1rem;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,.95);
+      border-bottom: 1px solid rgba(11,11,11,.1);
+    }
+    .brand { display:flex; gap:.75rem; align-items:center; text-decoration:none; }
+    .brand img { height: 52px; width:auto; filter: drop-shadow(0 2px 6px rgba(11,11,11,.1)); }
+    .brand b { color: var(--ink); letter-spacing:.2px; font-weight:900; font-size:1.05rem; }
+
+    .links { display:flex; gap:1.2rem; align-items:center; }
+    .links a {
+      color: var(--ink); text-decoration:none; font-weight:600; font-size:.95rem; position:relative; padding:.4rem .2rem;
+    }
+    .links a:after{
+      content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; border-radius:3px; width:0; margin:auto;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      transition: width .25s ease;
+    }
+    .links a:hover:after{ width:100%; }
+
+    .cta {
+      display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
+      background: linear-gradient(135deg, #FF8C00, #EECC38);
+      padding:.9rem 1.8rem; border-radius:999px; font-weight:800; text-decoration:none; box-shadow:0 8px 24px rgba(238,204,56,.3);
+    }
+    .cta:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
+
+    .links a.cta:after { display: none; }
+
+    /* ================================
+       HERO
+       ================================ */
+    .hero {
+      position: relative;
+      background: url('https://img1.wsimg.com/isteam/getty/1454577795/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1920');
+      background-size: auto 100%;
+      background-position: right center;
+      background-repeat: no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 75%;
+      background: linear-gradient(to right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.95) 65%,
+        rgba(255, 255, 255, 0.7) 80%,
+        rgba(255, 255, 255, 0.3) 90%,
+        transparent 100%);
+      z-index: 1;
+    }
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      max-width:1200px;
+      margin:0 auto;
+      padding: clamp(72px, 6vw, 108px) 1rem 64px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: min(5vw,56px);
+      align-items:center;
+    }
+
+    .title {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: .98; font-weight: 900; letter-spacing: -1px;
+      text-wrap: balance;
+      text-shadow: 0 2px 0 var(--ink), 0 16px 40px var(--ink-70);
+    }
+    .title em { font-style: normal; background: linear-gradient(90deg, var(--vine), var(--ember));
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .tagline { margin-top: 16px; color: var(--ink); font-weight:600; font-size: 1.125rem; opacity: .8; }
+    .desc { margin-top: 14px; color: var(--ink); opacity:.7; }
+
+    .hero-actions { margin-top: 24px; display:flex; gap:.8rem; flex-wrap:wrap; }
+    .btn-ghost { border:1.5px solid var(--ink); padding:.6rem 1rem; border-radius:999px; color:var(--ink); text-decoration:none; font-weight:700; }
+    .btn-ghost:hover { border-color: var(--vine); color: var(--vine); }
+
+    .hero-card {
+      position:relative; border:1px solid rgba(11,11,11,.14); border-radius:20px; padding: 22px; overflow:hidden;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 20px 60px rgba(11,11,11,.1);
+      isolation:isolate;
+    }
+    .hero-card:before{
+      content:""; position:absolute; inset:-40%; background: radial-gradient(600px 260px at 30% 20%, rgba(0,224,138,.14), transparent 60%), radial-gradient(400px 240px at 90% 80%, rgba(255,106,0,.12), transparent 60%);
+      filter: blur(10px); z-index:-1;
+      animation: floatGlow 12s ease-in-out infinite alternate;
+    }
+    @keyframes floatGlow { to { transform: translateY(-2%) translateX(2%); } }
+
+    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top:10px; }
+    .stat {
+      background: rgba(255,255,255,.9); border:1px solid rgba(11,11,11,.12); border-radius:14px; padding:16px; text-align:center;
+    }
+    .stat .num { font-weight:900; font-size:1.6rem; background: linear-gradient(90deg, var(--vine), var(--ember)); -webkit-background-clip: text; color: transparent; }
+    .stat .label { font-size:.85rem; opacity:.85; margin-top:4px; color: var(--ink); }
+
+    /* ================================
+       SECTION WRAPPER
+       ================================ */
+    section { padding: 72px 1rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight:900; letter-spacing:-.5px; display:flex; align-items:center; gap:.6rem; }
+    .section-title .pill { display:inline-flex; align-items:center; height:10px; width:54px; border-radius:999px; background: linear-gradient(90deg, var(--vine), var(--ember)); box-shadow: 0 8px 18px rgba(255,106,0,.15); }
+
+    /* ================================
+       SERVICES (Marketplace Solutions)
+       ================================ */
+    .services { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
+    .grid { margin-top: 32px; display:grid; grid-template-columns: repeat( auto-fit, minmax(260px,1fr)); gap:16px; }
+
+    .card {
+      position: relative; border:1px solid rgba(11,11,11,.12); border-radius:18px; padding:18px 18px 20px; background: rgba(255,255,255,.9);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; overflow:hidden; isolation:isolate;
+    }
+    .card:before { /* claw highlight */
+      content:""; position:absolute; inset:-30% -10% auto -10%; height: 55%;
+      background:
+        repeating-linear-gradient(100deg, transparent 0 12px, rgba(255,106,0,.09) 12px 24px);
+      transform: translateY(-30%); opacity:.6; pointer-events:none; transition: opacity .2s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--vine); box-shadow: 0 18px 50px rgba(0,224,138,.12); }
+    .card:hover:before { opacity: .9; }
+
+    .logo-img { display:block; height: 34px; object-fit: contain; margin-bottom: 12px; filter: saturate(1); }
+    .card h3 { font-size:1.1rem; font-weight:800; color: var(--ink); }
+    .card .tag { margin-top:6px; font-size:.9rem; font-weight:700; color: var(--vine); }
+    .card p { margin-top:8px; font-size:.95rem; color: var(--ink); opacity:.7; }
+
+    /* ================================
+       APPROACH (Portfolio)
+       ================================ */
+    .approach { background: linear-gradient(180deg, rgba(0,224,138,.05), rgba(255,106,0,.05)); }
+    .tiles { margin-top: 28px; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px; }
+    .tile {
+      position:relative; overflow:hidden; border-radius:18px; padding:22px; min-height: 180px;
+      background: radial-gradient(600px 260px at 10% 10%, rgba(0,224,138,.15), transparent 60%), rgba(245,245,245,.95);
+      border:1px solid rgba(11,11,11,.15);
+    }
+    .tile h3 { font-weight:900; font-size:1.2rem; color: var(--ink); }
+    .tile p { margin-top:8px; color: var(--ink); opacity: .75; }
+
+    /* ================================
+       ABOUT
+       ================================ */
+    .about { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
+    .about-grid { margin-top: 28px; display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+    .about-card { border:1px solid rgba(11,11,11,.15); border-radius:18px; padding:20px; background: rgba(245,245,245,.95); }
+    .about-card h3 { color: var(--ember); font-weight:900; }
+    .about-card p { margin-top:8px; color: var(--ink); opacity: .75; }
+
+    /* ================================
+       CONTACT
+       ================================ */
+    .contact { background: linear-gradient(180deg, rgba(0,224,138,.07), rgba(0,224,138,.02)); }
+    .contact-wrap { max-width:720px; margin: 0 auto; }
+    form { margin-top: 18px; display:grid; gap:12px; }
+    label { font-weight:700; }
+    input, textarea {
+      width:100%; background: rgba(11,11,11,.55); color: var(--ivory); border:1px solid rgba(255,250,240,.14);
+      border-radius:12px; padding:12px 14px; font:inherit;
+    }
+    input:focus, textarea:focus { outline:none; border-color: var(--vine); box-shadow: 0 0 0 3px rgba(0,224,138,.12); }
+    textarea { min-height: 140px; resize: vertical; }
+
+    .submit { margin-top: 6px; display:inline-flex; align-items:center; gap:.6rem; padding: .8rem 1.2rem; border-radius: 999px;
+      border:1.5px solid var(--ink); background: linear-gradient(135deg, #FF8C00, #EECC38); color: var(--ink);
+      font-weight: 900; text-transform: uppercase; letter-spacing:.3px; cursor:pointer; box-shadow:0 8px 24px rgba(238,204,56,.3); }
+    .submit:hover { transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
+
+    /* ================================
+       FOOTER
+       ================================ */
+    footer { padding: 36px 1rem; border-top: 1px solid rgba(255,250,240,.08); background: rgba(11,11,11,.6); }
+    .social { display:flex; gap:10px; justify-content:center; margin-bottom:10px; }
+    .chip {
+      display:inline-flex; align-items:center; justify-content:center; height:32px; min-width:32px; padding:0 10px;
+      border-radius:999px; border:1px solid rgba(255,250,240,.14); color: var(--ivory); text-decoration:none; font-weight:700; font-size:.85rem;
+      background: rgba(11,11,11,.4);
+    }
+    .chip:hover { border-color: var(--vine); color: var(--vine); }
+    .fine { text-align:center; opacity:.8; font-size:.9rem; }
+
+    /* ================================
+       RESPONSIVE
+       ================================ */
+    @media (max-width: 900px){
+      .hero-wrap{ grid-template-columns: 1fr; padding-top: 84px; }
+      .stats { grid-template-columns: 1fr 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .links { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wild-bg"></div>
+  <div class="canopy-shadows"></div>
+
+  <!-- Header -->
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index2.html" aria-label="Junglee Studios">
+        <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
+        <b>Junglee Studios</b>
+      </a>
+      <div class="links">
+        <a href="index2.html">Home</a>
+        <a href="about-junglee.html">About Junglee</a>
+        <a href="brand-growth.html">Brand Growth</a>
+        <a href="for-creators.html">For Creators</a>
+        <a class="cta" href="#contact">Work With Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-wrap container">
+      <div>
+        <h1 class="title">Social commerce that <em>goes wild</em> — and converts.</h1>
+        <p class="tagline">Official TikTok Shop Partner & Creator Agency. We turn attention into revenue across TikTok, Amazon, and emerging marketplaces.</p>
+        <p class="desc">Strategy × creators × culture. No gimmicks — just jungle‑strong execution that scales.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="cta">Start a Project</a>
+          <a href="#services" class="btn-ghost">See how we grow brands</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="stats">
+          <div class="stat"><div class="num">100M+</div><div class="label">Impressions</div></div>
+          <div class="stat"><div class="num">50+</div><div class="label">Brand Partners</div></div>
+          <div class="stat"><div class="num">10×</div><div class="label">Avg. ROI Lift</div></div>
+        </div>
+        <p class="desc" style="margin-top:12px;">“The fastest path from scroll to sale.” — clients, probably</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title"><span class="pill"></span> Marketplace Solutions</h2>
+      <div class="grid">
+        <article class="card">
+          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/220px-TikTok_logo.svg.png" alt="TikTok logo" />
+          <h3>TikTok Shop</h3>
+          <p class="tag">Turn content into commerce</p>
+          <p>As an official TikTok Shop Partner and Creator Agency, we weave live selling, creators, and affiliates into repeatable revenue.</p>
+        </article>
+        <article class="card">
+          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/300px-Amazon_logo.svg.png" alt="Amazon logo" />
+          <h3>Amazon</h3>
+          <p class="tag">Build. Scale. Dominate.</p>
+          <p>From listings to logistics, we engineer the full‑funnel experience that turns browsers into loyal buyers.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 150 50" class="logo-img" aria-label="Walmart logo"><text x="75" y="33" font-family="Arial, sans-serif" font-weight="700" font-size="28" fill="#ffffff" text-anchor="middle">Walmart</text></svg>
+          <h3>Walmart</h3>
+          <p class="tag">Expand your retail footprint</p>
+          <p>We navigate Walmart's marketplace with precision — optimized catalog, paid media, and omni‑channel alignment.</p>
+        </article>
+        <article class="card">
+          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/300px-Instagram_logo_2022.svg.png" alt="Instagram logo" />
+          <h3>Instagram</h3>
+          <p class="tag">Story → cart</p>
+          <p>Shoppable storytelling, creator collabs, and content systems that convert without killing your vibe.</p>
+        </article>
+        <article class="card">
+          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/300px-EBay_logo.svg.png" alt="eBay logo" />
+          <h3>eBay</h3>
+          <p class="tag">Visibility in the wild</p>
+          <p>Stand out with optimized listings, smart pricing, and product narratives that grab intent.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 120 50" class="logo-img" aria-label="Temu logo"><rect x="0" y="5" width="120" height="40" rx="8" fill="#ffffff"/><text x="60" y="34" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#0b0b0b" text-anchor="middle">Temu</text></svg>
+          <h3>Temu & Emerging</h3>
+          <p class="tag">Be early. Stay ahead.</p>
+          <p>Test, learn, scale — we map attention shifts and place smart bets where growth is breaking out.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section id="approach" class="approach">
+    <div class="container">
+      <h2 class="section-title"><span class="pill"></span> Our Approach</h2>
+      <div class="tiles">
+        <div class="tile">
+          <h3>Strategy First</h3>
+          <p>We interrogate your brand, audience, and margins — then design a growth plan you can measure and trust.</p>
+        </div>
+        <div class="tile">
+          <h3>Content Engines</h3>
+          <p>Creator‑led pipelines that ship daily: hooks, proof, offers — natively tailored to each marketplace.</p>
+        </div>
+        <div class="tile">
+          <h3>Performance Growth</h3>
+          <p>Relentless optimization across ads, storefronts, and ops to compound ROI and LTV.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title"><span class="pill"></span> About Junglee Studios</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Our Vision</h3>
+          <p>Prove that real growth doesn’t need gimmicks — just brave creative and tight execution.</p>
+        </div>
+        <div class="about-card">
+          <h3>Our Edge</h3>
+          <p>We fuse e‑commerce ops with creator culture. It’s why our campaigns feel native — and sell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container contact-wrap">
+      <h2 class="section-title"><span class="pill"></span> Drop us a line!</h2>
+      <p class="desc" style="margin-top:10px; max-width:60ch;">Let's build something that clicks.</p>
+      <form id="contact-form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" placeholder="What are your social commerce goals?" required></textarea>
+        </div>
+        <button type="submit" class="submit">Get Started →</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social">
+      <a class="chip" href="#" title="Instagram">IN</a>
+      <a class="chip" href="#" title="TikTok">TT</a>
+      <a class="chip" href="#" title="LinkedIn">LI</a>
+      <a class="chip" href="#" title="YouTube">YT</a>
+    </div>
+    <p class="fine">© 2025 Junglee Studios. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // lightweight form handler
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert("Thanks! We'll be in touch.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
