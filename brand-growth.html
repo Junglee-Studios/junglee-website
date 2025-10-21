@@ -103,13 +103,20 @@
     /* ================================
        HERO - Inner pages
        ================================ */
-    .hero-inner {
-      position: relative;
-      background: url('https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/AdobeStock_472924312_Preview.jpeg/:/rs=w:1920');
-      background-size: auto 100%;
-      background-position: right center;
-      background-repeat: no-repeat;
-    }
+   .hero-inner {
+  position: relative;
+  background: url('assets/logos/Brandgrowth2.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 60vh; /* adjusts hero height for mobile and desktop */
+}
+
+/* Optional: fine-tune mobile positioning */
+@media (max-width: 900px) {
+  .hero-inner {
+    background-position: center top;
+    min-height: 50vh;
+  }
+}
     .hero-inner::before {
       content: '';
       position: absolute;
