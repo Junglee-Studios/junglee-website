@@ -451,15 +451,21 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
+ <section id="contact" class="contact">
   <div class="container contact-wrap">
     <h2 class="section-title"><span class="pill"></span> Drop us a line!</h2>
     <p class="desc" style="margin-top:10px; max-width:60ch;">Let's build something that clicks.</p>
 
     <form action="https://formspree.io/f/xrbyvkdd" method="POST" id="get-started-form" class="get-started-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Tell us about your project" rows="4"></textarea>
+      <label for="input-name" class="sr-only">Name</label>
+      <input id="input-name" type="text" name="name" placeholder="Your Name" required>
+
+      <label for="input-email" class="sr-only">Email</label>
+      <input id="input-email" type="email" name="_replyto" placeholder="Your Email" required>
+
+      <label for="input-message" class="sr-only">Tell us about your project</label>
+      <textarea id="input-message" name="message" placeholder="Tell us about your project" rows="4"></textarea>
+
       <button type="submit" class="submit">Get Started →</button>
     </form>
 
