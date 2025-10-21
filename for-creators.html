@@ -103,12 +103,14 @@
     /* ================================
        HERO - Inner pages
        ================================ */
-    .hero-inner {
+.hero-inner {
   position: relative;
-  background: url('assets/logos/assets/ForCreators.jpg') no-repeat center center;
+  width: 100%;
+  height: clamp(400px, 50vw, 600px); /* responsive height */
+  overflow: hidden;
+  background: url('assets/logos/ForCreators.jpg') no-repeat center right;
   background-size: cover;
-  background-position: right center;
-    }
+}
     .hero-inner::before {
       content: '';
       position: absolute;
@@ -339,11 +341,13 @@
     </header>
 
     <section class="hero-inner">
-        <div class="hero-content">
-            <h1 class="title"><em>Grow</em> your audience. <em>Monetize</em> your influence. Partner with brands that fit your vision.</h1>
-            <p class="tagline">At Junglee Studios, we help creators turn content into commerce</p>
-        </div>
-    </section>
+    <img src="assets/logos/ForCreators.jpg" class="hero-img" alt="For Creators">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+        <h1 class="title"><em>Grow</em> your audience. <em>Monetize</em> your influence. Partner with brands that fit your vision.</h1>
+        <p class="tagline">At Junglee Studios, we help creators turn content into commerce</p>
+    </div>
+</section>
 
     <section>
         <div class="container">
