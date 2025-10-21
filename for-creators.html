@@ -103,13 +103,19 @@
     /* ================================
        HERO - Inner pages
        ================================ */
-.hero-inner {
+ .hero-inner {
   position: relative;
-  width: 100%;
-  height: clamp(400px, 50vw, 600px); /* responsive height */
-  overflow: hidden;
-  background: url('assets/logos/ForCreators.jpg') no-repeat center right;
+  background: url('assets/logos/assets/ForCreators.jpg') no-repeat center center;
   background-size: cover;
+  min-height: 60vh; /* adjusts hero height for mobile and desktop */
+}
+
+/* Optional: fine-tune mobile positioning */
+@media (max-width: 900px) {
+  .hero-inner {
+    background-position: center top;
+    min-height: 50vh;
+  }
 }
     .hero-inner::before {
       content: '';
