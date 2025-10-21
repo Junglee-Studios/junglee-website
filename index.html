@@ -477,25 +477,6 @@
       🎉 Thank you! We’ll be in touch soon.
     </div>
   </div>
-
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Mobile menu toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".links");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-
-  // Close menu when clicking a link
-  document.querySelectorAll(".links a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-    });
-  });
-});
-</script>
 </section>
 
  <footer>
@@ -530,5 +511,26 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   </script>
+ <script>
+  // Ensure the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".links");
+
+    if (menuToggle && navLinks) {
+      // Toggle mobile menu
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking a link
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  });
+</script>
 </body>
 </html>
