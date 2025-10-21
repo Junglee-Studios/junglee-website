@@ -107,66 +107,121 @@
     /* ================================
        HERO
        ================================ */
-    .hero {
-      position: relative;
-      background: url('assets/logos/assets/JungleeHomeUpdate.jpg')no-repeat center center;
-      background-size: cover;
-      background-position: relative;
-    }
-    .hero::before {
-  content:'';
-  position:absolute;
-  inset:0;
-  background: radial-gradient(circle at 25% 50%, rgba(255,255,255,0.9), transparent 60%);
-  z-index:1;
+   /* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-    .hero-wrap {
-      position: relative;
-      z-index: 2;
-      max-width:1200px;
-      margin:0 auto;
-      padding: clamp(72px, 6vw, 108px) 1rem 64px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: min(5vw,56px);
-      align-items:center;
-    }
 
-    .title {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: .98; font-weight: 900; letter-spacing: -1px;
-      text-wrap: balance;
-      text-shadow: 0 3px 6px rgba(255,255,255,0.6);
+/* Gradient Glow Behind Text */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 50%, rgba(255,255,255,0.4), transparent 60%);
+  z-index: 0;
 }
-    .title em { font-style: normal; background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-    .tagline { margin-top: 16px; color: var(--ink); font-weight:600; font-size: 1.125rem; opacity: .8; }
-    .desc { margin-top: 14px; color: var(--ink); opacity:.7; }
+/* Hero Wrapper Grid */
+.hero-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: min(5vw, 56px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(72px, 6vw, 108px) 1rem 64px;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+}
 
-    .hero-actions { margin-top: 24px; display:flex; gap:.8rem; flex-wrap:wrap; }
-    .btn-ghost { display:inline-flex; align-items:center; border:1.5px solid var(--ink); padding:.6rem 1rem; border-radius:8px; color:var(--ink); text-decoration:none; font-weight:700; }
-    .btn-ghost:hover { border-color: var(--vine); color: var(--vine); }
+/* Hero Text */
+.hero-text { z-index: 2; }
 
-    .hero-card {
-      position:relative; border:1px solid rgba(11,11,11,.14); border-radius:20px; padding: 22px; overflow:hidden;
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 20px 60px rgba(11,11,11,.1);
-      isolation:isolate;
-    }
-    .hero-card:before{
-      content:""; position:absolute; inset:-40%; background: radial-gradient(600px 260px at 30% 20%, rgba(0,224,138,.14), transparent 60%), radial-gradient(400px 240px at 90% 80%, rgba(255,106,0,.12), transparent 60%);
-      filter: blur(10px); z-index:-1;
-      animation: floatGlow 12s ease-in-out infinite alternate;
-    }
-    @keyframes floatGlow { to { transform: translateY(-2%) translateX(2%); } }
+.title {
+  position: relative;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: .98;
+  font-weight: 900;
+  letter-spacing: -1px;
+  z-index: 2;
+}
 
-    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top:10px; }
-    .stat {
-      background: rgba(255,255,255,.9); border:1px solid rgba(11,11,11,.12); border-radius:14px; padding:16px; text-align:center;
-    }
-    .stat .num { font-weight:900; font-size:1.6rem; background: linear-gradient(90deg, var(--vine), var(--ember)); -webkit-background-clip: text; color: transparent; }
-    .stat .label { font-size:.85rem; opacity:.85; margin-top:4px; color: var(--ink); }
+/* Glow Behind Text Without Affecting Gradient */
+.title::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  filter: blur(6px);
+  white-space: pre-wrap;
+  font-weight: 900;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  z-index: -1;
+}
+
+.title em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--vine), var(--ember));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline, .desc {
+  margin-top: 16px;
+  color: var(--ink);
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* Hero Image */
+.hero-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Hero Actions */
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Grid for Mobile */
+@media (max-width: 900px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding-top: 84px;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 24px;
+    max-width: 100%;
+  }
+
+  .title::before {
+    filter: blur(4px);
+  }
+}
+
 
     /* ================================
        SECTION WRAPPER
@@ -336,26 +391,35 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero-wrap container">
-      <div>
-        <h1 class="title">Social commerce that <em>goes wild</em> — and converts.</h1>
-        <p class="tagline">Official TikTok Shop Partner, Affiliate Partner, and Creator Agency. We turn attention into revenue across TikTok, Amazon, and emerging marketplaces.</p>
-        <p class="desc">Strategy × creators × culture. No gimmicks — just junglee‑strong execution that scales.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="cta">Start a Project</a>
-          <a href="#services" class="btn-ghost">See how we grow brands</a>
-        </div>
+  <div class="hero-wrap container">
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <h1 class="title" data-text="Social commerce that goes wild — and converts.">
+        Social commerce that <em>goes wild</em> — and converts.
+      </h1>
+      <p class="tagline">
+        Official TikTok Shop Partner, Affiliate Partner, and Creator Agency. 
+        We turn attention into revenue across TikTok, Amazon, and emerging marketplaces.
+      </p>
+      <p class="desc">
+        Strategy × creators × culture. No gimmicks — just junglee‑strong execution that scales.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="cta">Start a Project</a>
+        <a href="#services" class="btn-ghost">See how we grow brands</a>
       </div>
-      <aside class="hero-card">
-        <div class="stats">
-          <div class="stat"><div class="num">100M+</div><div class="label">Impressions</div></div>
-          <div class="stat"><div class="num">50+</div><div class="label">Brand Partners</div></div>
-          <div class="stat"><div class="num">10×</div><div class="label">Avg. ROI Lift</div></div>
-        </div>
-        <p class="desc" style="margin-top:12px;">“The fastest path from scroll to sale.” — clients, probably</p>
-      </aside>
     </div>
-  </section>
+
+    <!-- Hero Image -->
+    <div class="hero-image">
+      <picture>
+        <source media="(max-width: 600px)" srcset="assets/hero-mobile.jpg">
+        <source media="(max-width: 1200px)" srcset="assets/hero-tablet.jpg">
+        <img src="assets/hero-desktop.jpg" alt="Junglee Studios hero image" loading="lazy">
+      </picture>
+    </div>
+  </div>
+</section>
 
   <!-- Services -->
   <section id="services" class="services">
