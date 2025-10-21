@@ -104,12 +104,13 @@
        HERO - Inner pages
        ================================ */
     .hero-inner {
-      position: relative;
-      background: url('https://img1.wsimg.com/isteam/getty/2063544198/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1920');
-      background-size: auto 100%;
-      background-position: right center;
-      background-repeat: no-repeat;
-    }
+  position: relative;
+  background: url('assets/logos/AboutJunglee.jpg');
+  background-size: cover;          /* ensures the image covers the entire hero */
+  background-position: center;     /* centers the image nicely */
+  background-repeat: no-repeat;
+  min-height: 60vh;                /* ensures a decent height for smaller images */
+}
     .hero-inner::before {
       content: '';
       position: absolute;
