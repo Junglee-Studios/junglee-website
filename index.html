@@ -114,19 +114,12 @@
       background-position: relative;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 75%;
-        background: linear-gradient(to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.9) 40%,
-    rgba(255, 255, 255, 0.5) 60%,
-    transparent 100%);
-      z-index: 1;
-    }
+  content:'';
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 25% 50%, rgba(255,255,255,0.9), transparent 60%);
+  z-index:1;
+}
     .hero-wrap {
       position: relative;
       z-index: 2;
