@@ -104,10 +104,9 @@
       transition: all 0.3s ease;
     }
 
-    /* ================================
-       HERO
-       ================================ */
-   /* Hero Section */
+   /* =======================
+   HERO
+======================= */
 .hero {
   position: relative;
   width: 100%;
@@ -115,6 +114,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* Hero Background Image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Gradient Glow Behind Text */
@@ -123,7 +136,7 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 25% 50%, rgba(255,255,255,0.4), transparent 60%);
-  z-index: 0;
+  z-index: -1; /* behind text, in front of image */
 }
 
 /* Hero Wrapper Grid */
@@ -151,7 +164,7 @@
   z-index: 2;
 }
 
-/* Glow Behind Text Without Affecting Gradient */
+/* Glow Behind Text Without Affecting <em> */
 .title::before {
   content: attr(data-text);
   position: absolute;
@@ -175,25 +188,12 @@
   color: transparent;
 }
 
+/* Tagline & Description */
 .tagline, .desc {
   margin-top: 16px;
   color: var(--ink);
   font-weight: 600;
   opacity: 0.8;
-}
-
-/* Hero Image */
-.hero-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  display: block;
 }
 
 /* Hero Actions */
@@ -212,17 +212,10 @@
     text-align: center;
   }
 
-  .hero-image {
-    margin-top: 24px;
-    max-width: 100%;
-  }
-
   .title::before {
     filter: blur(4px);
   }
 }
-
-
     /* ================================
        SECTION WRAPPER
        ================================ */
@@ -390,7 +383,18 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero">
+ <!-- Hero -->
+<section id="home" class="hero">
+  <!-- Hero Background Image -->
+  <div class="hero-bg">
+    <picture>
+      <source media="(max-width: 600px)" srcset="assets/hero-mobile.jpg">
+      <source media="(max-width: 1200px)" srcset="assets/hero-tablet.jpg">
+      <img src="assets/hero-desktop.jpg" alt="Junglee Studios hero image" loading="lazy">
+    </picture>
+  </div>
+
+  <!-- Hero Content -->
   <div class="hero-wrap container">
     <!-- Hero Text -->
     <div class="hero-text">
@@ -409,17 +413,9 @@
         <a href="#services" class="btn-ghost">See how we grow brands</a>
       </div>
     </div>
-
-    <!-- Hero Image -->
-    <div class="hero-image">
-      <picture>
-        <source media="(max-width: 600px)" srcset="assets/hero-mobile.jpg">
-        <source media="(max-width: 1200px)" srcset="assets/hero-tablet.jpg">
-        <img src="assets/hero-desktop.jpg" alt="Junglee Studios hero image" loading="lazy">
-      </picture>
-    </div>
   </div>
 </section>
+
 
   <!-- Services -->
   <section id="services" class="services">
