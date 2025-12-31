@@ -1,571 +1,807 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Growth - Junglee Studios</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-    /* ================================
-       JUNGLEE — GO WILD THEME (4 colors)
-       Palette: ink, ivory, vine, ember
-       ================================ */
-    :root {
-      --ink: #0b0b0b;          /* near-black */
-      --ivory: #fffaf0;        /* warm light */
-      --vine: #00e08a;         /* neon jungle green */
-      --ember: #ff6a00;        /* tiger orange */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Growth — Junglee Studios</title>
+  <meta name="description" content="Junglee Studios helps brands launch and scale on TikTok Shop with conversion-first storefronts, creator engines, and daily content frameworks." />
 
-      /* derived tokens (no new hues) */
-      --ink-70: rgba(11,11,11,.7);
-      --ink-40: rgba(11,11,11,.4);
-      --vine-15: rgba(0,224,138,.15);
-      --ember-12: rgba(255,106,0,.12);
-      --ivory-90: rgba(255,250,240,.9);
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --paper: #000000;                 /* PURE BLACK */
+      --text: #ffffff;                  /* solid white */
+      --muted: #d6d6d6;                 /* solid light gray */
+      --border: rgba(255,255,255,.12);
+
+      --accent: #00f2ea;                /* neon blue */
+      --accent2: #ff2d9a;               /* hot pink */
+
+      --container: 1120px;
+      --pad: 24px;
+      --r-xl: 28px;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+
+      --hero-img: url("assets/logos/assets/BrandgrowthUpdate.jpg");
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *{ box-sizing:border-box; }
     html, body { height: 100%; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: var(--ink);
-      background: #ffffff;
-      overflow-x: hidden;
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+    a{ color: inherit; }
+    img{ display:block; max-width:100%; }
+
+    .container{
+      width: min(var(--container), calc(100% - (2 * var(--pad))));
+      margin: 0 auto;
     }
 
-    /* ================================
-       BACKGROUND — animated stripes + canopy glow
-       ================================ */
-    .wild-bg {
-      position: fixed; inset: 0; z-index: -2;
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(0,224,138,.08), transparent 60%),
-        radial-gradient(900px 700px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
-        #ffffff;
-    }
-
-    /* ================================
-       HEADER
-       ================================ */
-    header { position: sticky; top: 0; z-index: 1000; }
-    .nav {
-      display:flex; align-items:center; justify-content:space-between;
-      max-width: 1200px; margin: 0 auto; padding: .9rem 1rem;
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,.95);
-      border-bottom: 1px solid rgba(11,11,11,.1);
-    }
-    .brand { display:flex; gap:.75rem; align-items:center; text-decoration:none; }
-    .brand img { height: 52px; width:auto; filter: drop-shadow(0 2px 6px rgba(11,11,11,.1)); }
-    .brand b { color: var(--ink); letter-spacing:.2px; font-weight:900; font-size:1.05rem; }
-
-    .links { display:flex; gap:1.2rem; align-items:center; }
-    .links a {
-      color: var(--ink); text-decoration:none; font-weight:600; font-size:.95rem; position:relative; padding:.4rem .2rem;
-    }
-    .links a:after{
-      content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; border-radius:3px; width:0; margin:auto;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      transition: width .25s ease;
-    }
-    .links a:hover:after{ width:100%; }
-
-    .cta {
-      display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
-      padding:.9rem 1.8rem; border-radius:8px; font-weight:800; text-decoration:none; box-shadow:0 8px 24px rgba(238,204,56,.3);
-    }
-    .cta:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
-
-    .links a.cta:after { display: none; }
-
-    /* Mobile menu toggle */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-    .menu-toggle span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: var(--ink);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* ================================
-       HERO - Inner pages
-       ================================ */
-   .hero-inner {
-  position: relative;
-  background: url('assets/logos/assets/BrandgrowthUpdate.jpg') no-repeat center center;
-  background-size: cover;
-  min-height: 60vh; /* adjusts hero height for mobile and desktop */
-}
-
-/* Optional: fine-tune mobile positioning */
-@media (max-width: 900px) {
-  .hero-inner {
-    background-position: center top;
-    min-height: 50vh;
-  }
-}
-    .hero-inner::before {
-      content: '';
-      position: absolute;
-      left: 0;
+    /* =========================================
+       Header (match index)
+    ========================================= */
+    header{
+      position: sticky;
       top: 0;
-      bottom: 0;
-      width: 75%;
-      background: linear-gradient(to right,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 1) 50%,
-        rgba(255, 255, 255, 0.95) 65%,
-        rgba(255, 255, 255, 0.7) 80%,
-        rgba(255, 255, 255, 0.3) 90%,
-        transparent 100%);
-      z-index: 1;
+      z-index: 1000;
+      background: #000000;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .hero-inner .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width:1200px;
-      margin:0 auto;
-      padding: clamp(72px, 6vw, 108px) 1rem 64px;
-      text-align: left;
-    }
-    .hero-inner .hero-content h1,
-    .hero-inner .hero-content .tagline {
-      max-width: 60%;
-    }
-
-    .title {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: .98; font-weight: 900; letter-spacing: -1px;
-      text-wrap: balance;
-      text-shadow: 0 3px 2 var(--ink), 0 3px 2px var(--ink-70);
-    }
-    .title em { font-style: normal; background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-    .tagline { margin-top: 16px; color: var(--ink); font-weight:600; font-size: 1.125rem; opacity: .8; }
-
-    /* ================================
-       SECTION WRAPPER
-       ================================ */
-    section { padding: 96px 1rem; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight:900;
-      letter-spacing:-.5px;
+    .nav{
       display:flex;
       align-items:center;
-      gap:.6rem;
-      margin-top: 64px;
-      margin-bottom: 28px;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 16px 0;
     }
-    .section-title:first-child {
-      margin-top: 0;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      text-decoration:none;
+      min-width: 220px;
     }
-    .section-title .pill { display:inline-flex; align-items:center; height:10px; width:54px; border-radius:999px; background: linear-gradient(90deg, var(--vine), var(--ember)); box-shadow: 0 8px 18px rgba(255,106,0,.15); }
-
-    /* ================================
-       CARDS & GRIDS
-       ================================ */
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin-top: 32px; }
-
-    .card {
-      position: relative; border:1px solid rgba(11,11,11,.12); border-radius:18px; padding:20px; background: rgba(255,255,255,.9);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; overflow:hidden; isolation:isolate;
+    .brand img.logo{
+      height: 38px;
+      max-height: 38px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
     }
-    .card:before {
-      content:""; position:absolute; inset:-30% -10% auto -10%; height: 55%;
-      background:
-        repeating-linear-gradient(100deg, transparent 0 12px, rgba(255,106,0,.09) 12px 24px);
-      transform: translateY(-30%); opacity:.6; pointer-events:none; transition: opacity .2s ease;
+    .wm{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.05;
     }
-    .card:hover { transform: translateY(-4px); border-color: var(--vine); box-shadow: 0 18px 50px rgba(0,224,138,.12); }
-    .card:hover:before { opacity: .9; }
-    .card h3 { font-size:1.2rem; font-weight:800; color: var(--ink); margin-bottom: 8px; }
-    .card p { font-size:.95rem; color: var(--ink); opacity:.7; }
-    .card ul { margin-top: 12px; padding-left: 20px; }
-    .card li { font-size:.95rem; color: var(--ink); opacity:.7; margin-top: 6px; }
-
-    /* Brand Growth specific styles */
-    .intro-text {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 64px;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 500;
-      line-height: 1.6;
-      color: var(--ink);
-    }
-
-    .approach-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--vine);
-      font-size: 1.4rem;
+    .wm b{
       font-weight: 900;
-      margin-bottom: 16px;
+      letter-spacing: -0.01em;
       color: #ffffff;
     }
-
-    /* ================================
-       CTA SECTION
-       ================================ */
-    .cta-section {
-      text-align: center;
-      padding: 72px 24px;
-      background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02));
-      border-radius: 18px;
-      margin-top: 64px;
+    .wm span{
+      font-size: .85rem;
+      font-weight: 650;
+      color: rgba(255,255,255,.55);
     }
-    .cta-section h2 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+
+    .navlinks{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .navlinks a{
+      text-decoration:none;
+      font-weight: 750;
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      padding: .55rem .65rem;
+      border-radius: 12px;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .navlinks a:hover{
+      background: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+
+    /* Buttons (NO glow anywhere) */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: .9rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: #ffffff;
       font-weight: 900;
-      margin-bottom: 24px;
+      text-decoration:none;
+      white-space:nowrap;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
-    .cta-button {
-      display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
-      padding:.8rem 1.4rem; border-radius:8px; font-weight:800; text-decoration:none;
-      box-shadow:0 8px 24px rgba(238,204,56,.3);
-      font-size: 1.05rem;
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.30);
     }
-    .cta-button:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
+    .btn:focus, .btn:active{ outline:none; box-shadow:none; }
 
-    /* ================================
-       FOOTER
-       ================================ */
-    footer { padding: 36px 1rem; border-top: 1px solid rgba(255,250,240,.08); background: rgba(11,11,11,.6); }
-    .social { display:flex; gap:10px; justify-content:center; margin-bottom:10px; }
-    .chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  min-width: 32px;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
+    .btn.primary{
+      background: var(--accent);
+      color: #000;
+      border: none;
     }
-    .chip:hover { border-color: var(--vine); color: var(--vine); }
-    .fine { text-align:center; opacity:.8; font-size:.9rem; color: var(--ivory); }
-
-    /* ================================
-       RESPONSIVE
-       ================================ */
-    @media (max-width: 900px){
-      .menu-toggle { display: flex; }
-
-      .links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255,255,255,.98);
-        backdrop-filter: blur(8px);
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0.5rem;
-        border-bottom: 1px solid rgba(11,11,11,.1);
-        box-shadow: 0 4px 12px rgba(11,11,11,.1);
-      }
-
-      .links.active {
-        display: flex;
-      }
-
-      .links a {
-        padding: 0.8rem 1rem;
-        border-radius: 8px;
-      }
-
-      .links a:hover {
-        background: rgba(0,224,138,.08);
-      }
-
-      .links a.cta {
-        margin-top: 0.5rem;
-      }
-
-      .nav {
-        position: relative;
-      }
-
-      .grid { grid-template-columns: 1fr; }
+    .btn.pink{
+      background: var(--accent2);
+      color: #000;
+      border: none;
     }
-    </style>
+    .btn.white{
+      background: #ffffff;
+      color: #000;
+      border: 1px solid rgba(255,255,255,.30);
+    }
+
+    /* Mobile menu */
+    .menu{
+      display:none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+    }
+    .menu span{
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.92);
+      border-radius: 2px;
+      position: relative;
+    }
+    .menu span:before,
+    .menu span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.92);
+      border-radius:2px;
+    }
+    .menu span:before{ top: -6px; }
+    .menu span:after{ top: 6px; }
+
+    .mobile-panel{
+      display:none;
+      padding: 10px 0 18px;
+    }
+    .mobile-panel a{
+      display:block;
+      text-decoration:none;
+      padding: 12px 10px;
+      border-radius: 14px;
+      font-weight: 850;
+      color: rgba(255,255,255,.88);
+    }
+    .mobile-panel a:hover{ background: rgba(255,255,255,.08); }
+    .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
+    .mobile-panel.open{ display:block; }
+
+    /* =========================================
+       Sections + White break sections
+    ========================================= */
+    .section{
+      padding: clamp(44px, 5vw, 72px) 0;
+    }
+    .section.light{
+      background: #ffffff;
+      color: #0b0f14;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .kicker i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      display:inline-block;
+    }
+
+    .section.light .kicker{ color: rgba(11,15,20,.55); }
+    .section.light .kicker i{ background: var(--accent2); }
+
+    h1{
+      margin: 14px 0 0;
+      font-size: clamp(2.25rem, 4.6vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 950;
+      color: #ffffff;
+      text-shadow: 0 14px 40px rgba(0,0,0,.55);
+    }
+    h2{
+      margin: 14px 0 0;
+      font-size: clamp(1.55rem, 2.6vw, 2.05rem);
+      font-weight: 950;
+      letter-spacing: -.03em;
+    }
+
+    .lead{
+      margin-top: 14px;
+      max-width: 72ch;
+      color: #ffffff;
+      font-weight: 650;
+      line-height: 1.65;
+      text-shadow: 0 10px 28px rgba(0,0,0,.45);
+    }
+    .lead strong{ color:#ffffff; }
+
+    .section.light h2,
+    .section.light h3{ color: #0b0f14; }
+    .section.light .lead,
+    .section.light p{
+      color: rgba(11,15,20,.78);
+      text-shadow: none;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+    .hero{
+      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: var(--hero-img);
+      background-size: cover;
+      background-position: center;
+      z-index: -3;
+      filter: brightness(1.10) contrast(1.03) saturate(1.05);
+      transform: scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.32);
+      z-index: -1;
+    }
+    .hero .vignette{
+      position:absolute;
+      inset:0;
+      z-index: -1;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
+        radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
+      opacity: .55;
+    }
+    .hero-grid{
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* =========================================
+       Grids + Cards
+    ========================================= */
+    .grid3{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid2{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Dark cards default */
+    .card{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 20px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+    }
+    .card h3{
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 950;
+      letter-spacing:-.02em;
+      color: #ffffff;
+    }
+    .card p{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.78);
+      font-weight: 650;
+      line-height: 1.6;
+    }
+    .card ul{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display:grid;
+      gap: 8px;
+      color: rgba(255,255,255,.82);
+      font-weight: 700;
+    }
+    .card li{ line-height: 1.4; }
+
+    /* White sections: dark cards with white text */
+    .section.light .card{
+      background: #0b0f14;
+      border: 1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+    }
+    .section.light .card h3{ color:#ffffff; }
+    .section.light .card p{ color: rgba(255,255,255,.78); }
+    .section.light .card ul{ color: rgba(255,255,255,.86); }
+
+    /* Step badge */
+    .step{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      font-weight: 950;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #ffffff;
+    }
+    .step.blue{ background: rgba(0,242,234,.16); border-color: rgba(0,242,234,.34); }
+    .step.pink{ background: rgba(255,45,154,.16); border-color: rgba(255,45,154,.34); }
+
+    /* =========================================
+       Logos grid
+    ========================================= */
+    .logos{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
+      align-items: center;
+      justify-items: center;
+    }
+    .logoTile{
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(0,0,0,.18);
+      background: #ffffff;
+      padding: 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 88px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .logoTile:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,.12);
+    }
+    .logoTile img{
+      max-height: 44px;
+      width: auto;
+      opacity: .92;
+    }
+
+    /* CTA strip */
+    .ctaStrip{
+      margin-top: 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap: wrap;
+    }
+    .ctaStrip b{
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+
+    /* =========================================
+       Footer (match index)
+    ========================================= */
+    footer{
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: #000000;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .fine{
+      color: rgba(255,255,255,.55);
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .01em;
+    }
+    .social{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .icon{
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      padding: 0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      opacity: .7;
+      transition: opacity .15s ease, transform .15s ease;
+      text-decoration:none;
+    }
+    .icon:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .navlinks{ display:none; }
+      .menu{ display:inline-flex; }
+      .mobile-panel.open{ display:block; }
+
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .actions .btn{ width: 100%; }
+      .ctaStrip{ justify-content: center; text-align:center; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      * { scroll-behavior:auto !important; transition:none !important; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="wild-bg"></div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Junglee Studios home">
+          <img
+            src="assets/logos/assets/Junglee Studios - without black shadow.png"
+            alt="Junglee Studios logo"
+            class="logo"
+          />
+          <div class="wm">
+            <b>Studios</b>
+            <span>Brand Growth</span>
+          </div>
+        </a>
 
-    <header>
-        <nav class="nav">
-            <a class="brand" href="index.html" aria-label="Junglee Studios">
-                <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
-                <b>Studios</b>
-            </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="about-junglee.html">About Junglee</a>
-                <a href="brand-growth.html">Brand Growth</a>
-                <a href="for-creators.html">For Creators</a>
-                <a class="cta" href="index.html#contact">Work With Us</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="hero-inner">
-        <div class="hero-content">
-            <h1 class="title"><em>Scale</em> your brand. Expand your reach. <em>Win</em> in social commerce.</h1>
-            <p class="tagline">Junglee Studios helps brands grow through strategy, creativity, and culture</p>
+        <div class="navlinks" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="about-junglee.html">About</a>
+          <a href="brand-growth.html">For Brands</a>
+          <a href="for-creators.html">For Creators</a>
+          <a class="btn primary" href="index.html#contact">Contact</a>
         </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <div class="intro-text">
-                <p>We help brands succeed on platforms like Amazon, Walmart, TikTok Shop, and Instagram — turning visibility into sales and followers into customers.</p>
-            </div>
+        <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span></span>
+        </button>
+      </nav>
 
-            <h2 class="section-title"><span class="pill"></span> Our Core Focus Areas</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>eCommerce + Social Commerce</h3>
-                </div>
-                <div class="card">
-                    <h3>Direct-to-Consumer (D2C)</h3>
-                </div>
-                <div class="card">
-                    <h3>Live Selling</h3>
-                </div>
-            </div>
-
-            <h2 class="section-title"><span class="pill"></span> Brand Growth Approach</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="approach-number">01</div>
-                    <h3>Strategy</h3>
-                    <ul>
-                        <li>Marketplace setup</li>
-                        <li>Optimization</li>
-                        <li>Cross-channel growth planning</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="approach-number">02</div>
-                    <h3>Creativity</h3>
-                    <ul>
-                        <li>Brand storytelling</li>
-                        <li>Content development</li>
-                        <li>Creator partnerships</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="approach-number">03</div>
-                    <h3>Execution</h3>
-                    <ul>
-                        <li>Campaign management</li>
-                        <li>Live selling</li>
-                        <li>Performance tracking</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2 class="section-title"><span class="pill"></span> What We Offer</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Marketplace Strategy & Optimization</h3>
-                    <p>Comprehensive marketplace setup and optimization across all major platforms</p>
-                </div>
-                <div class="card">
-                    <h3>Social Commerce Strategy</h3>
-                    <p>Leverage social platforms to drive commerce and build community</p>
-                </div>
-                <div class="card">
-                    <h3>Brand & Content Development</h3>
-                    <p>Create compelling stories and content that resonate with your audience</p>
-                </div>
-                <div class="card">
-                    <h3>Creator Partnerships</h3>
-                    <p>Connect with authentic creators who align with your brand values</p>
-                </div>
-                <div class="card">
-                    <h3>Campaign Management & Insights</h3>
-                    <p>Data-driven campaign execution and performance optimization</p>
-                </div>
-            </div>
-
-            <h2 class="section-title"><span class="pill"></span> Why Brands Choose Junglee Studios</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Platform Expertise</h3>
-                    <p>Deep knowledge across Amazon, TikTok Shop, Walmart, Instagram, and emerging platforms</p>
-                </div>
-                <div class="card">
-                    <h3>Proven Growth Frameworks</h3>
-                    <p>Battle-tested strategies that deliver measurable results</p>
-                </div>
-                <div class="card">
-                    <h3>Cultural Relevance</h3>
-                    <p>Understanding of trends, audiences, and what makes content convert</p>
-                </div>
-                <div class="card">
-                    <h3>Creator Integration</h3>
-                    <p>Access to our network of vetted, high-performing creators</p>
-                </div>
-                <div class="card">
-                    <h3>Hands-On Support</h3>
-                    <p>Dedicated team working alongside you to achieve your goals</p>
-                </div>
-            </div>
-<!-- Brand Logos Section -->
-<section id="brand-logos" class="section">
-  <div class="container">
-    <h2 class="section-title">
-      <span class="pill"></span> Brands We’ve Helped Grow
-    </h2>
-    <p class="desc" style="margin-top:10px; max-width:60ch;">
-      We’ve partnered with forward-thinking brands to build, scale, and thrive in social commerce.
-    </p>
-
-    <div class="logo-grid">
-      <a href="https://www.amazon.com/stores/Disney/page/EF081BE7-FC57-4715-9A43-440C8BAF0514?ref_=cm_sw_r_ud_ast_store_SGKJHWC105W2D9PB690S" target="_blank" rel="noopener">
-        <img src="/assets/logos/disneystore.png" alt="Brand 1 Logo">
-      </a>
-      <a href="https://www.tiktok.com/@kaleidoscreative" target="_blank" rel="noopener">
-        <img src="/assets/logos/idQCOPFSp1_logos.png" alt="Brand 2 Logo">
-      </a>
-        <a href="https://www.tiktok.com/@designercon" target="_blank" rel="noopener">
-        <img src="/assets/logos/DCONvectorlogo_Landscape.png" alt="Brand 2 Logo">
-      </a>
-      <a href="https://www.amazon.com/stores/CollegeFlagsandBannersCompany/page/655F3861-96BC-4263-9F55-65435191CA09?_encoding=UTF8&store_ref=SB_A062340815VOYU5GOEQ5G-A05629451UBCKCSIQMVKK&pd_rd_plhdr=t&aaxitk=6885b1944ce12f4924f5e73ba40619bf&hsa_cr_id=3064503610201&lp_asins=B0D3FGMS6Z%2CB00O14YKE8&lp_query=college+flags+and+banners&lp_slot=auto-sparkle-hsa-tetris&ref_=cm_sw_r_ud_ast_store_VZ91W9ES6NHDTC84A1S9&pd_rd_w=NCwCM&content-id=amzn1.sym.9f2b2b9e-47e9-4764-a4dc-2be2f6fca36d%3Aamzn1.sym.9f2b2b9e-47e9-4764-a4dc-2be2f6fca36d&pf_rd_p=9f2b2b9e-47e9-4764-a4dc-2be2f6fca36d&pf_rd_r=8BJQRWB3W0Y316GA554X&pd_rd_wg=h1eTL&pd_rd_r=058fab93-be57-4c4f-842f-dabe2d43f635" target="_blank" rel="noopener">
-        <img src="/assets/logos/cfandb.png" alt="Brand 3 Logo">
-      </a>
-      <a href="https://www.tiktok.com/@theballersbank" target="_blank" rel="noopener">
-        <img src="/assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="Brand 4 Logo">
-      </a>
-        <a href="https://www.amazon.com/stores/SABRENT/page/041540BA-3178-4FAB-86E7-84E10814815A?lp_asin=B08RVC6F9Y&ref_=cm_sw_r_ud_ast_store_E31E50T2AEWZXP3ETGX0&store_ref=bl_ast_dp_brandLogo_sto" target="_blank" rel="noopener">
-        <img src="/assets/logos/Sabrent_idzxzVSldz_1.png" alt="Brand 4 Logo">
-      </a>
-        <a href="https://www.tiktok.com/@941sportscardsofficial" target="_blank" rel="noopener">
-        <img src="/assets/logos/idEJD4zXCD_logos.png" alt="Brand 4 Logo">
-      </a>
-        <a href="https://www.tiktok.com/@dappzsports" target="_blank" rel="noopener">
-        <img src="/assets/logos/assets/logos/idPgIdg3WQ_logos.png" alt="Brand 4 Logo">
-      </a>
-        <a href="https://www.tiktok.com/@rip.n.hits" target="_blank" rel="noopener">
-        <img src="/assets/logos/idUS68ucvo_logos.png" alt="Brand 4 Logo">
-      </a>
-        <a href="https://www.tiktok.com/@xpcollect" target="_blank" rel="noopener">
-        <img src="/assets/logos/id_VvWb9vk_logos.png" alt="Brand 4 Logo">
-      </a>
-        <a href="https://www.tiktok.com/@ninetalestradingco" target="_blank" rel="noopener">
-        <img src="/assets/logos/idwve1N6IP_logos.png" alt="Brand 4 Logo">
-      </a>
+      <!-- Mobile panel -->
+      <div class="mobile-panel" id="mobilePanel">
+        <a href="index.html">Home</a>
+        <a href="about-junglee.html">About</a>
+        <a href="brand-growth.html">For Brands</a>
+        <a href="for-creators.html">For Creators</a>
+        <div class="mobile-cta">
+          <a class="btn primary" href="index.html#contact">Contact</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<style>
-  .brand-logos {
-    text-align: center;
-    padding: 80px 0;
-    background-color: #fafafa;
-  }
+  <!-- HERO -->
+  <section class="hero">
+    <div class="vignette" aria-hidden="true"></div>
 
-  .brand-logos .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
+    <div class="container">
+      <div class="hero-grid">
+        <div class="kicker"><i></i> For Brands</div>
+        <h1>Scale on TikTok Shop with a conversion-first system.</h1>
+        <p class="lead">
+          We build storefront + offer foundations, activate creators at scale, and ship content frameworks daily — so growth becomes repeatable.
+        </p>
 
-  .brand-logos .desc {
-    color: #555;
-    margin-bottom: 2.5rem;
-    font-size: 1.1rem;
-  }
-
-  .logo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 2rem;
-    align-items: center;
-    justify-items: center;
-  }
-
-  .logo-grid img {
-    width: 140px;
-    max-width: 100%;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0.85;
-  }
-
-  .logo-grid img:hover {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-</style>
-            <div class="cta-section">
-                <h2>Ready to Grow Your Brand?</h2>
-                <a href="index.html#contact" class="cta-button">Book a Brand Consultation</a>
-            </div>
+        <div class="actions">
+          <a class="btn primary" href="index.html#contact">Request a Plan</a>
+          <a class="btn pink" href="index.html#contact">Get a Storefront Audit</a>
+          <a class="btn white" href="index.html#contact">Schedule a Consultation</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-   <footer>
-  <div class="social">
-    <a class="chip" href="https://www.instagram.com/jungleestudios/" title="Instagram" target="_blank">
-      <img src="IGIcon.png" alt="Instagram" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.facebook.com/JungleeStudios/" title="Facebook" target="_blank">
-      <img src="FBIcon.png" alt="Facebook" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.tiktok.com/@jungleestudios" title="TikTok" target="_blank">
-      <img src="TikTokIcon.png" alt="TikTok" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.linkedin.com/in/jatinjtpatel" title="LinkedIn" target="_blank">
-      <img src="LinkedinIcon.png" alt="LinkedIn" width="24" height="24">
-    </a>
-  </div>
+  <!-- CORE FOCUS (WHITE) -->
+  <section class="section light">
+    <div class="container">
+      <div class="kicker"><i></i> Core focus</div>
+      <h2>What we optimize to drive GMV.</h2>
+      <p class="lead">If we move these three levers, performance follows.</p>
 
-  <p class="fine">&copy; 2025 Junglee Studios. All rights reserved.</p>
-</footer>
+      <div class="grid3">
+        <div class="card">
+          <h3>Storefront + Listings</h3>
+          <p>Conversion-first PDPs, bundles, offers, and shop experience — built for TikTok-native buyers.</p>
+        </div>
+        <div class="card">
+          <h3>Creator Acquisition</h3>
+          <p>Affiliate recruiting + product sets + sampling workflows that keep creators posting daily.</p>
+        </div>
+        <div class="card">
+          <h3>Content Velocity</h3>
+          <p>Repeatable formats that make daily content sustainable (hooks, proof, offer, CTA).</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.links').classList.toggle('active');
+  <!-- APPROACH (DARK) -->
+  <section class="section">
+    <div class="container">
+      <div class="kicker"><i></i> Approach</div>
+      <h2>Strategy → Creators → Execution.</h2>
+      <p class="lead">
+        We connect the full loop so the shop converts, creators sell, and content compounds.
+      </p>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="step blue">01</div>
+          <h3>Strategy</h3>
+          <ul>
+            <li>Shop setup & infrastructure</li>
+            <li>Offer stack + bundling plan</li>
+            <li>Category & competitor read</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="step pink">02</div>
+          <h3>Creators</h3>
+          <ul>
+            <li>Product sets + recruiting</li>
+            <li>Sampling + deal workflows</li>
+            <li>Creator guidance & enablement</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="step blue">03</div>
+          <h3>Execution</h3>
+          <ul>
+            <li>Content engine + iteration</li>
+            <li>Campaign + live selling support</li>
+            <li>Performance tracking & optimization</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ctaStrip">
+        <b>Want a clear 30-day plan?</b>
+        <div class="actions" style="margin-top:0;">
+          <a class="btn primary" href="index.html#contact">Request a Plan</a>
+          <a class="btn pink" href="index.html#contact">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER (WHITE) -->
+  <section class="section light">
+    <div class="container">
+      <div class="kicker"><i></i> What we offer</div>
+      <h2>Full-service management or targeted boosts.</h2>
+      <p class="lead">Pick the lane — we’ll meet you where you are.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Launch + Infrastructure</h3>
+          <p>Shop setup, compliance, shipping, catalog hygiene, and the foundation required to scale.</p>
+        </div>
+        <div class="card">
+          <h3>Optimization + Conversion</h3>
+          <p>PDPs, bundles, pricing, offers, and storefront flow — tightened for TikTok conversion.</p>
+        </div>
+        <div class="card">
+          <h3>Affiliate + Creator Program</h3>
+          <p>Recruiting, enablement, product sets, samples, and performance management.</p>
+        </div>
+        <div class="card">
+          <h3>Content Frameworks</h3>
+          <p>Formats, scripts, and a posting system your team can run weekly — without burning out.</p>
+        </div>
+        <div class="card">
+          <h3>Live Selling Support</h3>
+          <p>Show structure, run-of-show, product sequencing, and conversion tactics for live GMV.</p>
+        </div>
+        <div class="card">
+          <h3>Insights + Enablement</h3>
+          <p>Dashboards, reporting, and team training so you can own the system long-term.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY JUNGLEE (DARK) -->
+  <section class="section">
+    <div class="container">
+      <div class="kicker"><i></i> Why Junglee</div>
+      <h2>Former TikTok Shop operators. Built for execution.</h2>
+      <p class="lead">
+        We’ve run playbooks from the inside — and we build systems that your team can sustain.
+      </p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Operator-led</h3>
+          <p>We ship the work, not just slides — and we iterate fast with data.</p>
+        </div>
+        <div class="card">
+          <h3>Creator-native</h3>
+          <p>We know how creators think, what they post, and what makes them sell.</p>
+        </div>
+        <div class="card">
+          <h3>Compounding systems</h3>
+          <p>Storefront + creators + content connected as one engine — so wins stack.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS WE'VE HELPED (WHITE) -->
+  <section class="section light" id="brand-logos">
+    <div class="container">
+      <div class="kicker"><i></i> Proof</div>
+      <h2>Brands we’ve helped grow.</h2>
+      <p class="lead" style="max-width: 68ch;">
+        We’ve partnered with forward-thinking teams to build, scale, and thrive in social commerce.
+      </p>
+
+      <div class="logos">
+        <a class="logoTile" href="https://www.amazon.com/stores/Disney/page/EF081BE7-FC57-4715-9A43-440C8BAF0514?ref_=cm_sw_r_ud_ast_store_SGKJHWC105W2D9PB690S" target="_blank" rel="noopener">
+          <img src="/assets/logos/disneystore.png" alt="Disney Store logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@kaleidoscreative" target="_blank" rel="noopener">
+          <img src="/assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@designercon" target="_blank" rel="noopener">
+          <img src="/assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
+        </a>
+        <a class="logoTile" href="https://www.amazon.com/stores/CollegeFlagsandBannersCompany/page/655F3861-96BC-4263-9F55-65435191CA09" target="_blank" rel="noopener">
+          <img src="/assets/logos/cfandb.png" alt="College Flags & Banners logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@theballersbank" target="_blank" rel="noopener">
+          <img src="/assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
+        </a>
+        <a class="logoTile" href="https://www.amazon.com/stores/SABRENT/page/041540BA-3178-4FAB-86E7-84E10814815A" target="_blank" rel="noopener">
+          <img src="/assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@941sportscardsofficial" target="_blank" rel="noopener">
+          <img src="/assets/logos/idEJD4zXCD_logos.png" alt="941 Sports Cards logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@dappzsports" target="_blank" rel="noopener">
+          <img src="/assets/logos/assets/logos/idPgIdg3WQ_logos.png" alt="Dappz Sports logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@rip.n.hits" target="_blank" rel="noopener">
+          <img src="/assets/logos/idUS68ucvo_logos.png" alt="Rip N Hits logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@xpcollect" target="_blank" rel="noopener">
+          <img src="/assets/logos/id_VvWb9vk_logos.png" alt="XP Collect logo">
+        </a>
+        <a class="logoTile" href="https://www.tiktok.com/@ninetalestradingco" target="_blank" rel="noopener">
+          <img src="/assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
+        </a>
+      </div>
+
+      <div class="ctaStrip" style="margin-top:22px;">
+        <b>Ready to grow your TikTok Shop?</b>
+        <div class="actions" style="margin-top:0;">
+          <a class="btn primary" href="index.html#contact">Request a Plan</a>
+          <a class="btn pink" href="index.html#contact">Book a Brand Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
+
+        <div class="social" aria-label="Social links">
+          <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <img src="IGIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <img src="FBIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
+            <img src="TikTokIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <img src="LinkedinIcon.png" alt="" width="25" height="25" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (same behavior as index)
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      btn?.addEventListener('click', () => {
+        const open = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      panel?.querySelectorAll('a')?.forEach(a => {
+        a.addEventListener('click', () => {
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         });
-
-        // close menu when clicking a link
-        document.querySelectorAll('.links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.links').classList.remove('active');
-            });
-        });
-    </script>
+      });
+    })();
+  </script>
 </body>
 </html>
