@@ -1,24 +1,20 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junglee Studios — Go Wild</title>
+  <title>Junglee Studios — TikTok Shop & Social Commerce</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <style>
-    /* ================================
-       JUNGLEE — GO WILD THEME (4 colors)
-       Palette: ink, ivory, vine, ember
-       ================================ */
-    :root {
-      --ink: #0b0b0b;          /* near-black */
-      --ivory: #fffaf0;        /* warm light */
-      --vine: #00e08a;         /* neon jungle green */
-      --ember: #ff6a00;        /* tiger orange */
 
-      /* derived tokens (no new hues) */
+  <style>
+    :root {
+      --ink: #0b0b0b;
+      --ivory: #fffaf0;
+      --vine: #00e08a;
+      --ember: #ff6a00;
+
       --ink-70: rgba(11,11,11,.7);
       --ink-40: rgba(11,11,11,.4);
       --vine-15: rgba(0,224,138,.15);
@@ -35,9 +31,7 @@
       overflow-x: hidden;
     }
 
-    /* ================================
-       BACKGROUND — animated stripes + canopy glow
-       ================================ */
+    /* Background */
     .wild-bg {
       position: fixed; inset: 0; z-index: -2;
       background:
@@ -45,14 +39,9 @@
         radial-gradient(900px 700px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
         #ffffff;
     }
+    .canopy-shadows { display:none; }
 
-    .canopy-shadows {
-      display: none;
-    }
-
-    /* ================================
-       HEADER
-       ================================ */
+    /* Header */
     header { position: sticky; top: 0; z-index: 1000; }
     .nav {
       display:flex; align-items:center; justify-content:space-between;
@@ -79,11 +68,33 @@
     .cta {
       display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
       background: linear-gradient(135deg, #FF8C00, #EECC38);
-      padding:.9rem 1.8rem; border-radius:8px; font-weight:800; text-decoration:none; box-shadow:0 8px 24px rgba(238,204,56,.3);
+      padding:.9rem 1.35rem; border-radius:10px; font-weight:900; text-decoration:none;
+      box-shadow:0 10px 26px rgba(238,204,56,.28);
+      transition: transform .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
     }
-    .cta:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
-
+    .cta:hover{ transform: translateY(-1px); box-shadow:0 14px 34px rgba(255,140,0,.35); }
     .links a.cta:after { display: none; }
+
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.9rem 1.1rem; border-radius:10px; font-weight:900; text-decoration:none;
+      border:1.5px solid rgba(11,11,11,.18);
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(0,224,138,.55);
+      box-shadow: 0 14px 34px rgba(0,224,138,.10);
+    }
+    .btn.primary{
+      border-color: var(--ink);
+      background: linear-gradient(135deg, #FF8C00, #EECC38);
+      box-shadow:0 10px 26px rgba(238,204,56,.28);
+    }
+    .btn.primary:hover{ box-shadow:0 14px 34px rgba(255,140,0,.35); }
 
     /* Mobile menu toggle */
     .menu-toggle {
@@ -104,318 +115,347 @@
       transition: all 0.3s ease;
     }
 
-   /* =======================
-   HERO
-======================= */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Hero Background Image */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-}
-
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Gradient Glow Behind Text */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 25% 50%, rgba(255,255,255,0.4), transparent 60%);
-  z-index: -1; /* behind text, in front of image */
-}
-
-/* Hero Wrapper Grid */
-.hero-wrap {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: min(5vw, 56px);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(72px, 6vw, 108px) 1rem 64px;
-  position: relative;
-  z-index: 2;
-  align-items: center;
-}
-
-/* Hero Text */
-.hero-text { z-index: 2; }
-
-.title {
-  position: relative;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  line-height: .98;
-  font-weight: 900;
-  letter-spacing: -1px;
-  z-index: 2;
-}
-
-/* Glow Behind Text Without Affecting <em> */
-.title::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  color: rgba(255, 255, 255, 0.5);
-  filter: blur(6px);
-  white-space: pre-wrap;
-  font-weight: 900;
-  font-size: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  z-index: -1;
-}
-
-.title em {
-  font-style: normal;
-  background: linear-gradient(90deg, var(--vine), var(--ember));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Tagline & Description */
-.tagline, .desc {
-  margin-top: 16px;
-  color: var(--ink);
-  font-weight: 600;
-  opacity: 0.8;
-}
-
-/* Hero Actions */
-.hero-actions {
-  margin-top: 24px;
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-/* Responsive Grid for Mobile */
-@media (max-width: 900px) {
-  .hero-wrap {
-    grid-template-columns: 1fr;
-    padding-top: 84px;
-    text-align: center;
-  }
-
-  .title::before {
-    filter: blur(4px);
-  }
-}
-   /* Hero Stats Card */
-.hero-card {
-  position: relative;
-  border: 1px solid rgba(11,11,11,.14);
-  border-radius: 20px;
-  padding: 22px;
-  overflow: hidden;
-  background: rgba(255,255,255,.9);
-  box-shadow: 0 20px 60px rgba(11,11,11,.1);
-  z-index: 2;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.stat {
-  background: rgba(255,255,255,.9);
-  border: 1px solid rgba(11,11,11,.12);
-  border-radius: 14px;
-  padding: 16px;
-  text-align: center;
-}
-
-.stat .num {
-  font-weight: 900;
-  font-size: 1.6rem;
-  background: linear-gradient(90deg, var(--vine), var(--ember));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.stat .label {
-  font-size: .85rem;
-  opacity: .85;
-  margin-top: 4px;
-  color: var(--ink);
-}
-
-/* Responsive for mobile */
-@media (max-width: 900px) {
-  .hero-card {
-    margin-top: 24px;
-  }
-
-  .stats {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-  }
-}
-
-@media (max-width: 600px) {
-  .stats {
-    grid-template-columns: 1fr;
-  }
-}
-    /* ================================
-       SECTION WRAPPER
-       ================================ */
+    /* Sections */
     section { padding: 96px 1rem; }
     .container { max-width: 1200px; margin: 0 auto; }
-    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight:900; letter-spacing:-.5px; display:flex; align-items:center; gap:.6rem; }
-    .section-title .pill { display:inline-flex; align-items:center; height:10px; width:54px; border-radius:999px; background: linear-gradient(90deg, var(--vine), var(--ember)); box-shadow: 0 8px 18px rgba(255,106,0,.15); }
-
-    /* ================================
-       SERVICES (Marketplace Solutions)
-       ================================ */
-    .services { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
-    .grid { margin-top: 32px; display:grid; grid-template-columns: repeat( auto-fit, minmax(260px,1fr)); gap:16px; }
-
-    .card {
-      position: relative; border:1px solid rgba(11,11,11,.12); border-radius:18px; padding:18px 18px 20px; background: rgba(255,255,255,.9);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; overflow:hidden; isolation:isolate;
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight:900; letter-spacing:-.5px;
+      display:flex; align-items:center; gap:.6rem;
     }
-    .card:before { /* claw highlight */
-      content:""; position:absolute; inset:-30% -10% auto -10%; height: 55%;
+    .section-title .pill {
+      display:inline-flex; align-items:center; height:10px; width:54px; border-radius:999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      box-shadow: 0 8px 18px rgba(255,106,0,.15);
+    }
+    .muted { color: var(--ink); opacity: .74; }
+    .kicker {
+      display:inline-flex; gap:.5rem; align-items:center;
+      font-weight:900; font-size:.85rem; letter-spacing:.12em; text-transform:uppercase;
+      color: var(--ink);
+      background: rgba(0,224,138,.08);
+      border: 1px solid rgba(0,224,138,.18);
+      padding: .5rem .7rem;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .kicker b{
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg { position:absolute; inset:0; z-index:-2; }
+    .hero-bg img { width:100%; height:100%; object-fit: cover; }
+
+    .hero::before {
+      content:'';
+      position:absolute; inset:0;
       background:
-        repeating-linear-gradient(100deg, transparent 0 12px, rgba(255,106,0,.09) 12px 24px);
-      transform: translateY(-30%); opacity:.6; pointer-events:none; transition: opacity .2s ease;
+        radial-gradient(circle at 25% 50%, rgba(255,255,255,0.55), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.75));
+      z-index:-1;
     }
-    .card:hover { transform: translateY(-4px); border-color: var(--vine); box-shadow: 0 18px 50px rgba(0,224,138,.12); }
-    .card:hover:before { opacity: .9; }
 
-    .logo-img { display:block; height: 34px; object-fit: contain; margin-bottom: 12px; filter: saturate(1); }
-    .card h3 { font-size:1.1rem; font-weight:800; color: var(--ink); }
-    .card .tag { margin-top:6px; font-size:.9rem; font-weight:700; color: var(--vine); }
-    .card p { margin-top:8px; font-size:.95rem; color: var(--ink); opacity:.7; }
-
-    /* ================================
-       APPROACH (Portfolio)
-       ================================ */
-    .approach { background: linear-gradient(180deg, rgba(0,224,138,.05), rgba(255,106,0,.05)); }
-    .tiles { margin-top: 28px; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px; }
-    .tile {
-      position:relative; overflow:hidden; border-radius:18px; padding:22px; min-height: 180px;
-      background: radial-gradient(600px 260px at 10% 10%, rgba(0,224,138,.15), transparent 60%), rgba(245,245,245,.95);
-      border:1px solid rgba(11,11,11,.15);
+    .hero-wrap {
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: min(5vw, 56px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(78px, 6vw, 112px) 1rem 64px;
+      position: relative;
+      z-index: 2;
+      align-items: center;
     }
-    .tile h3 { font-weight:900; font-size:1.2rem; color: var(--ink); }
-    .tile p { margin-top:8px; color: var(--ink); opacity: .75; }
+    .title {
+      position: relative;
+      font-size: clamp(2.45rem, 5vw, 4.05rem);
+      line-height: .98;
+      font-weight: 900;
+      letter-spacing: -1px;
+      z-index: 2;
+    }
+    .title::before {
+      content: attr(data-text);
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      color: rgba(255, 255, 255, 0.45);
+      filter: blur(6px);
+      white-space: pre-wrap;
+      font-weight: 900;
+      font-size: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      z-index: -1;
+    }
+    .title em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-    /* ================================
-       ABOUT
-       ================================ */
-    .about { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
-    .about-grid { margin-top: 28px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; }
-    .about-card { border:1px solid rgba(11,11,11,.15); border-radius:18px; padding:20px; background: rgba(245,245,245,.95); }
-    .about-card h3 { color: var(--ember); font-weight:900; }
-    .about-card p { margin-top:8px; color: var(--ink); opacity: .75; }
+    .tagline, .desc { margin-top: 16px; color: var(--ink); font-weight: 650; opacity: .86; }
+    .desc { font-weight: 600; opacity: .78; max-width: 62ch; }
 
-    /* ================================
-       CONTACT
-       ================================ */
+    .hero-actions { margin-top: 22px; display:flex; gap:.8rem; flex-wrap: wrap; }
+    .hero-actions .btn { min-width: 190px; }
+
+    .hero-card {
+      position: relative;
+      border: 1px solid rgba(11,11,11,.14);
+      border-radius: 22px;
+      padding: 22px;
+      overflow: hidden;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 20px 60px rgba(11,11,11,.1);
+      z-index: 2;
+    }
+
+    .stats {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .stat {
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(11,11,11,.12);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat .num {
+      font-weight: 900;
+      font-size: 1.55rem;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .stat .label { font-size: .85rem; opacity: .85; margin-top: 4px; color: var(--ink); }
+
+    /* Two-lane */
+    .two-lane { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
+    .lanes {
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .lane {
+      position:relative;
+      border:1px solid rgba(11,11,11,.12);
+      border-radius: 20px;
+      padding: 22px;
+      background: rgba(255,255,255,.92);
+      overflow:hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .lane:before{
+      content:"";
+      position:absolute; inset:-30% -10% auto -10%;
+      height:55%;
+      background: repeating-linear-gradient(100deg, transparent 0 12px, rgba(255,106,0,.08) 12px 24px);
+      transform: translateY(-30%);
+      opacity:.55;
+      pointer-events:none;
+      transition: opacity .2s ease;
+    }
+    .lane:hover{
+      transform: translateY(-4px);
+      border-color: rgba(0,224,138,.6);
+      box-shadow: 0 18px 50px rgba(0,224,138,.10);
+    }
+    .lane:hover:before{ opacity:.85; }
+
+    .lane h3{ font-size: 1.25rem; font-weight: 900; letter-spacing:-.4px; }
+    .lane p{ margin-top: 10px; opacity: .78; max-width: 60ch; }
+    .bullets{
+      margin-top: 14px;
+      display:grid;
+      gap: 8px;
+      padding-left: 18px;
+      opacity: .86;
+      font-weight: 650;
+    }
+    .lane-actions{ margin-top: 18px; display:flex; gap:.7rem; flex-wrap: wrap; }
+
+    /* “Why TikTok first” */
+    .why { background: linear-gradient(180deg, rgba(0,224,138,.05), rgba(255,106,0,.05)); }
+    .why-grid{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .panel{
+      border:1px solid rgba(11,11,11,.12);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(255,255,255,.92);
+    }
+    .panel h3{ font-weight: 900; letter-spacing:-.4px; }
+    .panel p{ margin-top: 10px; opacity: .78; }
+    .platforms{
+      margin-top: 12px;
+      display:grid;
+      gap: 10px;
+    }
+    .platform{
+      display:flex; gap: 10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border:1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.92);
+    }
+    .dot{
+      height:10px; width:10px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      margin-top: 5px;
+      flex: 0 0 auto;
+    }
+    .platform b{ font-weight: 900; }
+    .platform span{ opacity:.74; }
+
+    /* How we work */
+    .how { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
+    .steps{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .step{
+      border:1px solid rgba(11,11,11,.12);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.92);
+    }
+    .step .n{
+      font-weight: 900;
+      font-size: .85rem;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity:.7;
+    }
+    .step h3{ margin-top: 10px; font-weight: 900; letter-spacing:-.35px; }
+    .step p{ margin-top: 8px; opacity:.76; }
+
+    /* Capabilities */
+    .caps { background: #ffffff; }
+    .cap-grid{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cap{
+      border:1px solid rgba(11,11,11,.12);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(255,255,255,.92);
+    }
+    .cap h3{ font-weight: 900; letter-spacing:-.35px; }
+    .cap ul{ margin-top: 12px; padding-left: 18px; display:grid; gap: 8px; opacity: .84; font-weight:650; }
+    .cap small{ display:block; margin-top: 12px; opacity:.68; }
+
+    /* Contact */
     .contact { background: linear-gradient(180deg, rgba(0,224,138,.07), rgba(0,224,138,.02)); }
     .contact-wrap { max-width:720px; margin: 0 auto; }
     form { margin-top: 18px; display:grid; gap:12px; }
     label { font-weight:700; }
     input, textarea {
-      width:100%; background: rgba(11,11,11,.55); color: var(--ivory); border:1px solid rgba(255,250,240,.14);
-      border-radius:12px; padding:12px 14px; font:inherit;
+      width:100%;
+      background: rgba(11,11,11,.55);
+      color: var(--ivory);
+      border:1px solid rgba(255,250,240,.14);
+      border-radius:12px;
+      padding:12px 14px;
+      font:inherit;
     }
     input:focus, textarea:focus { outline:none; border-color: var(--vine); box-shadow: 0 0 0 3px rgba(0,224,138,.12); }
     textarea { min-height: 140px; resize: vertical; }
 
-    .submit { margin-top: 6px; display:inline-flex; align-items:center; gap:.6rem; padding: .8rem 1.2rem; border-radius: 8px;
-      border:1.5px solid var(--ink); background: linear-gradient(135deg, #FF8C00, #EECC38); color: var(--ink);
-      font-weight: 900; text-transform: uppercase; letter-spacing:.3px; cursor:pointer; box-shadow:0 8px 24px rgba(238,204,56,.3); }
-    .submit:hover { transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
+    .submit {
+      margin-top: 6px;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:.6rem; padding: .85rem 1.2rem; border-radius: 10px;
+      border:1.5px solid var(--ink);
+      background: linear-gradient(135deg, #FF8C00, #EECC38);
+      color: var(--ink);
+      font-weight: 900; text-transform: uppercase; letter-spacing:.3px;
+      cursor:pointer;
+      box-shadow:0 10px 26px rgba(238,204,56,.28);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .submit:hover { transform: translateY(-1px); box-shadow:0 14px 34px rgba(255,140,0,.35); }
 
-    /* ================================
-       FOOTER
-       ================================ */
+    /* Footer */
     footer { padding: 36px 1rem; border-top: 1px solid rgba(255,250,240,.08); background: rgba(11,11,11,.6); }
     .social { display:flex; gap:10px; justify-content:center; margin-bottom:10px; }
-    .chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  min-width: 32px;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
+    .chip { display:inline-flex; align-items:center; justify-content:center; height:32px; min-width:32px; padding:0; background:none; border:none; border-radius:0; }
+    .chip:hover { filter: brightness(1.1); }
+    .fine { text-align:center; opacity:.8; font-size:.9rem; color: var(--ivory); }
+
+    /* Accessibility helper */
+    .sr-only {
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); white-space:nowrap; border:0;
     }
-    .chip:hover { border-color: var(--vine); color: var(--vine); }
-    .fine {text-align:center; opacity:.8; font-size:.9rem; color: var(--ivory); }
 
-    /* ================================
-       RESPONSIVE
-       ================================ */
-    @media (max-width: 900px){
-      .hero-wrap{ grid-template-columns: 1fr; padding-top: 84px; }
-      .stats { grid-template-columns: 1fr 1fr 1fr; }
-      .about-grid { grid-template-columns: 1fr; }
-
-      .menu-toggle { display: flex; }
-
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap{ grid-template-columns: 1fr; padding-top: 84px; text-align:center; }
+      .hero-actions{ justify-content:center; }
+      .title::before{ filter: blur(4px); }
+      .stats{ grid-template-columns: 1fr 1fr 1fr; }
+      .lanes{ grid-template-columns: 1fr; }
+      .why-grid{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr 1fr; }
+      .cap-grid{ grid-template-columns: 1fr; }
+      .menu-toggle { display:flex; }
       .links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+        display:none;
+        position:absolute; top:100%; left:0; right:0;
         background: rgba(255,255,255,.98);
         backdrop-filter: blur(8px);
         flex-direction: column;
         padding: 1rem;
-        gap: 0.5rem;
+        gap: .5rem;
         border-bottom: 1px solid rgba(11,11,11,.1);
         box-shadow: 0 4px 12px rgba(11,11,11,.1);
       }
-
-      .links.active {
-        display: flex;
-      }
-
-      .links a {
-        padding: 0.8rem 1rem;
-        border-radius: 8px;
-      }
-
-      .links a:hover {
-        background: rgba(0,224,138,.08);
-      }
-
-      .links a.cta {
-        margin-top: 0.5rem;
-      }
-
-      .nav {
-        position: relative;
-      }
+      .links.active { display:flex; }
+      .links a { padding: .8rem 1rem; border-radius: 8px; }
+      .links a:hover { background: rgba(0,224,138,.08); }
+      .links a.cta { margin-top: .5rem; }
+      .nav { position:relative; }
+    }
+    @media (max-width: 600px){
+      .stats{ grid-template-columns: 1fr; }
+      .hero-actions .btn{ width: 100%; }
+      section{ padding: 84px 1rem; }
     }
   </style>
 </head>
+
 <body>
   <div class="wild-bg"></div>
   <div class="canopy-shadows"></div>
@@ -427,222 +467,271 @@
         <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
         <b>Studios</b>
       </a>
+
       <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
+
       <div class="links">
         <a href="index.html">Home</a>
-        <a href="about-junglee.html">About Junglee</a>
-        <a href="brand-growth.html">Brand Growth</a>
+        <a href="about-junglee.html">About</a>
+        <a href="brand-growth.html">For Brands</a>
         <a href="for-creators.html">For Creators</a>
-        <a class="cta" href="#contact">Work With Us</a>
+        <a class="cta" href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
   <!-- Hero -->
-<!-- Hero -->
-<section id="home" class="hero">
-  <!-- Hero Background Image -->
-  <div class="hero-bg">
-    <img src="assets/logos/assets/JungleeHomeUpdate.jpg" 
-         alt="Junglee Studios hero image" 
-         loading="lazy">
-  </div>
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <img src="assets/logos/assets/JungleeHomeUpdate.jpg" alt="Junglee Studios hero image" loading="lazy">
+    </div>
 
-  <!-- Hero Content -->
-  <div class="hero-wrap container">
-    <!-- Hero Text -->
-    <div class="hero-text">
-      <h1 class="title" data-text="Social commerce that goes wild — and converts.">
-        Social commerce that <em>goes wild</em> — and converts.
-      </h1>
-      <p class="tagline">
-        Official TikTok Shop Partner, Affiliate Partner, and Creator Agency. 
-        We turn attention into revenue across TikTok, Amazon, and emerging marketplaces.
-      </p>
-      <p class="desc">
-        Strategy × creators × culture. No gimmicks — just junglee‑strong execution that scales.
-      </p>
-     <div class="hero-actions">
-        <a href="#contact" class="cta">Ready to Go Junglee?</a>
+    <div class="hero-wrap container">
+      <div class="hero-text">
+        <div class="kicker">TIKTOK FIRST <b>•</b> SOCIAL COMMERCE STUDIO</div>
+
+        <h1 class="title" data-text="Creator-led commerce that goes wild — and converts.">
+          Creator-led commerce that <em>goes wild</em> — and converts.
+        </h1>
+
+        <p class="tagline">
+          We help brands launch, scale, and operationalize TikTok Shop—powered by creators, affiliates, and content systems built for repeatable revenue.
+        </p>
+
+        <p class="desc">
+          TikTok is the proving ground. The systems we build extend into Amazon, YouTube, Walmart, and every platform adopting social commerce next.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="brand-growth.html">For Brands</a>
+          <a class="btn" href="for-creators.html">For Creators</a>
+          <a class="btn" href="#contact">Book a Fit Check</a>
+        </div>
       </div>
-    </div>
-   <!-- Hero Stats Card -->
-<aside class="hero-card">
-  <div class="stats">
-    <div class="stat">
-      <div class="num">$1.3B+</div>
-      <div class="label">Retail Sales</div>
-    </div>
-    <div class="stat">
-      <div class="num">1.5K+</div>
-      <div class="label">Sellers & Creators Managed</div>
-    </div>
-    <div class="stat">
-      <div class="num">$500M+</div>
-      <div class="label">LIVE Commerce Sales</div>
-    </div>
-  </div>
-  <p class="desc" style="margin-top:12px;">Where culture, content, and commerce collide!</p>
-</aside>
-  </div>
-</section>
 
-
-
-  <!-- Services -->
-  <section id="services" class="services">
-    <div class="container">
-      <h2 class="section-title"><span class="pill"></span> Marketplace Solutions</h2>
-      <div class="grid">
-        <article class="card">
-          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/220px-TikTok_logo.svg.png" alt="TikTok logo" />
-          <h3>TikTok Shop</h3>
-          <p class="tag">Turn content into commerce</p>
-          <p>As an official TikTok Shop Partner (TSP), TikTok Affiliate Partner (TAP), and Multi-Channel Network (MCN), we weave live selling, creators, and affiliates into repeatable revenue.</p>
-        </article>
-        <article class="card">
-          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/300px-Amazon_logo.svg.png" alt="Amazon logo" />
-          <h3>Amazon</h3>
-          <p class="tag">Build. Scale. Dominate.</p>
-          <p>From listings to logistics, we engineer the full‑funnel experience that turns browsers into loyal buyers.</p>
-        </article>
-        <article class="card">
-          <svg viewBox="0 0 150 50" class="logo-img" aria-label="Walmart logo"><text x="75" y="33" font-family="Arial, sans-serif" font-weight="700" font-size="28" fill="#ffffff" text-anchor="middle">Walmart</text></svg>
-          <h3>Walmart</h3>
-          <p class="tag">Expand your retail footprint</p>
-          <p>We navigate Walmart's marketplace with precision — optimized catalog, paid media, and omni‑channel alignment.</p>
-        </article>
-        <article class="card">
-          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/300px-Instagram_logo_2022.svg.png" alt="Instagram logo" />
-          <h3>Instagram</h3>
-          <p class="tag">Story → cart</p>
-          <p>Shoppable storytelling, creator collabs, and content systems that convert without killing your vibe.</p>
-        </article>
-        <article class="card">
-          <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/300px-EBay_logo.svg.png" alt="eBay logo" />
-          <h3>eBay</h3>
-          <p class="tag">Visibility in the wild</p>
-          <p>Stand out with optimized listings, smart pricing, and product narratives that grab intent.</p>
-        </article>
-        <article class="card">
-          <svg viewBox="0 0 120 50" class="logo-img" aria-label="Temu logo"><rect x="0" y="5" width="120" height="40" rx="8" fill="#ffffff"/><text x="60" y="34" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#0b0b0b" text-anchor="middle">Temu</text></svg>
-          <h3>Temu & Emerging</h3>
-          <p class="tag">Be early. Stay ahead.</p>
-          <p>Test, learn, scale — we map attention shifts and place smart bets where growth is breaking out.</p>
-        </article>
-      </div>
+      <aside class="hero-card" aria-label="Junglee Studios proof points">
+        <div class="stats">
+          <div class="stat">
+            <div class="num">$1.3B+</div>
+            <div class="label">Retail Sales Influenced</div>
+          </div>
+          <div class="stat">
+            <div class="num">1.5K+</div>
+            <div class="label">Sellers & Creators Supported</div>
+          </div>
+          <div class="stat">
+            <div class="num">$500M+</div>
+            <div class="label">Live Commerce GMV</div>
+          </div>
+        </div>
+        <p class="desc" style="margin-top:12px;">
+          Former platform + marketplace operators building systems where culture, content, and commerce collide.
+        </p>
+      </aside>
     </div>
   </section>
 
-  <!-- Approach -->
-  <section id="approach" class="approach">
+  <!-- Two Lanes -->
+  <section class="two-lane">
     <div class="container">
-      <h2 class="section-title"><span class="pill"></span> Our Approach</h2>
-      <div class="tiles">
-        <div class="tile">
-          <h3>Strategy First</h3>
-          <p>We interrogate your brand, audience, and margins — then design a growth plan you can measure and trust.</p>
+      <h2 class="section-title"><span class="pill"></span> Two lanes. One engine.</h2>
+      <p class="muted" style="margin-top:12px; max-width:74ch;">
+        Junglee Studios runs the brand growth system and the creator/affiliate network that powers it—so both sides win.
+      </p>
+
+      <div class="lanes">
+        <div class="lane">
+          <h3>For Brands</h3>
+          <p>Launch + scale on TikTok Shop with creator-led acquisition, storefront conversion, and internal team enablement.</p>
+          <ul class="bullets">
+            <li>Shop setup + readiness</li>
+            <li>Listings, offers, and conversion optimization</li>
+            <li>Affiliate & creator program management</li>
+            <li>Content frameworks (short-form + live)</li>
+            <li>Team training so you can own it</li>
+          </ul>
+          <div class="lane-actions">
+            <a class="btn primary" href="brand-growth.html">Explore Brand Growth</a>
+            <a class="btn" href="#contact">Request a Plan</a>
+          </div>
         </div>
-        <div class="tile">
-          <h3>Content Engines</h3>
-          <p>Creator‑led pipelines that ship daily: hooks, proof, offers — natively tailored to each marketplace.</p>
-        </div>
-        <div class="tile">
-          <h3>Performance Growth</h3>
-          <p>Relentless optimization across ads, storefronts, and ops to compound ROI and LTV.</p>
+
+        <div class="lane">
+          <h3>For Creators</h3>
+          <p>Join a structured affiliate network with product sets, samples, and daily content guidance—built to help you earn consistently.</p>
+          <ul class="bullets">
+            <li>Creator onboarding + product set access</li>
+            <li>Samples & product deal workflow</li>
+            <li>Daily posting guidance + content education</li>
+            <li>Brand matching that fits your audience</li>
+            <li>Long-term relationships, not one-offs</li>
+          </ul>
+          <div class="lane-actions">
+            <a class="btn primary" href="for-creators.html">Join the Network</a>
+            <a class="btn" href="#contact">Ask a Question</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
+  <!-- Why TikTok First -->
+  <section class="why">
     <div class="container">
-      <h2 class="section-title"><span class="pill"></span> About Junglee Studios</h2>
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>Our Vision</h3>
-          <p>Prove that real growth doesn’t need gimmicks — just brave creative and tight execution.</p>
+      <h2 class="section-title"><span class="pill"></span> TikTok first. Built for what’s next.</h2>
+
+      <div class="why-grid">
+        <div class="panel">
+          <h3>Why TikTok comes first</h3>
+          <p>
+            TikTok is where content, community, and checkout fully collide—making it the fastest place to validate offers, train a content engine,
+            and scale with affiliates.
+          </p>
+          <p>
+            The playbook you build here becomes your social commerce operating system—portable across platforms.
+          </p>
         </div>
-        <div class="about-card">
-          <h3>Our Edge</h3>
-          <p>We fuse e‑commerce ops with creator culture. It’s why our campaigns feel native — and sell.</p>
+
+        <div class="panel">
+          <h3>Social commerce is expanding</h3>
+          <div class="platforms">
+            <div class="platform"><span class="dot"></span><div><b>Amazon</b><br><span>Influencer storefronts, shoppable video, creator partnerships.</span></div></div>
+            <div class="platform"><span class="dot"></span><div><b>YouTube</b><br><span>Shopping integrations, product tagging, live shopping momentum.</span></div></div>
+            <div class="platform"><span class="dot"></span><div><b>Walmart</b><br><span>Creator-led commerce experiments, livestream + social partnerships.</span></div></div>
+            <div class="platform"><span class="dot"></span><div><b>Others</b><br><span>Meta, Pinterest, and community platforms moving toward checkout + creators.</span></div></div>
+          </div>
         </div>
-        <div class="about-card">
-          <h3>What does Junglee mean?</h3>
-          <p>Junglee, meaning wild in Hindi, reflects our bold and untamed approach — blending strategy, creativity, and culture to help our partners grow with impact and authenticity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="how">
+    <div class="container">
+      <h2 class="section-title"><span class="pill"></span> How we work</h2>
+      <p class="muted" style="margin-top:12px; max-width:74ch;">
+        Clear systems, fast execution, and team enablement—so growth doesn’t depend on guessing.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">01 • Diagnose</div>
+          <h3>Audit + priorities</h3>
+          <p>We identify what’s blocking GMV: listings, offers, content, affiliates, or ops.</p>
+        </div>
+        <div class="step">
+          <div class="n">02 • Build</div>
+          <h3>Foundations</h3>
+          <p>Shop setup, catalog structure, conversion upgrades, and a creator-ready offer stack.</p>
+        </div>
+        <div class="step">
+          <div class="n">03 • Activate</div>
+          <h3>Creator engine</h3>
+          <p>Affiliates, product sets, samples, and content prompts that ship daily.</p>
+        </div>
+        <div class="step">
+          <div class="n">04 • Scale</div>
+          <h3>Optimize + train</h3>
+          <p>We improve performance weekly and train your team to own social commerce long-term.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities -->
+  <section class="caps">
+    <div class="container">
+      <h2 class="section-title"><span class="pill"></span> What we do</h2>
+
+      <div class="cap-grid">
+        <div class="cap">
+          <h3>Brand Growth (TikTok Shop)</h3>
+          <ul>
+            <li>TikTok Shop setup & infrastructure</li>
+            <li>Product & listing optimization</li>
+            <li>Affiliate & creator program management</li>
+            <li>Content strategy + conversion frameworks</li>
+            <li>Live shopping strategy (if applicable)</li>
+            <li>Performance tracking & optimization</li>
+            <li>Team training & enablement</li>
+          </ul>
+          <small>Want the full scope? We’ll map a 30/60/90 plan for your brand.</small>
+        </div>
+
+        <div class="cap">
+          <h3>Creator & Affiliate Network</h3>
+          <ul>
+            <li>Affiliate onboarding & education</li>
+            <li>Product sets + linking support</li>
+            <li>Samples & product deal workflow</li>
+            <li>Daily posting guidance + content lessons</li>
+            <li>Brand matching & campaign access</li>
+            <li>Performance feedback to improve earnings</li>
+            <li>Community + support (Discord)</li>
+          </ul>
+          <small>Creators don’t guess here—we build repeatable content systems.</small>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
- <section id="contact" class="contact">
-  <div class="container contact-wrap">
-    <h2 class="section-title"><span class="pill"></span> Drop us a line!</h2>
-    <p class="desc" style="margin-top:10px; max-width:60ch;">Let's build something that clicks.</p>
+  <section id="contact" class="contact">
+    <div class="container contact-wrap">
+      <h2 class="section-title"><span class="pill"></span> Contact</h2>
+      <p class="desc" style="margin-top:10px; max-width:60ch;">Tell us what you’re building. We’ll respond with the fastest path to traction.</p>
 
-    <form action="https://formspree.io/f/xrbyvkdd" method="POST" id="get-started-form" class="get-started-form">
-      <label for="input-name" class="sr-only">Name</label>
-      <input id="input-name" type="text" name="name" placeholder="Your Name" required>
+      <form action="https://formspree.io/f/xrbyvkdd" method="POST" id="get-started-form" class="get-started-form">
+        <label for="input-name" class="sr-only">Name</label>
+        <input id="input-name" type="text" name="name" placeholder="Your Name" required>
 
-      <label for="input-email" class="sr-only">Email</label>
-      <input id="input-email" type="email" name="_replyto" placeholder="Your Email" required>
+        <label for="input-email" class="sr-only">Email</label>
+        <input id="input-email" type="email" name="_replyto" placeholder="Your Email" required>
 
-      <label for="input-message" class="sr-only">Tell us about your project</label>
-      <textarea id="input-message" name="message" placeholder="Tell us about your project" rows="4"></textarea>
+        <label for="input-message" class="sr-only">Tell us about your project</label>
+        <textarea id="input-message" name="message" placeholder="Tell us about your project" rows="4"></textarea>
 
-      <button type="submit" class="submit">Get Started →</button>
-    </form>
+        <button type="submit" class="submit">Send →</button>
+      </form>
 
-    <div id="thankyou-message" style="display:none; margin-top:20px; color:#4CAF50; font-weight:600; font-size:1.1em; transition:opacity 0.5s ease;">
-      🎉 Thank you! We’ll be in touch soon.
+      <div id="thankyou-message" style="display:none; margin-top:20px; color:#4CAF50; font-weight:600; font-size:1.1em; transition:opacity 0.5s ease;">
+        🎉 Thank you! We’ll be in touch soon.
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
- <footer>
-  <div class="social">
-    <a class="chip" href="https://www.instagram.com/jungleestudios/" title="Instagram" target="_blank">
-      <img src="IGIcon.png" alt="Instagram" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.facebook.com/JungleeStudios/" title="Facebook" target="_blank">
-      <img src="FBIcon.png" alt="Facebook" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.tiktok.com/@jungleestudios" title="TikTok" target="_blank">
-      <img src="TikTokIcon.png" alt="TikTok" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.linkedin.com/in/jatinjtpatel" title="LinkedIn" target="_blank">
-      <img src="LinkedinIcon.png" alt="LinkedIn" width="24" height="24">
-    </a>
-  </div>
+  <footer>
+    <div class="social">
+      <a class="chip" href="https://www.instagram.com/jungleestudios/" title="Instagram" target="_blank" rel="noreferrer">
+        <img src="IGIcon.png" alt="Instagram" width="24" height="24">
+      </a>
+      <a class="chip" href="https://www.facebook.com/JungleeStudios/" title="Facebook" target="_blank" rel="noreferrer">
+        <img src="FBIcon.png" alt="Facebook" width="24" height="24">
+      </a>
+      <a class="chip" href="https://www.tiktok.com/@jungleestudios" title="TikTok" target="_blank" rel="noreferrer">
+        <img src="TikTokIcon.png" alt="TikTok" width="24" height="24">
+      </a>
+      <a class="chip" href="https://www.linkedin.com/in/jatinjtpatel" title="LinkedIn" target="_blank" rel="noreferrer">
+        <img src="LinkedinIcon.png" alt="LinkedIn" width="24" height="24">
+      </a>
+    </div>
 
-  <p class="fine">&copy; 2025 Junglee Studios. All rights reserved.</p>
-</footer>
- <script>
-  // Ensure the DOM is fully loaded
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".links");
+    <p class="fine">&copy; 2025 Junglee Studios. All rights reserved.</p>
+  </footer>
 
-    if (menuToggle && navLinks) {
-      // Toggle mobile menu
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
-      // Close menu when clicking a link
-      navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".links");
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+        navLinks.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => navLinks.classList.remove("active"));
         });
-      });
-    }
-  });
-</script>
+      }
+    });
+  </script>
 </body>
 </html>
