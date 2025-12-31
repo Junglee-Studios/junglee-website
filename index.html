@@ -13,20 +13,21 @@
   <style>
     /* =====================================================
       Junglee Studios — Dark, Classy, Bold (Clean Agency)
-      Updates:
       ✅ What We Do + Contact = white sections
+      ✅ Cards + Contact form inside white sections = BLACK bubbles w/ white text
       ✅ Reduce section spacing slightly
       ✅ No button glow (ever)
       ✅ Blue primary + Pink secondary
       ✅ Hero creators button = hot pink
       ✅ Fit check button -> white + "Schedule a Consultation"
       ✅ Header/Footer pure black
+      ✅ Hero stats buttons larger + more prominent
     ====================================================== */
 
     :root{
       --paper: #000000; /* PURE BLACK */
-      --text: rgba(255,255,255,.93);
-      --muted: #d6d6d6; /* solid light gray */;
+      --text: #ffffff;  /* SOLID WHITE */
+      --muted: rgba(255,255,255,.80);
       --border: rgba(255,255,255,.12);
 
       /* TikTok-ish accents (no gradients) */
@@ -35,6 +36,7 @@
 
       --container: 1120px;
       --pad: 24px;
+
       --r-xl: 28px;
       --r-lg: 20px;
       --r-md: 14px;
@@ -50,7 +52,7 @@
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: #000000;
+      background: var(--paper);
       color: var(--text);
       overflow-x:hidden;
     }
@@ -141,15 +143,18 @@
       text-decoration:none;
       white-space:nowrap;
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      box-shadow: none !important; /* kills glow globally */
+      outline: none;
     }
     .btn:hover{
       transform: translateY(-1px);
       border-color: rgba(255,255,255,.30);
+      box-shadow: none !important;
     }
     .btn:focus,
     .btn:active{
       outline: none;
-      box-shadow: none;
+      box-shadow: none !important;
     }
 
     /* Blue primary */
@@ -157,25 +162,20 @@
       background: var(--accent);
       color: #000;
       border: none;
-      box-shadow: none;
     }
-    .btn.primary:hover{ box-shadow:none; }
 
     /* Pink secondary */
     .btn.pink{
       background: var(--accent2);
       color: #000;
       border: none;
-      box-shadow: none;
     }
-    .btn.pink:hover{ box-shadow:none; }
 
     /* White professional button */
     .btn.white{
       background: #ffffff;
       color: #000;
       border: 1px solid rgba(255,255,255,.30);
-      box-shadow:none;
     }
 
     /* Mobile menu */
@@ -227,7 +227,7 @@
 
     /* Sections (reduced spacing slightly) */
     .section{
-      padding: clamp(44px, 5vw, 72px) 0; /* was bigger */
+      padding: clamp(44px, 5vw, 72px) 0;
     }
 
     /* White section utility */
@@ -264,21 +264,22 @@
       line-height: 1.02;
       letter-spacing: -0.045em;
       font-weight: 950;
+      color: #ffffff; /* SOLID */
       text-shadow: 0 14px 40px rgba(0,0,0,.55);
     }
     .lead{
       margin-top: 14px;
       max-width: 72ch;
-      color: #ffffff;
+      color: #ffffff; /* SOLID */
       font-weight: 650;
       line-height: 1.65;
       text-shadow: 0 10px 28px rgba(0,0,0,.45);
     }
-    .lead strong{ color: rgba(255,255,255,.93); }
+    .lead strong{ color: #ffffff; }
 
     /* HERO */
     .hero{
-      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px); /* slightly tighter bottom */
+      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
       position: relative;
       overflow: hidden;
     }
@@ -297,7 +298,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background: rgba(0,0,0,.28); /* less dark = brighter image */
+      background: rgba(0,0,0,.28);
       z-index: -1;
     }
 
@@ -354,46 +355,53 @@
 
     .hero-proof{
       margin: 22px auto 0;
-      max-width: 640px;
-      border-radius: 16px;
+      max-width: 720px;
+      border-radius: 18px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(0,0,0,.45);
       backdrop-filter: blur(10px);
-      padding: 14px 16px;
+      padding: 16px 18px;
       box-shadow: 0 12px 30px rgba(0,0,0,.45);
     }
     .hero-proof .row{
       display:flex;
       flex-direction: column;
-      gap: 16px; /* cushion between title and stats */
+      gap: 16px;
       align-items: center;
       text-align: center;
     }
     .hero-proof b{
       font-weight: 950;
       letter-spacing:-.02em;
+      font-size: 1.05rem;
     }
+
+    /* HERO STATS — larger + more prominent */
     .mini{
       display:flex;
-      gap: 8px;
+      gap: 12px;
       flex-wrap: wrap;
-      font-weight: 850;
-      font-size: .90rem;
-      color: rgba(255,255,255,.82);
       justify-content:center;
+      font-weight: 900;
+      font-size: 1.02rem;  /* bigger */
+      color: #ffffff;
     }
     .mini span{
       display:inline-flex;
       align-items:center;
-      gap: 8px;
-      padding: .45rem .6rem;
+      gap: 10px;
+      padding: .72rem 1.0rem; /* bigger */
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(0,0,0,.35);
       white-space: nowrap;
     }
+    .mini span:nth-child(1){ border-color: rgba(0,242,234,.55); }
+    .mini span:nth-child(2){ border-color: rgba(255,45,154,.55); }
+    .mini span:nth-child(3){ border-color: rgba(0,242,234,.55); }
+
     .mini span i{
-      width: 8px; height: 8px;
+      width: 10px; height: 10px; /* bigger dot */
       border-radius: 999px;
       background: var(--accent);
       display:inline-block;
@@ -412,13 +420,14 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
+
     .card{
       border-radius: var(--r-xl);
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
       padding: 20px;
       box-shadow: 0 18px 60px rgba(0,0,0,.28);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
     .card:hover{
       transform: translateY(-3px);
@@ -438,15 +447,15 @@
       line-height: 1.6;
     }
 
-    /* White section cards/forms should be white */
+    /* ✅ WHITE SECTIONS: BLACK “BUBBLES” (cards + contact box) */
     .section.light .card{
-      background: #ffffff;
-      border: 1px solid rgba(11,15,20,.12);
-      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      background: #0b0f14;
+      color: #ffffff;
+      border: 1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.16);
     }
-    .section.light .card p{
-      color: rgba(11,15,20,.75);
-    }
+    .section.light .card h3{ color: #ffffff; }
+    .section.light .card p{ color: rgba(255,255,255,.80); }
 
     .list{
       margin: 12px 0 0;
@@ -468,9 +477,10 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.30);
     }
     .section.light .contact-wrap{
-      background:#ffffff;
-      border: 1px solid rgba(11,15,20,.12);
-      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      background: #0b0f14;                 /* black bubble */
+      border: 1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.16);
+      color: #ffffff;
     }
 
     form{
@@ -490,7 +500,7 @@
       font-size: .9rem;
       color: rgba(255,255,255,.75);
     }
-    .section.light label{ color: rgba(11,15,20,.72); }
+    .section.light label{ color: rgba(255,255,255,.78); }
 
     input, textarea, select{
       width:100%;
@@ -506,20 +516,17 @@
     .section.light input,
     .section.light textarea,
     .section.light select{
-      background: #ffffff;
-      color: #0b0f14;
-      border: 1px solid rgba(11,15,20,.18);
+      background: rgba(255,255,255,.06);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    input::placeholder, textarea::placeholder{
+      color: rgba(255,255,255,.55);
     }
 
     input:focus, textarea:focus, select:focus{
       outline:none;
       border-color: rgba(255,255,255,.28);
-      box-shadow:none;
-    }
-    .section.light input:focus,
-    .section.light textarea:focus,
-    .section.light select:focus{
-      border-color: rgba(11,15,20,.30);
       box-shadow:none;
     }
 
@@ -529,7 +536,7 @@
       font-weight: 650;
       line-height: 1.5;
     }
-    .section.light .help{ color: rgba(11,15,20,.65); }
+    .section.light .help{ color: rgba(255,255,255,.70); }
 
     /* Footer */
     footer{
@@ -586,6 +593,14 @@
       .actions .btn{ width: 100%; }
 
       .hero::after{ background: rgba(0,0,0,.34); }
+
+      .mini{
+        font-size: 1rem;
+      }
+      .mini span{
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -668,7 +683,7 @@
             <b>Built by former TikTok Shop leaders. Proven in-market.</b>
             <div class="mini">
               <span><i></i> $1.3B+ Retail</span>
-              <span><i></i> 1.5K+ Sellers & Creators</span>
+              <span><i></i> 1.5K+ Sellers &amp; Creators</span>
               <span><i></i> $500M+ Live GMV</span>
             </div>
           </div>
@@ -801,7 +816,7 @@
           </div>
 
           <button class="btn primary" type="submit">Send →</button>
-          <div id="thanks" class="help" style="display:none; font-weight:650; color: rgba(11,15,20,.70);">
+          <div id="thanks" class="help" style="display:none; font-weight:650; color: rgba(255,255,255,.75);">
             Thanks — we got it. We’ll be in touch soon.
           </div>
         </form>
