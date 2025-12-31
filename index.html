@@ -278,11 +278,16 @@
     .lead strong{ color: #ffffff; }
 
     /* HERO */
-    .hero{
-      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
-      position: relative;
-      overflow: hidden;
-    }
+   .hero{
+  min-height: 88vh;          /* or 90vh */
+  display: flex;
+  align-items: center;
+}
+.hero::before{
+  background-size: cover;
+  background-position: center top; /* try: center, center top, 50% 35% */
+}
+
     .hero::before{
       content:"";
       position:absolute;
