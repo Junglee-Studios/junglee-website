@@ -108,11 +108,14 @@
       text-decoration:none;
       min-width: 220px;
     }
-    .brand img{
-      height: 40px;
-      width: auto;
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,.55));
-    }
+   .brand img.logo{
+  height: 38px;        /* main size control */
+  max-height: 38px;
+  width: auto;
+  max-width: 160px;   /* prevents wide logos from breaking layout */
+  object-fit: contain;
+  display: block;
+}
     .wm{
       display:flex;
       flex-direction:column;
@@ -617,7 +620,11 @@
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="index.html" aria-label="Junglee Studios home">
-          <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
+          <img 
+  src="assets/logos/assets/Junglee Studios - without black shadow.png"
+  alt="Junglee Studios logo"
+  class="logo"
+/>
           <div class="wm">
             <b>Junglee Studios</b>
             <span>TikTok Shop & Social Commerce</span>
