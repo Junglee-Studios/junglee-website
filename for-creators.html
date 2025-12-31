@@ -1,468 +1,740 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Creators - Junglee Studios</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-    /* ================================
-       JUNGLEE — GO WILD THEME (4 colors)
-       Palette: ink, ivory, vine, ember
-       ================================ */
-    :root {
-      --ink: #0b0b0b;          /* near-black */
-      --ivory: #fffaf0;        /* warm light */
-      --vine: #00e08a;         /* neon jungle green */
-      --ember: #ff6a00;        /* tiger orange */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Creators — Junglee Studios</title>
+  <meta name="description" content="Join Junglee Studios' creator network. Get product sets, samples, daily content guidance, and campaigns that help you monetize consistently." />
 
-      /* derived tokens (no new hues) */
-      --ink-70: rgba(11,11,11,.7);
-      --ink-40: rgba(11,11,11,.4);
-      --vine-15: rgba(0,224,138,.15);
-      --ember-12: rgba(255,106,0,.12);
-      --ivory-90: rgba(255,250,240,.9);
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --paper: #000000;                 /* PURE BLACK */
+      --text: #ffffff;                  /* solid white */
+      --muted: #d6d6d6;                 /* solid light gray */
+      --border: rgba(255,255,255,.12);
+
+      --accent: #00f2ea;                /* neon blue */
+      --accent2: #ff2d9a;               /* hot pink */
+
+      --container: 1120px;
+      --pad: 24px;
+      --r-xl: 28px;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+
+      --hero-img: url("assets/logos/assets/ForCreators.jpg");
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *{ box-sizing:border-box; }
     html, body { height: 100%; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: var(--ink);
-      background: #ffffff;
-      overflow-x: hidden;
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+    a{ color: inherit; }
+    img{ display:block; max-width:100%; }
+
+    .container{
+      width: min(var(--container), calc(100% - (2 * var(--pad))));
+      margin: 0 auto;
     }
 
-    /* ================================
-       BACKGROUND — animated stripes + canopy glow
-       ================================ */
-    .wild-bg {
-      position: fixed; inset: 0; z-index: -2;
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(0,224,138,.08), transparent 60%),
-        radial-gradient(900px 700px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
-        #ffffff;
-    }
-
-    /* ================================
-       HEADER
-       ================================ */
-    header { position: sticky; top: 0; z-index: 1000; }
-    .nav {
-      display:flex; align-items:center; justify-content:space-between;
-      max-width: 1200px; margin: 0 auto; padding: .9rem 1rem;
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,.95);
-      border-bottom: 1px solid rgba(11,11,11,.1);
-    }
-    .brand { display:flex; gap:.75rem; align-items:center; text-decoration:none; }
-    .brand img { height: 52px; width:auto; filter: drop-shadow(0 2px 6px rgba(11,11,11,.1)); }
-    .brand b { color: var(--ink); letter-spacing:.2px; font-weight:900; font-size:1.05rem; }
-
-    .links { display:flex; gap:1.2rem; align-items:center; }
-    .links a {
-      color: var(--ink); text-decoration:none; font-weight:600; font-size:.95rem; position:relative; padding:.4rem .2rem;
-    }
-    .links a:after{
-      content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; border-radius:3px; width:0; margin:auto;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      transition: width .25s ease;
-    }
-    .links a:hover:after{ width:100%; }
-
-    .cta {
-      display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
-      padding:.9rem 1.8rem; border-radius:8px; font-weight:800; text-decoration:none; box-shadow:0 8px 24px rgba(238,204,56,.3);
-    }
-    .cta:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
-
-    .links a.cta:after { display: none; }
-
-    /* Mobile menu toggle */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-    .menu-toggle span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: var(--ink);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* ================================
-       HERO - Inner pages
-       ================================ */
- .hero-inner {
-  position: relative;
-  background: url('assets/logos/assets/ForCreators.jpg') no-repeat center center;
-  background-size: cover;
-  min-height: 60vh; /* adjusts hero height for mobile and desktop */
-}
-
-/* Optional: fine-tune mobile positioning */
-@media (max-width: 900px) {
-  .hero-inner {
-    background-position: center top;
-    min-height: 50vh;
-  }
-}
-    .hero-inner::before {
-      content: '';
-      position: absolute;
-      left: 0;
+    /* =========================================
+       Header (match index)
+    ========================================= */
+    header{
+      position: sticky;
       top: 0;
-      bottom: 0;
-      width: 75%;
-      background: linear-gradient(to right,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 1) 50%,
-        rgba(255, 255, 255, 0.95) 65%,
-        rgba(255, 255, 255, 0.7) 80%,
-        rgba(255, 255, 255, 0.3) 90%,
-        transparent 100%);
-      z-index: 1;
+      z-index: 1000;
+      background: #000000;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .hero-inner .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width:1200px;
-      margin:0 auto;
-      padding: clamp(72px, 6vw, 108px) 1rem 64px;
-      text-align: left;
-    }
-    .hero-inner .hero-content h1,
-    .hero-inner .hero-content .tagline {
-      max-width: 60%;
-    }
-
-    .title {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: .98; font-weight: 900; letter-spacing: -1px;
-      text-wrap: balance;
-      text-shadow: 0 3px 2 var(--ink), 0 3px 2px var(--ink-70);
-    }
-    .title em { font-style: normal; background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-    .tagline { margin-top: 16px; color: var(--ink); font-weight:600; font-size: 1.125rem; opacity: .8; }
-
-    /* ================================
-       SECTION WRAPPER
-       ================================ */
-    section { padding: 96px 1rem; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight:900;
-      letter-spacing:-.5px;
+    .nav{
       display:flex;
       align-items:center;
-      gap:.6rem;
-      margin-top: 64px;
-      margin-bottom: 28px;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 16px 0;
     }
-    .section-title:first-child {
-      margin-top: 0;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      text-decoration:none;
+      min-width: 220px;
     }
-    .section-title .pill { display:inline-flex; align-items:center; height:10px; width:54px; border-radius:999px; background: linear-gradient(90deg, var(--vine), var(--ember)); box-shadow: 0 8px 18px rgba(255,106,0,.15); }
-
-    /* ================================
-       CARDS & GRIDS
-       ================================ */
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin-top: 32px; }
-
-    .card {
-      position: relative; border:1px solid rgba(11,11,11,.12); border-radius:18px; padding:20px; background: rgba(255,255,255,.9);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; overflow:hidden; isolation:isolate;
+    .brand img.logo{
+      height: 38px;
+      max-height: 38px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
     }
-    .card:before {
-      content:""; position:absolute; inset:-30% -10% auto -10%; height: 55%;
-      background:
-        repeating-linear-gradient(100deg, transparent 0 12px, rgba(255,106,0,.09) 12px 24px);
-      transform: translateY(-30%); opacity:.6; pointer-events:none; transition: opacity .2s ease;
+    .wm{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.05;
     }
-    .card:hover { transform: translateY(-4px); border-color: var(--vine); box-shadow: 0 18px 50px rgba(0,224,138,.12); }
-    .card:hover:before { opacity: .9; }
-    .card h3 { font-size:1.2rem; font-weight:800; color: var(--ink); margin-bottom: 8px; }
-    .card p { font-size:.95rem; color: var(--ink); opacity:.7; }
-
-    /* Creator specific styles */
-    .service-icon-large {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--vine), var(--ember));
-      font-size: 1.5rem;
+    .wm b{
       font-weight: 900;
-      margin-bottom: 16px;
-      color: var(--ink);
-    }
-
-    .step {
-      position: relative;
-      padding: 24px;
-      border: 1px solid rgba(11,11,11,.12);
-      border-radius: 18px;
-      background: rgba(255,255,255,.9);
-    }
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--vine);
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-bottom: 16px;
+      letter-spacing: -0.01em;
       color: #ffffff;
     }
-
-    /* ================================
-       CTA SECTION
-       ================================ */
-    .cta-section {
-      text-align: center;
-      padding: 72px 24px;
-      background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02));
-      border-radius: 18px;
-      margin-top: 64px;
+    .wm span{
+      font-size: .85rem;
+      font-weight: 650;
+      color: rgba(255,255,255,.55);
     }
-    .cta-section h2 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+
+    .navlinks{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .navlinks a{
+      text-decoration:none;
+      font-weight: 750;
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      padding: .55rem .65rem;
+      border-radius: 12px;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .navlinks a:hover{
+      background: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+
+    /* Buttons (NO glow anywhere) */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: .9rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: #ffffff;
       font-weight: 900;
-      margin-bottom: 24px;
+      text-decoration:none;
+      white-space:nowrap;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
-    .cta-button {
-      display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
-      padding:.8rem 1.4rem; border-radius:8px; font-weight:800; text-decoration:none;
-      box-shadow:0 8px 24px rgba(238,204,56,.3);
-      font-size: 1.05rem;
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.30);
     }
-    .cta-button:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(255,140,0,.4); }
+    .btn:focus, .btn:active{ outline:none; box-shadow:none; }
 
-    /* ================================
-       FOOTER
-       ================================ */
-    footer { padding: 36px 1rem; border-top: 1px solid rgba(255,250,240,.08); background: rgba(11,11,11,.6); }
-    .social { display:flex; gap:10px; justify-content:center; margin-bottom:10px; }
-    .chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  min-width: 32px;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
+    .btn.primary{
+      background: var(--accent);
+      color: #000;
+      border: none;
     }
-    .chip:hover { border-color: var(--vine); color: var(--vine); }
-    .fine { text-align:center; opacity:.8; font-size:.9rem; color: var(--ivory); }
-
-    /* ================================
-       RESPONSIVE
-       ================================ */
-    @media (max-width: 900px){
-      .menu-toggle { display: flex; }
-
-      .links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255,255,255,.98);
-        backdrop-filter: blur(8px);
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0.5rem;
-        border-bottom: 1px solid rgba(11,11,11,.1);
-        box-shadow: 0 4px 12px rgba(11,11,11,.1);
-      }
-
-      .links.active {
-        display: flex;
-      }
-
-      .links a {
-        padding: 0.8rem 1rem;
-        border-radius: 8px;
-      }
-
-      .links a:hover {
-        background: rgba(0,224,138,.08);
-      }
-
-      .links a.cta {
-        margin-top: 0.5rem;
-      }
-
-      .nav {
-        position: relative;
-      }
-
-      .grid { grid-template-columns: 1fr; }
+    .btn.pink{
+      background: var(--accent2);
+      color: #000;
+      border: none;
     }
-    </style>
+    .btn.white{
+      background: #ffffff;
+      color: #000;
+      border: 1px solid rgba(255,255,255,.30);
+    }
+
+    /* Mobile menu */
+    .menu{
+      display:none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+    }
+    .menu span{
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.92);
+      border-radius: 2px;
+      position: relative;
+    }
+    .menu span:before,
+    .menu span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.92);
+      border-radius:2px;
+    }
+    .menu span:before{ top: -6px; }
+    .menu span:after{ top: 6px; }
+
+    .mobile-panel{
+      display:none;
+      padding: 10px 0 18px;
+    }
+    .mobile-panel a{
+      display:block;
+      text-decoration:none;
+      padding: 12px 10px;
+      border-radius: 14px;
+      font-weight: 850;
+      color: rgba(255,255,255,.88);
+    }
+    .mobile-panel a:hover{ background: rgba(255,255,255,.08); }
+    .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
+    .mobile-panel.open{ display:block; }
+
+    /* =========================================
+       Sections + White break sections
+    ========================================= */
+    .section{
+      padding: clamp(44px, 5vw, 72px) 0;
+    }
+    .section.light{
+      background: #ffffff;
+      color: #0b0f14;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .kicker i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      display:inline-block;
+    }
+
+    .section.light .kicker{ color: rgba(11,15,20,.55); }
+    .section.light .kicker i{ background: var(--accent2); }
+
+    h1{
+      margin: 14px 0 0;
+      font-size: clamp(2.25rem, 4.6vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 950;
+      color: #ffffff; /* NOT transparent */
+      text-shadow: 0 14px 40px rgba(0,0,0,.55);
+    }
+    h2{
+      margin: 14px 0 0;
+      font-size: clamp(1.55rem, 2.6vw, 2.05rem);
+      font-weight: 950;
+      letter-spacing: -.03em;
+    }
+
+    .lead{
+      margin-top: 14px;
+      max-width: 72ch;
+      color: #ffffff;
+      font-weight: 650;
+      line-height: 1.65;
+      text-shadow: 0 10px 28px rgba(0,0,0,.45);
+    }
+
+    .section.light h2,
+    .section.light h3{ color: #0b0f14; }
+    .section.light .lead,
+    .section.light p{
+      color: rgba(11,15,20,.78);
+      text-shadow: none;
+    }
+
+    /* =========================================
+       HERO (match index/brand-growth)
+    ========================================= */
+    .hero{
+      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: var(--hero-img);
+      background-size: cover;
+      background-position: center;
+      z-index: -3;
+      filter: brightness(1.10) contrast(1.03) saturate(1.05);
+      transform: scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.32);
+      z-index: -1;
+    }
+    .vignette{
+      position:absolute;
+      inset:0;
+      z-index: -1;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
+        radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
+      opacity: .55;
+    }
+    .hero-grid{
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Trust chips (like index) */
+    .chips{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .93rem;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: .6rem .75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+    }
+    .chip i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent2);
+      display:inline-block;
+    }
+
+    /* =========================================
+       Grids + Cards
+    ========================================= */
+    .grid3{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid2{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Dark cards default */
+    .card{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 20px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+    }
+    .card h3{
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 950;
+      letter-spacing:-.02em;
+      color: #ffffff;
+    }
+    .card p{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.78);
+      font-weight: 650;
+      line-height: 1.6;
+    }
+
+    /* White sections: BLACK cards w/ white text (your request) */
+    .section.light .card{
+      background: #0b0f14;
+      border: 1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+    }
+    .section.light .card h3{ color:#ffffff; }
+    .section.light .card p{ color: rgba(255,255,255,.78); }
+
+    /* =========================================
+       Step cards (clean)
+    ========================================= */
+    .step{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 20px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+    }
+    .section.light .step{
+      background: #0b0f14;
+      border: 1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+    }
+    .stepNum{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      font-weight: 950;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #ffffff;
+    }
+    .stepNum.blue{ background: rgba(0,242,234,.16); border-color: rgba(0,242,234,.34); }
+    .stepNum.pink{ background: rgba(255,45,154,.16); border-color: rgba(255,45,154,.34); }
+
+    /* CTA strip */
+    .ctaStrip{
+      margin-top: 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap: wrap;
+    }
+    .ctaStrip b{
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .ctaStrip small{
+      display:block;
+      margin-top: 6px;
+      color: rgba(255,255,255,.72);
+      font-weight: 650;
+    }
+
+    /* =========================================
+       Footer (match index)
+    ========================================= */
+    footer{
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: #000000;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .fine{
+      color: rgba(255,255,255,.55);
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .01em;
+    }
+    .social{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .icon{
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      padding: 0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      opacity: .7;
+      transition: opacity .15s ease, transform .15s ease;
+      text-decoration:none;
+    }
+    .icon:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .navlinks{ display:none; }
+      .menu{ display:inline-flex; }
+
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .actions .btn{ width: 100%; }
+      .ctaStrip{ justify-content: center; text-align:center; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      * { scroll-behavior:auto !important; transition:none !important; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="wild-bg"></div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Junglee Studios home">
+          <img
+            src="assets/logos/assets/Junglee Studios - without black shadow.png"
+            alt="Junglee Studios logo"
+            class="logo"
+          />
+          <div class="wm">
+            <b>Studios</b>
+            <span>For Creators</span>
+          </div>
+        </a>
 
-    <header>
-        <nav class="nav">
-            <a class="brand" href="index.html" aria-label="Junglee Studios">
-                <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
-                <b>Studios</b>
-            </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="about-junglee.html">About Junglee</a>
-                <a href="brand-growth.html">Brand Growth</a>
-                <a href="for-creators.html">For Creators</a>
-                <a class="cta" href="index.html#contact">Work With Us</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="hero-inner">
-    <img src="assets/logos/ForCreators.jpg" class="hero-img" alt="For Creators">
-    <div class="hero-gradient"></div>
-    <div class="hero-content">
-        <h1 class="title"><em>Grow</em> your audience. <em>Monetize</em> your influence. Partner with brands that fit your vision.</h1>
-        <p class="tagline">At Junglee Studios, we help creators turn content into commerce</p>
-    </div>
-</section>
-
-    <section>
-        <div class="container">
-            <h2 class="section-title"><span class="pill"></span> What We Offer Creators</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Platform Expertise</h3>
-                    <p>Master TikTok Shop, Instagram Shop, and Amazon Live with tailored growth strategies designed for your unique content style</p>
-                </div>
-                <div class="card">
-                    <h3>Creator-Brand Matchmaking</h3>
-                    <p>Connect with brands that align with your values and audience for authentic, meaningful partnerships</p>
-                </div>
-                <div class="card">
-                    <h3>Revenue Opportunities</h3>
-                    <p>Maximize earnings through campaigns, affiliate programs, and sponsored collaborations</p>
-                </div>
-                <div class="card">
-                    <h3>Data-Driven Growth</h3>
-                    <p>Track performance, optimize content, and scale your influence strategically with actionable insights</p>
-                </div>
-                <div class="card">
-                    <h3>Authentic Partnerships</h3>
-                    <p>We prioritize long-term value over quick wins, maintaining your audience trust</p>
-                </div>
-            </div>
-
-            <h2 class="section-title"><span class="pill"></span> Our Services for Creators</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Monetization & Brand Partnerships</h3>
-                    <p>Connect with brands, negotiate deals, and maximize your earning potential</p>
-                </div>
-                <div class="card">
-                    <h3>Content Strategy & Optimization</h3>
-                    <p>Develop content that resonates, converts, and grows your audience</p>
-                </div>
-                <div class="card">
-                    <h3>Growth & Analytics</h3>
-                    <p>Track what works, refine your approach, and scale strategically</p>
-                </div>
-                <div class="card">
-                    <h3>Platform Guidance</h3>
-                    <p>Navigate TikTok Shop, Instagram, Amazon Live, and emerging platforms with expert support</p>
-                </div>
-            </div>
-
-            <h2 class="section-title"><span class="pill"></span> How We Collaborate</h2>
-            <div class="grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Discover</h3>
-                    <p>We learn about your goals, audience, and content style</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Strategize</h3>
-                    <p>Develop a personalized growth plan tailored to your unique voice</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Connect</h3>
-                    <p>Match you with brand opportunities that align with your values</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Execute & Optimize</h3>
-                    <p>Launch campaigns, track results, and continuously improve performance</p>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <h2>Ready to Monetize Your Influence?</h2>
-                <a href="index.html#contact" class="cta-button">Apply to Join Our Creator Network</a>
-            </div>
+        <div class="navlinks" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="about-junglee.html">About</a>
+          <a href="brand-growth.html">For Brands</a>
+          <a href="for-creators.html">For Creators</a>
+          <a class="btn primary" href="index.html#contact">Contact</a>
         </div>
-    </section>
 
-    <footer>
-  <div class="social">
-    <a class="chip" href="https://www.instagram.com/jungleestudios/" title="Instagram" target="_blank">
-      <img src="IGIcon.png" alt="Instagram" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.facebook.com/JungleeStudios/" title="Facebook" target="_blank">
-      <img src="FBIcon.png" alt="Facebook" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.tiktok.com/@jungleestudios" title="TikTok" target="_blank">
-      <img src="TikTokIcon.png" alt="TikTok" width="24" height="24">
-    </a>
-    <a class="chip" href="https://www.linkedin.com/in/jatinjtpatel" title="LinkedIn" target="_blank">
-      <img src="LinkedinIcon.png" alt="LinkedIn" width="24" height="24">
-    </a>
-  </div>
+        <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span></span>
+        </button>
+      </nav>
 
-  <p class="fine">&copy; 2025 Junglee Studios. All rights reserved.</p>
-</footer>
+      <!-- Mobile panel -->
+      <div class="mobile-panel" id="mobilePanel">
+        <a href="index.html">Home</a>
+        <a href="about-junglee.html">About</a>
+        <a href="brand-growth.html">For Brands</a>
+        <a href="for-creators.html">For Creators</a>
+        <div class="mobile-cta">
+          <a class="btn primary" href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        // mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.links').classList.toggle('active');
+  <!-- HERO -->
+  <section class="hero">
+    <div class="vignette" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="kicker"><i></i> For Creators</div>
+
+        <h1>Grow your audience. Monetize consistently. Pick brands that fit.</h1>
+
+        <p class="lead">
+          Junglee Studios connects creators with product sets, samples, and a daily posting system —
+          so you’re not guessing what to post or how to earn.
+        </p>
+
+        <div class="actions">
+          <a class="btn pink" href="index.html#contact">Apply to Join</a>
+          <a class="btn primary" href="index.html#contact">Get Product Sets</a>
+          <a class="btn white" href="index.html#contact">Ask a Question</a>
+        </div>
+
+        <div class="chips" aria-label="Creator perks">
+          <span class="chip"><i></i> Product sets + linking help</span>
+          <span class="chip"><i></i> Samples + deal workflow</span>
+          <span class="chip"><i></i> Daily content guidance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER (WHITE) -->
+  <section class="section light">
+    <div class="container">
+      <div class="kicker"><i></i> What you get</div>
+      <h2>Everything you need to earn daily.</h2>
+      <p class="lead">Simple support that makes content + commerce sustainable.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Platform Guidance</h3>
+          <p>We help you find product sets, link products, and avoid the common setup mistakes that kill earnings.</p>
+        </div>
+        <div class="card">
+          <h3>Creator-Brand Matching</h3>
+          <p>We connect you with brands that align with your niche and audience so content stays authentic.</p>
+        </div>
+        <div class="card">
+          <h3>Revenue Opportunities</h3>
+          <p>Affiliate commissions, campaign pushes, and structured opportunities — with clear expectations.</p>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Content System</h3>
+          <p>Repeatable formats + prompts so you can post daily without burning out (hook, proof, offer, CTA).</p>
+        </div>
+        <div class="card">
+          <h3>Performance Feedback</h3>
+          <p>We help you spot what’s working, improve conversion, and double down on winning formats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (DARK) -->
+  <section class="section">
+    <div class="container">
+      <div class="kicker"><i></i> Services</div>
+      <h2>Support built for creators who want consistency.</h2>
+      <p class="lead">
+        Whether you’re new or experienced, we help you run a real system — not random posts.
+      </p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Monetization + Partnerships</h3>
+          <p>Brand opportunities, campaign guidance, and help positioning your content to convert.</p>
+        </div>
+        <div class="card">
+          <h3>Content Strategy</h3>
+          <p>Hooks, scripts, and formats that match your niche and drive clicks + purchases.</p>
+        </div>
+        <div class="card">
+          <h3>Growth + Analytics</h3>
+          <p>Feedback loops so you improve weekly and scale what’s already working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (WHITE) -->
+  <section class="section light">
+    <div class="container">
+      <div class="kicker"><i></i> How it works</div>
+      <h2>Four steps. No confusion.</h2>
+      <p class="lead">We keep it simple so you can start earning faster.</p>
+
+      <div class="grid2">
+        <div class="step">
+          <div class="stepNum pink">1</div>
+          <h3 style="margin:0; color:#ffffff; font-weight:950;">Apply</h3>
+          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
+            Share your handle, niche, and what you like to promote.
+          </p>
+        </div>
+        <div class="step">
+          <div class="stepNum blue">2</div>
+          <h3 style="margin:0; color:#ffffff; font-weight:950;">Get Product Sets</h3>
+          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
+            We help you find the right products + link them correctly.
+          </p>
+        </div>
+        <div class="step">
+          <div class="stepNum pink">3</div>
+          <h3 style="margin:0; color:#ffffff; font-weight:950;">Request Samples</h3>
+          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
+            Learn the sample workflow so you can create real product content.
+          </p>
+        </div>
+        <div class="step">
+          <div class="stepNum blue">4</div>
+          <h3 style="margin:0; color:#ffffff; font-weight:950;">Post Daily</h3>
+          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
+            Follow our daily posting guidance — one product video per day to build momentum.
+          </p>
+        </div>
+      </div>
+
+      <div class="ctaStrip" style="margin-top:22px;">
+        <div>
+          <b style="display:block;">Want to start today?</b>
+          <small>Apply and we’ll send next steps for product sets, samples, and daily posting.</small>
+        </div>
+        <div class="actions" style="margin-top:0;">
+          <a class="btn pink" href="index.html#contact">Apply to Join</a>
+          <a class="btn primary" href="index.html#contact">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
+
+        <div class="social" aria-label="Social links">
+          <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <img src="IGIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <img src="FBIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
+            <img src="TikTokIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <img src="LinkedinIcon.png" alt="" width="25" height="25" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (same behavior as index)
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      btn?.addEventListener('click', () => {
+        const open = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      panel?.querySelectorAll('a')?.forEach(a => {
+        a.addEventListener('click', () => {
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         });
-
-        // close menu when clicking a link
-        document.querySelectorAll('.links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.links').classList.remove('active');
-            });
-        });
-    </script>
+      });
+    })();
+  </script>
 </body>
 </html>
