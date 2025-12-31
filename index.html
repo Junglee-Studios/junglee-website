@@ -153,14 +153,23 @@
       box-shadow: 0 14px 34px rgba(0,242,234,.10);
     }
     .btn.primary{
-      border-color: rgba(0,242,234,.70);
-      background: rgba(0,242,234,.92);
-      color: #071014;
-      box-shadow: 0 18px 40px rgba(0,242,234,.14);
-    }
-    .btn.primary:hover{
-      box-shadow: 0 20px 54px rgba(0,242,234,.18);
-    }
+  background: var(--accent);
+  color: #000;
+  border: none;
+  box-shadow: none;           /* 🔥 kills glow */
+}
+
+.btn.primary:hover{
+  transform: translateY(-1px);
+  box-shadow: none;           /* 🔥 no glow on hover */
+}
+
+.btn.primary:focus,
+.btn.primary:active{
+  outline: none;
+  box-shadow: none;           /* 🔥 no glow on click */
+}
+
 
     /* Mobile menu */
     .menu{
@@ -480,7 +489,7 @@
     form{
       margin-top: 12px;
       display:grid;
-      gap: 12px;
+      gap: 18px;
     }
     .row2{
       display:grid;
@@ -488,10 +497,13 @@
       gap: 12px;
     }
     label{
-      font-weight: 850;
-      font-size: .92rem;
-      color: rgba(255,255,255,.85);
-    }
+  display: block;
+  margin-bottom: 6px;      /* ← THIS is the cushion */
+  font-weight: 600;        /* slightly softer, more premium */
+  font-size: .9rem;
+  color: rgba(255,255,255,.75);
+}
+
     input, textarea, select{
       width:100%;
       border-radius: 14px;
@@ -507,9 +519,14 @@
       color: rgba(255,255,255,.55);
     }
     textarea{ min-height: 130px; resize: vertical; }
-    input:focus, textarea:focus, select:focus{
-      border-color: rgba(0,242,234,.60);
-      box-shadow: 0 0 0 4px rgba(0,242,234,.14);
+    input:focus,
+textarea:focus,
+select:focus{
+  outline: none;
+  border-color: rgba(255,255,255,.25);
+  box-shadow: none;
+}
+
     }
     .help{
       margin-top: 8px;
