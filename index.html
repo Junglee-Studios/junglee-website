@@ -272,34 +272,38 @@
     }
 
     /* HERO VISUAL using your image */
-    .hero-visual{
-      border-radius: var(--r-xl);
-      overflow:hidden;
-      border: 1px solid rgba(11,11,11,.10);
-      min-height: 520px;
-      box-shadow: var(--shadow);
-      background:
-        linear-gradient(180deg, rgba(11,11,11,.30), rgba(11,11,11,.06) 45%, rgba(255,255,255,.0)),
-        radial-gradient(900px 520px at 20% 20%, rgba(0,224,138,.20), transparent 55%),
-        radial-gradient(900px 520px at 90% 15%, rgba(255,106,0,.16), transparent 55%),
-        var(--hero-img);
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
+   .hero-visual{
+  border-radius: var(--r-xl);
+  overflow:hidden;
+  border: 1px solid rgba(11,11,11,.10);
+  min-height: 520px;
+  box-shadow: var(--shadow);
+
+  /* NO FILTER / NO OVERLAY */
+  background: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+
     /* subtle “glass” card over image for proof */
-    .hero-proof{
-      position:absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      padding: 14px;
-      color: rgba(255,255,255,.92);
-    }
+   .hero-proof{
+  position:absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.35);
+
+  /* lighter + cleaner */
+  background: rgba(255,255,255,.20);
+  backdrop-filter: blur(6px);
+
+  padding: 14px;
+  color: rgba(255,255,255,.95);
+}
+
     .hero-proof .row{
       display:flex;
       gap: 10px;
