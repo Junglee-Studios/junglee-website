@@ -44,7 +44,7 @@
       --shadow: 0 18px 60px rgba(0,0,0,.18);
 
       /* Hero image path (UPDATE THIS if needed) */
-      --hero-img: url("AdobeStock_613099439.jpeg");
+      --hero-img: url("AdobeStock_623456507_Editorial_Use_Only.jpeg");
     }
 
     *{ box-sizing:border-box; }
@@ -264,81 +264,89 @@
     .hero{
       padding: clamp(28px, 4vw, 50px) 0 clamp(58px, 6vw, 78px);
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: clamp(18px, 3vw, 34px);
-      align-items: stretch;
-    }
-
-    /* HERO VISUAL using your image */
-   .hero-visual{
-  border-radius: var(--r-xl);
-  overflow:hidden;
-  border: 1px solid rgba(11,11,11,.10);
-  min-height: 520px;
-  box-shadow: var(--shadow);
-
-  /* NO FILTER / NO OVERLAY */
-  background: var(--hero-img);
-  background-size: cover;
-  background-position: center;
-
+   .hero{
+  padding: clamp(28px, 4vw, 50px) 0 clamp(58px, 6vw, 78px);
   position: relative;
 }
 
-    /* subtle “glass” card over image for proof */
-   .hero-proof{
+/* Full-width hero background image (no filter) */
+.hero::before{
+  content:"";
   position:absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.35);
-
-  /* lighter + cleaner */
-  background: rgba(255,255,255,.20);
-  backdrop-filter: blur(6px);
-
-  padding: 14px;
-  color: rgba(255,255,255,.95);
+  inset:0;
+  background: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
 }
 
-    .hero-proof .row{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .hero-proof b{
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
-    .hero-proof .mini{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      font-weight: 800;
-      color: rgba(255,255,255,.85);
-      font-size: .92rem;
-    }
-    .mini span{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: .5rem .65rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.18);
-      white-space: nowrap;
-    }
-    .mini span i{
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      display:inline-block;
-    }
+/* Optional: subtle readability layer (NOT a "filter", just for text legibility)
+   If you want 100% raw image, delete this block. */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,.92) 0%,
+    rgba(255,255,255,.86) 45%,
+    rgba(255,255,255,.25) 100%
+  );
+  z-index: -1;
+}
+
+/* Hero content becomes single column */
+.hero-grid{
+  display:block;
+  max-width: 760px; /* keeps it clean + Comtent-like */
+}
+
+/* Smaller proof box (compact, not huge) */
+.hero-proof{
+  margin-top: 18px;
+  width: fit-content;
+  max-width: 560px;
+  border-radius: 16px;
+  border: 1px solid rgba(11,11,11,.10);
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(8px);
+  padding: 12px 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+}
+
+/* tighten the proof row */
+.hero-proof .row{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.hero-proof b{
+  font-weight: 950;
+  letter-spacing:-.02em;
+}
+
+.hero-proof .mini{
+  display:flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-weight: 850;
+  font-size: .90rem;
+  color: rgba(11,11,11,.70);
+}
+
+.mini span{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: .45rem .6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(11,11,11,.10);
+  background: rgba(255,255,255,.92);
+  white-space: nowrap;
+}
 
     /* Hero left “trust chips” */
     .chips{
@@ -654,20 +662,59 @@
         </div>
 
         <!-- Right: your hero image with elegant proof overlay -->
-        <div class="hero-visual" aria-label="TikTok Shop hero background image">
-          <div class="hero-proof" aria-label="Performance proof">
-            <div class="row">
-              <b>Operator-led. Results-first.</b>
-              <div class="mini">
-                <span><i></i> $1.3B+ Retail</span>
-                <span><i></i> 1.5K+ Sellers/Creators</span>
-                <span><i></i> $500M+ Live GMV</span>
-              </div>
+     <section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><i></i> TikTok-first growth systems</div>
+
+        <h1>Build TikTok Shop revenue with creators.</h1>
+
+        <p class="lead">
+          We help brands launch and scale on <strong>TikTok Shop</strong> through a repeatable system:
+          conversion-first storefronts, affiliate engines, and content frameworks that ship daily.
+          <br><br>
+          TikTok is the proving ground—our playbooks translate into <strong>Amazon, YouTube, Walmart</strong>, and every platform adopting social commerce.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="brand-growth.html">For Brands</a>
+          <a class="btn" href="for-creators.html">For Creators</a>
+          <a class="btn" href="#contact">Book a Fit Check</a>
+        </div>
+
+        <div class="chips" aria-label="Trust indicators">
+          <span class="chip"><i></i> TikTok Shop Partner (TSP)</span>
+          <span class="chip"><i></i> Creator Agency Partner (CAP)</span>
+        </div>
+
+        <!-- Smaller proof box -->
+        <div class="hero-proof" aria-label="Performance proof">
+          <div class="row">
+            <b>Operator-led. Results-first.</b>
+            <div class="mini">
+              <span><i></i> $1.3B+ Retail</span>
+              <span><i></i> 1.5K+ Sellers/Creators</span>
+              <span><i></i> $500M+ Live GMV</span>
             </div>
           </div>
         </div>
-      </div><!-- /hero-grid -->
+
+        <div class="strip" aria-label="Quick proof and categories">
+          <div class="left">Results across categories</div>
+          <div class="right">
+            <span class="badge"><i></i> Collectibles</span>
+            <span class="badge"><i></i> Beauty</span>
+            <span class="badge"><i></i> Wellness</span>
+            <span class="badge"><i></i> Fashion</span>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
+</section>
+
   </section>
 
   <!-- WHAT WE DO (3 cards max = clean + digestible) -->
