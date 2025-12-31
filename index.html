@@ -3,124 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junglee Studios — TikTok Shop & Social Commerce Studio</title>
-  <meta name="description" content="Junglee Studios helps brands launch and scale on TikTok Shop with creator-led systems: affiliate programs, conversion-first storefronts, and repeatable content frameworks. Creators: join our affiliate network." />
+  <title>Junglee Studios — TikTok Shop Growth & Creator Commerce</title>
+  <meta name="description" content="Junglee Studios helps brands launch and scale on TikTok Shop with conversion-first storefronts, affiliate systems, and daily content frameworks. Creators: join our affiliate network." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Clean, modern font similar to “consulting/agency” sites -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================
-      Junglee Studios — Clean Agency System
-      "Controlled Wild" aesthetic: clean grid + subtle jungle energy
-      Palette: ink, ivory, vine, ember (restrained usage)
-    ========================== */
+    /* =====================================================
+      Junglee Studios — Clean, Elegant, Modern (Comtent-style)
+      Principles:
+      - whitespace + simple hierarchy
+      - minimal colors (mostly neutral) + controlled accent
+      - direct copy + clear CTAs
+      - responsive by default
+    ====================================================== */
+
     :root{
-      --ink:#0b0b0b;
-      --ivory:#fffaf0;
-      --vine:#00e08a;
-      --ember:#ff6a00;
-
-      --bg:#ffffff;
+      /* Core */
+      --bg: #0b0b0b;           /* ink */
+      --paper: #ffffff;        /* white */
       --surface: rgba(255,255,255,.92);
+      --text: rgba(11,11,11,.92);
+      --muted: rgba(11,11,11,.64);
       --border: rgba(11,11,11,.12);
-      --shadow: 0 18px 60px rgba(11,11,11,.10);
-      --muted: rgba(11,11,11,.70);
-      --muted2: rgba(11,11,11,.56);
 
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
+      /* Junglee accents (controlled use) */
+      --vine: #00e08a;
+      --ember: #ff6a00;
 
-      --container: 1160px;
+      /* Layout */
+      --container: 1120px;
       --pad: 24px;
+      --r-xl: 28px;
+      --r-lg: 20px;
+      --r-md: 14px;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.18);
+
+      /* Hero image path (UPDATE THIS if needed) */
+      --hero-img: url("assets/hero-tiktokshop.jpg");
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html, body { height: 100%; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
+      background: var(--paper);
+      color: var(--text);
       overflow-x:hidden;
     }
-    img{ max-width:100%; display:block; }
-    a{ color:inherit; }
+    a{ color: inherit; }
+    img{ display:block; max-width:100%; }
 
-    /* Background: subtle "wild" energy */
+    .container{
+      width: min(var(--container), calc(100% - (2 * var(--pad))));
+      margin: 0 auto;
+    }
+
+    /* Subtle background (keep it very light and premium) */
     .bg{
-      position:fixed; inset:0; z-index:-2;
+      position: fixed;
+      inset: 0;
+      z-index: -2;
       background:
-        radial-gradient(1100px 700px at 75% -10%, rgba(0,224,138,.08), transparent 60%),
-        radial-gradient(900px 650px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
-        linear-gradient(180deg, rgba(255,250,240,.30), rgba(255,255,255,.95));
+        radial-gradient(1100px 700px at 85% -10%, rgba(0,224,138,.08), transparent 60%),
+        radial-gradient(900px 650px at -10% 95%, rgba(255,106,0,.06), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,1));
     }
     .grain{
-      position:fixed; inset:0; z-index:-1;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       pointer-events:none;
-      opacity:.06;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      opacity: .05;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
       background-size:180px 180px;
       mix-blend-mode:multiply;
-    }
-
-    /* Layout helpers */
-    .container{
-      width:min(var(--container), calc(100% - 2*var(--pad)));
-      margin:0 auto;
-    }
-    .section{
-      padding: clamp(64px, 7vw, 96px) 0;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      font-size:.82rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      padding:.55rem .8rem;
-      border-radius:999px;
-      border:1px solid rgba(0,224,138,.18);
-      background: rgba(0,224,138,.08);
-      width:fit-content;
-    }
-    .pill .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-    }
-
-    .h2{
-      margin: 14px 0 0;
-      font-size: clamp(1.55rem, 2.6vw, 2.05rem);
-      letter-spacing: -0.02em;
-      font-weight: 900;
-    }
-    .sub{
-      margin: 10px 0 0;
-      max-width: 72ch;
-      color: var(--muted);
-      font-weight: 600;
-      line-height: 1.55;
     }
 
     /* Header */
     header{
       position: sticky;
-      top:0;
-      z-index:1000;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.78);
       backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.86);
-      border-bottom: 1px solid rgba(11,11,11,.10);
+      border-bottom: 1px solid rgba(11,11,11,.08);
     }
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 14px 0;
-      gap: 14px;
+      gap: 16px;
+      padding: 16px 0;
     }
     .brand{
       display:flex;
@@ -130,37 +109,37 @@
       min-width: 220px;
     }
     .brand img{
-      height: 42px;
-      width:auto;
-      filter: drop-shadow(0 8px 20px rgba(11,11,11,.10));
+      height: 40px;
+      width: auto;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.12));
     }
-    .brand .wordmark{
+    .brand .wm{
       display:flex;
       flex-direction:column;
-      line-height:1.05;
+      line-height: 1.05;
     }
-    .brand .wordmark b{
+    .brand .wm b{
       font-weight: 900;
-      letter-spacing: .02em;
+      letter-spacing: -0.01em;
     }
-    .brand .wordmark span{
-      font-size: .82rem;
-      color: var(--muted2);
+    .brand .wm span{
+      font-size: .85rem;
       font-weight: 650;
+      color: rgba(11,11,11,.55);
     }
 
     .navlinks{
       display:flex;
-      align-items:center;
       gap: 18px;
+      align-items:center;
     }
     .navlinks a{
       text-decoration:none;
-      font-weight: 700;
+      font-weight: 750;
       font-size: .95rem;
-      padding: .55rem .6rem;
+      color: rgba(11,11,11,.86);
+      padding: .55rem .65rem;
       border-radius: 12px;
-      color: rgba(11,11,11,.88);
       transition: background .15s ease, transform .15s ease;
     }
     .navlinks a:hover{
@@ -172,10 +151,10 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding: .9rem 1.1rem;
+      gap: 10px;
+      padding: .9rem 1.05rem;
       border-radius: 14px;
-      border:1.5px solid rgba(11,11,11,.16);
+      border: 1.5px solid rgba(11,11,11,.16);
       background: rgba(255,255,255,.92);
       font-weight: 900;
       text-decoration:none;
@@ -188,489 +167,349 @@
       box-shadow: 0 14px 34px rgba(0,224,138,.10);
     }
     .btn.primary{
-      border-color: var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
-      box-shadow: 0 10px 26px rgba(238,204,56,.26);
+      border-color: rgba(11,11,11,.14);
+      background: linear-gradient(135deg, rgba(0,224,138,1), rgba(255,106,0,1));
+      color: #0b0b0b;
+      box-shadow: 0 18px 40px rgba(0,0,0,.12);
     }
     .btn.primary:hover{
-      box-shadow: 0 16px 38px rgba(255,140,0,.35);
+      box-shadow: 0 20px 54px rgba(0,0,0,.16);
       border-color: rgba(11,11,11,.22);
     }
 
     /* Mobile menu */
     .menu{
       display:none;
-      align-items:center;
-      justify-content:center;
       width: 44px;
       height: 44px;
       border-radius: 14px;
-      border:1px solid rgba(11,11,11,.12);
+      border: 1px solid rgba(11,11,11,.12);
       background: rgba(255,255,255,.92);
       cursor:pointer;
+      align-items:center;
+      justify-content:center;
     }
     .menu span{
-      width: 20px; height: 2px;
-      background: var(--ink);
+      width: 20px;
+      height: 2px;
+      background: #0b0b0b;
       border-radius: 2px;
       position: relative;
     }
-    .menu span:before,.menu span:after{
+    .menu span:before,
+    .menu span:after{
       content:"";
       position:absolute;
       left:0;
-      width: 20px; height: 2px;
-      background: var(--ink);
+      width: 20px;
+      height: 2px;
+      background: #0b0b0b;
       border-radius:2px;
     }
-    .menu span:before{ top:-6px; }
-    .menu span:after{ top:6px; }
+    .menu span:before{ top: -6px; }
+    .menu span:after{ top: 6px; }
 
     .mobile-panel{
       display:none;
-      padding: 12px 0 18px;
+      padding: 10px 0 18px;
     }
     .mobile-panel a{
       display:block;
       text-decoration:none;
       padding: 12px 10px;
       border-radius: 14px;
-      font-weight: 800;
+      font-weight: 850;
       color: rgba(11,11,11,.88);
     }
     .mobile-panel a:hover{ background: rgba(0,224,138,.08); }
-    .mobile-cta{ margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; }
-    .mobile-cta .btn{ width:100%; }
+    .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
 
-    /* Hero */
-    .hero{
-      padding: clamp(34px, 4vw, 54px) 0 clamp(52px, 6vw, 72px);
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: clamp(18px, 3vw, 34px);
-      align-items: center;
-    }
-    .hero h1{
-      margin: 14px 0 0;
-      font-size: clamp(2.35rem, 4.8vw, 3.85rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      font-weight: 950;
-    }
-    .hero h1 em{
-      font-style: normal;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero .lead{
-      margin-top: 14px;
-      color: var(--muted);
-      font-weight: 650;
-      line-height: 1.6;
-      max-width: 70ch;
-    }
-    .hero .lead strong{ color: rgba(11,11,11,.92); }
-    .hero-actions{
-      display:flex;
-      gap: 12px;
-      margin-top: 22px;
-      flex-wrap: wrap;
+    /* Sections */
+    .section{
+      padding: clamp(64px, 7vw, 96px) 0;
     }
 
-    .trust-row{
-      margin-top: 16px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-      color: var(--muted2);
-      font-weight: 700;
-      font-size: .92rem;
-    }
-    .trust-row .chip{
+    .kicker{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding: .55rem .75rem;
-      border:1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.80);
-      border-radius: 999px;
+      gap: 10px;
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(11,11,11,.62);
     }
-    .trust-row .chip i{
-      width:10px; height:10px; border-radius:999px;
+    .kicker i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
       background: linear-gradient(90deg, var(--vine), var(--ember));
       display:inline-block;
     }
 
-    /* Hero card (proof) */
-    .proof-card{
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .proof-top{
-      padding: 18px 18px 12px;
-      border-bottom: 1px solid rgba(11,11,11,.08);
-      background:
-        radial-gradient(700px 260px at 10% 10%, rgba(0,224,138,.14), transparent 60%),
-        radial-gradient(650px 240px at 90% 0%, rgba(255,106,0,.10), transparent 60%),
-        rgba(255,255,255,.90);
-    }
-    .proof-top b{
+    h1{
+      margin: 14px 0 0;
+      font-size: clamp(2.25rem, 4.6vw, 3.7rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
       font-weight: 950;
-      letter-spacing:-0.02em;
     }
-    .proof-top p{
-      margin: 8px 0 0;
+    .lead{
+      margin-top: 14px;
+      max-width: 72ch;
       color: var(--muted);
       font-weight: 650;
-      line-height: 1.5;
-    }
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 14px 14px 16px;
-    }
-    .stat{
-      border:1px solid rgba(11,11,11,.10);
-      border-radius: var(--radius-lg);
-      padding: 14px 12px;
-      background: rgba(255,255,255,.92);
-      text-align:center;
-    }
-    .stat .num{
-      font-weight: 950;
-      font-size: 1.45rem;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color: transparent;
-    }
-    .stat .lbl{
-      margin-top: 6px;
-      font-weight: 750;
-      font-size: .85rem;
-      color: rgba(11,11,11,.78);
+      line-height: 1.65;
     }
 
-    /* Proof strip (logos / categories) */
-    .proof-strip{
-      padding: 18px 0 0;
+    .hero{
+      padding: clamp(28px, 4vw, 50px) 0 clamp(58px, 6vw, 78px);
     }
-    .strip{
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(18px, 3vw, 34px);
+      align-items: stretch;
+    }
+
+    /* HERO VISUAL using your image */
+    .hero-visual{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid rgba(11,11,11,.10);
+      min-height: 520px;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(11,11,11,.30), rgba(11,11,11,.06) 45%, rgba(255,255,255,.0)),
+        radial-gradient(900px 520px at 20% 20%, rgba(0,224,138,.20), transparent 55%),
+        radial-gradient(900px 520px at 90% 15%, rgba(255,106,0,.16), transparent 55%),
+        var(--hero-img);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    /* subtle “glass” card over image for proof */
+    .hero-proof{
+      position:absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      padding: 14px;
+      color: rgba(255,255,255,.92);
+    }
+    .hero-proof .row{
       display:flex;
-      flex-wrap:wrap;
       gap: 10px;
+      flex-wrap: wrap;
       align-items:center;
       justify-content:space-between;
+    }
+    .hero-proof b{
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .hero-proof .mini{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-weight: 800;
+      color: rgba(255,255,255,.85);
+      font-size: .92rem;
+    }
+    .mini span{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: .5rem .65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+      white-space: nowrap;
+    }
+    .mini span i{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      display:inline-block;
+    }
+
+    /* Hero left “trust chips” */
+    .chips{
+      margin-top: 16px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(11,11,11,.68);
+      font-weight: 800;
+      font-size: .93rem;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: .6rem .75rem;
+      border-radius: 999px;
       border: 1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.80);
-      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.86);
+    }
+    .chip i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      display:inline-block;
+    }
+
+    /* Clean “stats strip” */
+    .strip{
+      margin-top: 18px;
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.72);
       padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .strip .left{
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing:-.02em;
     }
     .strip .right{
       display:flex;
-      flex-wrap:wrap;
       gap: 10px;
-      color: var(--muted2);
-      font-weight: 750;
+      flex-wrap: wrap;
+      color: rgba(11,11,11,.66);
+      font-weight: 850;
       font-size: .92rem;
-      justify-content:flex-end;
     }
-    .tag{
+    .badge{
       display:inline-flex;
       align-items:center;
       gap: 8px;
       padding: .45rem .7rem;
       border-radius: 999px;
-      border:1px solid rgba(11,11,11,.10);
+      border: 1px solid rgba(11,11,11,.10);
       background: rgba(255,255,255,.92);
-      white-space:nowrap;
+      white-space: nowrap;
     }
-    .tag i{
-      width:10px;height:10px;border-radius:999px;
+    .badge i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
       background: linear-gradient(90deg, var(--vine), var(--ember));
       display:inline-block;
     }
 
-    /* Two lanes */
-    .lane-grid{
-      margin-top: 22px;
+    /* Cards grid (keep minimal) */
+    .grid3{
+      margin-top: 26px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
     .card{
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      box-shadow: 0 16px 50px rgba(11,11,11,.08);
-      padding: 22px;
-      position:relative;
-      overflow:hidden;
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.82);
+      padding: 20px;
+      box-shadow: 0 14px 44px rgba(0,0,0,.06);
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .card:before{
-      content:"";
-      position:absolute; inset:-35% -20% auto -20%;
-      height: 60%;
-      background: repeating-linear-gradient(105deg, transparent 0 14px, rgba(255,106,0,.07) 14px 28px);
-      transform: translateY(-35%);
-      opacity:.55;
-      pointer-events:none;
-      transition: opacity .2s ease;
-    }
     .card:hover{
-      transform: translateY(-4px);
-      border-color: rgba(0,224,138,.55);
-      box-shadow: 0 22px 64px rgba(0,224,138,.10);
+      transform: translateY(-3px);
+      border-color: rgba(0,224,138,.50);
+      box-shadow: 0 20px 60px rgba(0,0,0,.08);
     }
-    .card:hover:before{ opacity:.85; }
     .card h3{
-      margin:0;
-      font-size: 1.25rem;
+      margin: 0;
+      font-size: 1.1rem;
       font-weight: 950;
       letter-spacing:-.02em;
     }
     .card p{
-      margin-top: 10px;
+      margin: 10px 0 0;
       color: var(--muted);
       font-weight: 650;
       line-height: 1.6;
-      max-width: 62ch;
     }
-    .bullets{
-      margin: 14px 0 0;
+
+    /* Two-lane (brands + creators) */
+    .grid2{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .list{
+      margin: 12px 0 0;
       padding-left: 18px;
       display:grid;
       gap: 8px;
-      color: rgba(11,11,11,.82);
+      color: rgba(11,11,11,.78);
       font-weight: 750;
     }
-    .card .actions{
-      margin-top: 18px;
+    .actions{
+      margin-top: 16px;
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    /* Results (mini case studies) */
-    .results-grid{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .result{
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      padding: 18px;
-      box-shadow: 0 14px 44px rgba(11,11,11,.07);
-    }
-    .result .k{
-      font-weight: 950;
-      letter-spacing:-.02em;
-      font-size: 1.05rem;
-    }
-    .result .m{
-      margin-top: 8px;
-      font-weight: 850;
-      font-size: 1.6rem;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color: transparent;
-    }
-    .result .d{
-      margin-top: 8px;
-      color: var(--muted);
-      font-weight: 650;
-      line-height: 1.55;
-    }
-    .result .meta{
-      margin-top: 12px;
-      display:flex;
-      gap: 8px;
-      flex-wrap:wrap;
-      color: rgba(11,11,11,.70);
-      font-weight: 750;
-      font-size: .9rem;
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: .45rem .65rem;
-      border-radius: 999px;
-      border:1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.92);
-    }
-    .badge i{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      display:inline-block;
-    }
-
-    /* How it works */
-    .steps{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .step{
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      padding: 18px;
-    }
-    .step .n{
-      font-weight: 950;
-      font-size: .80rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(11,11,11,.66);
-    }
-    .step h4{
-      margin: 10px 0 0;
-      font-size: 1.05rem;
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
-    .step p{
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-weight: 650;
-      line-height: 1.55;
-    }
-
-    /* Capabilities (compact, not busy) */
-    .cap-grid{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .cap{
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      padding: 18px;
-      box-shadow: 0 14px 44px rgba(11,11,11,.06);
-    }
-    .cap h4{
-      margin:0;
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
-    .cap ul{
-      margin: 12px 0 0;
-      padding-left: 18px;
-      display:grid;
-      gap: 8px;
-      color: rgba(11,11,11,.80);
-      font-weight: 750;
-    }
-    .cap small{
-      display:block;
-      margin-top: 12px;
-      color: var(--muted2);
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    /* CTA band */
-    .cta-band{
-      border:1px solid rgba(11,11,11,.12);
-      border-radius: var(--radius-xl);
-      background:
-        radial-gradient(900px 320px at 10% 10%, rgba(0,224,138,.14), transparent 60%),
-        radial-gradient(820px 300px at 90% 0%, rgba(255,106,0,.10), transparent 60%),
-        rgba(255,255,255,.90);
-      padding: 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-      box-shadow: var(--shadow);
-    }
-    .cta-band h3{
-      margin:0;
-      font-size: clamp(1.2rem, 2.0vw, 1.6rem);
-      font-weight: 950;
-      letter-spacing:-.02em;
-    }
-    .cta-band p{
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-weight: 650;
-      line-height: 1.55;
-      max-width: 72ch;
-    }
-    .cta-band .right{
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
     /* Contact */
     .contact-wrap{
-      border:1px solid rgba(11,11,11,.10);
-      border-radius: var(--radius-xl);
-      background: rgba(255,255,255,.80);
+      margin-top: 18px;
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.78);
       padding: 22px;
-      box-shadow: 0 18px 60px rgba(11,11,11,.08);
+      box-shadow: 0 18px 60px rgba(0,0,0,.07);
     }
     form{
-      margin-top: 14px;
+      margin-top: 12px;
       display:grid;
       gap: 12px;
     }
-    .row{
+    .row2{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    label{ font-weight: 850; font-size: .92rem; }
+    label{
+      font-weight: 850;
+      font-size: .92rem;
+      color: rgba(11,11,11,.82);
+    }
     input, textarea, select{
       width:100%;
       border-radius: 14px;
-      border:1px solid rgba(11,11,11,.14);
+      border: 1px solid rgba(11,11,11,.14);
       background: rgba(255,255,255,.92);
       padding: 12px 12px;
       font: inherit;
-      color: var(--ink);
+      color: var(--text);
       outline:none;
       transition: box-shadow .15s ease, border-color .15s ease;
     }
-    textarea{ min-height: 140px; resize: vertical; }
+    textarea{ min-height: 130px; resize: vertical; }
     input:focus, textarea:focus, select:focus{
       border-color: rgba(0,224,138,.55);
       box-shadow: 0 0 0 4px rgba(0,224,138,.10);
     }
     .help{
       margin-top: 8px;
-      color: var(--muted2);
+      color: rgba(11,11,11,.60);
       font-weight: 650;
       line-height: 1.5;
     }
 
     /* Footer */
     footer{
-      padding: 40px 0;
-      border-top: 1px solid rgba(11,11,11,.10);
+      padding: 38px 0;
+      border-top: 1px solid rgba(11,11,11,.08);
       background: rgba(255,255,255,.65);
     }
     .foot{
@@ -678,18 +517,23 @@
       align-items:center;
       justify-content:space-between;
       gap: 12px;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
+    }
+    .fine{
+      color: rgba(11,11,11,.60);
+      font-weight: 750;
+      font-size: .92rem;
     }
     .social{
       display:flex;
-      align-items:center;
       gap: 10px;
+      align-items:center;
     }
     .icon{
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      border:1px solid rgba(11,11,11,.12);
+      border: 1px solid rgba(11,11,11,.12);
       background: rgba(255,255,255,.92);
       display:inline-flex;
       align-items:center;
@@ -702,22 +546,6 @@
       border-color: rgba(0,224,138,.55);
       box-shadow: 0 14px 34px rgba(0,224,138,.10);
     }
-    .fine{
-      color: var(--muted2);
-      font-weight: 700;
-      font-size: .92rem;
-    }
-
-    /* Accessibility helper */
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      white-space:nowrap;
-      border:0;
-    }
 
     /* Responsive */
     @media (max-width: 980px){
@@ -726,21 +554,16 @@
       .mobile-panel.open{ display:block; }
 
       .hero-grid{ grid-template-columns: 1fr; }
-      .stats{ grid-template-columns: 1fr 1fr 1fr; }
-      .lane-grid{ grid-template-columns: 1fr; }
-      .results-grid{ grid-template-columns: 1fr; }
-      .steps{ grid-template-columns: 1fr 1fr; }
-      .cap-grid{ grid-template-columns: 1fr; }
-      .cta-band{ flex-direction:column; align-items:flex-start; }
-      .cta-band .right{ width:100%; }
-      .cta-band .right .btn{ width:100%; }
+      .hero-visual{ min-height: 340px; }
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .row2{ grid-template-columns: 1fr; }
+      .actions .btn{ width: 100%; }
     }
-    @media (max-width: 640px){
-      .stats{ grid-template-columns: 1fr; }
-      .row{ grid-template-columns: 1fr; }
-      .hero-actions .btn{ width:100%; }
-      .strip{ flex-direction:column; align-items:flex-start; }
-      .strip .right{ justify-content:flex-start; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { scroll-behavior:auto !important; transition:none !important; }
     }
   </style>
 </head>
@@ -754,9 +577,8 @@
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="index.html" aria-label="Junglee Studios home">
-          <!-- Replace with your local logo file if you want: assets/logo.png -->
           <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
-          <div class="wordmark">
+          <div class="wm">
             <b>Junglee Studios</b>
             <span>TikTok Shop & Social Commerce</span>
           </div>
@@ -788,91 +610,105 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
+        <!-- Left: clean, direct message -->
         <div>
-          <div class="pill"><span class="dot"></span> TikTok first • built for what’s next</div>
+          <div class="kicker"><i></i> TikTok-first growth systems</div>
 
-          <h1>
-            Creator-led commerce that <em>drives GMV</em>
-          </h1>
+          <h1>Build TikTok Shop revenue with creators.</h1>
 
           <p class="lead">
-            Junglee Studios helps brands <strong>launch and scale on TikTok Shop</strong> with a repeatable system:
-            conversion-first storefronts, affiliate/creator programs, and content frameworks that ship daily.
+            We help brands launch and scale on <strong>TikTok Shop</strong> through a repeatable system:
+            conversion-first storefronts, affiliate engines, and content frameworks that ship daily.
             <br><br>
-            TikTok is the proving ground, our strategies and playbooks translate into <strong>Amazon, YouTube, Walmart</strong>, and every platform adopting social commerce.
+            TikTok is the proving ground—our playbooks translate into <strong>Amazon, YouTube, Walmart</strong>, and every platform adopting social commerce.
           </p>
 
-          <div class="hero-actions">
+          <div class="actions">
             <a class="btn primary" href="brand-growth.html">For Brands</a>
             <a class="btn" href="for-creators.html">For Creators</a>
             <a class="btn" href="#contact">Book a Fit Check</a>
           </div>
 
-          <div class="trust-row" aria-label="Trust indicators">
-            <span class="chip"><i></i> Official TikTok Shop Partner "TSP"</span>
-            <span class="chip"><i></i> Official TikTok Creator Agency Partner "CAP"</span>
+          <div class="chips" aria-label="Trust indicators">
+            <span class="chip"><i></i> TikTok Shop Partner (TSP)</span>
+            <span class="chip"><i></i> Creator Agency Partner (CAP)</span>
           </div>
 
-          <div class="proof-strip">
-            <div class="strip" aria-label="Categories and positioning">
-              <div class="left">Results across categories</div>
-              <div class="right">
-                <span class="tag"><i></i> Collectibles</span>
-                <span class="tag"><i></i> Beauty</span>
-                <span class="tag"><i></i> Wellness</span>
-                <span class="tag"><i></i> Fashion</span>
-              </div>
+          <div class="strip" aria-label="Quick proof and categories">
+            <div class="left">Results across categories</div>
+            <div class="right">
+              <span class="badge"><i></i> Collectibles</span>
+              <span class="badge"><i></i> Beauty</span>
+              <span class="badge"><i></i> Wellness</span>
+              <span class="badge"><i></i> Fashion</span>
             </div>
           </div>
         </div>
 
-        <aside class="proof-card" aria-label="Proof points">
-          <div class="proof-top">
-            <b>Built by platform + marketplace operators.</b>
-            <p>We don’t guess. We build systems brands can own, so performance compounds.</p>
+        <!-- Right: your hero image with elegant proof overlay -->
+        <div class="hero-visual" aria-label="TikTok Shop hero background image">
+          <div class="hero-proof" aria-label="Performance proof">
+            <div class="row">
+              <b>Operator-led. Results-first.</b>
+              <div class="mini">
+                <span><i></i> $1.3B+ Retail</span>
+                <span><i></i> 1.5K+ Sellers/Creators</span>
+                <span><i></i> $500M+ Live GMV</span>
+              </div>
+            </div>
           </div>
+        </div>
+      </div><!-- /hero-grid -->
+    </div>
+  </section>
 
-          <div class="stats">
-            <div class="stat">
-              <div class="num">$1.3B+</div>
-              <div class="lbl">Retail Sales Influenced</div>
-            </div>
-            <div class="stat">
-              <div class="num">1.5K+</div>
-              <div class="lbl">Sellers & Creators Supported</div>
-            </div>
-            <div class="stat">
-              <div class="num">$500M+</div>
-              <div class="lbl">Live Commerce GMV</div>
-            </div>
-          </div>
-        </aside>
+  <!-- WHAT WE DO (3 cards max = clean + digestible) -->
+  <section class="section">
+    <div class="container">
+      <div class="kicker"><i></i> What we do</div>
+      <h2 style="margin:14px 0 0; font-size:clamp(1.55rem,2.6vw,2.05rem); font-weight:950; letter-spacing:-.03em;">Three levers that drive GMV.</h2>
+      <p class="lead" style="margin-top:10px;">
+        We keep it simple: fix conversion, activate creators, ship content consistently.
+      </p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Conversion</h3>
+          <p>Storefront, listings, offers, and bundling—optimized for TikTok-native buying behavior.</p>
+        </div>
+        <div class="card">
+          <h3>Creators</h3>
+          <p>Affiliate engine + product sets + sampling workflow so the right creators can sell every day.</p>
+        </div>
+        <div class="card">
+          <h3>Content</h3>
+          <p>Repeatable formats (hooks, proof, offer, CTA) that make daily posting sustainable.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Two lanes -->
+  <!-- BRANDS vs CREATORS (simple two-lane) -->
   <section class="section">
     <div class="container">
-      <div class="pill"><span class="dot"></span> Two sides • one engine</div>
-      <h2 class="h2">Brands + Creators. Managed as one system.</h2>
-      <p class="sub">
-        Most brands fail because storefront, offer, creators, and content aren’t connected.
-        Junglee runs both sides—so content becomes conversion, and creators scale with structure.
+      <div class="kicker"><i></i> Two sides • one engine</div>
+      <h2 style="margin:14px 0 0; font-size:clamp(1.55rem,2.6vw,2.05rem); font-weight:950; letter-spacing:-.03em;">Brands + creators, managed as one system.</h2>
+      <p class="lead" style="margin-top:10px;">
+        Most brands fail because storefront, offer, creators, and content aren’t connected. Junglee runs both sides so performance compounds.
       </p>
 
-      <div class="lane-grid">
+      <div class="grid2">
         <div class="card">
           <h3>For Brands</h3>
-          <p>Launch, optimize, and scale TikTok Shop with creator-led acquisition and conversion-first execution.</p>
-          <ul class="bullets">
-            <li>Shop setup + readiness (fast + correct)</li>
-            <li>Listings, offers, and storefront conversion</li>
-            <li>Affiliate & creator program build + management</li>
+          <p>Launch, optimize, and scale TikTok Shop with conversion-first execution and creator-led acquisition.</p>
+          <ul class="list">
+            <li>Shop setup & infrastructure</li>
+            <li>Listing optimization + offer stack</li>
+            <li>Affiliate/creator program management</li>
           </ul>
           <div class="actions">
             <a class="btn primary" href="brand-growth.html">Explore Brand Growth</a>
@@ -882,11 +718,11 @@
 
         <div class="card">
           <h3>For Creators</h3>
-          <p>Join a structured affiliate network with product sets, samples, and daily content guidance to earn consistently.</p>
-          <ul class="bullets">
-            <li>Onboarding + product set access</li>
-            <li>Samples & product deal workflow</li>
-            <li>Content lessons + posting system (daily)</li>
+          <p>Join a structured affiliate network with product sets, samples, and daily content guidance.</p>
+          <ul class="list">
+            <li>Onboarding + product sets</li>
+            <li>Samples + deal workflow</li>
+            <li>Posting system + coaching</li>
           </ul>
           <div class="actions">
             <a class="btn primary" href="for-creators.html">Join the Network</a>
@@ -897,104 +733,18 @@
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="section">
-    <div class="container">
-      <div class="pill"><span class="dot"></span> How we deliver</div>
-      <h2 class="h2">A simple system that scales.</h2>
-      <p class="sub">Clear steps. Weekly execution. Measurable progress. No chaos, just controlled wild.</p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="n">01 • Diagnose</div>
-          <h4>Audit + Priorities</h4>
-          <p>We find the blockers: offer, listings, content, affiliates, or ops, and map the fastest path to traction.</p>
-        </div>
-        <div class="step">
-          <div class="n">02 • Build</div>
-          <h4>Foundation + Conversion</h4>
-          <p>Shop setup, catalog structure, listing upgrades, and an offer stack creators can sell.</p>
-        </div>
-        <div class="step">
-          <div class="n">03 • Activate</div>
-          <h4>Creator engine</h4>
-          <p>Affiliates, product sets, samples, and content prompts that ship daily, built for native TikTok performance.</p>
-        </div>
-        <div class="step">
-          <div class="n">04 • Scale</div>
-          <h4>Optimize + Train</h4>
-          <p>We improve weekly and train your team so growth doesn’t depend on guesswork or one person.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-   <!-- Capabilities (compact, agency feel) -->
-  <section class="section">
-    <div class="container">
-      <div class="pill"><span class="dot"></span> What we do</div>
-      <h2 class="h2">TikTok-first. Social commerce fluent.</h2>
-      <p class="sub">
-        We stay focused on TikTok where results happen now, while building systems that extend to Amazon, YouTube, Walmart, and beyond.
-      </p>
-
-      <div class="cap-grid">
-        <div class="cap">
-          <h4>For Brands (TikTok Shop Growth)</h4>
-          <ul>
-            <li>Shop setup & infrastructure</li>
-            <li>Product + listing optimization</li>
-            <li>Affiliate & creator program management</li>
-            <li>Campaign management and optimization</li>
-            <li>Short-form + live shopping frameworks</li>
-            <li>Performance tracking + weekly optimization</li>
-            <li>Team training & enablement</li>
-          </ul>
-          <small>Want a 30/60/90 plan? Use the form below and we’ll respond with next steps.</small>
-        </div>
-
-        <div class="cap">
-          <h4>For Creators (Affiliate Network)</h4>
-          <ul>
-            <li>Onboarding + approved product deals</li>
-            <li>Samples & deal workflows</li>
-            <li>Daily posting guidance + lessons</li>
-            <li>Campaign access + brand matching</li>
-            <li>Content feedback to improve earnings</li>
-            <li>Community support (Discord)</li>
-          </ul>
-          <small>Creators win here with structure: clear prompts, consistency, and better offers.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA band -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-band" role="region" aria-label="Call to action">
-        <div>
-          <h3>Ready to build your TikTok Shop growth engine?</h3>
-          <p>Brands: get a fast audit and a plan. Creators: join the network and start earning with structure.</p>
-        </div>
-        <div class="right">
-          <a class="btn primary" href="#contact">Book a Fit Check</a>
-          <a class="btn" href="for-creators.html">Join as a Creator</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
+  <!-- CONTACT (keep it clean, no extra clutter) -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="pill"><span class="dot"></span> Contact</div>
-      <h2 class="h2">Let’s get aligned.</h2>
-      <p class="sub">Tell us whether you’re a brand or creator, and what you’re trying to achieve. We’ll respond with the fastest path to traction.</p>
+      <div class="kicker"><i></i> Contact</div>
+      <h2 style="margin:14px 0 0; font-size:clamp(1.55rem,2.6vw,2.05rem); font-weight:950; letter-spacing:-.03em;">Let’s get aligned.</h2>
+      <p class="lead" style="margin-top:10px;">
+        Tell us what you’re trying to achieve. We’ll respond with the fastest path to traction.
+      </p>
 
       <div class="contact-wrap">
         <form action="https://formspree.io/f/xrbyvkdd" method="POST" id="contactForm">
-          <div class="row">
+          <div class="row2">
             <div>
               <label for="name">Name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required />
@@ -1005,7 +755,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row2">
             <div>
               <label for="type">I’m a…</label>
               <select id="type" name="inquiry_type" required>
@@ -1016,12 +766,12 @@
               </select>
             </div>
             <div>
-              <label for="platform">Primary focus</label>
-              <select id="platform" name="platform_focus" required>
+              <label for="focus">Primary focus</label>
+              <select id="focus" name="platform_focus" required>
                 <option value="" selected disabled>Select one</option>
                 <option value="TikTok Shop">TikTok Shop</option>
-                <option value="Social Commerce Strategy">Social Commerce Strategy</option>
                 <option value="Creator Program">Creator / Affiliate Program</option>
+                <option value="Social Commerce Strategy">Social Commerce Strategy</option>
               </select>
             </div>
           </div>
@@ -1029,7 +779,7 @@
           <div>
             <label for="message">What are you trying to accomplish?</label>
             <textarea id="message" name="message" placeholder="Share your goals, category, current status, and what’s stuck." required></textarea>
-            <div class="help">If you’re a brand: include category + current monthly volume (rough). If you’re a creator: include handle + niche.</div>
+            <div class="help">Brands: include category + current monthly volume (rough). Creators: include your handle + niche.</div>
           </div>
 
           <button class="btn primary" type="submit">Send →</button>
@@ -1048,7 +798,6 @@
         <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
 
         <div class="social" aria-label="Social links">
-          <!-- Replace icons with your local files if you prefer -->
           <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
             <img src="IGIcon.png" alt="" width="18" height="18" />
           </a>
@@ -1077,7 +826,6 @@
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
 
-      // Close menu on link click
       panel?.querySelectorAll('a')?.forEach(a => {
         a.addEventListener('click', () => {
           panel.classList.remove('open');
@@ -1093,7 +841,6 @@
       if(!form) return;
 
       form.addEventListener('submit', () => {
-        // Show message immediately (Formspree will redirect/return depending on your setup)
         if(thanks) thanks.style.display = 'block';
       });
     })();
