@@ -8,31 +8,28 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Clean, modern font similar to “consulting/agency” sites -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     /* =====================================================
-      Junglee Studios — Clean, Elegant, Modern (Comtent-style)
-      Principles:
-      - whitespace + simple hierarchy
-      - minimal colors (mostly neutral) + controlled accent
-      - direct copy + clear CTAs
-      - responsive by default
+      Junglee Studios — Dark, Classy, Bold (Clean Agency)
+      - dark premium base
+      - single accent color (no gradients)
+      - hero image as background w/ cinematic overlay for readability
+      - compact proof box
     ====================================================== */
 
     :root{
-      /* Core */
-      --bg: #0b0b0b;           /* ink */
-      --paper: #ffffff;        /* white */
-      --surface: rgba(255,255,255,.92);
-      --text: rgba(11,11,11,.92);
-      --muted: rgba(11,11,11,.64);
-      --border: rgba(11,11,11,.12);
+      /* Premium dark base */
+      --paper: #0b0f14;
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --border: rgba(255,255,255,.12);
 
-      /* Junglee accents (controlled use) */
-      --vine: #00e08a;
-      --ember: #ff6a00;
+      /* Single classy accent (bold, but professional) */
+      --accent: #d9ff4a;
 
       /* Layout */
       --container: 1120px;
@@ -41,9 +38,9 @@
       --r-lg: 20px;
       --r-md: 14px;
 
-      --shadow: 0 18px 60px rgba(0,0,0,.18);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
 
-      /* Hero image path (UPDATE THIS if needed) */
+      /* Hero image path */
       --hero-img: url("AdobeStock_623456507_Editorial_Use_Only.jpeg");
     }
 
@@ -64,25 +61,25 @@
       margin: 0 auto;
     }
 
-    /* Subtle background (keep it very light and premium) */
+    /* Subtle site background */
     .bg{
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: -3;
       background:
-        radial-gradient(1100px 700px at 85% -10%, rgba(0,224,138,.08), transparent 60%),
-        radial-gradient(900px 650px at -10% 95%, rgba(255,106,0,.06), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,1));
+        radial-gradient(900px 520px at 85% -10%, rgba(217,255,74,.07), transparent 60%),
+        radial-gradient(900px 520px at -10% 95%, rgba(255,255,255,.04), transparent 60%),
+        linear-gradient(180deg, #0b0f14, #0b0f14);
     }
     .grain{
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
       pointer-events:none;
-      opacity: .05;
+      opacity: .08;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
       background-size:180px 180px;
-      mix-blend-mode:multiply;
+      mix-blend-mode: overlay;
     }
 
     /* Header */
@@ -90,9 +87,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(11,11,11,.08);
+      background: rgba(11,15,20,.62);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
     .nav{
       display:flex;
@@ -108,24 +105,27 @@
       text-decoration:none;
       min-width: 220px;
     }
+
+    /* If your logo is dark and gets lost on dark bg, this makes it pop */
     .brand img{
       height: 40px;
       width: auto;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,.12));
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.55));
     }
-    .brand .wm{
+
+    .wm{
       display:flex;
       flex-direction:column;
       line-height: 1.05;
     }
-    .brand .wm b{
+    .wm b{
       font-weight: 900;
       letter-spacing: -0.01em;
     }
-    .brand .wm span{
+    .wm span{
       font-size: .85rem;
       font-weight: 650;
-      color: rgba(11,11,11,.55);
+      color: rgba(255,255,255,.60);
     }
 
     .navlinks{
@@ -137,16 +137,17 @@
       text-decoration:none;
       font-weight: 750;
       font-size: .95rem;
-      color: rgba(11,11,11,.86);
+      color: rgba(255,255,255,.86);
       padding: .55rem .65rem;
       border-radius: 12px;
       transition: background .15s ease, transform .15s ease;
     }
     .navlinks a:hover{
-      background: rgba(0,224,138,.08);
+      background: rgba(255,255,255,.08);
       transform: translateY(-1px);
     }
 
+    /* Buttons (no gradients) */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -154,8 +155,9 @@
       gap: 10px;
       padding: .9rem 1.05rem;
       border-radius: 14px;
-      border: 1.5px solid rgba(11,11,11,.16);
-      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
       font-weight: 900;
       text-decoration:none;
       white-space:nowrap;
@@ -163,18 +165,17 @@
     }
     .btn:hover{
       transform: translateY(-1px);
-      border-color: rgba(0,224,138,.55);
-      box-shadow: 0 14px 34px rgba(0,224,138,.10);
+      border-color: rgba(217,255,74,.55);
+      box-shadow: 0 14px 34px rgba(217,255,74,.10);
     }
     .btn.primary{
-      border-color: rgba(11,11,11,.14);
-      background: linear-gradient(135deg, rgba(0,224,138,1), rgba(255,106,0,1));
-      color: #0b0b0b;
-      box-shadow: 0 18px 40px rgba(0,0,0,.12);
+      border-color: rgba(217,255,74,.55);
+      background: rgba(217,255,74,.92);
+      color: #0b0f14;
+      box-shadow: 0 18px 40px rgba(217,255,74,.14);
     }
     .btn.primary:hover{
-      box-shadow: 0 20px 54px rgba(0,0,0,.16);
-      border-color: rgba(11,11,11,.22);
+      box-shadow: 0 20px 54px rgba(217,255,74,.18);
     }
 
     /* Mobile menu */
@@ -183,8 +184,8 @@
       width: 44px;
       height: 44px;
       border-radius: 14px;
-      border: 1px solid rgba(11,11,11,.12);
-      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       cursor:pointer;
       align-items:center;
       justify-content:center;
@@ -192,7 +193,7 @@
     .menu span{
       width: 20px;
       height: 2px;
-      background: #0b0b0b;
+      background: rgba(255,255,255,.92);
       border-radius: 2px;
       position: relative;
     }
@@ -203,7 +204,7 @@
       left:0;
       width: 20px;
       height: 2px;
-      background: #0b0b0b;
+      background: rgba(255,255,255,.92);
       border-radius:2px;
     }
     .menu span:before{ top: -6px; }
@@ -219,9 +220,9 @@
       padding: 12px 10px;
       border-radius: 14px;
       font-weight: 850;
-      color: rgba(11,11,11,.88);
+      color: rgba(255,255,255,.88);
     }
-    .mobile-panel a:hover{ background: rgba(0,224,138,.08); }
+    .mobile-panel a:hover{ background: rgba(255,255,255,.08); }
     .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
 
     /* Sections */
@@ -237,12 +238,12 @@
       font-size: .8rem;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: rgba(11,11,11,.62);
+      color: rgba(255,255,255,.65);
     }
     .kicker i{
       width: 10px; height: 10px;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
+      background: var(--accent);
       display:inline-block;
     }
 
@@ -260,101 +261,56 @@
       font-weight: 650;
       line-height: 1.65;
     }
+    .lead strong{ color: rgba(255,255,255,.92); }
 
+    /* HERO — image as section background */
     .hero{
       padding: clamp(28px, 4vw, 50px) 0 clamp(58px, 6vw, 78px);
+      position: relative;
+      overflow: hidden;
     }
-   .hero{
-  padding: clamp(28px, 4vw, 50px) 0 clamp(58px, 6vw, 78px);
-  position: relative;
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: var(--hero-img);
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
 
-/* Full-width hero background image (no filter) */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: var(--hero-img);
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
-}
+    /* Cinematic overlay for readability (NOT a filter) */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,
+          rgba(11,15,20,.94) 0%,
+          rgba(11,15,20,.86) 52%,
+          rgba(11,15,20,.32) 100%
+        );
+      z-index: -1;
+    }
 
-/* Optional: subtle readability layer (NOT a "filter", just for text legibility)
-   If you want 100% raw image, delete this block. */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,.92) 0%,
-    rgba(255,255,255,.86) 45%,
-    rgba(255,255,255,.25) 100%
-  );
-  z-index: -1;
-}
+    .hero-grid{
+      display:block;
+      max-width: 780px;
+    }
 
-/* Hero content becomes single column */
-.hero-grid{
-  display:block;
-  max-width: 760px; /* keeps it clean + Comtent-like */
-}
+    .actions{
+      margin-top: 16px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-/* Smaller proof box (compact, not huge) */
-.hero-proof{
-  margin-top: 18px;
-  width: fit-content;
-  max-width: 560px;
-  border-radius: 16px;
-  border: 1px solid rgba(11,11,11,.10);
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(8px);
-  padding: 12px 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.10);
-}
-
-/* tighten the proof row */
-.hero-proof .row{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items:center;
-  justify-content:flex-start;
-}
-
-.hero-proof b{
-  font-weight: 950;
-  letter-spacing:-.02em;
-}
-
-.hero-proof .mini{
-  display:flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  font-weight: 850;
-  font-size: .90rem;
-  color: rgba(11,11,11,.70);
-}
-
-.mini span{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: .45rem .6rem;
-  border-radius: 999px;
-  border: 1px solid rgba(11,11,11,.10);
-  background: rgba(255,255,255,.92);
-  white-space: nowrap;
-}
-
-    /* Hero left “trust chips” */
     .chips{
       margin-top: 16px;
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
-      color: rgba(11,11,11,.68);
+      color: rgba(255,255,255,.74);
       font-weight: 800;
       font-size: .93rem;
     }
@@ -364,22 +320,69 @@
       gap: 10px;
       padding: .6rem .75rem;
       border-radius: 999px;
-      border: 1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
     }
     .chip i{
       width: 10px; height: 10px;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
+      background: var(--accent);
       display:inline-block;
     }
 
-    /* Clean “stats strip” */
+    /* Smaller proof box */
+    .hero-proof{
+      margin-top: 18px;
+      width: fit-content;
+      max-width: 620px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      padding: 12px 14px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    .hero-proof .row{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content:flex-start;
+    }
+    .hero-proof b{
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .mini{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-weight: 850;
+      font-size: .90rem;
+      color: rgba(255,255,255,.78);
+    }
+    .mini span{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: .45rem .6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      white-space: nowrap;
+    }
+    .mini span i{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      display:inline-block;
+    }
+
     .strip{
       margin-top: 18px;
       border-radius: var(--r-xl);
-      border: 1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
       padding: 14px 16px;
       display:flex;
       align-items:center;
@@ -390,12 +393,13 @@
     .strip .left{
       font-weight: 950;
       letter-spacing:-.02em;
+      color: rgba(255,255,255,.86);
     }
     .strip .right{
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
-      color: rgba(11,11,11,.66);
+      color: rgba(255,255,255,.70);
       font-weight: 850;
       font-size: .92rem;
     }
@@ -405,36 +409,42 @@
       gap: 8px;
       padding: .45rem .7rem;
       border-radius: 999px;
-      border: 1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       white-space: nowrap;
     }
     .badge i{
       width: 10px; height: 10px;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
+      background: var(--accent);
       display:inline-block;
     }
 
-    /* Cards grid (keep minimal) */
+    /* Cards */
     .grid3{
       margin-top: 26px;
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
+    .grid2{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
     .card{
       border-radius: var(--r-xl);
-      border: 1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       padding: 20px;
-      box-shadow: 0 14px 44px rgba(0,0,0,.06);
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
     .card:hover{
       transform: translateY(-3px);
-      border-color: rgba(0,224,138,.50);
-      box-shadow: 0 20px 60px rgba(0,0,0,.08);
+      border-color: rgba(217,255,74,.30);
+      box-shadow: 0 24px 70px rgba(0,0,0,.34);
     }
     .card h3{
       margin: 0;
@@ -444,41 +454,27 @@
     }
     .card p{
       margin: 10px 0 0;
-      color: var(--muted);
+      color: rgba(255,255,255,.70);
       font-weight: 650;
       line-height: 1.6;
-    }
-
-    /* Two-lane (brands + creators) */
-    .grid2{
-      margin-top: 26px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
     }
     .list{
       margin: 12px 0 0;
       padding-left: 18px;
       display:grid;
       gap: 8px;
-      color: rgba(11,11,11,.78);
+      color: rgba(255,255,255,.78);
       font-weight: 750;
-    }
-    .actions{
-      margin-top: 16px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
     }
 
     /* Contact */
     .contact-wrap{
       margin-top: 18px;
       border-radius: var(--r-xl);
-      border: 1px solid rgba(11,11,11,.10);
-      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       padding: 22px;
-      box-shadow: 0 18px 60px rgba(0,0,0,.07);
+      box-shadow: 0 18px 60px rgba(0,0,0,.30);
     }
     form{
       margin-top: 12px;
@@ -493,27 +489,30 @@
     label{
       font-weight: 850;
       font-size: .92rem;
-      color: rgba(11,11,11,.82);
+      color: rgba(255,255,255,.82);
     }
     input, textarea, select{
       width:100%;
       border-radius: 14px;
-      border: 1px solid rgba(11,11,11,.14);
-      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       padding: 12px 12px;
       font: inherit;
-      color: var(--text);
+      color: rgba(255,255,255,.92);
       outline:none;
       transition: box-shadow .15s ease, border-color .15s ease;
     }
+    input::placeholder, textarea::placeholder{
+      color: rgba(255,255,255,.55);
+    }
     textarea{ min-height: 130px; resize: vertical; }
     input:focus, textarea:focus, select:focus{
-      border-color: rgba(0,224,138,.55);
-      box-shadow: 0 0 0 4px rgba(0,224,138,.10);
+      border-color: rgba(217,255,74,.55);
+      box-shadow: 0 0 0 4px rgba(217,255,74,.12);
     }
     .help{
       margin-top: 8px;
-      color: rgba(11,11,11,.60);
+      color: rgba(255,255,255,.62);
       font-weight: 650;
       line-height: 1.5;
     }
@@ -521,8 +520,8 @@
     /* Footer */
     footer{
       padding: 38px 0;
-      border-top: 1px solid rgba(11,11,11,.08);
-      background: rgba(255,255,255,.65);
+      border-top: 1px solid rgba(255,255,255,.10);
+      background: rgba(11,15,20,.55);
     }
     .foot{
       display:flex;
@@ -532,7 +531,7 @@
       flex-wrap: wrap;
     }
     .fine{
-      color: rgba(11,11,11,.60);
+      color: rgba(255,255,255,.62);
       font-weight: 750;
       font-size: .92rem;
     }
@@ -545,8 +544,8 @@
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      border: 1px solid rgba(11,11,11,.12);
-      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -555,8 +554,8 @@
     }
     .icon:hover{
       transform: translateY(-1px);
-      border-color: rgba(0,224,138,.55);
-      box-shadow: 0 14px 34px rgba(0,224,138,.10);
+      border-color: rgba(217,255,74,.45);
+      box-shadow: 0 14px 34px rgba(217,255,74,.10);
     }
 
     /* Responsive */
@@ -565,15 +564,22 @@
       .menu{ display:inline-flex; }
       .mobile-panel.open{ display:block; }
 
-      .hero-grid{ grid-template-columns: 1fr; }
-      .hero-visual{ min-height: 340px; }
       .grid3{ grid-template-columns: 1fr; }
       .grid2{ grid-template-columns: 1fr; }
       .row2{ grid-template-columns: 1fr; }
       .actions .btn{ width: 100%; }
+
+      /* Stronger overlay on mobile for readability */
+      .hero::after{
+        background: linear-gradient(
+          180deg,
+          rgba(11,15,20,.94) 0%,
+          rgba(11,15,20,.88) 60%,
+          rgba(11,15,20,.52) 100%
+        );
+      }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       * { scroll-behavior:auto !important; transition:none !important; }
     }
@@ -626,46 +632,6 @@
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
-        <!-- Left: clean, direct message -->
-        <div>
-          <div class="kicker"><i></i> TikTok-first growth systems</div>
-
-          <h1>Build TikTok Shop revenue with creators.</h1>
-
-          <p class="lead">
-            We help brands launch and scale on <strong>TikTok Shop</strong> through a repeatable system:
-            conversion-first storefronts, affiliate engines, and content frameworks that ship daily.
-            <br><br>
-            TikTok is the proving ground—our playbooks translate into <strong>Amazon, YouTube, Walmart</strong>, and every platform adopting social commerce.
-          </p>
-
-          <div class="actions">
-            <a class="btn primary" href="brand-growth.html">For Brands</a>
-            <a class="btn" href="for-creators.html">For Creators</a>
-            <a class="btn" href="#contact">Book a Fit Check</a>
-          </div>
-
-          <div class="chips" aria-label="Trust indicators">
-            <span class="chip"><i></i> TikTok Shop Partner (TSP)</span>
-            <span class="chip"><i></i> Creator Agency Partner (CAP)</span>
-          </div>
-
-          <div class="strip" aria-label="Quick proof and categories">
-            <div class="left">Results across categories</div>
-            <div class="right">
-              <span class="badge"><i></i> Collectibles</span>
-              <span class="badge"><i></i> Beauty</span>
-              <span class="badge"><i></i> Wellness</span>
-              <span class="badge"><i></i> Fashion</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: your hero image with elegant proof overlay -->
-     <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
         <div class="kicker"><i></i> TikTok-first growth systems</div>
 
         <h1>Build TikTok Shop revenue with creators.</h1>
@@ -688,7 +654,6 @@
           <span class="chip"><i></i> Creator Agency Partner (CAP)</span>
         </div>
 
-        <!-- Smaller proof box -->
         <div class="hero-proof" aria-label="Performance proof">
           <div class="row">
             <b>Operator-led. Results-first.</b>
@@ -709,15 +674,11 @@
             <span class="badge"><i></i> Fashion</span>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-</section>
-
   </section>
 
-  <!-- WHAT WE DO (3 cards max = clean + digestible) -->
+  <!-- WHAT WE DO -->
   <section class="section">
     <div class="container">
       <div class="kicker"><i></i> What we do</div>
@@ -743,7 +704,7 @@
     </div>
   </section>
 
-  <!-- BRANDS vs CREATORS (simple two-lane) -->
+  <!-- BRANDS vs CREATORS -->
   <section class="section">
     <div class="container">
       <div class="kicker"><i></i> Two sides • one engine</div>
@@ -784,7 +745,7 @@
     </div>
   </section>
 
-  <!-- CONTACT (keep it clean, no extra clutter) -->
+  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
       <div class="kicker"><i></i> Contact</div>
@@ -834,7 +795,7 @@
           </div>
 
           <button class="btn primary" type="submit">Send →</button>
-          <div id="thanks" class="help" style="display:none; font-weight:850; color: rgba(0, 140, 70, .95);">
+          <div id="thanks" class="help" style="display:none; font-weight:850; color: rgba(217,255,74,.92);">
             Thanks — we got it. We’ll be in touch soon.
           </div>
         </form>
@@ -885,7 +846,7 @@
       });
     })();
 
-    // Optional: show inline thank-you (Formspree still handles delivery)
+    // Optional: show inline thank-you
     (function(){
       const form = document.getElementById('contactForm');
       const thanks = document.getElementById('thanks');
