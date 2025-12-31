@@ -342,9 +342,12 @@
   box-shadow: 0 12px 30px rgba(0,0,0,.45);
 }
     .hero-proof .row{
-  justify-content: center;
-  text-align: center;
+  display:flex;
+  flex-direction: column;     /* stack vertically */
+  gap: 12px;                  /* THIS is the cushion */
+  align-items:flex-start;
 }
+
     .hero-proof b{
       font-weight: 950;
       letter-spacing:-.02em;
@@ -639,10 +642,9 @@
         <h1>Build TikTok Shop revenue with creators.</h1>
 
         <p class="lead">
-          We help brands launch and scale on <strong>TikTok Shop</strong> through a repeatable system:
-          conversion-first storefronts, affiliate engines, and content frameworks that ship daily.
+          We build <strong>TikTok Shop</strong> growth engines that turn creators, content, and community into revenue.
           <br><br>
-          TikTok is the proving ground—our playbooks translate into <strong>Amazon, YouTube, Walmart</strong>, and every platform adopting social commerce.
+          <strong>TikTok</strong> is where social commerce is built. Our systems translate across <strong>Amazon, YouTube, Walmart</strong>, and beyond.
         </p>
 
         <div class="actions">
