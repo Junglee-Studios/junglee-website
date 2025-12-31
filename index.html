@@ -1,88 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junglee Studios — TikTok Shop & Social Commerce</title>
+  <title>Junglee Studios — TikTok Shop & Social Commerce Studio</title>
+  <meta name="description" content="Junglee Studios helps brands launch and scale on TikTok Shop with creator-led systems: affiliate programs, conversion-first storefronts, and repeatable content frameworks. Creators: join our affiliate network." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --ink: #0b0b0b;
-      --ivory: #fffaf0;
-      --vine: #00e08a;
-      --ember: #ff6a00;
+    /* =========================
+      Junglee Studios — Clean Agency System
+      "Controlled Wild" aesthetic: clean grid + subtle jungle energy
+      Palette: ink, ivory, vine, ember (restrained usage)
+    ========================== */
+    :root{
+      --ink:#0b0b0b;
+      --ivory:#fffaf0;
+      --vine:#00e08a;
+      --ember:#ff6a00;
 
-      --ink-70: rgba(11,11,11,.7);
-      --ink-40: rgba(11,11,11,.4);
-      --vine-15: rgba(0,224,138,.15);
-      --ember-12: rgba(255,106,0,.12);
-      --ivory-90: rgba(255,250,240,.9);
+      --bg:#ffffff;
+      --surface: rgba(255,255,255,.92);
+      --border: rgba(11,11,11,.12);
+      --shadow: 0 18px 60px rgba(11,11,11,.10);
+      --muted: rgba(11,11,11,.70);
+      --muted2: rgba(11,11,11,.56);
+
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --container: 1160px;
+      --pad: 24px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       color: var(--ink);
-      background: #ffffff;
-      overflow-x: hidden;
+      background: var(--bg);
+      overflow-x:hidden;
+    }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; }
+
+    /* Background: subtle "wild" energy */
+    .bg{
+      position:fixed; inset:0; z-index:-2;
+      background:
+        radial-gradient(1100px 700px at 75% -10%, rgba(0,224,138,.08), transparent 60%),
+        radial-gradient(900px 650px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
+        linear-gradient(180deg, rgba(255,250,240,.30), rgba(255,255,255,.95));
+    }
+    .grain{
+      position:fixed; inset:0; z-index:-1;
+      pointer-events:none;
+      opacity:.06;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      background-size:180px 180px;
+      mix-blend-mode:multiply;
     }
 
-    /* Background */
-    .wild-bg {
-      position: fixed; inset: 0; z-index: -2;
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(0,224,138,.08), transparent 60%),
-        radial-gradient(900px 700px at -10% 90%, rgba(255,106,0,.06), transparent 60%),
-        #ffffff;
+    /* Layout helpers */
+    .container{
+      width:min(var(--container), calc(100% - 2*var(--pad)));
+      margin:0 auto;
     }
-    .canopy-shadows { display:none; }
+    .section{
+      padding: clamp(64px, 7vw, 96px) 0;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      font-size:.82rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      padding:.55rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(0,224,138,.18);
+      background: rgba(0,224,138,.08);
+      width:fit-content;
+    }
+    .pill .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+    }
+
+    .h2{
+      margin: 14px 0 0;
+      font-size: clamp(1.55rem, 2.6vw, 2.05rem);
+      letter-spacing: -0.02em;
+      font-weight: 900;
+    }
+    .sub{
+      margin: 10px 0 0;
+      max-width: 72ch;
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.55;
+    }
 
     /* Header */
-    header { position: sticky; top: 0; z-index: 1000; }
-    .nav {
-      display:flex; align-items:center; justify-content:space-between;
-      max-width: 1200px; margin: 0 auto; padding: .9rem 1rem;
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,.95);
-      border-bottom: 1px solid rgba(11,11,11,.1);
+    header{
+      position: sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.86);
+      border-bottom: 1px solid rgba(11,11,11,.10);
     }
-    .brand { display:flex; gap:.75rem; align-items:center; text-decoration:none; }
-    .brand img { height: 52px; width:auto; filter: drop-shadow(0 2px 6px rgba(11,11,11,.1)); }
-    .brand b { color: var(--ink); letter-spacing:.2px; font-weight:900; font-size:1.05rem; }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      text-decoration:none;
+      min-width: 220px;
+    }
+    .brand img{
+      height: 42px;
+      width:auto;
+      filter: drop-shadow(0 8px 20px rgba(11,11,11,.10));
+    }
+    .brand .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .wordmark b{
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+    .brand .wordmark span{
+      font-size: .82rem;
+      color: var(--muted2);
+      font-weight: 650;
+    }
 
-    .links { display:flex; gap:1.2rem; align-items:center; }
-    .links a {
-      color: var(--ink); text-decoration:none; font-weight:600; font-size:.95rem; position:relative; padding:.4rem .2rem;
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap: 18px;
     }
-    .links a:after{
-      content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; border-radius:3px; width:0; margin:auto;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      transition: width .25s ease;
+    .navlinks a{
+      text-decoration:none;
+      font-weight: 700;
+      font-size: .95rem;
+      padding: .55rem .6rem;
+      border-radius: 12px;
+      color: rgba(11,11,11,.88);
+      transition: background .15s ease, transform .15s ease;
     }
-    .links a:hover:after{ width:100%; }
+    .navlinks a:hover{
+      background: rgba(0,224,138,.08);
+      transform: translateY(-1px);
+    }
 
-    .cta {
-      display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid var(--ink); color:var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
-      padding:.9rem 1.35rem; border-radius:10px; font-weight:900; text-decoration:none;
-      box-shadow:0 10px 26px rgba(238,204,56,.28);
-      transition: transform .15s ease, box-shadow .15s ease;
-      white-space: nowrap;
-    }
-    .cta:hover{ transform: translateY(-1px); box-shadow:0 14px 34px rgba(255,140,0,.35); }
-    .links a.cta:after { display: none; }
-
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:.9rem 1.1rem; border-radius:10px; font-weight:900; text-decoration:none;
-      border:1.5px solid rgba(11,11,11,.18);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: .9rem 1.1rem;
+      border-radius: 14px;
+      border:1.5px solid rgba(11,11,11,.16);
       background: rgba(255,255,255,.92);
-      color: var(--ink);
-      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      font-weight: 900;
+      text-decoration:none;
+      white-space:nowrap;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -92,249 +190,339 @@
     .btn.primary{
       border-color: var(--ink);
       background: linear-gradient(135deg, #FF8C00, #EECC38);
-      box-shadow:0 10px 26px rgba(238,204,56,.28);
+      box-shadow: 0 10px 26px rgba(238,204,56,.26);
     }
-    .btn.primary:hover{ box-shadow:0 14px 34px rgba(255,140,0,.35); }
+    .btn.primary:hover{
+      box-shadow: 0 16px 38px rgba(255,140,0,.35);
+      border-color: rgba(11,11,11,.22);
+    }
 
-    /* Mobile menu toggle */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
+    /* Mobile menu */
+    .menu{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border:1px solid rgba(11,11,11,.12);
+      background: rgba(255,255,255,.92);
+      cursor:pointer;
     }
-    .menu-toggle span {
-      display: block;
-      width: 28px;
-      height: 3px;
+    .menu span{
+      width: 20px; height: 2px;
       background: var(--ink);
       border-radius: 2px;
-      transition: all 0.3s ease;
+      position: relative;
     }
+    .menu span:before,.menu span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width: 20px; height: 2px;
+      background: var(--ink);
+      border-radius:2px;
+    }
+    .menu span:before{ top:-6px; }
+    .menu span:after{ top:6px; }
 
-    /* Sections */
-    section { padding: 96px 1rem; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight:900; letter-spacing:-.5px;
-      display:flex; align-items:center; gap:.6rem;
+    .mobile-panel{
+      display:none;
+      padding: 12px 0 18px;
     }
-    .section-title .pill {
-      display:inline-flex; align-items:center; height:10px; width:54px; border-radius:999px;
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      box-shadow: 0 8px 18px rgba(255,106,0,.15);
+    .mobile-panel a{
+      display:block;
+      text-decoration:none;
+      padding: 12px 10px;
+      border-radius: 14px;
+      font-weight: 800;
+      color: rgba(11,11,11,.88);
     }
-    .muted { color: var(--ink); opacity: .74; }
-    .kicker {
-      display:inline-flex; gap:.5rem; align-items:center;
-      font-weight:900; font-size:.85rem; letter-spacing:.12em; text-transform:uppercase;
-      color: var(--ink);
-      background: rgba(0,224,138,.08);
-      border: 1px solid rgba(0,224,138,.18);
-      padding: .5rem .7rem;
-      border-radius: 999px;
-      width: fit-content;
-    }
-    .kicker b{
-      background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    .mobile-panel a:hover{ background: rgba(0,224,138,.08); }
+    .mobile-cta{ margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; }
+    .mobile-cta .btn{ width:100%; }
 
     /* Hero */
-    .hero {
-      position: relative;
-      width: 100%;
-      min-height: 82vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    .hero{
+      padding: clamp(34px, 4vw, 54px) 0 clamp(52px, 6vw, 72px);
     }
-    .hero-bg { position:absolute; inset:0; z-index:-2; }
-    .hero-bg img { width:100%; height:100%; object-fit: cover; }
-
-    .hero::before {
-      content:'';
-      position:absolute; inset:0;
-      background:
-        radial-gradient(circle at 25% 50%, rgba(255,255,255,0.55), transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.75));
-      z-index:-1;
-    }
-
-    .hero-wrap {
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: min(5vw, 56px);
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: clamp(78px, 6vw, 112px) 1rem 64px;
-      position: relative;
-      z-index: 2;
+      grid-template-columns: 1.2fr .8fr;
+      gap: clamp(18px, 3vw, 34px);
       align-items: center;
     }
-    .title {
-      position: relative;
-      font-size: clamp(2.45rem, 5vw, 4.05rem);
-      line-height: .98;
-      font-weight: 900;
-      letter-spacing: -1px;
-      z-index: 2;
+    .hero h1{
+      margin: 14px 0 0;
+      font-size: clamp(2.35rem, 4.8vw, 3.85rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 950;
     }
-    .title::before {
-      content: attr(data-text);
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      color: rgba(255, 255, 255, 0.45);
-      filter: blur(6px);
-      white-space: pre-wrap;
-      font-weight: 900;
-      font-size: inherit;
-      letter-spacing: inherit;
-      line-height: inherit;
-      z-index: -1;
-    }
-    .title em {
+    .hero h1 em{
       font-style: normal;
       background: linear-gradient(90deg, var(--vine), var(--ember));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-
-    .tagline, .desc { margin-top: 16px; color: var(--ink); font-weight: 650; opacity: .86; }
-    .desc { font-weight: 600; opacity: .78; max-width: 62ch; }
-
-    .hero-actions { margin-top: 22px; display:flex; gap:.8rem; flex-wrap: wrap; }
-    .hero-actions .btn { min-width: 190px; }
-
-    .hero-card {
-      position: relative;
-      border: 1px solid rgba(11,11,11,.14);
-      border-radius: 22px;
-      padding: 22px;
-      overflow: hidden;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 20px 60px rgba(11,11,11,.1);
-      z-index: 2;
+    .hero .lead{
+      margin-top: 14px;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+    .hero .lead strong{ color: rgba(11,11,11,.92); }
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
     }
 
-    .stats {
+    .trust-row{
+      margin-top: 16px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+    .trust-row .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: .55rem .75rem;
+      border:1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.80);
+      border-radius: 999px;
+    }
+    .trust-row .chip i{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      display:inline-block;
+    }
+
+    /* Hero card (proof) */
+    .proof-card{
+      border:1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .proof-top{
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid rgba(11,11,11,.08);
+      background:
+        radial-gradient(700px 260px at 10% 10%, rgba(0,224,138,.14), transparent 60%),
+        radial-gradient(650px 240px at 90% 0%, rgba(255,106,0,.10), transparent 60%),
+        rgba(255,255,255,.90);
+    }
+    .proof-top b{
+      font-weight: 950;
+      letter-spacing:-0.02em;
+    }
+    .proof-top p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.5;
+    }
+    .stats{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 10px;
+      gap: 10px;
+      padding: 14px 14px 16px;
     }
-    .stat {
+    .stat{
+      border:1px solid rgba(11,11,11,.10);
+      border-radius: var(--radius-lg);
+      padding: 14px 12px;
       background: rgba(255,255,255,.92);
-      border: 1px solid rgba(11,11,11,.12);
-      border-radius: 14px;
-      padding: 16px;
-      text-align: center;
+      text-align:center;
     }
-    .stat .num {
-      font-weight: 900;
-      font-size: 1.55rem;
+    .stat .num{
+      font-weight: 950;
+      font-size: 1.45rem;
       background: linear-gradient(90deg, var(--vine), var(--ember));
-      -webkit-background-clip: text;
-      background-clip: text;
+      -webkit-background-clip:text;
+      background-clip:text;
       color: transparent;
     }
-    .stat .label { font-size: .85rem; opacity: .85; margin-top: 4px; color: var(--ink); }
+    .stat .lbl{
+      margin-top: 6px;
+      font-weight: 750;
+      font-size: .85rem;
+      color: rgba(11,11,11,.78);
+    }
 
-    /* Two-lane */
-    .two-lane { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
-    .lanes {
+    /* Proof strip (logos / categories) */
+    .proof-strip{
+      padding: 18px 0 0;
+    }
+    .strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+      border: 1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.80);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+    }
+    .strip .left{
+      font-weight: 900;
+      letter-spacing:-.02em;
+    }
+    .strip .right{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      color: var(--muted2);
+      font-weight: 750;
+      font-size: .92rem;
+      justify-content:flex-end;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      border:1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.92);
+      white-space:nowrap;
+    }
+    .tag i{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      display:inline-block;
+    }
+
+    /* Two lanes */
+    .lane-grid{
       margin-top: 22px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .lane {
-      position:relative;
-      border:1px solid rgba(11,11,11,.12);
-      border-radius: 20px;
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      box-shadow: 0 16px 50px rgba(11,11,11,.08);
       padding: 22px;
-      background: rgba(255,255,255,.92);
+      position:relative;
       overflow:hidden;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .lane:before{
+    .card:before{
       content:"";
-      position:absolute; inset:-30% -10% auto -10%;
-      height:55%;
-      background: repeating-linear-gradient(100deg, transparent 0 12px, rgba(255,106,0,.08) 12px 24px);
-      transform: translateY(-30%);
+      position:absolute; inset:-35% -20% auto -20%;
+      height: 60%;
+      background: repeating-linear-gradient(105deg, transparent 0 14px, rgba(255,106,0,.07) 14px 28px);
+      transform: translateY(-35%);
       opacity:.55;
       pointer-events:none;
       transition: opacity .2s ease;
     }
-    .lane:hover{
+    .card:hover{
       transform: translateY(-4px);
-      border-color: rgba(0,224,138,.6);
-      box-shadow: 0 18px 50px rgba(0,224,138,.10);
+      border-color: rgba(0,224,138,.55);
+      box-shadow: 0 22px 64px rgba(0,224,138,.10);
     }
-    .lane:hover:before{ opacity:.85; }
-
-    .lane h3{ font-size: 1.25rem; font-weight: 900; letter-spacing:-.4px; }
-    .lane p{ margin-top: 10px; opacity: .78; max-width: 60ch; }
+    .card:hover:before{ opacity:.85; }
+    .card h3{
+      margin:0;
+      font-size: 1.25rem;
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .card p{
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.6;
+      max-width: 62ch;
+    }
     .bullets{
-      margin-top: 14px;
+      margin: 14px 0 0;
+      padding-left: 18px;
       display:grid;
       gap: 8px;
-      padding-left: 18px;
-      opacity: .86;
-      font-weight: 650;
+      color: rgba(11,11,11,.82);
+      font-weight: 750;
     }
-    .lane-actions{ margin-top: 18px; display:flex; gap:.7rem; flex-wrap: wrap; }
+    .card .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-    /* “Why TikTok first” */
-    .why { background: linear-gradient(180deg, rgba(0,224,138,.05), rgba(255,106,0,.05)); }
-    .why-grid{
+    /* Results (mini case studies) */
+    .results-grid{
       margin-top: 22px;
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
-    .panel{
-      border:1px solid rgba(11,11,11,.12);
-      border-radius: 18px;
-      padding: 20px;
-      background: rgba(255,255,255,.92);
+    .result{
+      border:1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      padding: 18px;
+      box-shadow: 0 14px 44px rgba(11,11,11,.07);
     }
-    .panel h3{ font-weight: 900; letter-spacing:-.4px; }
-    .panel p{ margin-top: 10px; opacity: .78; }
-    .platforms{
+    .result .k{
+      font-weight: 950;
+      letter-spacing:-.02em;
+      font-size: 1.05rem;
+    }
+    .result .m{
+      margin-top: 8px;
+      font-weight: 850;
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, var(--vine), var(--ember));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+    .result .d{
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.55;
+    }
+    .result .meta{
       margin-top: 12px;
-      display:grid;
-      gap: 10px;
+      display:flex;
+      gap: 8px;
+      flex-wrap:wrap;
+      color: rgba(11,11,11,.70);
+      font-weight: 750;
+      font-size: .9rem;
     }
-    .platform{
-      display:flex; gap: 10px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 14px;
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: .45rem .65rem;
+      border-radius: 999px;
       border:1px solid rgba(11,11,11,.10);
       background: rgba(255,255,255,.92);
     }
-    .dot{
-      height:10px; width:10px; border-radius: 999px;
+    .badge i{
+      width:10px;height:10px;border-radius:999px;
       background: linear-gradient(90deg, var(--vine), var(--ember));
-      margin-top: 5px;
-      flex: 0 0 auto;
+      display:inline-block;
     }
-    .platform b{ font-weight: 900; }
-    .platform span{ opacity:.74; }
 
-    /* How we work */
-    .how { background: linear-gradient(180deg, rgba(255,250,240,.04), rgba(255,250,240,.02)); }
+    /* How it works */
     .steps{
       margin-top: 22px;
       display:grid;
@@ -342,233 +530,366 @@
       gap: 12px;
     }
     .step{
-      border:1px solid rgba(11,11,11,.12);
-      border-radius: 18px;
+      border:1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
       padding: 18px;
-      background: rgba(255,255,255,.92);
     }
     .step .n{
-      font-weight: 900;
-      font-size: .85rem;
+      font-weight: 950;
+      font-size: .80rem;
       letter-spacing:.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity:.7;
+      text-transform:uppercase;
+      color: rgba(11,11,11,.66);
     }
-    .step h3{ margin-top: 10px; font-weight: 900; letter-spacing:-.35px; }
-    .step p{ margin-top: 8px; opacity:.76; }
+    .step h4{
+      margin: 10px 0 0;
+      font-size: 1.05rem;
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .step p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.55;
+    }
 
-    /* Capabilities */
-    .caps { background: #ffffff; }
+    /* Capabilities (compact, not busy) */
     .cap-grid{
       margin-top: 22px;
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     .cap{
-      border:1px solid rgba(11,11,11,.12);
-      border-radius: 18px;
-      padding: 20px;
-      background: rgba(255,255,255,.92);
+      border:1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      padding: 18px;
+      box-shadow: 0 14px 44px rgba(11,11,11,.06);
     }
-    .cap h3{ font-weight: 900; letter-spacing:-.35px; }
-    .cap ul{ margin-top: 12px; padding-left: 18px; display:grid; gap: 8px; opacity: .84; font-weight:650; }
-    .cap small{ display:block; margin-top: 12px; opacity:.68; }
+    .cap h4{
+      margin:0;
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .cap ul{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display:grid;
+      gap: 8px;
+      color: rgba(11,11,11,.80);
+      font-weight: 750;
+    }
+    .cap small{
+      display:block;
+      margin-top: 12px;
+      color: var(--muted2);
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* CTA band */
+    .cta-band{
+      border:1px solid rgba(11,11,11,.12);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(900px 320px at 10% 10%, rgba(0,224,138,.14), transparent 60%),
+        radial-gradient(820px 300px at 90% 0%, rgba(255,106,0,.10), transparent 60%),
+        rgba(255,255,255,.90);
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      box-shadow: var(--shadow);
+    }
+    .cta-band h3{
+      margin:0;
+      font-size: clamp(1.2rem, 2.0vw, 1.6rem);
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .cta-band p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.55;
+      max-width: 72ch;
+    }
+    .cta-band .right{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
 
     /* Contact */
-    .contact { background: linear-gradient(180deg, rgba(0,224,138,.07), rgba(0,224,138,.02)); }
-    .contact-wrap { max-width:720px; margin: 0 auto; }
-    form { margin-top: 18px; display:grid; gap:12px; }
-    label { font-weight:700; }
-    input, textarea {
+    .contact-wrap{
+      border:1px solid rgba(11,11,11,.10);
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.80);
+      padding: 22px;
+      box-shadow: 0 18px 60px rgba(11,11,11,.08);
+    }
+    form{
+      margin-top: 14px;
+      display:grid;
+      gap: 12px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    label{ font-weight: 850; font-size: .92rem; }
+    input, textarea, select{
       width:100%;
-      background: rgba(11,11,11,.55);
-      color: var(--ivory);
-      border:1px solid rgba(255,250,240,.14);
-      border-radius:12px;
-      padding:12px 14px;
-      font:inherit;
-    }
-    input:focus, textarea:focus { outline:none; border-color: var(--vine); box-shadow: 0 0 0 3px rgba(0,224,138,.12); }
-    textarea { min-height: 140px; resize: vertical; }
-
-    .submit {
-      margin-top: 6px;
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:.6rem; padding: .85rem 1.2rem; border-radius: 10px;
-      border:1.5px solid var(--ink);
-      background: linear-gradient(135deg, #FF8C00, #EECC38);
+      border-radius: 14px;
+      border:1px solid rgba(11,11,11,.14);
+      background: rgba(255,255,255,.92);
+      padding: 12px 12px;
+      font: inherit;
       color: var(--ink);
-      font-weight: 900; text-transform: uppercase; letter-spacing:.3px;
-      cursor:pointer;
-      box-shadow:0 10px 26px rgba(238,204,56,.28);
-      transition: transform .15s ease, box-shadow .15s ease;
+      outline:none;
+      transition: box-shadow .15s ease, border-color .15s ease;
     }
-    .submit:hover { transform: translateY(-1px); box-shadow:0 14px 34px rgba(255,140,0,.35); }
+    textarea{ min-height: 140px; resize: vertical; }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(0,224,138,.55);
+      box-shadow: 0 0 0 4px rgba(0,224,138,.10);
+    }
+    .help{
+      margin-top: 8px;
+      color: var(--muted2);
+      font-weight: 650;
+      line-height: 1.5;
+    }
 
     /* Footer */
-    footer { padding: 36px 1rem; border-top: 1px solid rgba(255,250,240,.08); background: rgba(11,11,11,.6); }
-    .social { display:flex; gap:10px; justify-content:center; margin-bottom:10px; }
-    .chip { display:inline-flex; align-items:center; justify-content:center; height:32px; min-width:32px; padding:0; background:none; border:none; border-radius:0; }
-    .chip:hover { filter: brightness(1.1); }
-    .fine { text-align:center; opacity:.8; font-size:.9rem; color: var(--ivory); }
+    footer{
+      padding: 40px 0;
+      border-top: 1px solid rgba(11,11,11,.10);
+      background: rgba(255,255,255,.65);
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .social{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .icon{
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border:1px solid rgba(11,11,11,.12);
+      background: rgba(255,255,255,.92);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      text-decoration:none;
+    }
+    .icon:hover{
+      transform: translateY(-1px);
+      border-color: rgba(0,224,138,.55);
+      box-shadow: 0 14px 34px rgba(0,224,138,.10);
+    }
+    .fine{
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: .92rem;
+    }
 
     /* Accessibility helper */
-    .sr-only {
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-      clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
     }
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-wrap{ grid-template-columns: 1fr; padding-top: 84px; text-align:center; }
-      .hero-actions{ justify-content:center; }
-      .title::before{ filter: blur(4px); }
+      .navlinks{ display:none; }
+      .menu{ display:inline-flex; }
+      .mobile-panel.open{ display:block; }
+
+      .hero-grid{ grid-template-columns: 1fr; }
       .stats{ grid-template-columns: 1fr 1fr 1fr; }
-      .lanes{ grid-template-columns: 1fr; }
-      .why-grid{ grid-template-columns: 1fr; }
+      .lane-grid{ grid-template-columns: 1fr; }
+      .results-grid{ grid-template-columns: 1fr; }
       .steps{ grid-template-columns: 1fr 1fr; }
       .cap-grid{ grid-template-columns: 1fr; }
-      .menu-toggle { display:flex; }
-      .links {
-        display:none;
-        position:absolute; top:100%; left:0; right:0;
-        background: rgba(255,255,255,.98);
-        backdrop-filter: blur(8px);
-        flex-direction: column;
-        padding: 1rem;
-        gap: .5rem;
-        border-bottom: 1px solid rgba(11,11,11,.1);
-        box-shadow: 0 4px 12px rgba(11,11,11,.1);
-      }
-      .links.active { display:flex; }
-      .links a { padding: .8rem 1rem; border-radius: 8px; }
-      .links a:hover { background: rgba(0,224,138,.08); }
-      .links a.cta { margin-top: .5rem; }
-      .nav { position:relative; }
+      .cta-band{ flex-direction:column; align-items:flex-start; }
+      .cta-band .right{ width:100%; }
+      .cta-band .right .btn{ width:100%; }
     }
-    @media (max-width: 600px){
+    @media (max-width: 640px){
       .stats{ grid-template-columns: 1fr; }
-      .hero-actions .btn{ width: 100%; }
-      section{ padding: 84px 1rem; }
+      .row{ grid-template-columns: 1fr; }
+      .hero-actions .btn{ width:100%; }
+      .strip{ flex-direction:column; align-items:flex-start; }
+      .strip .right{ justify-content:flex-start; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wild-bg"></div>
-  <div class="canopy-shadows"></div>
+  <div class="bg"></div>
+  <div class="grain"></div>
 
   <!-- Header -->
   <header>
-    <nav class="nav">
-      <a class="brand" href="index.html" aria-label="Junglee Studios">
-        <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
-        <b>Studios</b>
-      </a>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Junglee Studios home">
+          <!-- Replace with your local logo file if you want: assets/logo.png -->
+          <img src="https://img1.wsimg.com/isteam/ip/cf28c12d-ad7e-4ee9-ada7-46f9d545b4e6/Junglee%20Logo%20vf_Artboard%201.png/:/rs=h:81,cg:true,m/qt=q:95" alt="Junglee Studios logo" />
+          <div class="wordmark">
+            <b>Junglee Studios</b>
+            <span>TikTok Shop & Social Commerce</span>
+          </div>
+        </a>
 
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+        <div class="navlinks" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="about-junglee.html">About</a>
+          <a href="brand-growth.html">For Brands</a>
+          <a href="for-creators.html">For Creators</a>
+          <a class="btn primary" href="#contact">Contact</a>
+        </div>
 
-      <div class="links">
+        <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span></span>
+        </button>
+      </nav>
+
+      <!-- Mobile panel -->
+      <div class="mobile-panel" id="mobilePanel">
         <a href="index.html">Home</a>
         <a href="about-junglee.html">About</a>
         <a href="brand-growth.html">For Brands</a>
         <a href="for-creators.html">For Creators</a>
-        <a class="cta" href="#contact">Contact</a>
+        <div class="mobile-cta">
+          <a class="btn primary" href="#contact">Contact</a>
+        </div>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-bg">
-      <img src="assets/logos/assets/JungleeHomeUpdate.jpg" alt="Junglee Studios hero image" loading="lazy">
-    </div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="pill"><span class="dot"></span> TikTok first • built for what’s next</div>
 
-    <div class="hero-wrap container">
-      <div class="hero-text">
-        <div class="kicker">TIKTOK FIRST <b>•</b> SOCIAL COMMERCE STUDIO</div>
+          <h1>
+            Creator-led commerce that <em>drives GMV</em>.
+          </h1>
 
-        <h1 class="title" data-text="Creator-led commerce that goes wild — and converts.">
-          Creator-led commerce that <em>goes wild</em> — and converts.
-        </h1>
+          <p class="lead">
+            Junglee Studios helps brands <strong>launch and scale on TikTok Shop</strong> with a repeatable system:
+            conversion-first storefronts, affiliate/creator programs, and content frameworks that ship daily.
+            <br><br>
+            TikTok is the proving ground—our systems translate into <strong>Amazon, YouTube, Walmart</strong>, and every platform adopting social commerce.
+          </p>
 
-        <p class="tagline">
-          We help brands launch, scale, and operationalize TikTok Shop—powered by creators, affiliates, and content systems built for repeatable revenue.
-        </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="brand-growth.html">For Brands</a>
+            <a class="btn" href="for-creators.html">For Creators</a>
+            <a class="btn" href="#contact">Book a Fit Check</a>
+          </div>
 
-        <p class="desc">
-          TikTok is the proving ground. The systems we build extend into Amazon, YouTube, Walmart, and every platform adopting social commerce next.
-        </p>
+          <div class="trust-row" aria-label="Trust indicators">
+            <span class="chip"><i></i> Official TikTok Shop Partner</span>
+            <span class="chip"><i></i> Affiliate Partner</span>
+            <span class="chip"><i></i> Creator Network</span>
+          </div>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="brand-growth.html">For Brands</a>
-          <a class="btn" href="for-creators.html">For Creators</a>
-          <a class="btn" href="#contact">Book a Fit Check</a>
+          <div class="proof-strip">
+            <div class="strip" aria-label="Categories and positioning">
+              <div class="left">Results across categories</div>
+              <div class="right">
+                <span class="tag"><i></i> Beauty</span>
+                <span class="tag"><i></i> Wellness</span>
+                <span class="tag"><i></i> Collectibles</span>
+                <span class="tag"><i></i> Apparel</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <aside class="proof-card" aria-label="Proof points">
+          <div class="proof-top">
+            <b>Built by platform + marketplace operators.</b>
+            <p>We don’t guess. We build systems brands can own—so performance compounds.</p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="num">$1.3B+</div>
+              <div class="lbl">Retail Sales Influenced</div>
+            </div>
+            <div class="stat">
+              <div class="num">1.5K+</div>
+              <div class="lbl">Sellers & Creators Supported</div>
+            </div>
+            <div class="stat">
+              <div class="num">$500M+</div>
+              <div class="lbl">Live Commerce GMV</div>
+            </div>
+          </div>
+        </aside>
       </div>
-
-      <aside class="hero-card" aria-label="Junglee Studios proof points">
-        <div class="stats">
-          <div class="stat">
-            <div class="num">$1.3B+</div>
-            <div class="label">Retail Sales Influenced</div>
-          </div>
-          <div class="stat">
-            <div class="num">1.5K+</div>
-            <div class="label">Sellers & Creators Supported</div>
-          </div>
-          <div class="stat">
-            <div class="num">$500M+</div>
-            <div class="label">Live Commerce GMV</div>
-          </div>
-        </div>
-        <p class="desc" style="margin-top:12px;">
-          Former platform + marketplace operators building systems where culture, content, and commerce collide.
-        </p>
-      </aside>
     </div>
   </section>
 
-  <!-- Two Lanes -->
-  <section class="two-lane">
+  <!-- Two lanes -->
+  <section class="section">
     <div class="container">
-      <h2 class="section-title"><span class="pill"></span> Two lanes. One engine.</h2>
-      <p class="muted" style="margin-top:12px; max-width:74ch;">
-        Junglee Studios runs the brand growth system and the creator/affiliate network that powers it—so both sides win.
+      <div class="pill"><span class="dot"></span> Two sides • one engine</div>
+      <h2 class="h2">Brands + creators. Managed as one system.</h2>
+      <p class="sub">
+        Most brands fail because storefront, offer, creators, and content aren’t connected.
+        Junglee runs both sides—so content becomes conversion, and creators scale with structure.
       </p>
 
-      <div class="lanes">
-        <div class="lane">
+      <div class="lane-grid">
+        <div class="card">
           <h3>For Brands</h3>
-          <p>Launch + scale on TikTok Shop with creator-led acquisition, storefront conversion, and internal team enablement.</p>
+          <p>Launch, optimize, and scale TikTok Shop with creator-led acquisition and conversion-first execution.</p>
           <ul class="bullets">
-            <li>Shop setup + readiness</li>
-            <li>Listings, offers, and conversion optimization</li>
-            <li>Affiliate & creator program management</li>
-            <li>Content frameworks (short-form + live)</li>
-            <li>Team training so you can own it</li>
+            <li>Shop setup + readiness (fast + correct)</li>
+            <li>Listings, offers, and storefront conversion</li>
+            <li>Affiliate & creator program build + management</li>
           </ul>
-          <div class="lane-actions">
+          <div class="actions">
             <a class="btn primary" href="brand-growth.html">Explore Brand Growth</a>
             <a class="btn" href="#contact">Request a Plan</a>
           </div>
         </div>
 
-        <div class="lane">
+        <div class="card">
           <h3>For Creators</h3>
-          <p>Join a structured affiliate network with product sets, samples, and daily content guidance—built to help you earn consistently.</p>
+          <p>Join a structured affiliate network with product sets, samples, and daily content guidance to earn consistently.</p>
           <ul class="bullets">
-            <li>Creator onboarding + product set access</li>
+            <li>Onboarding + product set access</li>
             <li>Samples & product deal workflow</li>
-            <li>Daily posting guidance + content education</li>
-            <li>Brand matching that fits your audience</li>
-            <li>Long-term relationships, not one-offs</li>
+            <li>Content lessons + posting system (daily)</li>
           </ul>
-          <div class="lane-actions">
+          <div class="actions">
             <a class="btn primary" href="for-creators.html">Join the Network</a>
             <a class="btn" href="#contact">Ask a Question</a>
           </div>
@@ -577,161 +898,248 @@
     </div>
   </section>
 
-  <!-- Why TikTok First -->
-  <section class="why">
+  <!-- How it works -->
+  <section class="section">
     <div class="container">
-      <h2 class="section-title"><span class="pill"></span> TikTok first. Built for what’s next.</h2>
+      <div class="pill"><span class="dot"></span> How we deliver</div>
+      <h2 class="h2">A simple system that scales.</h2>
+      <p class="sub">Clear steps. Weekly execution. Measurable progress. No chaos—just controlled wild.</p>
 
-      <div class="why-grid">
-        <div class="panel">
-          <h3>Why TikTok comes first</h3>
-          <p>
-            TikTok is where content, community, and checkout fully collide—making it the fastest place to validate offers, train a content engine,
-            and scale with affiliates.
-          </p>
-          <p>
-            The playbook you build here becomes your social commerce operating system—portable across platforms.
-          </p>
+      <div class="steps">
+        <div class="step">
+          <div class="n">01 • Diagnose</div>
+          <h4>Audit + priorities</h4>
+          <p>We find the blockers: offer, listings, content, affiliates, or ops—and map the fastest path to traction.</p>
+        </div>
+        <div class="step">
+          <div class="n">02 • Build</div>
+          <h4>Foundation + conversion</h4>
+          <p>Shop setup, catalog structure, listing upgrades, and an offer stack creators can sell.</p>
+        </div>
+        <div class="step">
+          <div class="n">03 • Activate</div>
+          <h4>Creator engine</h4>
+          <p>Affiliates, product sets, samples, and content prompts that ship daily—built for native TikTok performance.</p>
+        </div>
+        <div class="step">
+          <div class="n">04 • Scale</div>
+          <h4>Optimize + train</h4>
+          <p>We improve weekly and train your team so growth doesn’t depend on guesswork or one person.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results (swap placeholders with real wins as you get them) -->
+  <section class="section">
+    <div class="container">
+      <div class="pill"><span class="dot"></span> Results-first</div>
+      <h2 class="h2">Proof beats promises.</h2>
+      <p class="sub">
+        Not every partnership is public. Outcomes are. Replace these placeholders with your real numbers as you publish.
+      </p>
+
+      <div class="results-grid">
+        <div class="result">
+          <div class="k">Storefront + Listings</div>
+          <div class="m">+XX% CVR</div>
+          <div class="d">Conversion lift after restructuring listings, bundling offers, and tightening the storefront flow.</div>
+          <div class="meta">
+            <span class="badge"><i></i> 30 days</span>
+            <span class="badge"><i></i> TikTok Shop</span>
+          </div>
         </div>
 
-        <div class="panel">
-          <h3>Social commerce is expanding</h3>
-          <div class="platforms">
-            <div class="platform"><span class="dot"></span><div><b>Amazon</b><br><span>Influencer storefronts, shoppable video, creator partnerships.</span></div></div>
-            <div class="platform"><span class="dot"></span><div><b>YouTube</b><br><span>Shopping integrations, product tagging, live shopping momentum.</span></div></div>
-            <div class="platform"><span class="dot"></span><div><b>Walmart</b><br><span>Creator-led commerce experiments, livestream + social partnerships.</span></div></div>
-            <div class="platform"><span class="dot"></span><div><b>Others</b><br><span>Meta, Pinterest, and community platforms moving toward checkout + creators.</span></div></div>
+        <div class="result">
+          <div class="k">Affiliate Activation</div>
+          <div class="m">XX creators</div>
+          <div class="d">Creator onboarding + product sets + sample workflow leading to consistent daily product-linked content.</div>
+          <div class="meta">
+            <span class="badge"><i></i> 14 days</span>
+            <span class="badge"><i></i> TAP/MCN</span>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="k">Content System</div>
+          <div class="m">1/day</div>
+          <div class="d">A repeatable content framework (hooks, proof, offer, CTA) that makes daily posting sustainable.</div>
+          <div class="meta">
+            <span class="badge"><i></i> Always-on</span>
+            <span class="badge"><i></i> Creator-led</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How We Work -->
-  <section class="how">
+  <!-- Capabilities (compact, agency feel) -->
+  <section class="section">
     <div class="container">
-      <h2 class="section-title"><span class="pill"></span> How we work</h2>
-      <p class="muted" style="margin-top:12px; max-width:74ch;">
-        Clear systems, fast execution, and team enablement—so growth doesn’t depend on guessing.
+      <div class="pill"><span class="dot"></span> What we do</div>
+      <h2 class="h2">TikTok-first. Social commerce fluent.</h2>
+      <p class="sub">
+        We stay focused on TikTok where results happen now—while building systems that extend to Amazon, YouTube, Walmart, and beyond.
       </p>
 
-      <div class="steps">
-        <div class="step">
-          <div class="n">01 • Diagnose</div>
-          <h3>Audit + priorities</h3>
-          <p>We identify what’s blocking GMV: listings, offers, content, affiliates, or ops.</p>
+      <div class="cap-grid">
+        <div class="cap">
+          <h4>For Brands (TikTok Shop Growth)</h4>
+          <ul>
+            <li>Shop setup & infrastructure</li>
+            <li>Product + listing optimization</li>
+            <li>Affiliate & creator program management</li>
+            <li>Short-form + live shopping frameworks</li>
+            <li>Performance tracking + weekly optimization</li>
+            <li>Team training & enablement</li>
+          </ul>
+          <small>Want a 30/60/90 plan? Use the form below and we’ll respond with next steps.</small>
         </div>
-        <div class="step">
-          <div class="n">02 • Build</div>
-          <h3>Foundations</h3>
-          <p>Shop setup, catalog structure, conversion upgrades, and a creator-ready offer stack.</p>
-        </div>
-        <div class="step">
-          <div class="n">03 • Activate</div>
-          <h3>Creator engine</h3>
-          <p>Affiliates, product sets, samples, and content prompts that ship daily.</p>
-        </div>
-        <div class="step">
-          <div class="n">04 • Scale</div>
-          <h3>Optimize + train</h3>
-          <p>We improve performance weekly and train your team to own social commerce long-term.</p>
+
+        <div class="cap">
+          <h4>For Creators (Affiliate Network)</h4>
+          <ul>
+            <li>Onboarding + product sets</li>
+            <li>Samples & deal workflows</li>
+            <li>Daily posting guidance + lessons</li>
+            <li>Campaign access + brand matching</li>
+            <li>Content feedback to improve earnings</li>
+            <li>Community support (Discord)</li>
+          </ul>
+          <small>Creators win here with structure: clear prompts, consistency, and better offers.</small>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities -->
-  <section class="caps">
+  <!-- CTA band -->
+  <section class="section">
     <div class="container">
-      <h2 class="section-title"><span class="pill"></span> What we do</h2>
-
-      <div class="cap-grid">
-        <div class="cap">
-          <h3>Brand Growth (TikTok Shop)</h3>
-          <ul>
-            <li>TikTok Shop setup & infrastructure</li>
-            <li>Product & listing optimization</li>
-            <li>Affiliate & creator program management</li>
-            <li>Content strategy + conversion frameworks</li>
-            <li>Live shopping strategy (if applicable)</li>
-            <li>Performance tracking & optimization</li>
-            <li>Team training & enablement</li>
-          </ul>
-          <small>Want the full scope? We’ll map a 30/60/90 plan for your brand.</small>
+      <div class="cta-band" role="region" aria-label="Call to action">
+        <div>
+          <h3>Ready to build your TikTok Shop growth engine?</h3>
+          <p>Brands: get a fast audit and a plan. Creators: join the network and start earning with structure.</p>
         </div>
-
-        <div class="cap">
-          <h3>Creator & Affiliate Network</h3>
-          <ul>
-            <li>Affiliate onboarding & education</li>
-            <li>Product sets + linking support</li>
-            <li>Samples & product deal workflow</li>
-            <li>Daily posting guidance + content lessons</li>
-            <li>Brand matching & campaign access</li>
-            <li>Performance feedback to improve earnings</li>
-            <li>Community + support (Discord)</li>
-          </ul>
-          <small>Creators don’t guess here—we build repeatable content systems.</small>
+        <div class="right">
+          <a class="btn primary" href="#contact">Book a Fit Check</a>
+          <a class="btn" href="for-creators.html">Join as a Creator</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="container contact-wrap">
-      <h2 class="section-title"><span class="pill"></span> Contact</h2>
-      <p class="desc" style="margin-top:10px; max-width:60ch;">Tell us what you’re building. We’ll respond with the fastest path to traction.</p>
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="pill"><span class="dot"></span> Contact</div>
+      <h2 class="h2">Let’s get aligned.</h2>
+      <p class="sub">Tell us whether you’re a brand or creator, and what you’re trying to achieve. We’ll respond with the fastest path to traction.</p>
 
-      <form action="https://formspree.io/f/xrbyvkdd" method="POST" id="get-started-form" class="get-started-form">
-        <label for="input-name" class="sr-only">Name</label>
-        <input id="input-name" type="text" name="name" placeholder="Your Name" required>
+      <div class="contact-wrap">
+        <form action="https://formspree.io/f/xrbyvkdd" method="POST" id="contactForm">
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="_replyto" type="email" placeholder="you@company.com" required />
+            </div>
+          </div>
 
-        <label for="input-email" class="sr-only">Email</label>
-        <input id="input-email" type="email" name="_replyto" placeholder="Your Email" required>
+          <div class="row">
+            <div>
+              <label for="type">I’m a…</label>
+              <select id="type" name="inquiry_type" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="Brand">Brand</option>
+                <option value="Creator">Creator / Affiliate</option>
+                <option value="Partner">Partner</option>
+              </select>
+            </div>
+            <div>
+              <label for="platform">Primary focus</label>
+              <select id="platform" name="platform_focus" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="TikTok Shop">TikTok Shop</option>
+                <option value="Social Commerce Strategy">Social Commerce Strategy</option>
+                <option value="Creator Program">Creator / Affiliate Program</option>
+              </select>
+            </div>
+          </div>
 
-        <label for="input-message" class="sr-only">Tell us about your project</label>
-        <textarea id="input-message" name="message" placeholder="Tell us about your project" rows="4"></textarea>
+          <div>
+            <label for="message">What are you trying to accomplish?</label>
+            <textarea id="message" name="message" placeholder="Share your goals, category, current status, and what’s stuck." required></textarea>
+            <div class="help">If you’re a brand: include category + current monthly volume (rough). If you’re a creator: include handle + niche.</div>
+          </div>
 
-        <button type="submit" class="submit">Send →</button>
-      </form>
-
-      <div id="thankyou-message" style="display:none; margin-top:20px; color:#4CAF50; font-weight:600; font-size:1.1em; transition:opacity 0.5s ease;">
-        🎉 Thank you! We’ll be in touch soon.
+          <button class="btn primary" type="submit">Send →</button>
+          <div id="thanks" class="help" style="display:none; font-weight:850; color: rgba(0, 140, 70, .95);">
+            Thanks — we got it. We’ll be in touch soon.
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <div class="social">
-      <a class="chip" href="https://www.instagram.com/jungleestudios/" title="Instagram" target="_blank" rel="noreferrer">
-        <img src="IGIcon.png" alt="Instagram" width="24" height="24">
-      </a>
-      <a class="chip" href="https://www.facebook.com/JungleeStudios/" title="Facebook" target="_blank" rel="noreferrer">
-        <img src="FBIcon.png" alt="Facebook" width="24" height="24">
-      </a>
-      <a class="chip" href="https://www.tiktok.com/@jungleestudios" title="TikTok" target="_blank" rel="noreferrer">
-        <img src="TikTokIcon.png" alt="TikTok" width="24" height="24">
-      </a>
-      <a class="chip" href="https://www.linkedin.com/in/jatinjtpatel" title="LinkedIn" target="_blank" rel="noreferrer">
-        <img src="LinkedinIcon.png" alt="LinkedIn" width="24" height="24">
-      </a>
-    </div>
+    <div class="container">
+      <div class="foot">
+        <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
 
-    <p class="fine">&copy; 2025 Junglee Studios. All rights reserved.</p>
+        <div class="social" aria-label="Social links">
+          <!-- Replace icons with your local files if you prefer -->
+          <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <img src="IGIcon.png" alt="" width="18" height="18" />
+          </a>
+          <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <img src="FBIcon.png" alt="" width="18" height="18" />
+          </a>
+          <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
+            <img src="TikTokIcon.png" alt="" width="18" height="18" />
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <img src="LinkedinIcon.png" alt="" width="18" height="18" />
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuToggle = document.querySelector(".menu-toggle");
-      const navLinks = document.querySelector(".links");
-      if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
-        navLinks.querySelectorAll("a").forEach(link => {
-          link.addEventListener("click", () => navLinks.classList.remove("active"));
+    // Mobile menu
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      btn?.addEventListener('click', () => {
+        const open = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // Close menu on link click
+      panel?.querySelectorAll('a')?.forEach(a => {
+        a.addEventListener('click', () => {
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         });
-      }
-    });
+      });
+    })();
+
+    // Optional: show inline thank-you (Formspree still handles delivery)
+    (function(){
+      const form = document.getElementById('contactForm');
+      const thanks = document.getElementById('thanks');
+      if(!form) return;
+
+      form.addEventListener('submit', () => {
+        // Show message immediately (Formspree will redirect/return depending on your setup)
+        if(thanks) thanks.style.display = 'block';
+      });
+    })();
   </script>
 </body>
 </html>
