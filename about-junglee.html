@@ -299,10 +299,11 @@
       content:"";
       position:absolute;
       inset:0;
-      background: var(--hero-img);
-      background-repeat: no-repeat;
-      background-position: center top; /* try center, or 50% 35% */
-      background-size: cover;          /* keeps it full-bleed */
+      /* ✅ background image goes HERE */
+        background-image: var(--hero-img);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
       z-index: 0;
       filter: brightness(1.10) contrast(1.03) saturate(1.05);
       transform: scale(1.02);
