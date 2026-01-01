@@ -26,6 +26,7 @@
 
       --shadow: 0 18px 60px rgba(0,0,0,.45);
 
+      /* ✅ Hero image path (keep relative for GitHub Pages reliability) */
       --hero-img: url("assets/logos/assets/BrandgrowthUpdate.jpg");
     }
 
@@ -130,6 +131,7 @@
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
       box-shadow: none !important;
       outline: none;
+      cursor: pointer;
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -152,6 +154,15 @@
       background: #ffffff;
       color: #000;
       border: 1px solid rgba(255,255,255,.30);
+    }
+
+    /* ✅ Actions row */
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* Mobile menu */
@@ -268,66 +279,61 @@
     }
 
     /* =========================================
-       HERO — FULL IMAGE (no vertical cropping)
-       (Matched to your About page approach)
+       HERO — FIXED BACKGROUND IMAGE
+       ✅ Fix: use background-image on .hero (not ::before),
+       ✅ Fix: safe stacking (no negative z-index),
+       ✅ Fix: keep "contain" look (no crop), with dark fill.
     ========================================= */
     .hero{
       position: relative;
       overflow: hidden;
 
-      /* makes the hero feel full-height without clipping the image */
       min-height: calc(100svh - 72px);
       display: flex;
       align-items: center;
 
       padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
+
+      /* ✅ Background image goes here */
+      background-color: #000;
+      background-image: var(--hero-img);
+      background-repeat: no-repeat;
+      background-size: contain;         /* shows full image */
+      background-position: center top;  /* adjust if needed */
     }
+
+    /* Overlay to keep readability + fill letterbox areas */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-
-      background: var(--hero-img) no-repeat;
-      background-size: contain;          /* ✅ shows full image */
-      background-position: center top;   /* adjust if needed */
-
-      z-index: -3;
-      filter: brightness(1.08) contrast(1.03) saturate(1.05);
-      transform: none; /* avoid accidental cropping from scale */
+      background: rgba(0,0,0,.34);
+      pointer-events:none;
+      z-index: 1;
     }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
 
-      /* keeps letterbox areas clean + preserves readability */
-      background:
-        linear-gradient(rgba(0,0,0,.34), rgba(0,0,0,.34)),
-        #000;
-
-      z-index: -1;
-    }
+    /* Accent vignette on top of overlay */
     .hero .vignette{
       position:absolute;
       inset:0;
-      z-index: -1;
+      z-index: 1;
       pointer-events:none;
       background:
         radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
         radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
       opacity: .55;
     }
+
+    /* Ensure hero content is above overlays */
+    .hero > .container{
+      position: relative;
+      z-index: 2;
+    }
+
     .hero-grid{
       max-width: 920px;
       margin: 0 auto;
       text-align: center;
-    }
-    .actions{
-      margin-top: 18px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     /* Optional height tuning */
@@ -522,6 +528,7 @@
       .ctaStrip{ justify-content: center; text-align:center; }
 
       .hero{ min-height: calc(92svh - 72px); }
+      .hero{ background-position: center top; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -543,14 +550,13 @@
           />
           <div class="wm">
             <b>Studios</b>
-            <span>Brand Growth</span>
           </div>
         </a>
 
         <div class="navlinks" role="navigation">
           <a href="index.html">Home</a>
           <a href="about-junglee.html">About</a>
-          <a href="brand-growth.html">For Brands</a>
+          <a href="brand-growth.html" aria-current="page">For Brands</a>
           <a href="for-creators.html">For Creators</a>
           <a class="btn primary" href="index.html#contact">Contact</a>
         </div>
@@ -564,7 +570,7 @@
       <div class="mobile-panel" id="mobilePanel">
         <a href="index.html">Home</a>
         <a href="about-junglee.html">About</a>
-        <a href="brand-growth.html">For Brands</a>
+        <a href="brand-growth.html" aria-current="page">For Brands</a>
         <a href="for-creators.html">For Creators</a>
         <div class="mobile-cta">
           <a class="btn primary" href="index.html#contact">Contact</a>
@@ -739,38 +745,38 @@
       </p>
 
       <div class="logos">
-        <a class="logoTile" href="https://www.amazon.com/stores/Disney/page/EF081BE7-FC57-4715-9A43-440C8BAF0514?ref_=cm_sw_r_ud_ast_store_SGKJHWC105W2D9PB690S" target="_blank" rel="noopener">
-          <img src="/assets/logos/disneystore.png" alt="Disney Store logo">
+        <a class="logoTile" href="https://www.amazon.com/stores/Disney/page/EF081BE7-FC57-4715-9A43-440C8BAF0514?ref_=cm_sw_r_ud_ast_store_SGKJHWC105W2D9PB690S" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/disneystore.png" alt="Disney Store logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@kaleidoscreative" target="_blank" rel="noopener">
-          <img src="/assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
+        <a class="logoTile" href="https://www.tiktok.com/@kaleidoscreative" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@designercon" target="_blank" rel="noopener">
-          <img src="/assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
+        <a class="logoTile" href="https://www.tiktok.com/@designercon" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
         </a>
-        <a class="logoTile" href="https://www.amazon.com/stores/CollegeFlagsandBannersCompany/page/655F3861-96BC-4263-9F55-65435191CA09" target="_blank" rel="noopener">
-          <img src="/assets/logos/cfandb.png" alt="College Flags & Banners logo">
+        <a class="logoTile" href="https://www.amazon.com/stores/CollegeFlagsandBannersCompany/page/655F3861-96BC-4263-9F55-65435191CA09" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/cfandb.png" alt="College Flags & Banners logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@theballersbank" target="_blank" rel="noopener">
-          <img src="/assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
+        <a class="logoTile" href="https://www.tiktok.com/@theballersbank" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
         </a>
-        <a class="logoTile" href="https://www.amazon.com/stores/SABRENT/page/041540BA-3178-4FAB-86E7-84E10814815A" target="_blank" rel="noopener">
-          <img src="/assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
+        <a class="logoTile" href="https://www.amazon.com/stores/SABRENT/page/041540BA-3178-4FAB-86E7-84E10814815A" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@941sportscardsofficial" target="_blank" rel="noopener">
-          <img src="/assets/logos/idEJD4zXCD_logos.png" alt="941 Sports Cards logo">
+        <a class="logoTile" href="https://www.tiktok.com/@941sportscardsofficial" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/idEJD4zXCD_logos.png" alt="941 Sports Cards logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@dappzsports" target="_blank" rel="noopener">
-          <img src="/assets/logos/assets/logos/idPgIdg3WQ_logos.png" alt="Dappz Sports logo">
+        <a class="logoTile" href="https://www.tiktok.com/@dappzsports" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/assets/logos/idPgIdg3WQ_logos.png" alt="Dappz Sports logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@rip.n.hits" target="_blank" rel="noopener">
-          <img src="/assets/logos/idUS68ucvo_logos.png" alt="Rip N Hits logo">
+        <a class="logoTile" href="https://www.tiktok.com/@rip.n.hits" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/idUS68ucvo_logos.png" alt="Rip N Hits logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@xpcollect" target="_blank" rel="noopener">
-          <img src="/assets/logos/id_VvWb9vk_logos.png" alt="XP Collect logo">
+        <a class="logoTile" href="https://www.tiktok.com/@xpcollect" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/id_VvWb9vk_logos.png" alt="XP Collect logo">
         </a>
-        <a class="logoTile" href="https://www.tiktok.com/@ninetalestradingco" target="_blank" rel="noopener">
-          <img src="/assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
+        <a class="logoTile" href="https://www.tiktok.com/@ninetalestradingco" target="_blank" rel="noopener noreferrer">
+          <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
         </a>
       </div>
 
