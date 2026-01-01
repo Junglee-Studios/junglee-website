@@ -26,6 +26,7 @@
 
       --shadow: 0 18px 60px rgba(0,0,0,.45);
 
+      /* ✅ Keep relative path for GitHub Pages */
       --hero-img: url("assets/logos/assets/ForCreators.jpg");
     }
 
@@ -128,12 +129,15 @@
       text-decoration:none;
       white-space:nowrap;
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      box-shadow: none !important;
+      outline: none;
     }
     .btn:hover{
       transform: translateY(-1px);
       border-color: rgba(255,255,255,.30);
+      box-shadow: none !important;
     }
-    .btn:focus, .btn:active{ outline:none; box-shadow:none; }
+    .btn:focus, .btn:active{ outline:none; box-shadow:none !important; }
 
     .btn.primary{
       background: var(--accent);
@@ -149,6 +153,15 @@
       background: #ffffff;
       color: #000;
       border: 1px solid rgba(255,255,255,.30);
+    }
+
+    /* ✅ Actions row (you had it, keeping consistent) */
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* Mobile menu */
@@ -236,7 +249,7 @@
       line-height: 1.02;
       letter-spacing: -0.045em;
       font-weight: 950;
-      color: #ffffff; /* NOT transparent */
+      color: #ffffff;
       text-shadow: 0 14px 40px rgba(0,0,0,.55);
     }
     h2{
@@ -264,52 +277,59 @@
     }
 
     /* =========================================
-       HERO (match index/brand-growth)
+       HERO — ✅ SHOW FULL BACKGROUND IMAGE (NO CROP)
+       Change: use background-image on .hero + contain
+       (Same approach as your Brand Growth fix)
     ========================================= */
     .hero{
-      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
       position: relative;
       overflow: hidden;
+
+      min-height: calc(100svh - 72px);
+      display:flex;
+      align-items:center;
+
+      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
+
+      background-color: #000;
+      background-image: var(--hero-img);
+      background-repeat: no-repeat;
+      background-size: contain;         /* ✅ FULL IMAGE */
+      background-position: center top;  /* adjust if needed */
     }
+
+    /* Overlay (readability + clean letterbox areas) */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background: var(--hero-img);
-      background-size: cover;
-      background-position: center;
-      z-index: -3;
-      filter: brightness(1.10) contrast(1.03) saturate(1.05);
-      transform: scale(1.02);
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
       background: rgba(0,0,0,.32);
-      z-index: -1;
+      pointer-events:none;
+      z-index: 1;
     }
+
+    /* Accent vignette */
     .vignette{
       position:absolute;
       inset:0;
-      z-index: -1;
+      z-index: 1;
       pointer-events:none;
       background:
         radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
         radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
       opacity: .55;
     }
+
+    /* Ensure hero content sits above overlays */
+    .hero > .container{
+      position: relative;
+      z-index: 2;
+    }
+
     .hero-grid{
       max-width: 920px;
       margin: 0 auto;
       text-align: center;
-    }
-    .actions{
-      margin-top: 18px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     /* Trust chips (like index) */
@@ -382,7 +402,7 @@
       line-height: 1.6;
     }
 
-    /* White sections: BLACK cards w/ white text (your request) */
+    /* White sections: BLACK cards w/ white text */
     .section.light .card{
       background: #0b0f14;
       border: 1px solid rgba(0,0,0,.25);
@@ -500,6 +520,11 @@
       .grid2{ grid-template-columns: 1fr; }
       .actions .btn{ width: 100%; }
       .ctaStrip{ justify-content: center; text-align:center; }
+
+      .hero{
+        min-height: calc(92svh - 72px);
+        background-position: center top;
+      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -529,7 +554,7 @@
           <a href="index.html">Home</a>
           <a href="about-junglee.html">About</a>
           <a href="brand-growth.html">For Brands</a>
-          <a href="for-creators.html">For Creators</a>
+          <a href="for-creators.html" aria-current="page">For Creators</a>
           <a class="btn primary" href="index.html#contact">Contact</a>
         </div>
 
@@ -543,7 +568,7 @@
         <a href="index.html">Home</a>
         <a href="about-junglee.html">About</a>
         <a href="brand-growth.html">For Brands</a>
-        <a href="for-creators.html">For Creators</a>
+        <a href="for-creators.html" aria-current="page">For Creators</a>
         <div class="mobile-cta">
           <a class="btn primary" href="index.html#contact">Contact</a>
         </div>
