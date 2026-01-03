@@ -543,7 +543,22 @@
     /* =========================================
        Logos grid
     ========================================= */
-    /* PROOF logos — bring back pill/tile look (clean + organized) */
+ /* PROOF logos grid layout (forces multi-column so it won’t stack) */
+.logos{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 across desktop -> ~2 rows for ~11 logos */
+  gap: 18px;
+  align-items: center;
+}
+@media (max-width: 980px){
+  .logos{ grid-template-columns: repeat(3, 1fr); } /* 3 across tablet */
+}
+
+@media (max-width: 520px){
+  .logos{ grid-template-columns: repeat(2, 1fr); } /* 2 across mobile */
+}
+
 #brand-logos .logoTile{
   width: 100%;
   border-radius: 18px;
@@ -571,6 +586,14 @@
   opacity: .92;
 }
 
+/* PROOF section is LIGHT — make tiles crisp */
+#brand-logos.section.light .logoTile{
+  border: 1px solid rgba(0,0,0,.14);
+  background: #ffffff;
+}
+#brand-logos.section.light .logoTile:hover{
+  border-color: rgba(0,0,0,.22);
+}
 
 
     /* CTA strip */
