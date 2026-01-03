@@ -370,19 +370,14 @@
       border-color: rgba(255,255,255,.22);
     }
     .card h3{
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 950;
-      letter-spacing:-.02em;
-      color: #ffffff;
-    }
-    .card h3{
   margin: 0;
   font-size: 1.1rem;
   font-weight: 950;
   letter-spacing:-.02em;
   color: #ffffff;
 }
+
+
 
 /* =========================================
    What we offer – alternating heading colors
@@ -525,29 +520,6 @@
 .approach .cardHead .step{ margin-bottom:0; }
 .approach .cardHead h3{ margin:0; }
 
-/* WHY JUNGLEE — white pills on black background */
-.section:not(.light) .grid3 .card{
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,.12);
-  box-shadow: 0 18px 40px rgba(0,0,0,.25);
-}
-
-/* Text inside the pills */
-.section:not(.light) .grid3 .card h3{
-  color: #0b0f14;
-}
-
-.section:not(.light) .grid3 .card p{
-  color: rgba(11,15,20,.78);
-}
-/* Alternate heading colors for Why Junglee */
-.section:not(.light) .grid3 .card:nth-child(odd) h3{
-  color: var(--accent);
-}
-
-.section:not(.light) .grid3 .card:nth-child(even) h3{
-  color: var(--accent2);
-}
 
 /* WHY JUNGLEE — white pills on black background */
 #why-junglee .card{
@@ -571,40 +543,34 @@
     /* =========================================
        Logos grid
     ========================================= */
-    .logos{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 18px;
-      align-items: center;
-      justify-items: center;
-    }
-    /* PROOF logos — remove tile/pill styling */
-.logoTile{
+    /* PROOF logos — bring back pill/tile look (clean + organized) */
+#brand-logos .logoTile{
   width: 100%;
-  border-radius: 0;
-  border: none;
-  background: transparent;
-  padding: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  padding: 16px;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height: 0;
-  transition: transform .15s ease;
+  min-height: 88px;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
   box-shadow: none;
+  text-decoration: none;
 }
 
-.logoTile:hover{
+#brand-logos .logoTile:hover{
   transform: translateY(-2px);
-  box-shadow: none;
+  border-color: rgba(255,255,255,.26);
+  background: rgba(255,255,255,.08);
 }
 
-/* Keep logos consistent sizing */
-.logoTile img{
+#brand-logos .logoTile img{
   max-height: 44px;
   width: auto;
   opacity: .92;
 }
+
 
 
     /* CTA strip */
