@@ -460,11 +460,33 @@
   border: none;
   box-shadow: none;
   padding: 0;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 14px;
   text-align: center;
-  flex-direction: column;
-  gap: 12px;
+  flex-wrap: wrap; /* allows graceful wrap on mobile */
 }
+.approach .ctaStrip b{
+  white-space: nowrap;
+}
+/* Keep CTA text + button on one line until mobile */
+.approach .ctaStrip .actions{
+  margin-top: 0;
+  flex-wrap: nowrap;
+}
+
+    
+/* Card header row: step badge + title inline */
+.approach .cardHead{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+.approach .cardHead .step{ margin-bottom:0; }
+.approach .cardHead h3{ margin:0; }
+
 
 
     /* =========================================
@@ -681,8 +703,10 @@
 
       <div class="grid3">
   <div class="card">
-    <div class="step blue">01</div>
-    <h3>Strategy</h3>
+    <div class="cardHead">
+      <div class="step blue">01</div>
+      <h3>Strategy</h3>
+    </div>
     <ul>
       <li>TikTok Shop setup, compliance, and storefront structure</li>
       <li>Campaign planning, pricing, and offer architecture</li>
@@ -691,8 +715,10 @@
   </div>
 
   <div class="card">
-    <div class="step pink">02</div>
-    <h3>Content & Partnerships</h3>
+    <div class="cardHead">
+      <div class="step pink">02</div>
+      <h3>Content & Partnerships</h3>
+    </div>
     <ul>
       <li>Content direction for short-form and live selling</li>
       <li>Affiliate and creator partnership strategy</li>
@@ -701,8 +727,10 @@
   </div>
 
   <div class="card">
-    <div class="step blue">03</div>
-    <h3>Activation & Optimization</h3>
+    <div class="cardHead">
+      <div class="step blue">03</div>
+      <h3>Activation & Optimization</h3>
+    </div>
     <ul>
       <li>Video sales, live selling, and campaign execution</li>
       <li>Affiliate performance and paid amplification (where applicable)</li>
@@ -712,12 +740,14 @@
 </div>
 
 
-     <div class="ctaStrip">
-  <b>Want a clear 30-day plan?</b>
+
+   <div class="ctaStrip">
+  <b>Ready to map out your TikTok Shop strategy?</b>
   <div class="actions" style="margin-top:0;">
-    <a class="btn primary" href="index.html#contact">Request a Plan</a>
+    <a class="btn primary" href="index.html#contact">Book a Strategy Call</a>
   </div>
 </div>
+
 
     </div>
   </section>
