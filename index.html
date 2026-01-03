@@ -185,6 +185,10 @@
 
       .section{ padding: clamp(44px, 5vw, 72px) 0; }
 
+.section.tight-bottom{ padding-bottom: 28px; }
+.section.tight-top{ padding-top: 28px; }
+
+
       .section.light{
         background:#fff;
         color:#0b0f14;
@@ -348,31 +352,44 @@
         align-items:center;
         text-align:center;
       }
-      .hero-proof b{
-        font-weight:950;
-        letter-spacing:-.02em;
-        font-size:1.05rem;
-      }
+      .hero-proof-text{
+  margin:0;
+  font-weight:700;               /* ✅ less heavy than 950 */
+  letter-spacing:-.01em;
+  font-size:1.02rem;
+  color:rgba(255,255,255,.92);
+}
+
 
       .mini{
-        display:flex;
-        gap:12px;
-        flex-wrap:wrap;
-        justify-content:center;
-        font-weight:900;
-        font-size:1.02rem;
-        color:#fff;
-      }
-      .mini span{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        padding:.72rem 1rem;
-        border-radius:999px;
-        border:1px solid rgba(255,255,255,.22);
-        background:rgba(0,0,0,.35);
-        white-space:nowrap;
-      }
+  display:flex;
+  gap:12px;
+  flex-wrap:nowrap;              /* ✅ keep all 3 on one row (desktop) */
+  justify-content:center;
+  align-items:stretch;
+  font-weight:900;
+  font-size:1.15rem;             /* ✅ larger */
+  color:#fff;
+  width:100%;
+}
+
+.mini span{
+  flex:1 1 0;
+  min-width:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:.92rem 1rem;            /* ✅ single padding rule */
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.35);
+
+  white-space:normal;              /* ✅ allow wrap if needed */
+  text-align:center;
+  line-height:1.2;
+}
       .mini span:nth-child(1){ border-color: rgba(0,242,234,.55); }
       .mini span:nth-child(2){ border-color: rgba(255,45,154,.55); }
       .mini span:nth-child(3){ border-color: rgba(0,242,234,.55); }
@@ -532,16 +549,20 @@
       }
 
       @media (max-width: 980px){
-        header{ top: 0; } /* ✅ ensure no offset */
-        .navlinks{ display:none; }
-        .menu{ display:inline-flex; }
-        .grid3{ grid-template-columns:1fr; }
-        .grid2{ grid-template-columns:1fr; }
-        .row2{ grid-template-columns:1fr; }
-        .actions .btn{ width:100%; }
-        .mini{ font-size:1rem; }
-        .mini span{ width:100%; justify-content:center; }
-      }
+  header{ top: 0; }
+  .navlinks{ display:none; }
+  .menu{ display:inline-flex; }
+  .grid3{ grid-template-columns:1fr; }
+  .grid2{ grid-template-columns:1fr; }
+  .row2{ grid-template-columns:1fr; }
+  .actions .btn{ width:100%; }
+
+  .mini{ flex-wrap:wrap; font-size:1.05rem; }
+  .mini span{ width:100%; justify-content:center; }
+
+  .section.tight-bottom{ padding-bottom: 18px; }
+  .section.tight-top{ padding-top: 18px; }
+}
 
       @media (prefers-reduced-motion: reduce){
         *{ scroll-behavior:auto !important; transition:none !important; }
@@ -622,9 +643,9 @@
 
           <div class="hero-proof" aria-label="Performance proof">
       <div class="row">
-        <b>
-              Performance proof across social commerce—built through platform-native strategy, creator ecosystems, and conversion-first execution.
-        </b>
+        <p class="hero-proof-text">
+  Performance proof across social commerce—built through platform-native strategy, creator ecosystems, and conversion-first execution.
+</p>
         <div class="mini">
           <span><i></i> $1.3B+ D2C Sales</span>
           <span><i></i> 1.5K+ Sellers &amp; Creators Consulted</span>
@@ -645,7 +666,7 @@
     </section>
     
     <!-- WHO WE ARE (DARK or LIGHT—matches your theme) -->
-<section class="section light">
+<section class="section light tight-bottom">
   <div class="container">
     <div class="kicker"><i></i> Who we are</div>
     <h2>Built Inside TikTok Shop. Proven In-Market.</h2>
@@ -658,7 +679,7 @@
 </section>
 
     <!-- WHAT WE DO (WHITE) -->
-    <section class="section light">
+<section class="section light tight-top">
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
         <h2>Where Social Commerce Actually Converts</h2>
