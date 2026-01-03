@@ -376,10 +376,29 @@
       letter-spacing:-.02em;
       color: #ffffff;
     }
+    .card h3{
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 950;
+  letter-spacing:-.02em;
+  color: #ffffff;
+}
+
+/* =========================================
+   What we offer – alternating heading colors
+========================================= */
+#what-we-offer .card h3{
+  color: var(--accent);
+}
+
+#what-we-offer .card:nth-child(even) h3{
+  color: var(--accent2);
+}
+
     .card p{
       margin: 10px 0 0;
       color: rgba(255,255,255,.78);
-      font-weight: 650;
+      font-weight: 500;
       line-height: 1.6;
     }
     .card ul{
