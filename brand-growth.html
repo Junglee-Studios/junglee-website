@@ -419,6 +419,28 @@
     .step.blue{ background: rgba(0,242,234,.16); border-color: rgba(0,242,234,.34); }
     .step.pink{ background: rgba(255,45,154,.16); border-color: rgba(255,45,154,.34); }
 /* =========================================
+   What We Offer – punch line + spacing
+========================================= */
+
+/* Short punch line under card title */
+.card .subcopy{
+  margin: 10px 0 0;
+  font-weight: 900;
+  color: rgba(255,255,255,.92);
+}
+
+/* In white sections, cards are dark */
+.section.light .card .subcopy{
+  color: rgba(255,255,255,.92);
+}
+
+/* Tighten spacing between punch line and body copy */
+.card .subcopy + p{
+  margin-top: 10px;
+}
+
+    
+    /* =========================================
    APPROACH (Dark section, white cards)
 ========================================= */
 .approach .card{
@@ -756,33 +778,39 @@
 <section class="section light" id="what-we-offer">
     <div class="container">
       <div class="kicker"><i></i> What we offer</div>
-      <h2>Full-service management or targeted boosts.</h2>
-      <p class="lead">Pick the lane — we’ll meet you where you are.</p>
+      <h2>How we help brands win on TikTok Shop</h2>
+      <p class="lead">We don’t just manage TikTok Shop. We help you understand it, scale it, and own it long-term.</p>
 
       <div class="grid3">
         <div class="card">
-          <h3>Launch + Infrastructure</h3>
-          <p>Shop setup, compliance, shipping, catalog hygiene, and the foundation required to scale.</p>
+          <h3>TikTok Shop Foundation</h3>
+          <p class="subcopy">Launch with clarity — not trial and error.</p>
+          <p>We set up TikTok Shop the right way from day one, covering structure, compliance, catalog hygiene, and operational readiness so your team isn’t fixing mistakes while trying to scale.</p>
         </div>
         <div class="card">
-          <h3>Optimization + Conversion</h3>
-          <p>PDPs, bundles, pricing, offers, and storefront flow — tightened for TikTok conversion.</p>
+          <h3>Conversion & Storefront Strategy</h3>
+          <p class="subcopy">Turn traffic into revenue — consistently.</p>
+          <p>We refine PDPs, offers, bundles, pricing, and storefront flow based on how TikTok users actually shop — so views turn into orders, not vanity metrics.</p>
         </div>
         <div class="card">
-          <h3>Affiliate + Creator Program</h3>
-          <p>Recruiting, enablement, product sets, samples, and performance management.</p>
+          <h3>Affiliate & Partnership Strategy</h3>
+         <p class="subcopy">Build a creator ecosystem that performs.</p>
+          <p>We help you design and manage affiliate and creator partnerships that align with your brand, your margins, and your goals — not random outreach or unmanaged posting.</p>
         </div>
         <div class="card">
-          <h3>Content Frameworks</h3>
-          <p>Formats, scripts, and a posting system your team can run weekly — without burning out.</p>
+          <h3>Content Direction & Playbooks</h3>
+         <p class="subcopy">Give your team a repeatable way to win.</p>
+          <p>We don’t produce content for you — we give your team clear formats, frameworks, and examples so they know what to post, why it works, and how to improve it over time.</p>
         </div>
         <div class="card">
-          <h3>Live Selling Support</h3>
-          <p>Show structure, run-of-show, product sequencing, and conversion tactics for live GMV.</p>
+          <h3>Live Selling Strategy</h3>
+          <p class="subcopy">Turn live commerce into a real revenue channel.</p>
+          <p>From show structure to run-of-show, product sequencing, and host coaching, we help brands treat live selling like a performance channel — not an experiment.</p>
         </div>
         <div class="card">
-          <h3>Insights + Enablement</h3>
-          <p>Dashboards, reporting, and team training so you can own the system long-term.</p>
+          <h3>Reporting, Insights & Enablement</h3>
+          <p class="subcopy">Know what’s working — and why.</p>
+          <p>We provide clear reporting, insights, and team training so performance isn’t a black box. The goal is confidence, not dependence.</p>
         </div>
       </div>
     </div>
