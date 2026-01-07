@@ -548,7 +548,7 @@
     }
 
     /* =========================================
-       PACKAGES: Adjustments requested
+       PACKAGES
     ========================================= */
     .tierGrid{
       margin-top: 22px;
@@ -599,13 +599,14 @@
     }
     .tierCard:nth-child(even) .tierPill i{ background: var(--accent2); }
 
-    /* ✅ Small "For ..." line above Goal */
+    /* ✅ "For ..." line colors */
     .tierFor{
       margin: 6px 0 0;
-      color: rgba(255,255,255,.86);
-      font-weight: 750;
+      font-weight: 900;
       line-height: 1.45;
     }
+    .tierFor.blue{ color: var(--accent); }
+    .tierFor.pink{ color: var(--accent2); }
 
     .tierGoal{
       margin: 10px 0 0;
@@ -635,28 +636,45 @@
       line-height: 1.45;
     }
 
-    /* ✅ Ensure "Best for" and its bullets are WHITE text */
+    /* ✅ Ensure "Best for" and its bullets are WHITE text (fix sibling ul) */
     .tierBest{
       margin-top: 14px;
       border-top: 1px solid rgba(255,255,255,.12);
       padding-top: 14px;
       font-weight: 900;
-      color: #ffffff; /* force white */
+      color: #ffffff;
       letter-spacing:-.01em;
     }
-    .tierBest ul{
+    .tierBest + ul{
       margin: 10px 0 0;
       padding-left: 18px;
       display:grid;
       gap: 8px;
       font-size: .93rem;
       font-weight: 550;
-      color: rgba(255,255,255,.82); /* force readable */
+      color: rgba(255,255,255,.82);
       line-height: 1.45;
+    }
+    .tierBest + ul li{ color: rgba(255,255,255,.82); }
+
+    /* Fit matters line */
+    .fitNote{
+      max-width: 90ch;
+      margin: 18px auto 0;
+      text-align:center;
+      text-shadow:none;
+      font-size: .95rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.78);
+      line-height: 1.6;
+    }
+    .fitNote b{
+      font-weight: 700;
+      color: rgba(255,255,255,.88);
     }
 
     /* =========================================
-       SERVICES (LIGHT) — split from add-ons
+       SERVICES (LIGHT)
     ========================================= */
     .section.light .svcCard{
       background: #0b0f14;
@@ -672,6 +690,10 @@
       letter-spacing:-.02em;
       color:#ffffff;
     }
+    /* Heading colors per request */
+    .svcCard.blue h3{ color: var(--accent); }
+    .svcCard.pink h3{ color: var(--accent2); }
+
     .svcTagline{
       margin-top: 8px;
       font-weight: 850;
@@ -687,6 +709,8 @@
       font-weight: 650;
       line-height: 1.45;
     }
+
+    /* ✅ Ensure "Best for" and its bullets are WHITE text (fix sibling ul) */
     .svcBest{
       margin-top: 14px;
       border-top: 1px solid rgba(255,255,255,.12);
@@ -694,7 +718,7 @@
       font-weight: 900;
       color: rgba(255,255,255,.92);
     }
-    .svcBest ul{
+    .svcBest + ul{
       margin: 10px 0 0;
       padding-left: 18px;
       display:grid;
@@ -702,6 +726,7 @@
       font-weight: 650;
       color: rgba(255,255,255,.78);
     }
+    .svcBest + ul li{ color: rgba(255,255,255,.78); }
 
     /* Content Production sub-options */
     .subOptions{
@@ -710,7 +735,7 @@
       gap: 10px;
     }
 
-    /* ✅ Make these inner boxes WHITE (so they're not black-on-black) */
+    /* ✅ Inner boxes WHITE (not black-on-black) */
     .subBox{
       border-radius: 18px;
       border: 1px solid rgba(0,0,0,.12);
@@ -987,7 +1012,7 @@
       <div class="kicker"><i></i> Packages</div>
       <h2>Engagement tiers built for where you are today</h2>
       <p class="lead">
-        These tiers keep scope simple and outcomes clear. We’ll confirm the right fit based on category, goals, and internal resources.
+        These tiers keep it simple and outcomes clear. We’ll confirm the right fit based on category, goals, and internal resources.
       </p>
 
       <div class="tierGrid">
@@ -997,7 +1022,7 @@
             <span class="tierPill"><i></i> Launch</span>
           </div>
 
-          <p class="tierFor">For brands new to TikTok Shop or relaunching</p>
+          <p class="tierFor blue">For brands new to TikTok Shop or relaunching</p>
           <p class="tierGoal">Goal: Get live correctly, fast, and conversion-ready.</p>
 
           <div class="tierLabel">What’s included</div>
@@ -1016,6 +1041,10 @@
             <li>Brands testing social commerce</li>
             <li>Teams without in-house TikTok expertise</li>
           </ul>
+
+          <div class="actions" style="justify-content:flex-start;">
+            <a class="btn white" href="index.html#contact">Get Launched</a>
+          </div>
         </div>
 
         <!-- Growth -->
@@ -1024,7 +1053,7 @@
             <span class="tierPill"><i></i> Growth</span>
           </div>
 
-          <p class="tierFor">For brands ready to drive consistent sales</p>
+          <p class="tierFor pink">For brands ready to drive consistent sales</p>
           <p class="tierGoal">Goal: Build momentum, creator velocity, and repeatable GMV.</p>
 
           <div class="tierLabel">What’s included</div>
@@ -1044,6 +1073,10 @@
             <li>Founder-led teams that need structure</li>
             <li>Brands ready to lean into creators</li>
           </ul>
+
+          <div class="actions" style="justify-content:flex-start;">
+            <a class="btn white" href="index.html#contact">All about the Growth</a>
+          </div>
         </div>
 
         <!-- Scale -->
@@ -1052,7 +1085,7 @@
             <span class="tierPill"><i></i> Scale</span>
           </div>
 
-          <p class="tierFor">For brands serious about TikTok as a revenue channel</p>
+          <p class="tierFor blue">For brands serious about TikTok as a revenue channel</p>
           <p class="tierGoal">Goal: Turn TikTok Shop into a predictable growth engine.</p>
 
           <div class="tierLabel">What’s included</div>
@@ -1072,12 +1105,16 @@
             <li>Teams looking for aggressive growth</li>
             <li>Multi-SKU or multi-category sellers</li>
           </ul>
+
+          <div class="actions" style="justify-content:flex-start;">
+            <a class="btn white" href="index.html#contact">Time to Scale</a>
+          </div>
         </div>
       </div>
 
-      <!-- ✅ Fit matters note (no gray background, no button) -->
-      <p class="lead" style="max-width: 86ch; margin: 18px auto 0; text-align:center; text-shadow:none; color: rgba(255,255,255,.82);">
-        <b style="color:#fff;">Fit matters:</b> We typically work with brands where leadership is ready to treat TikTok Shop as a core revenue channel — not an experiment.
+      <!-- ✅ Fit matters (smaller, not bold) -->
+      <p class="fitNote">
+        <b>Fit matters:</b> We typically work with brands where leadership is ready to treat TikTok Shop as a core revenue channel — not an experiment.
       </p>
     </div>
   </section>
@@ -1086,14 +1123,14 @@
   <section class="section light" id="services">
     <div class="container">
       <div class="kicker"><i></i> Services</div>
-      <h2>Optional executions and standalone support</h2>
+      <h2>Optional execution and standalone support</h2>
       <p class="lead">
-        Some services plug into Launch/Growth/Scale. Others can be scoped as standalone support if you prefer to keep execution in-house.
+        Some services plug into Launch/Growth/Scale. Others can be set up as standalone support if you prefer to keep execution in-house.
       </p>
 
       <div class="grid3">
-        <!-- Live Selling -->
-        <div class="svcCard">
+        <!-- Live Selling (1st) -->
+        <div class="svcCard blue">
           <h3>Live Selling &amp; Real-Time Commerce</h3>
           <div class="svcTagline">Live streams that convert — not just entertain.</div>
           <ul class="svcList">
@@ -1112,27 +1149,8 @@
           </ul>
         </div>
 
-        <!-- Training (Standalone option) -->
-        <div class="svcCard">
-          <h3>Team Training &amp; Enablement</h3>
-          <div class="svcTagline">A standalone option if you want your team to own day-to-day.</div>
-          <ul class="svcList">
-            <li>Bi-weekly consulting &amp; strategy calls</li>
-            <li>TikTok Shop + social commerce playbooks</li>
-            <li>Team workflows &amp; operating cadence</li>
-            <li>Q&amp;A, troubleshooting, and best practices</li>
-            <li>Knowledge transfer so your team can run day-to-day</li>
-          </ul>
-          <div class="svcBest">Best for</div>
-          <ul>
-            <li>Brands with internal teams</li>
-            <li>Founder-led brands building in-house muscle</li>
-            <li>Long-term operators, not just outsourcers</li>
-          </ul>
-        </div>
-
-        <!-- Content Production -->
-        <div class="svcCard">
+        <!-- Content Production (2nd) -->
+        <div class="svcCard blue">
           <h3>Content Production</h3>
           <div class="svcTagline">Conversion-first content — built for TikTok Shop.</div>
           <ul class="svcList">
@@ -1160,10 +1178,29 @@
             <li>Launches, tentpoles, and always-on content engines</li>
           </ul>
         </div>
+
+        <!-- Team Training (3rd) -->
+        <div class="svcCard pink">
+          <h3>Team Training &amp; Enablement</h3>
+          <div class="svcTagline">A standalone option if you want your team to own day-to-day.</div>
+          <ul class="svcList">
+            <li>Bi-weekly consulting &amp; strategy calls</li>
+            <li>TikTok Shop + social commerce playbooks</li>
+            <li>Team workflows &amp; operating cadence</li>
+            <li>Q&amp;A, troubleshooting, and best practices</li>
+            <li>Knowledge transfer so your team can run day-to-day</li>
+          </ul>
+          <div class="svcBest">Best for</div>
+          <ul>
+            <li>Brands with internal teams</li>
+            <li>Founder-led brands building in-house muscle</li>
+            <li>Long-term operators, not just outsourcers</li>
+          </ul>
+        </div>
       </div>
 
       <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center;">
-        <b>Want a scoped plan based on your goals?</b>
+        <b>Want a tailored plan based on your goals?</b>
         <div class="actions" style="margin-top:0; justify-content:center;">
           <a class="btn primary" href="index.html#contact">Request a build-out</a>
         </div>
