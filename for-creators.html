@@ -342,6 +342,8 @@
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.07);
       backdrop-filter: blur(10px);
+      /* ✅ Make hero pill text white (not gray) */
+      color: #ffffff;
     }
     .chip i{
       width: 10px; height: 10px;
@@ -444,12 +446,21 @@
     .mini:nth-child(even) b{ color: var(--accent2); }
 
     /* =========================================
-       Creator Support: WHITE pills + alternating heading colors
+       Creator Support: make CARDS white; make SUPPORT PILL dark (opposite)
     ========================================= */
     #creator-support .card{
       position: relative;
       padding-top: 62px; /* room for the pill */
+      /* ✅ White "translucent pills" (cards) on dark bg */
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
     }
+    /* Text on white cards */
+    #creator-support .card p{ color: rgba(11,15,20,.78); text-shadow:none; }
+    #creator-support .card ul{ color: rgba(11,15,20,.78); }
+    #creator-support .card li{ color: rgba(11,15,20,.78); }
+
     .supportPill{
       position:absolute;
       top: 18px;
@@ -459,9 +470,10 @@
       gap: 10px;
       padding: .55rem .8rem;
       border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid rgba(255,255,255,.65);
-      color: #000000;
+      /* ✅ Opposite of white cards: dark pill */
+      background: rgba(11,15,20,.92);
+      border: 1px solid rgba(11,15,20,.20);
+      color: #ffffff;
       font-weight: 950;
       font-size: .9rem;
       letter-spacing: -.01em;
@@ -475,7 +487,7 @@
     }
     #creator-support .card:nth-child(even) .supportPill i{ background: var(--accent2); }
 
-    /* Headings alternate */
+    /* Headings alternate (still) */
     #creator-support .card h3{ color: var(--accent) !important; }
     #creator-support .card:nth-child(even) h3{ color: var(--accent2) !important; }
 
@@ -505,27 +517,31 @@
       font-weight: 650;
     }
 
-    /* Creator network CTA: left-justify "Want in?" + button side-by-side */
+    /* ✅ Network CTA: Want in? + button right next to each other, left aligned */
     .ctaStrip.networkCta{
       justify-content: flex-start;
       text-align: left;
-      gap: 12px;
+      gap: 10px;
     }
-    .ctaStrip.networkCta .networkRow{
+    .ctaStrip.networkCta .networkTop{
       display:flex;
       align-items:center;
       gap: 12px;
       flex-wrap: wrap;
     }
-    .ctaStrip.networkCta .networkText{
-      display:flex;
-      flex-direction:column;
-      gap: 6px;
+    .ctaStrip.networkCta small{
+      margin-top: 0;
     }
-    .ctaStrip.networkCta .actions{
+
+    /* ✅ Services CTA: left aligned like rest */
+    .ctaStrip.servicesCta{
+      justify-content: flex-start;
+      text-align: left;
+      gap: 12px;
+    }
+    .ctaStrip.servicesCta .actions{
       margin-top: 0;
       justify-content: flex-start;
-      flex-wrap: nowrap;
     }
 
     /* =========================================
@@ -586,12 +602,10 @@
 
       .ctaStrip{ justify-content: center; text-align:center; }
 
-      .ctaStrip.networkCta{
+      .ctaStrip.networkCta,
+      .ctaStrip.servicesCta{
         justify-content: flex-start;
         text-align: left;
-      }
-      .ctaStrip.networkCta .actions{
-        flex-wrap: wrap;
       }
 
       .hero{
@@ -708,16 +722,13 @@
         </div>
       </div>
 
+      <!-- ✅ Updated: Want in? + button right next to each other (left aligned) -->
       <div class="ctaStrip networkCta" style="margin-top:22px;">
-        <div class="networkRow">
-          <div class="networkText">
-            <b>Want in?</b>
-            <small>Apply once. We’ll send next steps + what to do first.</small>
-          </div>
-          <div class="actions">
-            <a class="btn pink" href="index.html#contact">Apply to Join</a>
-          </div>
+        <div class="networkTop">
+          <b>Want in?</b>
+          <a class="btn pink" href="index.html#contact">Apply to Join</a>
         </div>
+        <small>Apply once. We’ll send next steps + what to do first.</small>
       </div>
     </div>
   </section>
@@ -829,11 +840,11 @@
         </div>
       </div>
 
-      <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center;">
+      <!-- ✅ Updated: left aligned + removed "Ask a Question" -->
+      <div class="ctaStrip servicesCta" style="margin-top:22px;">
         <b>Ready to run a real system?</b>
-        <div class="actions" style="margin-top:0; justify-content:center;">
+        <div class="actions">
           <a class="btn pink" href="index.html#contact">Apply to Join</a>
-          <a class="btn primary" href="index.html#contact">Ask a Question</a>
         </div>
       </div>
     </div>
