@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Creators — Junglee Studios</title>
-  <meta name="description" content="Join Junglee Studios' creator network. Get product sets, samples, daily content guidance, and campaigns that help you monetize consistently." />
+  <meta name="description" content="Join Junglee Studios' creator network. Get products, samples, daily posting guidance, and creator support that helps you earn consistently." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     :root{
       --paper: #000000;                 /* PURE BLACK */
       --text: #ffffff;                  /* solid white */
-      --muted: #d6d6d6;                 /* solid light gray */
+      --muted: rgba(255,255,255,.78);
       --border: rgba(255,255,255,.12);
 
       --accent: #00f2ea;                /* neon blue */
@@ -240,7 +240,7 @@
 
     h1{
       margin: 14px 0 0;
-      font-size: clamp(2.25rem, 4.6vw, 3.4rem);
+      font-size: clamp(2.25rem, 4.6vw, 3.35rem);
       line-height: 1.02;
       letter-spacing: -0.045em;
       font-weight: 950;
@@ -257,7 +257,7 @@
     .lead{
       margin-top: 14px;
       max-width: 72ch;
-      color: #ffffff;
+      color: var(--muted);
       font-weight: 650;
       line-height: 1.65;
       text-shadow: 0 10px 28px rgba(0,0,0,.45);
@@ -272,7 +272,7 @@
     }
 
     /* =========================================
-       HERO — centered fix
+       HERO
     ========================================= */
     .hero{
       position: relative;
@@ -305,9 +305,9 @@
       z-index: 1;
       pointer-events:none;
       background:
-        radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
-        radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
-      opacity: .55;
+        radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.12), transparent 60%),
+        radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.10), transparent 60%);
+      opacity: .6;
     }
 
     .hero > .container{
@@ -316,32 +316,28 @@
     }
 
     .hero-grid{
-      max-width: 920px;
+      max-width: 940px;
       margin: 0 auto;
       text-align: center;
     }
 
-    /* ✅ Fix off-centered lead in hero */
-    .hero .lead{
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .hero .lead{ margin-left:auto; margin-right:auto; }
 
-    /* Chips */
+    /* Fun highlight chips */
     .chips{
       margin-top: 18px;
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
-      font-weight: 800;
-      font-size: .93rem;
+      font-weight: 900;
+      font-size: .92rem;
     }
     .chip{
       display:inline-flex;
       align-items:center;
       gap: 10px;
-      padding: .6rem .75rem;
+      padding: .6rem .78rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.07);
@@ -350,12 +346,13 @@
     .chip i{
       width: 10px; height: 10px;
       border-radius: 999px;
-      background: var(--accent2);
+      background: var(--accent);
       display:inline-block;
     }
+    .chip:nth-child(even) i{ background: var(--accent2); }
 
     /* =========================================
-       Grids + Cards
+       Cards / Layout
     ========================================= */
     .grid3{
       margin-top: 22px;
@@ -391,17 +388,16 @@
     }
     .card p{
       margin: 10px 0 0;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.80);
       font-weight: 650;
       line-height: 1.6;
     }
-
     .card ul{
       margin: 12px 0 0;
       padding-left: 18px;
       display:grid;
       gap: 8px;
-      color: rgba(255,255,255,.82);
+      color: rgba(255,255,255,.84);
       font-weight: 650;
     }
     .card li{ line-height: 1.45; }
@@ -412,12 +408,40 @@
       box-shadow: 0 18px 40px rgba(0,0,0,.14);
     }
     .section.light .card h3{ color:#ffffff; }
-    .section.light .card p{ color: rgba(255,255,255,.78); }
-    .section.light .card ul{ color: rgba(255,255,255,.82); }
+    .section.light .card p{ color: rgba(255,255,255,.80); }
+    .section.light .card ul{ color: rgba(255,255,255,.84); }
 
-    /* Alternate headings for "Creator services" */
-    #creator-services .card h3{ color: var(--accent) !important; }
-    #creator-services .card:nth-child(even) h3{ color: var(--accent2) !important; }
+    /* =========================================
+       "At a glance" fun blocks (simple + digestible)
+    ========================================= */
+    .miniGrid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .mini{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 14px;
+      text-align:center;
+    }
+    .mini b{
+      display:block;
+      font-weight: 950;
+      letter-spacing:-.02em;
+      margin-bottom: 6px;
+    }
+    .mini span{
+      color: rgba(255,255,255,.78);
+      font-weight: 650;
+      font-size: .92rem;
+      line-height: 1.35;
+      display:block;
+    }
+    .mini:nth-child(odd) b{ color: var(--accent); }
+    .mini:nth-child(even) b{ color: var(--accent2); }
 
     /* =========================================
        Creator Support: WHITE pills + alternating heading colors
@@ -426,7 +450,6 @@
       position: relative;
       padding-top: 62px; /* room for the pill */
     }
-
     .supportPill{
       position:absolute;
       top: 18px;
@@ -482,7 +505,7 @@
       font-weight: 650;
     }
 
-    /* ✅ Creator network CTA: left-justify "Want in?" + button side-by-side */
+    /* Creator network CTA: left-justify "Want in?" + button side-by-side */
     .ctaStrip.networkCta{
       justify-content: flex-start;
       text-align: left;
@@ -493,12 +516,6 @@
       align-items:center;
       gap: 12px;
       flex-wrap: wrap;
-    }
-    .ctaStrip.networkCta b{
-      display:inline-block;
-    }
-    .ctaStrip.networkCta small{
-      margin-top: 0;
     }
     .ctaStrip.networkCta .networkText{
       display:flex;
@@ -563,13 +580,12 @@
 
       .grid3{ grid-template-columns: 1fr; }
       .grid2{ grid-template-columns: 1fr; }
+      .miniGrid{ grid-template-columns: 1fr 1fr; }
 
       .actions .btn{ width: 100%; }
 
-      /* default strips centered on mobile unless overridden */
       .ctaStrip{ justify-content: center; text-align:center; }
 
-      /* keep network CTA left + button near heading */
       .ctaStrip.networkCta{
         justify-content: flex-start;
         text-align: left;
@@ -640,23 +656,29 @@
       <div class="hero-grid">
         <div class="kicker"><i></i> For Creators</div>
 
-        <h1>Grow your audience. Monetize consistently. Pick brands that fit.</h1>
+        <h1>Post smarter. Earn more. Keep it fun.</h1>
 
         <p class="lead">
-          Junglee Studios connects creators with product sets, samples, and a daily posting system —
-          so you’re not guessing what to post or how to earn.
+          We help creators pick the right products, build a simple daily posting rhythm,
+          and improve what converts — so income becomes consistent (not random).
         </p>
 
-        <!-- ✅ Only 2 CTAs -->
         <div class="actions">
           <a class="btn pink" href="index.html#contact">Apply to Join</a>
-          <a class="btn primary" href="#how-it-works">See How It Works</a>
+          <a class="btn primary" href="#how-it-works">See What You Get</a>
         </div>
 
         <div class="chips" aria-label="Creator perks">
-          <span class="chip"><i></i> Product sets + samples</span>
-          <span class="chip"><i></i> Daily posting system</span>
+          <span class="chip"><i></i> Products + samples</span>
+          <span class="chip"><i></i> Daily posting rhythm</span>
           <span class="chip"><i></i> Coaching + reviews</span>
+        </div>
+
+        <div class="miniGrid" aria-label="At a glance">
+          <div class="mini"><b>Free</b><span>No cost to join</span></div>
+          <div class="mini"><b>Pick</b><span>Promote what you want</span></div>
+          <div class="mini"><b>Post</b><span>Simple daily system</span></div>
+          <div class="mini"><b>Earn</b><span>Performance-based</span></div>
         </div>
       </div>
     </div>
@@ -665,33 +687,32 @@
   <!-- CREATOR NETWORK (WHITE) -->
   <section class="section light" id="how-it-works">
     <div class="container">
-      <div class="kicker"><i></i> Creator network</div>
+      <div class="kicker"><i></i> The network</div>
       <h2>Built for creators who want consistency — not one-off hits.</h2>
-      <p class="lead">You focus on creating. We help you pick the right products, stay consistent, and scale what converts.</p>
+      <p class="lead">You create. We help with direction, products, support, and momentum.</p>
 
       <div class="grid3">
         <div class="card">
           <h3>Free to Join</h3>
-          <p>There’s no cost to join the Junglee Studios affiliate network. Creators are evaluated on content quality, consistency, and alignment.</p>
+          <p>No cost. We review creators based on content quality, consistency, and fit.</p>
         </div>
 
         <div class="card">
           <h3>Earn Through Performance</h3>
-          <p>Earn commissions by promoting products you genuinely want to create content for. Revenue share and commission structures are handled internally — so you can focus on content, not admin.</p>
+          <p>Earn commissions by promoting products you actually want to post. We handle the admin so you can focus on creating.</p>
         </div>
 
         <div class="card">
           <h3>Support Included</h3>
-          <p>Coaching, reporting, live guidance, platform support, and product workflows — all designed to make earning repeatable.</p>
+          <p>Coaching, reviews, live guidance, platform help, and product workflows — designed to make earning repeatable.</p>
         </div>
       </div>
 
-      <!-- ✅ Left-justified + "Want in?" and button side-by-side -->
       <div class="ctaStrip networkCta" style="margin-top:22px;">
         <div class="networkRow">
           <div class="networkText">
             <b>Want in?</b>
-            <small>Apply once. Get access to product sets, support, and the daily system.</small>
+            <small>Apply once. We’ll send next steps + what to do first.</small>
           </div>
           <div class="actions">
             <a class="btn pink" href="index.html#contact">Apply to Join</a>
@@ -705,40 +726,40 @@
   <section class="section" id="creator-support">
     <div class="container">
       <div class="kicker"><i></i> Creator support</div>
-      <h2>Everything that helps you earn more — and stress less.</h2>
-      <p class="lead">This is a system: products, content direction, and feedback loops that get better over time.</p>
+      <h2>More help. Less guessing.</h2>
+      <p class="lead">Quick wins, weekly improvements, and a system you can keep running.</p>
 
       <div class="grid3">
         <div class="card">
           <div class="supportPill"><i></i> Content</div>
-          <h3>Content Coaching &amp; Creative Guidance</h3>
-          <p>Frameworks, feedback, and best practices for product videos, storytelling, and live content.</p>
+          <h3>Content Coaching</h3>
+          <p>Simple frameworks + feedback so your product videos get better fast.</p>
           <ul>
-            <li>Hooks, structure, and CTA improvements</li>
-            <li>Product-video frameworks that convert</li>
-            <li>Storytelling + proof formats for your niche</li>
+            <li>Hooks, structure, and CTAs</li>
+            <li>Product video formats that convert</li>
+            <li>Story + proof templates</li>
           </ul>
         </div>
 
         <div class="card">
           <div class="supportPill"><i></i> Analytics</div>
-          <h3>Analytics, Reviews &amp; Reporting</h3>
-          <p>Insights into what’s working, what to improve, and how to scale content that converts.</p>
+          <h3>Reviews &amp; Reporting</h3>
+          <p>Know what’s working (and what to repeat) so you stop wasting posts.</p>
           <ul>
-            <li>Performance reviews (what to repeat)</li>
-            <li>Content iteration notes (what to fix)</li>
-            <li>Trend + offer feedback (when to lean in)</li>
+            <li>Performance reviews</li>
+            <li>What to fix / what to keep</li>
+            <li>Scale the winners</li>
           </ul>
         </div>
 
         <div class="card">
           <div class="supportPill"><i></i> Live + Platform</div>
-          <h3>Live + Platform Support</h3>
-          <p>Training on live formats, structure, performance optimization — plus help navigating policy issues.</p>
+          <h3>Live &amp; Platform Help</h3>
+          <p>Support for going live + navigating flags, policy, and account health.</p>
           <ul>
-            <li>Live selling support &amp; coaching</li>
-            <li>Violation support &amp; account health guidance</li>
-            <li>Campaign readiness + execution tips</li>
+            <li>Live formats + structure</li>
+            <li>Violation support &amp; guidance</li>
+            <li>Campaign readiness tips</li>
           </ul>
         </div>
       </div>
@@ -746,70 +767,70 @@
       <div class="grid2">
         <div class="card">
           <div class="supportPill"><i></i> Products</div>
-          <h3>Campaigns, Products &amp; Samples</h3>
-          <p>Access to product sets, brand campaigns, and sampling workflows — so you can create with confidence.</p>
+          <h3>Products &amp; Samples</h3>
+          <p>Access to products, brand campaigns, and sampling workflows (brand-dependent).</p>
           <ul>
-            <li>Product set access + linking guidance</li>
-            <li>Sampling workflow (brand-dependent)</li>
-            <li>Brand matching based on fit + content style</li>
+            <li>Product access + linking guidance</li>
+            <li>Sampling workflow when available</li>
+            <li>Brand matching based on fit</li>
           </ul>
         </div>
 
         <div class="card">
           <div class="supportPill"><i></i> Optional</div>
-          <h3>Optional Growth &amp; Coaching (Future)</h3>
-          <p>Advanced coaching, deeper analytics, and structured education tiers may be offered over time — always optional.</p>
+          <h3>Optional Growth (Future)</h3>
+          <p>Deeper coaching and structured education may be offered over time — always optional.</p>
           <ul>
-            <li>Deeper performance breakdowns</li>
             <li>Advanced content labs</li>
-            <li>Structured education tracks</li>
+            <li>Deeper performance breakdowns</li>
+            <li>Structured learning tracks</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CREATOR SERVICES (WHITE) -->
+  <!-- SIMPLE SERVICES (WHITE) -->
   <section class="section light" id="creator-services">
     <div class="container">
-      <div class="kicker"><i></i> Creator services</div>
-      <h2>A simple system you can actually stick to.</h2>
-      <p class="lead">Three lanes of support — so you know exactly where to focus.</p>
+      <div class="kicker"><i></i> What we help you do</div>
+      <h2>Three lanes. Super simple.</h2>
+      <p class="lead">Pick your focus — we’ll help you run it consistently.</p>
 
       <div class="grid3">
         <div class="card">
-          <h3>Monetization Framework</h3>
+          <h3>Monetize</h3>
           <ul>
             <li>Affiliate onboarding</li>
-            <li>Product access &amp; samples</li>
+            <li>Pick products that fit your niche</li>
             <li>Commission optimization</li>
-            <li>Brand matching</li>
+            <li>Campaign participation</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Content Coaching</h3>
+          <h3>Create</h3>
           <ul>
             <li>Daily posting guidance</li>
             <li>Product video frameworks</li>
             <li>Discord-based education</li>
-            <li>Story + proof + CTA improvements</li>
+            <li>Content feedback loop</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Growth &amp; Consistency</h3>
+          <h3>Grow</h3>
           <ul>
-            <li>Campaign participation</li>
+            <li>Repeatable momentum system</li>
             <li>Performance reviews</li>
-            <li>Scaling income (not one-off hits)</li>
-            <li>Repeatable content that converts</li>
+            <li>Scale income (not one-off hits)</li>
+            <li>Build what converts</li>
           </ul>
         </div>
       </div>
 
       <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center;">
-        <b>Ready to join the network?</b>
+        <b>Ready to run a real system?</b>
         <div class="actions" style="margin-top:0; justify-content:center;">
           <a class="btn pink" href="index.html#contact">Apply to Join</a>
           <a class="btn primary" href="index.html#contact">Ask a Question</a>
