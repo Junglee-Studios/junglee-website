@@ -89,11 +89,6 @@
       letter-spacing: -0.01em;
       color: #ffffff;
     }
-    .wm span{
-      font-size: .85rem;
-      font-weight: 650;
-      color: rgba(255,255,255,.55);
-    }
 
     .navlinks{
       display:flex;
@@ -131,6 +126,7 @@
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
       box-shadow: none !important;
       outline: none;
+      cursor: pointer;
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -155,7 +151,6 @@
       border: 1px solid rgba(255,255,255,.30);
     }
 
-    /* ✅ Actions row (you had it, keeping consistent) */
     .actions{
       margin-top: 18px;
       display:flex;
@@ -213,7 +208,7 @@
     .mobile-panel.open{ display:block; }
 
     /* =========================================
-       Sections + White break sections
+       Sections
     ========================================= */
     .section{
       padding: clamp(44px, 5vw, 72px) 0;
@@ -277,9 +272,7 @@
     }
 
     /* =========================================
-       HERO — ✅ SHOW FULL BACKGROUND IMAGE (NO CROP)
-       Change: use background-image on .hero + contain
-       (Same approach as your Brand Growth fix)
+       HERO — centered fix
     ========================================= */
     .hero{
       position: relative;
@@ -291,13 +284,12 @@
 
       padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
 
-     background-image: var(--hero-img);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+      background-image: var(--hero-img);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
 
-    /* Overlay (readability + clean letterbox areas) */
     .hero::before{
       content:"";
       position:absolute;
@@ -307,7 +299,6 @@
       z-index: 1;
     }
 
-    /* Accent vignette */
     .vignette{
       position:absolute;
       inset:0;
@@ -319,7 +310,6 @@
       opacity: .55;
     }
 
-    /* Ensure hero content sits above overlays */
     .hero > .container{
       position: relative;
       z-index: 2;
@@ -331,7 +321,13 @@
       text-align: center;
     }
 
-    /* Trust chips (like index) */
+    /* ✅ Fix off-centered lead in hero */
+    .hero .lead{
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Chips */
     .chips{
       margin-top: 18px;
       display:flex;
@@ -374,7 +370,6 @@
       gap: 14px;
     }
 
-    /* Dark cards default */
     .card{
       border-radius: var(--r-xl);
       border: 1px solid rgba(255,255,255,.12);
@@ -401,7 +396,16 @@
       line-height: 1.6;
     }
 
-    /* White sections: BLACK cards w/ white text */
+    .card ul{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display:grid;
+      gap: 8px;
+      color: rgba(255,255,255,.82);
+      font-weight: 650;
+    }
+    .card li{ line-height: 1.45; }
+
     .section.light .card{
       background: #0b0f14;
       border: 1px solid rgba(0,0,0,.25);
@@ -409,37 +413,11 @@
     }
     .section.light .card h3{ color:#ffffff; }
     .section.light .card p{ color: rgba(255,255,255,.78); }
+    .section.light .card ul{ color: rgba(255,255,255,.82); }
 
-    /* =========================================
-       Step cards (clean)
-    ========================================= */
-    .step{
-      border-radius: var(--r-xl);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      padding: 20px;
-      box-shadow: 0 18px 60px rgba(0,0,0,.28);
-    }
-    .section.light .step{
-      background: #0b0f14;
-      border: 1px solid rgba(0,0,0,.25);
-      box-shadow: 0 18px 40px rgba(0,0,0,.14);
-    }
-    .stepNum{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      font-weight: 950;
-      margin-bottom: 10px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.16);
-      color: #ffffff;
-    }
-    .stepNum.blue{ background: rgba(0,242,234,.16); border-color: rgba(0,242,234,.34); }
-    .stepNum.pink{ background: rgba(255,45,154,.16); border-color: rgba(255,45,154,.34); }
+    /* Alternate headings for "Creator services" */
+    #creator-services .card h3{ color: var(--accent) !important; }
+    #creator-services .card:nth-child(even) h3{ color: var(--accent2) !important; }
 
     /* CTA strip */
     .ctaStrip{
@@ -466,7 +444,7 @@
     }
 
     /* =========================================
-       Footer (match index)
+       Footer
     ========================================= */
     footer{
       padding: 32px 0;
@@ -517,6 +495,7 @@
 
       .grid3{ grid-template-columns: 1fr; }
       .grid2{ grid-template-columns: 1fr; }
+
       .actions .btn{ width: 100%; }
       .ctaStrip{ justify-content: center; text-align:center; }
 
@@ -589,126 +568,162 @@
           so you’re not guessing what to post or how to earn.
         </p>
 
+        <!-- ✅ Only 2 CTAs -->
         <div class="actions">
           <a class="btn pink" href="index.html#contact">Apply to Join</a>
-          <a class="btn primary" href="index.html#contact">Get Product Sets</a>
-          <a class="btn white" href="index.html#contact">Ask a Question</a>
+          <a class="btn primary" href="#how-it-works">See How It Works</a>
         </div>
 
         <div class="chips" aria-label="Creator perks">
-          <span class="chip"><i></i> Product sets + linking help</span>
-          <span class="chip"><i></i> Samples + deal workflow</span>
-          <span class="chip"><i></i> Daily content guidance</span>
+          <span class="chip"><i></i> Product sets + samples</span>
+          <span class="chip"><i></i> Daily posting system</span>
+          <span class="chip"><i></i> Coaching + reviews</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT WE OFFER (WHITE) -->
-  <section class="section light">
+  <!-- CREATOR NETWORK (WHITE) -->
+  <section class="section light" id="how-it-works">
     <div class="container">
-      <div class="kicker"><i></i> What you get</div>
-      <h2>Everything you need to earn daily.</h2>
-      <p class="lead">Simple support that makes content + commerce sustainable.</p>
+      <div class="kicker"><i></i> Creator network</div>
+      <h2>Built for creators who want consistency — not one-off hits.</h2>
+      <p class="lead">You focus on creating. We help you pick the right products, stay consistent, and scale what converts.</p>
 
       <div class="grid3">
         <div class="card">
-          <h3>Platform Guidance</h3>
-          <p>We help you find product sets, link products, and avoid the common setup mistakes that kill earnings.</p>
+          <h3>Free to Join</h3>
+          <p>There’s no cost to join the Junglee Studios affiliate network. Creators are evaluated on content quality, consistency, and alignment.</p>
         </div>
+
         <div class="card">
-          <h3>Creator-Brand Matching</h3>
-          <p>We connect you with brands that align with your niche and audience so content stays authentic.</p>
+          <h3>Earn Through Performance</h3>
+          <p>Earn commissions by promoting products you genuinely want to create content for. Revenue share and commission structures are handled internally — so you can focus on content, not admin.</p>
         </div>
+
         <div class="card">
-          <h3>Revenue Opportunities</h3>
-          <p>Affiliate commissions, campaign pushes, and structured opportunities — with clear expectations.</p>
+          <h3>Support Included</h3>
+          <p>Coaching, reporting, live guidance, platform support, and product workflows — all designed to make earning repeatable.</p>
         </div>
       </div>
 
-      <div class="grid2">
-        <div class="card">
-          <h3>Content System</h3>
-          <p>Repeatable formats + prompts so you can post daily without burning out (hook, proof, offer, CTA).</p>
-        </div>
-        <div class="card">
-          <h3>Performance Feedback</h3>
-          <p>We help you spot what’s working, improve conversion, and double down on winning formats.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES (DARK) -->
-  <section class="section">
-    <div class="container">
-      <div class="kicker"><i></i> Services</div>
-      <h2>Support built for creators who want consistency.</h2>
-      <p class="lead">
-        Whether you’re new or experienced, we help you run a real system — not random posts.
-      </p>
-
-      <div class="grid3">
-        <div class="card">
-          <h3>Monetization + Partnerships</h3>
-          <p>Brand opportunities, campaign guidance, and help positioning your content to convert.</p>
-        </div>
-        <div class="card">
-          <h3>Content Strategy</h3>
-          <p>Hooks, scripts, and formats that match your niche and drive clicks + purchases.</p>
-        </div>
-        <div class="card">
-          <h3>Growth + Analytics</h3>
-          <p>Feedback loops so you improve weekly and scale what’s already working.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS (WHITE) -->
-  <section class="section light">
-    <div class="container">
-      <div class="kicker"><i></i> How it works</div>
-      <h2>Four steps. No confusion.</h2>
-      <p class="lead">We keep it simple so you can start earning faster.</p>
-
-      <div class="grid2">
-        <div class="step">
-          <div class="stepNum pink">1</div>
-          <h3 style="margin:0; color:#ffffff; font-weight:950;">Apply</h3>
-          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
-            Share your handle, niche, and what you like to promote.
-          </p>
-        </div>
-        <div class="step">
-          <div class="stepNum blue">2</div>
-          <h3 style="margin:0; color:#ffffff; font-weight:950;">Get Product Sets</h3>
-          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
-            We help you find the right products + link them correctly.
-          </p>
-        </div>
-        <div class="step">
-          <div class="stepNum pink">3</div>
-          <h3 style="margin:0; color:#ffffff; font-weight:950;">Request Samples</h3>
-          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
-            Learn the sample workflow so you can create real product content.
-          </p>
-        </div>
-        <div class="step">
-          <div class="stepNum blue">4</div>
-          <h3 style="margin:0; color:#ffffff; font-weight:950;">Post Daily</h3>
-          <p style="margin-top:10px; color:rgba(255,255,255,.78); font-weight:650; line-height:1.6;">
-            Follow our daily posting guidance — one product video per day to build momentum.
-          </p>
-        </div>
-      </div>
-
-      <div class="ctaStrip" style="margin-top:22px;">
+      <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center; gap:12px;">
         <div>
-          <b style="display:block;">Want to start today?</b>
-          <small>Apply and we’ll send next steps for product sets, samples, and daily posting.</small>
+          <b style="display:block;">Want in?</b>
+          <small>Apply once. Get access to product sets, support, and the daily system.</small>
         </div>
-        <div class="actions" style="margin-top:0;">
+        <div class="actions" style="margin-top:0; justify-content:center;">
+          <a class="btn pink" href="index.html#contact">Apply to Join</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR SUPPORT (DARK) -->
+  <section class="section" id="creator-support">
+    <div class="container">
+      <div class="kicker"><i></i> Creator support</div>
+      <h2>Everything that helps you earn more — and stress less.</h2>
+      <p class="lead">This is a system: products, content direction, and feedback loops that get better over time.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Content Coaching &amp; Creative Guidance</h3>
+          <p>Frameworks, feedback, and best practices for product videos, storytelling, and live content.</p>
+          <ul>
+            <li>Hooks, structure, and CTA improvements</li>
+            <li>Product-video frameworks that convert</li>
+            <li>Storytelling + proof formats for your niche</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Analytics, Reviews &amp; Reporting</h3>
+          <p>Insights into what’s working, what to improve, and how to scale content that converts.</p>
+          <ul>
+            <li>Performance reviews (what to repeat)</li>
+            <li>Content iteration notes (what to fix)</li>
+            <li>Trend + offer feedback (when to lean in)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Live + Platform Support</h3>
+          <p>Training on live formats, structure, performance optimization — plus help navigating policy issues.</p>
+          <ul>
+            <li>Live selling support &amp; coaching</li>
+            <li>Violation support &amp; account health guidance</li>
+            <li>Campaign readiness + execution tips</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Campaigns, Products &amp; Samples</h3>
+          <p>Access to product sets, brand campaigns, and sampling workflows — so you can create with confidence.</p>
+          <ul>
+            <li>Product set access + linking guidance</li>
+            <li>Sampling workflow (brand-dependent)</li>
+            <li>Brand matching based on fit + content style</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Optional Growth &amp; Coaching (Future)</h3>
+          <p>Advanced coaching, deeper analytics, and structured education tiers may be offered over time — always optional.</p>
+          <ul>
+            <li>Deeper performance breakdowns</li>
+            <li>Advanced content labs</li>
+            <li>Structured education tracks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR SERVICES (WHITE) -->
+  <section class="section light" id="creator-services">
+    <div class="container">
+      <div class="kicker"><i></i> Creator services</div>
+      <h2>A simple system you can actually stick to.</h2>
+      <p class="lead">Three lanes of support — so you know exactly where to focus.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Monetization Framework</h3>
+          <ul>
+            <li>Affiliate onboarding</li>
+            <li>Product access &amp; samples</li>
+            <li>Commission optimization</li>
+            <li>Brand matching</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Content Coaching</h3>
+          <ul>
+            <li>Daily posting guidance</li>
+            <li>Product video frameworks</li>
+            <li>Discord-based education</li>
+            <li>Story + proof + CTA improvements</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Growth &amp; Consistency</h3>
+          <ul>
+            <li>Campaign participation</li>
+            <li>Performance reviews</li>
+            <li>Scaling income (not one-off hits)</li>
+            <li>Repeatable content that converts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center;">
+        <b>Ready to join the network?</b>
+        <div class="actions" style="margin-top:0; justify-content:center;">
           <a class="btn pink" href="index.html#contact">Apply to Join</a>
           <a class="btn primary" href="index.html#contact">Ask a Question</a>
         </div>
