@@ -776,3 +776,872 @@
   </script>
 </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Creators — Junglee Studios</title>
+  <meta name="description" content="Join Junglee Studios' creator network. Get product sets, samples, daily content guidance, and campaigns that help you monetize consistently." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --paper: #000000;                 /* PURE BLACK */
+      --text: #ffffff;                  /* solid white */
+      --muted: #d6d6d6;                 /* solid light gray */
+      --border: rgba(255,255,255,.12);
+
+      --accent: #00f2ea;                /* neon blue */
+      --accent2: #ff2d9a;               /* hot pink */
+
+      --container: 1120px;
+      --pad: 24px;
+      --r-xl: 28px;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+
+      /* ✅ Keep relative path for GitHub Pages */
+      --hero-img: url("assets/logos/assets/CreatorPage.jpeg");
+    }
+
+    *{ box-sizing:border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+    a{ color: inherit; }
+    img{ display:block; max-width:100%; }
+
+    .container{
+      width: min(var(--container), calc(100% - (2 * var(--pad))));
+      margin: 0 auto;
+    }
+
+    /* =========================================
+       Header (match index)
+    ========================================= */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #000000;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      text-decoration:none;
+      min-width: 220px;
+    }
+    .brand img.logo{
+      height: 38px;
+      max-height: 38px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
+    }
+    .wm{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.05;
+    }
+    .wm b{
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+    }
+
+    .navlinks{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .navlinks a{
+      text-decoration:none;
+      font-weight: 750;
+      font-size: .95rem;
+      color: rgba(255,255,255,.85);
+      padding: .55rem .65rem;
+      border-radius: 12px;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .navlinks a:hover{
+      background: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+
+    /* Buttons (NO glow anywhere) */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: .9rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration:none;
+      white-space:nowrap;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      box-shadow: none !important;
+      outline: none;
+      cursor: pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.30);
+      box-shadow: none !important;
+    }
+    .btn:focus, .btn:active{ outline:none; box-shadow:none !important; }
+
+    .btn.primary{
+      background: var(--accent);
+      color: #000;
+      border: none;
+    }
+    .btn.pink{
+      background: var(--accent2);
+      color: #000;
+      border: none;
+    }
+    .btn.white{
+      background: #ffffff;
+      color: #000;
+      border: 1px solid rgba(255,255,255,.30);
+    }
+
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Mobile menu */
+    .menu{
+      display:none;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+    }
+    .menu span{
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.92);
+      border-radius: 2px;
+      position: relative;
+    }
+    .menu span:before,
+    .menu span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.92);
+      border-radius:2px;
+    }
+    .menu span:before{ top: -6px; }
+    .menu span:after{ top: 6px; }
+
+    .mobile-panel{
+      display:none;
+      padding: 10px 0 18px;
+    }
+    .mobile-panel a{
+      display:block;
+      text-decoration:none;
+      padding: 12px 10px;
+      border-radius: 14px;
+      font-weight: 850;
+      color: rgba(255,255,255,.88);
+    }
+    .mobile-panel a:hover{ background: rgba(255,255,255,.08); }
+    .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
+    .mobile-panel.open{ display:block; }
+
+    /* =========================================
+       Sections
+    ========================================= */
+    .section{
+      padding: clamp(44px, 5vw, 72px) 0;
+    }
+    .section.light{
+      background: #ffffff;
+      color: #0b0f14;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .kicker i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      display:inline-block;
+    }
+
+    .section.light .kicker{ color: rgba(11,15,20,.55); }
+    .section.light .kicker i{ background: var(--accent2); }
+
+    h1{
+      margin: 14px 0 0;
+      font-size: clamp(2.25rem, 4.6vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 950;
+      color: #ffffff;
+      text-shadow: 0 14px 40px rgba(0,0,0,.55);
+    }
+    h2{
+      margin: 14px 0 0;
+      font-size: clamp(1.55rem, 2.6vw, 2.05rem);
+      font-weight: 950;
+      letter-spacing: -.03em;
+    }
+
+    .lead{
+      margin-top: 14px;
+      max-width: 72ch;
+      color: #ffffff;
+      font-weight: 650;
+      line-height: 1.65;
+      text-shadow: 0 10px 28px rgba(0,0,0,.45);
+    }
+
+    .section.light h2,
+    .section.light h3{ color: #0b0f14; }
+    .section.light .lead,
+    .section.light p{
+      color: rgba(11,15,20,.78);
+      text-shadow: none;
+    }
+
+    /* =========================================
+       HERO — centered fix
+    ========================================= */
+    .hero{
+      position: relative;
+      overflow: hidden;
+
+      min-height: calc(100svh - 72px);
+      display:flex;
+      align-items:center;
+
+      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
+
+      background-image: var(--hero-img);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.32);
+      pointer-events:none;
+      z-index: 1;
+    }
+
+    .vignette{
+      position:absolute;
+      inset:0;
+      z-index: 1;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
+        radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
+      opacity: .55;
+    }
+
+    .hero > .container{
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grid{
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ✅ Fix off-centered lead in hero */
+    .hero .lead{
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Chips */
+    .chips{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .93rem;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: .6rem .75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+    }
+    .chip i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent2);
+      display:inline-block;
+    }
+
+    /* =========================================
+       Grids + Cards
+    ========================================= */
+    .grid3{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid2{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 20px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+    }
+    .card h3{
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 950;
+      letter-spacing:-.02em;
+      color: #ffffff;
+    }
+    .card p{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.78);
+      font-weight: 650;
+      line-height: 1.6;
+    }
+
+    .card ul{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display:grid;
+      gap: 8px;
+      color: rgba(255,255,255,.82);
+      font-weight: 650;
+    }
+    .card li{ line-height: 1.45; }
+
+    .section.light .card{
+      background: #0b0f14;
+      border: 1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+    }
+    .section.light .card h3{ color:#ffffff; }
+    .section.light .card p{ color: rgba(255,255,255,.78); }
+    .section.light .card ul{ color: rgba(255,255,255,.82); }
+
+    /* Alternate headings for "Creator services" */
+    #creator-services .card h3{ color: var(--accent) !important; }
+    #creator-services .card:nth-child(even) h3{ color: var(--accent2) !important; }
+
+    /* =========================================
+       Creator Support: WHITE pills + alternating heading colors
+    ========================================= */
+    #creator-support .card{
+      position: relative;
+      padding-top: 62px; /* room for the pill */
+    }
+
+    .supportPill{
+      position:absolute;
+      top: 18px;
+      left: 18px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: .55rem .8rem;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,.65);
+      color: #000000;
+      font-weight: 950;
+      font-size: .9rem;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+    .supportPill i{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      display:inline-block;
+    }
+    #creator-support .card:nth-child(even) .supportPill i{ background: var(--accent2); }
+
+    /* Headings alternate */
+    #creator-support .card h3{ color: var(--accent) !important; }
+    #creator-support .card:nth-child(even) h3{ color: var(--accent2) !important; }
+
+    /* =========================================
+       CTA strip
+    ========================================= */
+    .ctaStrip{
+      margin-top: 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap: wrap;
+    }
+    .ctaStrip b{
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .ctaStrip small{
+      display:block;
+      margin-top: 6px;
+      color: rgba(255,255,255,.72);
+      font-weight: 650;
+    }
+
+    /* ✅ Creator network CTA: left-justify "Want in?" + button side-by-side */
+    .ctaStrip.networkCta{
+      justify-content: flex-start;
+      text-align: left;
+      gap: 12px;
+    }
+    .ctaStrip.networkCta .networkRow{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .ctaStrip.networkCta b{
+      display:inline-block;
+    }
+    .ctaStrip.networkCta small{
+      margin-top: 0;
+    }
+    .ctaStrip.networkCta .networkText{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+    .ctaStrip.networkCta .actions{
+      margin-top: 0;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+    }
+
+    /* =========================================
+       Footer
+    ========================================= */
+    footer{
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: #000000;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .fine{
+      color: rgba(255,255,255,.55);
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .01em;
+    }
+    .social{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .icon{
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      padding: 0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      opacity: .7;
+      transition: opacity .15s ease, transform .15s ease;
+      text-decoration:none;
+    }
+    .icon:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .navlinks{ display:none; }
+      .menu{ display:inline-flex; }
+
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+
+      .actions .btn{ width: 100%; }
+
+      /* default strips centered on mobile unless overridden */
+      .ctaStrip{ justify-content: center; text-align:center; }
+
+      /* keep network CTA left + button near heading */
+      .ctaStrip.networkCta{
+        justify-content: flex-start;
+        text-align: left;
+      }
+      .ctaStrip.networkCta .actions{
+        flex-wrap: wrap;
+      }
+
+      .hero{
+        min-height: calc(92svh - 72px);
+        background-position: center top;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      * { scroll-behavior:auto !important; transition:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Junglee Studios home">
+          <img
+            src="assets/logos/assets/Junglee Studios - without black shadow.png"
+            alt="Junglee Studios logo"
+            class="logo"
+          />
+          <div class="wm">
+            <b>Studios</b>
+          </div>
+        </a>
+
+        <div class="navlinks" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="about-junglee.html">About</a>
+          <a href="brand-growth.html">For Brands</a>
+          <a href="for-creators.html" aria-current="page">For Creators</a>
+          <a class="btn primary" href="index.html#contact">Contact</a>
+        </div>
+
+        <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span></span>
+        </button>
+      </nav>
+
+      <!-- Mobile panel -->
+      <div class="mobile-panel" id="mobilePanel">
+        <a href="index.html">Home</a>
+        <a href="about-junglee.html">About</a>
+        <a href="brand-growth.html">For Brands</a>
+        <a href="for-creators.html" aria-current="page">For Creators</a>
+        <div class="mobile-cta">
+          <a class="btn primary" href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="vignette" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="kicker"><i></i> For Creators</div>
+
+        <h1>Grow your audience. Monetize consistently. Pick brands that fit.</h1>
+
+        <p class="lead">
+          Junglee Studios connects creators with product sets, samples, and a daily posting system —
+          so you’re not guessing what to post or how to earn.
+        </p>
+
+        <!-- ✅ Only 2 CTAs -->
+        <div class="actions">
+          <a class="btn pink" href="index.html#contact">Apply to Join</a>
+          <a class="btn primary" href="#how-it-works">See How It Works</a>
+        </div>
+
+        <div class="chips" aria-label="Creator perks">
+          <span class="chip"><i></i> Product sets + samples</span>
+          <span class="chip"><i></i> Daily posting system</span>
+          <span class="chip"><i></i> Coaching + reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR NETWORK (WHITE) -->
+  <section class="section light" id="how-it-works">
+    <div class="container">
+      <div class="kicker"><i></i> Creator network</div>
+      <h2>Built for creators who want consistency — not one-off hits.</h2>
+      <p class="lead">You focus on creating. We help you pick the right products, stay consistent, and scale what converts.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Free to Join</h3>
+          <p>There’s no cost to join the Junglee Studios affiliate network. Creators are evaluated on content quality, consistency, and alignment.</p>
+        </div>
+
+        <div class="card">
+          <h3>Earn Through Performance</h3>
+          <p>Earn commissions by promoting products you genuinely want to create content for. Revenue share and commission structures are handled internally — so you can focus on content, not admin.</p>
+        </div>
+
+        <div class="card">
+          <h3>Support Included</h3>
+          <p>Coaching, reporting, live guidance, platform support, and product workflows — all designed to make earning repeatable.</p>
+        </div>
+      </div>
+
+      <!-- ✅ Left-justified + "Want in?" and button side-by-side -->
+      <div class="ctaStrip networkCta" style="margin-top:22px;">
+        <div class="networkRow">
+          <div class="networkText">
+            <b>Want in?</b>
+            <small>Apply once. Get access to product sets, support, and the daily system.</small>
+          </div>
+          <div class="actions">
+            <a class="btn pink" href="index.html#contact">Apply to Join</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR SUPPORT (DARK) -->
+  <section class="section" id="creator-support">
+    <div class="container">
+      <div class="kicker"><i></i> Creator support</div>
+      <h2>Everything that helps you earn more — and stress less.</h2>
+      <p class="lead">This is a system: products, content direction, and feedback loops that get better over time.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="supportPill"><i></i> Content</div>
+          <h3>Content Coaching &amp; Creative Guidance</h3>
+          <p>Frameworks, feedback, and best practices for product videos, storytelling, and live content.</p>
+          <ul>
+            <li>Hooks, structure, and CTA improvements</li>
+            <li>Product-video frameworks that convert</li>
+            <li>Storytelling + proof formats for your niche</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="supportPill"><i></i> Analytics</div>
+          <h3>Analytics, Reviews &amp; Reporting</h3>
+          <p>Insights into what’s working, what to improve, and how to scale content that converts.</p>
+          <ul>
+            <li>Performance reviews (what to repeat)</li>
+            <li>Content iteration notes (what to fix)</li>
+            <li>Trend + offer feedback (when to lean in)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="supportPill"><i></i> Live + Platform</div>
+          <h3>Live + Platform Support</h3>
+          <p>Training on live formats, structure, performance optimization — plus help navigating policy issues.</p>
+          <ul>
+            <li>Live selling support &amp; coaching</li>
+            <li>Violation support &amp; account health guidance</li>
+            <li>Campaign readiness + execution tips</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="supportPill"><i></i> Products</div>
+          <h3>Campaigns, Products &amp; Samples</h3>
+          <p>Access to product sets, brand campaigns, and sampling workflows — so you can create with confidence.</p>
+          <ul>
+            <li>Product set access + linking guidance</li>
+            <li>Sampling workflow (brand-dependent)</li>
+            <li>Brand matching based on fit + content style</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="supportPill"><i></i> Optional</div>
+          <h3>Optional Growth &amp; Coaching (Future)</h3>
+          <p>Advanced coaching, deeper analytics, and structured education tiers may be offered over time — always optional.</p>
+          <ul>
+            <li>Deeper performance breakdowns</li>
+            <li>Advanced content labs</li>
+            <li>Structured education tracks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR SERVICES (WHITE) -->
+  <section class="section light" id="creator-services">
+    <div class="container">
+      <div class="kicker"><i></i> Creator services</div>
+      <h2>A simple system you can actually stick to.</h2>
+      <p class="lead">Three lanes of support — so you know exactly where to focus.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Monetization Framework</h3>
+          <ul>
+            <li>Affiliate onboarding</li>
+            <li>Product access &amp; samples</li>
+            <li>Commission optimization</li>
+            <li>Brand matching</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Content Coaching</h3>
+          <ul>
+            <li>Daily posting guidance</li>
+            <li>Product video frameworks</li>
+            <li>Discord-based education</li>
+            <li>Story + proof + CTA improvements</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Growth &amp; Consistency</h3>
+          <ul>
+            <li>Campaign participation</li>
+            <li>Performance reviews</li>
+            <li>Scaling income (not one-off hits)</li>
+            <li>Repeatable content that converts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center;">
+        <b>Ready to join the network?</b>
+        <div class="actions" style="margin-top:0; justify-content:center;">
+          <a class="btn pink" href="index.html#contact">Apply to Join</a>
+          <a class="btn primary" href="index.html#contact">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div class="fine">© <span id="year"></span> Junglee Studios. All rights reserved.</div>
+
+        <div class="social" aria-label="Social links">
+          <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <img src="IGIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <img src="FBIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
+            <img src="TikTokIcon.png" alt="" width="25" height="25" />
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <img src="LinkedinIcon.png" alt="" width="25" height="25" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu + dynamic year
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      btn?.addEventListener('click', () => {
+        const open = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      panel?.querySelectorAll('a')?.forEach(a => {
+        a.addEventListener('click', () => {
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // ✅ Auto-update footer year
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
