@@ -185,9 +185,8 @@
 
       .section{ padding: clamp(44px, 5vw, 72px) 0; }
 
-.section.tight-bottom{ padding-bottom: 28px; }
-.section.tight-top{ padding-top: 28px; }
-
+      .section.tight-bottom{ padding-bottom: 28px; }
+      .section.tight-top{ padding-top: 28px; }
 
       .section.light{
         background:#fff;
@@ -243,13 +242,18 @@
       }
       .lead strong{ color:#fff; }
 
+      /* ✅ HERO: ensure lead paragraph block centers with H1 + chips + proof */
+      .hero .lead{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
       /* HERO (simple + reliable) */
       .hero{
         position: relative;
         overflow: hidden;
         background: #000;
 
-        /* ✅ background image goes HERE */
         background-image: var(--hero-img);
         background-repeat: no-repeat;
         background-size: cover;
@@ -333,6 +337,7 @@
         border-radius:999px;
         background:var(--accent2);
         display:inline-block;
+        flex:0 0 10px;
       }
 
       .hero-proof{
@@ -353,52 +358,56 @@
         text-align:center;
       }
       .hero-proof-text{
-  margin:0;
-  font-weight:700;               /* ✅ less heavy than 950 */
-  letter-spacing:-.01em;
-  font-size:1.02rem;
-  color:rgba(255,255,255,.92);
-}
-
+        margin:0;
+        font-weight:700;
+        letter-spacing:-.01em;
+        font-size:1.02rem;
+        color:rgba(255,255,255,.92);
+      }
 
       .mini{
-  display:flex;
-  gap:12px;
-  flex-wrap:nowrap;              /* ✅ keep all 3 on one row (desktop) */
-  justify-content:center;
-  align-items:stretch;
-  font-weight:900;
-  font-size:1.15rem;             /* ✅ larger */
-  color:#fff;
-  width:100%;
-}
+        display:flex;
+        gap:12px;
+        flex-wrap:nowrap;
+        justify-content:center;
+        align-items:stretch;
+        font-weight:900;
+        font-size:1.15rem;
+        color:#fff;
+        width:100%;
+      }
 
-.mini span{
-  flex:1 1 0;
-  min-width:0;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
+      .mini span{
+        flex:1 1 0;
+        min-width:0;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
 
-  padding:.92rem 1rem;            /* ✅ single padding rule */
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(0,0,0,.35);
+        padding:.92rem 1rem;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.22);
+        background:rgba(0,0,0,.35);
 
-  white-space:normal;              /* ✅ allow wrap if needed */
-  text-align:center;
-  line-height:1.2;
-}
+        white-space:normal;
+        text-align:center;
+        line-height:1.2;
+      }
       .mini span:nth-child(1){ border-color: rgba(0,242,234,.55); }
       .mini span:nth-child(2){ border-color: rgba(255,45,154,.55); }
       .mini span:nth-child(3){ border-color: rgba(0,242,234,.55); }
+
+      /* ✅ FIX: bullet dot can’t stretch into an oval */
       .mini span i{
         width:10px;
         height:10px;
         border-radius:999px;
         background:var(--accent);
         display:inline-block;
+        flex:0 0 10px;
+        min-width:10px;
+        max-width:10px;
       }
 
       .grid3{
@@ -548,21 +557,29 @@
         transform: translateY(-1px);
       }
 
+      /* ✅ Two sides • one engine: align inner action buttons LEFT (only this section) */
+      .two-engine .actions{
+        justify-content:flex-start;
+      }
+
       @media (max-width: 980px){
-  header{ top: 0; }
-  .navlinks{ display:none; }
-  .menu{ display:inline-flex; }
-  .grid3{ grid-template-columns:1fr; }
-  .grid2{ grid-template-columns:1fr; }
-  .row2{ grid-template-columns:1fr; }
-  .actions .btn{ width:100%; }
+        header{ top: 0; }
+        .navlinks{ display:none; }
+        .menu{ display:inline-flex; }
+        .grid3{ grid-template-columns:1fr; }
+        .grid2{ grid-template-columns:1fr; }
+        .row2{ grid-template-columns:1fr; }
+        .actions .btn{ width:100%; }
 
-  .mini{ flex-wrap:wrap; font-size:1.05rem; }
-  .mini span{ width:100%; justify-content:center; }
+        .mini{ flex-wrap:wrap; font-size:1.05rem; }
+        .mini span{ width:100%; justify-content:center; }
 
-  .section.tight-bottom{ padding-bottom: 18px; }
-  .section.tight-top{ padding-top: 18px; }
-}
+        .section.tight-bottom{ padding-bottom: 18px; }
+        .section.tight-top{ padding-top: 18px; }
+
+        /* keep left alignment for the two-engine section actions even on mobile */
+        .two-engine .actions{ justify-content:flex-start; }
+      }
 
       @media (prefers-reduced-motion: reduce){
         *{ scroll-behavior:auto !important; transition:none !important; }
@@ -625,10 +642,10 @@
           <h1>Build Social Commerce That Actually Converts.</h1>
 
           <p class="lead">
-      Junglee Studios is a social commerce strategy partner helping brands and creators turn content, community, and culture into revenue.
-      <br /><br />
-      TikTok is where modern social commerce is built. We start there—then apply what works across Amazon, YouTube, Walmart, and beyond.
-    </p>
+            Junglee Studios is a social commerce strategy partner helping brands and creators turn content, community, and culture into revenue.
+            <br /><br />
+            TikTok is where modern social commerce is built. We start there—then apply what works across Amazon, YouTube, Walmart, and beyond.
+          </p>
 
           <div class="actions">
             <a class="btn primary" href="brand-growth.html">For Brands</a>
@@ -642,17 +659,17 @@
           </div>
 
           <div class="hero-proof" aria-label="Performance proof">
-      <div class="row">
-        <p class="hero-proof-text">
-  Performance proof across social commerce—built through platform-native strategy, creator ecosystems, and conversion-first execution.
-</p>
-        <div class="mini">
-          <span><i></i> $1.3B+ D2C Sales</span>
-          <span><i></i> 1.5K+ Sellers &amp; Creators</span>
-          <span><i></i> $500M+ Live GMV</span>
-        </div>
-      </div>
-    </div>
+            <div class="row">
+              <p class="hero-proof-text">
+                Performance proof across social commerce—built through platform-native strategy, creator ecosystems, and conversion-first execution.
+              </p>
+              <div class="mini">
+                <span><i></i> $1.3B+ D2C Sales</span>
+                <span><i></i> 1.5K+ Sellers &amp; Creators</span>
+                <span><i></i> $500M+ Live GMV</span>
+              </div>
+            </div>
+          </div>
 
           <!-- Fallback image (hidden by default) -->
           <div class="hero-fallback" id="heroFallback">
@@ -664,22 +681,22 @@
         </div>
       </div>
     </section>
-    
-    <!-- WHO WE ARE (DARK or LIGHT—matches your theme) -->
-<section class="section light tight-bottom">
-  <div class="container">
-    <div class="kicker"><i></i> Who we are</div>
-    <h2>Built Inside TikTok Shop. Proven In-Market.</h2>
 
-    <p class="lead" style="margin-top:10px;">
-      Junglee Studios was founded by a former TikTok Shop Collectibles Category Leader, where categories were launched, scaled, and monetized from the inside.
-      That experience shapes how we approach storefronts, creators, content, and conversion—because we know how TikTok Shop actually works behind the scenes.
-    </p>
-  </div>
-</section>
+    <!-- WHO WE ARE -->
+    <section class="section light tight-bottom">
+      <div class="container">
+        <div class="kicker"><i></i> Who we are</div>
+        <h2>Built Inside TikTok Shop. Proven In-Market.</h2>
 
-    <!-- WHAT WE DO (WHITE) -->
-<section class="section light tight-top">
+        <p class="lead" style="margin-top:10px;">
+          Junglee Studios was founded by a former TikTok Shop Collectibles Category Leader, where categories were launched, scaled, and monetized from the inside.
+          That experience shapes how we approach storefronts, creators, content, and conversion—because we know how TikTok Shop actually works behind the scenes.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="section light tight-top">
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
         <h2>Where Social Commerce Actually Converts</h2>
@@ -688,42 +705,41 @@
         </p>
 
         <div class="grid3">
-  <div class="card">
-    <h3>TikTok-First Commerce Strategy</h3>
-    <p>
-      We build TikTok-native growth programs that turn <strong>content + community</strong> into revenue—
-      then extend what works across Amazon, YouTube, Walmart, and beyond.
-    </p>
-  </div>
+          <div class="card">
+            <h3>TikTok-First Commerce Strategy</h3>
+            <p>
+              We build TikTok-native growth programs that turn <strong>content + community</strong> into revenue—
+              then extend what works across Amazon, YouTube, Walmart, and beyond.
+            </p>
+          </div>
 
-  <div class="card">
-    <h3>Conversion + Monetization Execution</h3>
-    <p>
-      We keep it simple: <strong>fix conversion</strong>, <strong>optimize pricing &amp; offers</strong>, and
-      <strong>run campaigns</strong> that drive measurable GMV.
-    </p>
-  </div>
+          <div class="card">
+            <h3>Conversion + Monetization Execution</h3>
+            <p>
+              We keep it simple: <strong>fix conversion</strong>, <strong>optimize pricing &amp; offers</strong>, and
+              <strong>run campaigns</strong> that drive measurable GMV.
+            </p>
+          </div>
 
-  <div class="card">
-    <h3>Creator + Content Enablement</h3>
-    <p>
-      We guide creators and teams with repeatable frameworks—<strong>Hook → Proof → Offer → CTA</strong>—
-      so content stays consistent, on-brand, and built to convert.
-    </p>
-  </div>
-</div>
+          <div class="card">
+            <h3>Creator + Content Enablement</h3>
+            <p>
+              We guide creators and teams with repeatable frameworks—<strong>Hook → Proof → Offer → CTA</strong>—
+              so content stays consistent, on-brand, and built to convert.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  </div>
-</section>
-
-    <!-- BRANDS vs CREATORS (DARK) -->
-    <section class="section">
+    <!-- BRANDS vs CREATORS -->
+    <section class="section two-engine">
       <div class="container">
         <div class="kicker"><i></i> Two sides • one engine</div>
         <h2>Brands + creators, managed as one system.</h2>
         <p class="lead" style="margin-top:10px;">
           Most brands stall because storefronts, offers, creators, and content aren’t aligned.
-Junglee brings structure, strategy, and guidance across both sides so performance compounds.
+          Junglee brings structure, strategy, and guidance across both sides so performance compounds.
         </p>
 
         <div class="grid2">
@@ -745,9 +761,9 @@ Junglee brings structure, strategy, and guidance across both sides so performanc
             <h3>For Creators</h3>
             <p>Get strategic guidance to grow your content, secure brand deals, and monetize your TikTok presence.</p>
             <ul class="list">
-              <li>Affiliate Onboarding & monetization roadmap</li>
-              <li>Brand deal access & partnership guidance</li>
-              <li>Content strategy, formats & performance coaching</li>
+              <li>Affiliate Onboarding &amp; monetization roadmap</li>
+              <li>Brand deal access &amp; partnership guidance</li>
+              <li>Content strategy, formats &amp; performance coaching</li>
             </ul>
             <div class="actions">
               <a class="btn primary" href="for-creators.html">Join the Network</a>
@@ -758,7 +774,7 @@ Junglee brings structure, strategy, and guidance across both sides so performanc
       </div>
     </section>
 
-    <!-- CONTACT (WHITE) -->
+    <!-- CONTACT -->
     <section class="section light" id="contact">
       <div class="container">
         <div class="kicker"><i></i> Contact</div>
@@ -835,40 +851,16 @@ Junglee brings structure, strategy, and guidance across both sides so performanc
           <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
 
           <div class="social" aria-label="Social links">
-            <a
-              class="icon"
-              href="https://www.instagram.com/jungleestudios/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
+            <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
               <img src="IGIcon.png" alt="" width="25" height="25" />
             </a>
-            <a
-              class="icon"
-              href="https://www.facebook.com/JungleeStudios/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-            >
+            <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
               <img src="FBIcon.png" alt="" width="25" height="25" />
             </a>
-            <a
-              class="icon"
-              href="https://www.tiktok.com/@jungleestudios"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="TikTok"
-            >
+            <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
               <img src="TikTokIcon.png" alt="" width="25" height="25" />
             </a>
-            <a
-              class="icon"
-              href="https://www.linkedin.com/in/jatinjtpatel"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
+            <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <img src="LinkedinIcon.png" alt="" width="25" height="25" />
             </a>
           </div>
