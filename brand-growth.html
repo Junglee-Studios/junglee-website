@@ -89,11 +89,6 @@
       letter-spacing: -0.01em;
       color: #ffffff;
     }
-    .wm span{
-      font-size: .85rem;
-      font-weight: 650;
-      color: rgba(255,255,255,.55);
-    }
 
     .navlinks{
       display:flex;
@@ -297,7 +292,6 @@
       background-position: center;
     }
 
-    /* ✅ FIX: ensure hero lead paragraph block centers under H1 + CTAs */
     .hero .lead{
       margin-left: auto;
       margin-right: auto;
@@ -403,6 +397,16 @@
     .section.light .card p{ color: rgba(255,255,255,.78); }
     .section.light .card ul{ color: rgba(255,255,255,.86); }
 
+    /* APPROACH (Dark section, white cards) */
+    .approach .card{
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+    .approach .card h3{ color: #0b0f14; }
+    .approach .card ul,
+    .approach .card li{ color: rgba(11,15,20,.78); }
+
     .step{
       display:inline-flex;
       align-items:center;
@@ -419,44 +423,16 @@
     .step.blue{ background: rgba(0,242,234,.16); border-color: rgba(0,242,234,.34); }
     .step.pink{ background: rgba(255,45,154,.16); border-color: rgba(255,45,154,.34); }
 
-    .card .subcopy{
-      margin: 10px 0 0;
-      font-weight: 900;
-      color: rgba(255,255,255,.92);
-    }
-    .section.light .card .subcopy{
-      color: rgba(255,255,255,.92);
-    }
-    .card .subcopy + p{
-      margin-top: 10px;
-    }
-
-    /* APPROACH (Dark section, white cards) */
-    .approach .card{
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,.10);
-      box-shadow: 0 18px 40px rgba(0,0,0,.22);
-    }
-    .approach .card h3{
-      color: #0b0f14;
-    }
-    .approach .card ul,
-    .approach .card li{
-      color: rgba(11,15,20,.78);
-    }
-
     .approach .step{
       background: #ffffff;
       border: 1px solid rgba(0,0,0,.10);
       color: #0b0f14;
     }
-
     .approach .step.blue{
       background: var(--accent);
       border-color: var(--accent);
       color: #000;
     }
-
     .approach .step.pink{
       background: var(--accent2);
       border-color: var(--accent2);
@@ -493,10 +469,8 @@
       border: 1px solid rgba(0,0,0,.12);
       box-shadow: 0 18px 40px rgba(0,0,0,.25);
     }
-
     #why-junglee .card h3{ color: var(--accent); }
     #why-junglee .card:nth-child(even) h3{ color: var(--accent2); }
-
     #why-junglee .card p{ color: rgba(11,15,20,.78); }
 
     /* Logos grid */
@@ -528,19 +502,16 @@
       box-shadow: none;
       text-decoration: none;
     }
-
     #brand-logos .logoTile:hover{
       transform: translateY(-2px);
       border-color: rgba(255,255,255,.26);
       background: rgba(255,255,255,.08);
     }
-
     #brand-logos .logoTile img{
       max-height: 44px;
       width: auto;
       opacity: .92;
     }
-
     #brand-logos.section.light .logoTile{
       border: 1px solid rgba(0,0,0,.14);
       background: #ffffff;
@@ -577,7 +548,7 @@
     }
 
     /* =========================================
-       NEW: Packages + Add-ons (theme matched)
+       PACKAGES: Adjustments requested
     ========================================= */
     .tierGrid{
       margin-top: 22px;
@@ -602,31 +573,25 @@
     .tierTop{
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-start;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .tierName{
-      margin:0;
-      font-size: 1.25rem;
-      font-weight: 950;
-      letter-spacing:-.02em;
-      color: #ffffff;
-    }
-
+    /* ✅ Larger, more prominent pill; white background; dark text */
     .tierPill{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding: .5rem .7rem;
+      padding: .78rem 1.05rem; /* bigger */
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.35);
-      font-weight: 900;
-      font-size: .85rem;
-      color:#fff;
+      border: 1px solid rgba(255,255,255,.70);
+      background: #ffffff;
+      font-weight: 950;
+      font-size: 1.05rem; /* bigger */
+      color:#000;
       white-space:nowrap;
+      letter-spacing:-.01em;
     }
     .tierPill i{
       width:10px; height:10px; border-radius:999px; background: var(--accent);
@@ -634,8 +599,16 @@
     }
     .tierCard:nth-child(even) .tierPill i{ background: var(--accent2); }
 
+    /* ✅ Small "For ..." line above Goal */
+    .tierFor{
+      margin: 6px 0 0;
+      color: rgba(255,255,255,.86);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
     .tierGoal{
-      margin: 8px 0 0;
+      margin: 10px 0 0;
       font-weight: 850;
       color: rgba(255,255,255,.92);
       line-height: 1.45;
@@ -650,21 +623,25 @@
       color: rgba(255,255,255,.72);
     }
 
+    /* ✅ Smaller list, NOT bold */
     .tierList{
       margin: 10px 0 0;
       padding-left: 18px;
       display:grid;
       gap: 8px;
-      font-weight: 650;
-      color: rgba(255,255,255,.82);
+      font-size: .93rem;
+      font-weight: 500; /* not bold */
+      color: rgba(255,255,255,.80);
+      line-height: 1.45;
     }
 
+    /* ✅ Ensure "Best for" and its bullets are WHITE text */
     .tierBest{
       margin-top: 14px;
       border-top: 1px solid rgba(255,255,255,.12);
       padding-top: 14px;
       font-weight: 900;
-      color: rgba(255,255,255,.92);
+      color: #ffffff; /* force white */
       letter-spacing:-.01em;
     }
     .tierBest ul{
@@ -672,32 +649,36 @@
       padding-left: 18px;
       display:grid;
       gap: 8px;
-      font-weight: 650;
-      color: rgba(255,255,255,.78);
+      font-size: .93rem;
+      font-weight: 550;
+      color: rgba(255,255,255,.82); /* force readable */
+      line-height: 1.45;
     }
 
-    /* Add-ons section is LIGHT: use dark cards like your other light sections */
-    .section.light .addonCard{
+    /* =========================================
+       SERVICES (LIGHT) — split from add-ons
+    ========================================= */
+    .section.light .svcCard{
       background: #0b0f14;
       border: 1px solid rgba(0,0,0,.25);
       box-shadow: 0 18px 40px rgba(0,0,0,.14);
       border-radius: var(--r-xl);
       padding: 22px;
     }
-    .addonCard h3{
+    .svcCard h3{
       margin:0;
       font-size:1.15rem;
       font-weight:950;
       letter-spacing:-.02em;
       color:#ffffff;
     }
-    .addonTagline{
+    .svcTagline{
       margin-top: 8px;
       font-weight: 850;
       color: rgba(255,255,255,.92);
       line-height:1.45;
     }
-    .addonList{
+    .svcList{
       margin: 12px 0 0;
       padding-left: 18px;
       display:grid;
@@ -706,14 +687,14 @@
       font-weight: 650;
       line-height: 1.45;
     }
-    .addonBest{
+    .svcBest{
       margin-top: 14px;
       border-top: 1px solid rgba(255,255,255,.12);
       padding-top: 14px;
       font-weight: 900;
       color: rgba(255,255,255,.92);
     }
-    .addonBest ul{
+    .svcBest ul{
       margin: 10px 0 0;
       padding-left: 18px;
       display:grid;
@@ -728,23 +709,25 @@
       display:grid;
       gap: 10px;
     }
+
+    /* ✅ Make these inner boxes WHITE (so they're not black-on-black) */
     .subBox{
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(0,0,0,.12);
+      background: #ffffff;
       padding: 14px;
     }
     .subBox b{
       display:block;
       font-weight: 950;
       letter-spacing:-.01em;
-      color:#ffffff;
+      color:#0b0f14;
       margin-bottom: 6px;
     }
     .subBox p{
       margin: 0;
-      color: rgba(255,255,255,.78);
-      font-weight: 600;
+      color: rgba(11,15,20,.75);
+      font-weight: 650;
       line-height: 1.55;
     }
 
@@ -966,32 +949,32 @@
       <div class="grid3">
         <div class="card">
           <h3>TikTok Shop Foundation</h3>
-          <p class="subcopy">Launch with clarity — not trial and error.</p>
+          <p style="margin:10px 0 0; font-weight:900; color: rgba(255,255,255,.92);">Launch with clarity — not trial and error.</p>
           <p>We set up TikTok Shop the right way from day one, covering structure, compliance, catalog hygiene, and operational readiness so your team isn’t fixing mistakes while trying to scale.</p>
         </div>
         <div class="card">
           <h3>Conversion & Storefront Strategy</h3>
-          <p class="subcopy">Turn traffic into revenue — consistently.</p>
+          <p style="margin:10px 0 0; font-weight:900; color: rgba(255,255,255,.92);">Turn traffic into revenue — consistently.</p>
           <p>We refine PDPs, offers, bundles, pricing, and storefront flow based on how TikTok users actually shop — so views turn into orders, not vanity metrics.</p>
         </div>
         <div class="card">
           <h3>Affiliate & Partnership Strategy</h3>
-          <p class="subcopy">Build a creator ecosystem that performs.</p>
+          <p style="margin:10px 0 0; font-weight:900; color: rgba(255,255,255,.92);">Build a creator ecosystem that performs.</p>
           <p>We help you design and manage affiliate and creator partnerships that align with your brand, your margins, and your goals — not random outreach or unmanaged posting.</p>
         </div>
         <div class="card">
           <h3>Content Direction & Playbooks</h3>
-          <p class="subcopy">Give your team a repeatable way to win.</p>
+          <p style="margin:10px 0 0; font-weight:900; color: rgba(255,255,255,.92);">Give your team a repeatable way to win.</p>
           <p>We don’t produce content for you — we give your team clear formats, frameworks, and examples so they know what to post, why it works, and how to improve it over time.</p>
         </div>
         <div class="card">
           <h3>Live Selling Strategy</h3>
-          <p class="subcopy">Turn live commerce into a real revenue channel.</p>
+          <p style="margin:10px 0 0; font-weight:900; color: rgba(255,255,255,.92);">Turn live commerce into a real revenue channel.</p>
           <p>From show structure to run-of-show, product sequencing, and host coaching, we help brands treat live selling like a performance channel — not an experiment.</p>
         </div>
         <div class="card">
           <h3>Reporting, Insights & Enablement</h3>
-          <p class="subcopy">Know what’s working — and why.</p>
+          <p style="margin:10px 0 0; font-weight:900; color: rgba(255,255,255,.92);">Know what’s working — and why.</p>
           <p>We provide clear reporting, insights, and team training so performance isn’t a black box. The goal is confidence, not dependence.</p>
         </div>
       </div>
@@ -1013,6 +996,8 @@
           <div class="tierTop">
             <span class="tierPill"><i></i> Launch</span>
           </div>
+
+          <p class="tierFor">For brands new to TikTok Shop or relaunching</p>
           <p class="tierGoal">Goal: Get live correctly, fast, and conversion-ready.</p>
 
           <div class="tierLabel">What’s included</div>
@@ -1031,10 +1016,6 @@
             <li>Brands testing social commerce</li>
             <li>Teams without in-house TikTok expertise</li>
           </ul>
-
-          <div class="actions" style="justify-content:flex-start;">
-            <a class="btn white" href="index.html#contact">Launch</a>
-          </div>
         </div>
 
         <!-- Growth -->
@@ -1042,6 +1023,8 @@
           <div class="tierTop">
             <span class="tierPill"><i></i> Growth</span>
           </div>
+
+          <p class="tierFor">For brands ready to drive consistent sales</p>
           <p class="tierGoal">Goal: Build momentum, creator velocity, and repeatable GMV.</p>
 
           <div class="tierLabel">What’s included</div>
@@ -1061,10 +1044,6 @@
             <li>Founder-led teams that need structure</li>
             <li>Brands ready to lean into creators</li>
           </ul>
-
-          <div class="actions" style="justify-content:flex-start;">
-            <a class="btn white" href="index.html#contact">Growth</a>
-          </div>
         </div>
 
         <!-- Scale -->
@@ -1072,6 +1051,8 @@
           <div class="tierTop">
             <span class="tierPill"><i></i> Scale</span>
           </div>
+
+          <p class="tierFor">For brands serious about TikTok as a revenue channel</p>
           <p class="tierGoal">Goal: Turn TikTok Shop into a predictable growth engine.</p>
 
           <div class="tierLabel">What’s included</div>
@@ -1091,40 +1072,31 @@
             <li>Teams looking for aggressive growth</li>
             <li>Multi-SKU or multi-category sellers</li>
           </ul>
-
-          <div class="actions" style="justify-content:flex-start;">
-            <a class="btn white" href="index.html#contact">Scale</a>
-          </div>
         </div>
       </div>
 
-      <div class="ctaStrip" style="margin-top:22px;">
-        <b>Fit matters:</b>
-        <span style="color:rgba(255,255,255,.78); font-weight:650;">
-          We typically work with brands where leadership is ready to treat TikTok Shop as a core revenue channel — not an experiment.
-        </span>
-        <div class="actions" style="margin-top:0;">
-          <a class="btn primary" href="index.html#contact">See if it’s a fit</a>
-        </div>
-      </div>
+      <!-- ✅ Fit matters note (no gray background, no button) -->
+      <p class="lead" style="max-width: 86ch; margin: 18px auto 0; text-align:center; text-shadow:none; color: rgba(255,255,255,.82);">
+        <b style="color:#fff;">Fit matters:</b> We typically work with brands where leadership is ready to treat TikTok Shop as a core revenue channel — not an experiment.
+      </p>
     </div>
   </section>
 
-  <!-- ADD-ONS (WHITE) -->
-  <section class="section light" id="addons">
+  <!-- SERVICES (WHITE) -->
+  <section class="section light" id="services">
     <div class="container">
-      <div class="kicker"><i></i> Add-ons</div>
-      <h2>Modular services for deeper execution</h2>
+      <div class="kicker"><i></i> Services</div>
+      <h2>Optional executions and standalone support</h2>
       <p class="lead">
-        Add-ons are optional, scoped to your category, cadence, and internal bandwidth — and designed to plug into Launch, Growth, or Scale.
+        Some services plug into Launch/Growth/Scale. Others can be scoped as standalone support if you prefer to keep execution in-house.
       </p>
 
       <div class="grid3">
-        <!-- Live Shopping -->
-        <div class="addonCard">
-          <h3>Live Shopping &amp; Real-Time Commerce</h3>
-          <div class="addonTagline">Turn attention into instant conversion.</div>
-          <ul class="addonList">
+        <!-- Live Selling -->
+        <div class="svcCard">
+          <h3>Live Selling &amp; Real-Time Commerce</h3>
+          <div class="svcTagline">Live streams that convert — not just entertain.</div>
+          <ul class="svcList">
             <li>Live shopping execution &amp; run-of-show</li>
             <li>Live studio setup (physical or virtual)</li>
             <li>Host &amp; moderator coaching</li>
@@ -1132,7 +1104,7 @@
             <li>Product sequencing &amp; urgency triggers</li>
             <li>Auction strategies (where applicable)</li>
           </ul>
-          <div class="addonBest">Best for</div>
+          <div class="svcBest">Best for</div>
           <ul>
             <li>Brands with multiple SKUs</li>
             <li>High-engagement or demo-driven products</li>
@@ -1140,18 +1112,18 @@
           </ul>
         </div>
 
-        <!-- Training -->
-        <div class="addonCard">
+        <!-- Training (Standalone option) -->
+        <div class="svcCard">
           <h3>Team Training &amp; Enablement</h3>
-          <div class="addonTagline">Build internal ownership while we guide strategy.</div>
-          <ul class="addonList">
+          <div class="svcTagline">A standalone option if you want your team to own day-to-day.</div>
+          <ul class="svcList">
             <li>Bi-weekly consulting &amp; strategy calls</li>
             <li>TikTok Shop + social commerce playbooks</li>
             <li>Team workflows &amp; operating cadence</li>
             <li>Q&amp;A, troubleshooting, and best practices</li>
             <li>Knowledge transfer so your team can run day-to-day</li>
           </ul>
-          <div class="addonBest">Best for</div>
+          <div class="svcBest">Best for</div>
           <ul>
             <li>Brands with internal teams</li>
             <li>Founder-led brands building in-house muscle</li>
@@ -1160,10 +1132,10 @@
         </div>
 
         <!-- Content Production -->
-        <div class="addonCard">
+        <div class="svcCard">
           <h3>Content Production</h3>
-          <div class="addonTagline">Conversion-first content — not just views.</div>
-          <ul class="addonList">
+          <div class="svcTagline">Conversion-first content — built for TikTok Shop.</div>
+          <ul class="svcList">
             <li>Short-form video production</li>
             <li>Product demos &amp; UGC-style assets</li>
             <li>Creator-ready content formats</li>
@@ -1173,15 +1145,15 @@
           <div class="subOptions">
             <div class="subBox">
               <b>Product Listing Content</b>
-              <p>PDP + marketplace images/videos (typically white background). Multiple package options available based on SKU count and asset volume.</p>
+              <p>PDP + marketplace images/videos (typically white background). Multiple packages based on SKU count and asset volume.</p>
             </div>
             <div class="subBox">
               <b>Social Content Packages</b>
-              <p>Organic + creator-style content for social and product-linked videos. Multiple package options available based on weekly cadence and formats.</p>
+              <p>Organic + creator-style content for social and product-linked videos. Multiple packages based on cadence and formats.</p>
             </div>
           </div>
 
-          <div class="addonBest">Best for</div>
+          <div class="svcBest">Best for</div>
           <ul>
             <li>Brands that want consistent assets without guessing</li>
             <li>Teams that need creator-ready formats fast</li>
@@ -1191,7 +1163,7 @@
       </div>
 
       <div class="ctaStrip" style="margin-top:22px; justify-content:center; text-align:center;">
-        <b>Want a scoped plan with the right tier + add-ons?</b>
+        <b>Want a scoped plan based on your goals?</b>
         <div class="actions" style="margin-top:0; justify-content:center;">
           <a class="btn primary" href="index.html#contact">Request a build-out</a>
         </div>
@@ -1202,7 +1174,6 @@
   <!-- WHY JUNGLEE (DARK) -->
   <section class="section" id="why-junglee">
     <div class="container">
-
       <div class="kicker"><i></i> Why Junglee</div>
       <h2>Built by leaders who helped shape TikTok Shop.</h2>
       <p class="lead">
