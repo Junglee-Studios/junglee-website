@@ -548,7 +548,7 @@
     }
 
     /* =========================================
-       PACKAGES
+       PACKAGES — UPDATED (white cards + inverted pills)
     ========================================= */
     .tierGrid{
       margin-top: 22px;
@@ -557,17 +557,18 @@
       gap: 14px;
     }
 
+    /* ✅ Card backgrounds now WHITE for contrast on dark section */
     .tierCard{
       border-radius: var(--r-xl);
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      padding: 22px;
-      box-shadow: 0 18px 50px rgba(0,0,0,.26);
-      transition: transform .2s ease, border-color .2s ease;
+      border: 1px solid rgba(0,0,0,.12);
+      background: #ffffff;
+      padding: 24px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
     .tierCard:hover{
       transform: translateY(-3px);
-      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 22px 60px rgba(0,0,0,.35);
     }
 
     .tierTop{
@@ -575,29 +576,32 @@
       align-items:center;
       justify-content:flex-start;
       gap: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    /* ✅ Larger, more prominent pill; white background; dark text */
+    /* ✅ Inversion: pill is DARK on white card */
     .tierPill{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding: .78rem 1.05rem; /* bigger */
+      padding: .8rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.70);
-      background: #ffffff;
+      background: #0b0f14;
+      border: 1px solid rgba(0,0,0,.12);
       font-weight: 950;
-      font-size: 1.05rem; /* bigger */
-      color:#000;
+      font-size: 1.05rem;
+      color:#ffffff;
       white-space:nowrap;
       letter-spacing:-.01em;
     }
     .tierPill i{
-      width:10px; height:10px; border-radius:999px; background: var(--accent);
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: var(--accent);
       display:inline-block;
     }
-    .tierCard:nth-child(even) .tierPill i{ background: var(--accent2); }
+    .tierCard:nth-child(2) .tierPill i{ background: var(--accent2); }
 
     /* ✅ "For ..." line colors */
     .tierFor{
@@ -608,41 +612,43 @@
     .tierFor.blue{ color: var(--accent); }
     .tierFor.pink{ color: var(--accent2); }
 
+    /* ✅ Goal text now dark */
     .tierGoal{
       margin: 10px 0 0;
-      font-weight: 850;
-      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      color: rgba(11,15,20,.88);
       line-height: 1.45;
     }
 
+    /* ✅ Labels now dark */
     .tierLabel{
-      margin-top: 14px;
-      font-size: .75rem;
-      letter-spacing: .14em;
+      margin-top: 16px;
+      font-size: .7rem;
+      letter-spacing: .16em;
       text-transform: uppercase;
       font-weight: 900;
-      color: rgba(255,255,255,.72);
+      color: rgba(11,15,20,.55);
     }
 
-    /* ✅ Smaller list, NOT bold */
+    /* ✅ List now dark + lighter weight */
     .tierList{
       margin: 10px 0 0;
       padding-left: 18px;
       display:grid;
       gap: 8px;
       font-size: .93rem;
-      font-weight: 500; /* not bold */
-      color: rgba(255,255,255,.80);
+      font-weight: 500;
+      color: rgba(11,15,20,.78);
       line-height: 1.45;
     }
 
-    /* ✅ Ensure "Best for" and its bullets are WHITE text (fix sibling ul) */
+    /* ✅ Best for now dark */
     .tierBest{
-      margin-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 16px;
+      border-top: 1px solid rgba(0,0,0,.12);
       padding-top: 14px;
       font-weight: 900;
-      color: #ffffff;
+      color: #0b0f14;
       letter-spacing:-.01em;
     }
     .tierBest + ul{
@@ -652,12 +658,12 @@
       gap: 8px;
       font-size: .93rem;
       font-weight: 550;
-      color: rgba(255,255,255,.82);
+      color: rgba(11,15,20,.75);
       line-height: 1.45;
     }
-    .tierBest + ul li{ color: rgba(255,255,255,.82); }
+    .tierBest + ul li{ color: rgba(11,15,20,.75); }
 
-    /* Fit matters line */
+    /* Fit matters note — smaller + not bold */
     .fitNote{
       max-width: 90ch;
       margin: 18px auto 0;
@@ -669,8 +675,8 @@
       line-height: 1.6;
     }
     .fitNote b{
-      font-weight: 700;
-      color: rgba(255,255,255,.88);
+      font-weight: 500; /* not bold */
+      color: rgba(255,255,255,.90);
     }
 
     /* =========================================
@@ -710,7 +716,7 @@
       line-height: 1.45;
     }
 
-    /* ✅ Ensure "Best for" and its bullets are WHITE text (fix sibling ul) */
+    /* ✅ Ensure "Best for" and its bullets are WHITE text */
     .svcBest{
       margin-top: 14px;
       border-top: 1px solid rgba(255,255,255,.12);
@@ -735,7 +741,7 @@
       gap: 10px;
     }
 
-    /* ✅ Inner boxes WHITE (not black-on-black) */
+    /* ✅ Inner boxes WHITE */
     .subBox{
       border-radius: 18px;
       border: 1px solid rgba(0,0,0,.12);
@@ -1043,7 +1049,7 @@
           </ul>
 
           <div class="actions" style="justify-content:flex-start;">
-            <a class="btn white" href="index.html#contact">Get Launched</a>
+            <a class="btn primary" href="index.html#contact">Get Launched</a>
           </div>
         </div>
 
@@ -1075,7 +1081,7 @@
           </ul>
 
           <div class="actions" style="justify-content:flex-start;">
-            <a class="btn white" href="index.html#contact">All about the Growth</a>
+            <a class="btn pink" href="index.html#contact">All about the Growth</a>
           </div>
         </div>
 
@@ -1107,12 +1113,11 @@
           </ul>
 
           <div class="actions" style="justify-content:flex-start;">
-            <a class="btn white" href="index.html#contact">Time to Scale</a>
+            <a class="btn primary" href="index.html#contact">Time to Scale</a>
           </div>
         </div>
       </div>
 
-      <!-- ✅ Fit matters (smaller, not bold) -->
       <p class="fitNote">
         <b>Fit matters:</b> We typically work with brands where leadership is ready to treat TikTok Shop as a core revenue channel — not an experiment.
       </p>
