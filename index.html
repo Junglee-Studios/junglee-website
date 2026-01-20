@@ -466,45 +466,25 @@
       }
       .section.light .list{ color: rgba(11,15,20,.75); }
 
-      .contact-wrap{
-        margin-top:18px;
-        border-radius:var(--r-xl);
-        border:1px solid rgba(255,255,255,.12);
-        background:rgba(255,255,255,.06);
-        padding:22px;
-        box-shadow:0 18px 60px rgba(0,0,0,.30);
-      }
-      /* Light sections: default contact-wrap styling (exclude Tally wrapper) */
-.section.light .contact-wrap:not(.tally-wrap){
-  background:#0b0f14;
-  border:1px solid rgba(0,0,0,.25);
-  box-shadow:0 18px 40px rgba(0,0,0,.16);
-  color:#fff;
+    /* CONTACT: neutral wrapper so Tally controls the look */
+.contact-wrap{
+  margin-top:18px;
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
 }
 
-/* ✅ CONTACT: keep Tally container light (no black pill) */
-.section.light .contact-wrap.tally-wrap{
-  background: #fff;
-  color: #0b0f14;
-  border: 1px solid rgba(11,15,20,.12);
-  box-shadow: 0 18px 40px rgba(0,0,0,.08);
-  padding: 10px;
+/* Ensure iframe doesn’t get rounded/boxed by the site */
+.contact-wrap iframe{
+  width:100%;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  display:block;
 }
 
-/* Make the embedded iframe feel “flush” inside the container */
-.section.light .contact-wrap.tally-wrap iframe{
-  border-radius: 18px;
-}
-
-      form{ margin-top:18px; display:grid; gap:18px; }
-      .row2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-      label{
-        display:block;
-        margin-bottom:6px;
-        font-weight:600;
-        font-size:.9rem;
-        color:rgba(255,255,255,.75);
-      }
       .section.light label{ color: rgba(255,255,255,.78); }
 
       input, textarea, select{
@@ -797,7 +777,7 @@
           Tell us what you’re building. We’ll respond with the fastest path to traction.
         </p>
 
-        <div class="contact-wrap tally-wrap">
+        <div class="contact-wrap">
   <iframe
     data-tally-src="https://tally.so/embed/Y5G1Md?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
     loading="lazy"
@@ -832,6 +812,7 @@
     })();
   </script>
 </div>
+
 
       </div>
     </section>
