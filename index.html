@@ -3,11 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Junglee Studios — TikTok Shop Growth & Creator Commerce</title>
+
+    <!-- Primary SEO -->
+    <title>Junglee Studios — TikTok Shop Growth, Creator Commerce & Live Selling</title>
     <meta
       name="description"
-      content="Junglee Studios helps brands launch and scale on TikTok Shop with conversion-first storefronts, affiliate systems, and daily content frameworks. Creators: join our affiliate network."
+      content="Junglee Studios helps brands launch, run, and scale TikTok Shop with consulting, creator affiliate growth, live selling support, and content creation."
     />
+    <meta
+      name="keywords"
+      content="TikTok Shop Partner, Creator Agency Partner, TikTok Shop consulting, creator affiliate growth, live selling, e-commerce consulting, social commerce, lifestyle content creation"
+    />
+    <link rel="canonical" href="https://www.jungleestudios.com/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Junglee Studios" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://www.jungleestudios.com/" />
+    <meta property="og:title" content="Junglee Studios — TikTok Shop Growth, Creator Commerce & Live Selling" />
+    <meta
+      property="og:description"
+      content="We help brands launch and scale TikTok Shop, grow creator affiliate programs, and build social commerce that converts."
+    />
+    <meta property="og:image" content="https://www.jungleestudios.com/assets/logos/assets/LiveSellingClothes.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Junglee Studios social commerce and TikTok Shop consulting" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Junglee Studios — TikTok Shop Growth, Creator Commerce & Live Selling" />
+    <meta
+      name="twitter:description"
+      content="Launch, run, and scale TikTok Shop with consulting, creator affiliate support, live selling, and content creation."
+    />
+    <meta name="twitter:image" content="https://www.jungleestudios.com/assets/logos/assets/LiveSellingClothes.jpeg" />
+    <meta name="twitter:image:alt" content="Junglee Studios social commerce and TikTok Shop consulting" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,8 +60,6 @@
         --container:1120px;
         --pad:24px;
         --r-xl:28px;
-
-        /* ✅ update per-page */
         --hero-img: url("assets/logos/assets/LiveSellingClothes.jpeg");
       }
 
@@ -47,10 +79,9 @@
         margin:0 auto;
       }
 
-      /* Header */
       header{
         position: sticky;
-        top: 0; /* ✅ no debugbar offset */
+        top: 0;
         z-index: 1000;
         background:#000;
         border-bottom:1px solid rgba(255,255,255,.08);
@@ -134,11 +165,6 @@
         color:#000;
         border:none;
       }
-      .btn.white{
-        background:#fff;
-        color:#000;
-        border:1px solid rgba(255,255,255,.30);
-      }
 
       .menu{
         display:none;
@@ -184,7 +210,6 @@
       .mobile-panel.open{ display:block; }
 
       .section{ padding: clamp(44px, 5vw, 72px) 0; }
-
       .section.tight-bottom{ padding-bottom: 28px; }
       .section.tight-top{ padding-top: 28px; }
 
@@ -240,31 +265,25 @@
         line-height:1.65;
         text-shadow:0 10px 28px rgba(0,0,0,.45);
       }
-      .lead strong{ color:#fff; }
 
-      /* ✅ HERO: ensure lead paragraph block centers with H1 + chips + proof */
       .hero .lead{
         margin-left:auto;
         margin-right:auto;
       }
 
-      /* HERO (simple + reliable) */
       .hero{
         position: relative;
         overflow: hidden;
         background: #000;
-
         background-image: var(--hero-img);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-
         min-height: calc(100svh - 72px);
         display: flex;
         align-items: center;
         padding: clamp(28px, 4vw, 56px) 0;
       }
-      /* Dark overlay */
       .hero::before{
         content:"";
         position:absolute;
@@ -272,7 +291,6 @@
         background: rgba(0,0,0,.34);
         pointer-events:none;
       }
-      /* Optional vignette on top of overlay */
       .hero .vignette{
         position:absolute;
         inset:0;
@@ -282,7 +300,6 @@
           radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
         opacity: .55;
       }
-      /* Make sure hero content sits above overlays */
       .hero > .container{
         position: relative;
         z-index: 1;
@@ -300,17 +317,6 @@
         flex-wrap:wrap;
         justify-content:center;
       }
-
-      /* ✅ fallback image (hidden by default; show with JS if desired) */
-      .hero-fallback{
-        display:none;
-        margin: 18px auto 0;
-        max-width: 900px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,.18);
-        overflow:hidden;
-      }
-      .hero-fallback img{ width:100%; height:auto; display:block; }
 
       .chips{
         margin-top:18px;
@@ -364,7 +370,6 @@
         font-size:1.02rem;
         color:rgba(255,255,255,.92);
       }
-
       .mini{
         display:flex;
         gap:12px;
@@ -376,7 +381,6 @@
         color:#fff;
         width:100%;
       }
-
       .mini span{
         flex:1 1 0;
         min-width:0;
@@ -384,21 +388,14 @@
         align-items:center;
         justify-content:center;
         gap:10px;
-
         padding:.92rem 1rem;
         border-radius:999px;
         border:1px solid rgba(255,255,255,.22);
         background:rgba(0,0,0,.35);
-
         white-space:normal;
         text-align:center;
         line-height:1.2;
       }
-      .mini span:nth-child(1){ border-color: rgba(0,242,234,.55); }
-      .mini span:nth-child(2){ border-color: rgba(255,45,154,.55); }
-      .mini span:nth-child(3){ border-color: rgba(0,242,234,.55); }
-
-      /* ✅ FIX: bullet dot can’t stretch into an oval */
       .mini span i{
         width:10px;
         height:10px;
@@ -466,52 +463,19 @@
       }
       .section.light .list{ color: rgba(11,15,20,.75); }
 
-    /* CONTACT: neutral wrapper so Tally controls the look */
-.contact-wrap{
-  margin-top:18px;
-  padding:0;
-  border:none;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-}
-
-/* Ensure iframe doesn’t get rounded/boxed by the site */
-.contact-wrap iframe{
-  width:100%;
-  border:0;
-  border-radius:0;
-  display:block;
-  /* remove background:transparent; */
-}
-
-
-      .section.light label{ color: rgba(255,255,255,.78); }
-
-      input, textarea, select{
-        width:100%;
-        border-radius:14px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(255,255,255,.06);
-        padding:12px;
-        font:inherit;
-        color:rgba(255,255,255,.92);
-        outline:none;
+      .contact-wrap{
+        margin-top:18px;
+        padding:0;
+        border:none;
+        border-radius:0;
+        background:transparent;
         box-shadow:none;
       }
-      .section.light input, .section.light textarea, .section.light select{
-        background:rgba(255,255,255,.06);
-        color:#fff;
-        border:1px solid rgba(255,255,255,.18);
-      }
-      input::placeholder, textarea::placeholder{ color:rgba(255,255,255,.55); }
-      textarea{ min-height: 120px; resize: vertical; }
-
-      .help{
-        margin-top:8px;
-        color:rgba(255,255,255,.62);
-        font-weight:650;
-        line-height:1.5;
+      .contact-wrap iframe{
+        width:100%;
+        border:0;
+        border-radius:0;
+        display:block;
       }
 
       footer{
@@ -553,27 +517,18 @@
         transform: translateY(-1px);
       }
 
-      /* ✅ Two sides • one engine: align inner action buttons LEFT (only this section) */
       .two-engine .actions{
         justify-content:flex-start;
       }
 
       @media (max-width: 980px){
-        header{ top: 0; }
         .navlinks{ display:none; }
         .menu{ display:inline-flex; }
         .grid3{ grid-template-columns:1fr; }
         .grid2{ grid-template-columns:1fr; }
-        .row2{ grid-template-columns:1fr; }
         .actions .btn{ width:100%; }
-
         .mini{ flex-wrap:wrap; font-size:1.05rem; }
         .mini span{ width:100%; justify-content:center; }
-
-        .section.tight-bottom{ padding-bottom: 18px; }
-        .section.tight-top{ padding-top: 18px; }
-
-        /* keep left alignment for the two-engine section actions even on mobile */
         .two-engine .actions{ justify-content:flex-start; }
       }
 
@@ -584,7 +539,6 @@
   </head>
 
   <body>
-    <!-- Header -->
     <header>
       <div class="container">
         <nav class="nav" aria-label="Primary navigation">
@@ -600,8 +554,8 @@
           <div class="navlinks" role="navigation">
             <a href="index.html">Home</a>
             <a href="about-junglee.html">About</a>
-            <a href="brand-growth.html">For Brands</a>
-            <a href="for-creators.html">For Creators</a>
+            <a href="brand-growth.html">I’m a Brand</a>
+            <a href="for-creators.html">I’m a Creator</a>
             <a class="btn primary" href="#contact">Contact</a>
           </div>
 
@@ -619,8 +573,8 @@
         <div class="mobile-panel" id="mobilePanel">
           <a href="index.html">Home</a>
           <a href="about-junglee.html">About</a>
-          <a href="brand-growth.html">For Brands</a>
-          <a href="for-creators.html">For Creators</a>
+          <a href="brand-growth.html">I’m a Brand</a>
+          <a href="for-creators.html">I’m a Creator</a>
           <div class="mobile-cta">
             <a class="btn primary" href="#contact">Contact</a>
           </div>
@@ -628,35 +582,34 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <section class="hero" id="hero">
       <div class="vignette" aria-hidden="true"></div>
-
       <div class="container">
         <div class="hero-grid">
           <div class="kicker"><i></i>Social Commerce, Built the Junglee Way</div>
-          <h1>Build Social Commerce That Actually Converts.</h1>
+          <h1>Build social commerce that actually converts.</h1>
 
           <p class="lead">
-            Junglee Studios is a social commerce strategy partner helping brands and creators turn content, community, and culture into revenue.
-            <br /><br />
+            Junglee Studios helps brands launch, run, and scale TikTok Shop while helping creators grow their affiliate income through content, strategy, and support.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="brand-growth.html">For Brands</a>
-            <a class="btn pink" href="for-creators.html">For Creators</a>
-            <a class="btn white" href="#contact">Schedule a Consultation</a>
+            <a class="btn primary" href="brand-growth.html">I’m a Brand</a>
+            <a class="btn pink" href="for-creators.html">I’m a Creator</a>
           </div>
 
           <div class="chips" aria-label="Trust indicators">
             <span class="chip"><i></i>TikTok Shop Partner (TSP)</span>
             <span class="chip"><i></i>Creator Agency Partner (CAP)</span>
+            <span class="chip"><i></i>E-commerce Consulting</span>
+            <span class="chip"><i></i>Live Selling Support</span>
+            <span class="chip"><i></i>Branded Lifestyle Content</span>
           </div>
 
           <div class="hero-proof" aria-label="Performance proof">
             <div class="row">
               <p class="hero-proof-text">
-                Performance proof across social commerce—built through platform-native strategy, creator ecosystems, and conversion-first execution.
+                Performance proof across TikTok Shop, creator commerce, and live selling.
               </p>
               <div class="mini">
                 <span><i></i> $1.3B+ D2C Sales</span>
@@ -665,86 +618,62 @@
               </div>
             </div>
           </div>
-
-          <!-- Fallback image (hidden by default) -->
-          <div class="hero-fallback" id="heroFallback">
-            <img
-              src="assets/logos/assets/LiveSellingClothes.jpeg"
-              alt="Hero background fallback"
-            />
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- WHO WE ARE -->
     <section class="section light tight-bottom">
       <div class="container">
         <div class="kicker"><i></i> Who we are</div>
-        <h2>Built Inside TikTok Shop. Proven In-Market.</h2>
-
+        <h2>Built inside TikTok Shop. Focused on growth that lasts.</h2>
         <p class="lead" style="margin-top:10px;">
-          Junglee Studios was founded by a former TikTok Shop Collectibles Category Leader, where categories were launched, scaled, and monetized from the inside.
-          That experience shapes how we approach storefronts, creators, content, and conversion—because we know how TikTok Shop actually works behind the scenes.
+          Junglee Studios was founded from direct experience inside TikTok Shop, which means we understand how the platform works behind the scenes and how to turn that knowledge into real growth for brands and creators.
         </p>
       </div>
     </section>
 
-    <!-- WHAT WE DO -->
     <section class="section light tight-top">
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
-        <h2>Where Social Commerce Actually Converts</h2>
+        <h2>Where social commerce actually converts.</h2>
         <p class="lead" style="margin-top:10px;">
-          We bring structure and commercial strategy to TikTok commerce—connecting storefronts, pricing, campaigns, creators, and content so growth actually compounds.
+          We connect strategy, content, creators, and storefronts so your TikTok commerce system works as one engine.
         </p>
 
         <div class="grid3">
           <div class="card">
-            <h3>TikTok-First Commerce Strategy</h3>
-            <p>
-              We build TikTok-native growth programs that turn <strong>content + community</strong> into revenue—
-              then extend what works across Amazon, YouTube, Walmart, and beyond.
-            </p>
+            <h3>TikTok Shop Consulting &amp; Strategy</h3>
+            <p>We help brands plan, launch, and improve their TikTok Shop strategy with a focus on conversion, offers, and growth.</p>
           </div>
-
           <div class="card">
-            <h3>Conversion + Monetization Execution</h3>
-            <p>
-              We keep it simple: <strong>fix conversion</strong>, <strong>optimize pricing &amp; offers</strong>, and
-              <strong>run campaigns</strong> that drive measurable GMV.
-            </p>
+            <h3>TikTok Shop Management &amp; Optimization</h3>
+            <p>We support your team with shop operations, pricing, offer structure, creator programs, and campaign execution.</p>
           </div>
-
           <div class="card">
-            <h3>Creator + Content Enablement</h3>
-            <p>
-              We guide creators and teams with repeatable frameworks—<strong>Hook → Proof → Offer → CTA</strong>—
-              so content stays consistent, on-brand, and built to convert.
-            </p>
+            <h3>Creator Growth, Content &amp; Live Selling</h3>
+            <p>We help brands and creators create content that converts, build affiliate systems, and develop live selling strategies.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BRANDS vs CREATORS -->
     <section class="section two-engine">
       <div class="container">
         <div class="kicker"><i></i> Two sides • one engine</div>
         <h2>Brands + creators, managed as one system.</h2>
         <p class="lead" style="margin-top:10px;">
-          Most brands stall because storefronts, offers, creators, and content aren’t aligned.
-          Junglee brings structure, strategy, and guidance across both sides so performance compounds.
+          Most growth breaks when shop strategy, content, creators, and offers are disconnected. Junglee brings them together so performance compounds.
         </p>
 
         <div class="grid2">
           <div class="card">
             <h3>For Brands</h3>
-            <p>Launch, optimize, and scale TikTok Shop with conversion-first strategy and disciplined execution.</p>
+            <p>Launch, run, and scale TikTok Shop with consulting, operations support, and creator-led growth.</p>
             <ul class="list">
-              <li>Shop setup &amp; infrastructure</li>
-              <li>Listing optimization + offer stack</li>
-              <li>Affiliate/creator program management</li>
+              <li>TikTok Shop launch and setup</li>
+              <li>Shop management and optimization</li>
+              <li>Creator and affiliate program support</li>
+              <li>Live selling strategy and sourcing</li>
             </ul>
             <div class="actions">
               <a class="btn primary" href="brand-growth.html">Explore Brand Growth</a>
@@ -754,11 +683,12 @@
 
           <div class="card">
             <h3>For Creators</h3>
-            <p>Get strategic guidance to grow your content, secure brand deals, and monetize your TikTok presence.</p>
+            <p>Build your affiliate income and grow with support from a team that understands how TikTok commerce works.</p>
             <ul class="list">
-              <li>Affiliate Onboarding &amp; monetization roadmap</li>
-              <li>Brand deal access &amp; partnership guidance</li>
-              <li>Content strategy, formats &amp; performance coaching</li>
+              <li>Affiliate onboarding and monetization support</li>
+              <li>Brand partnership guidance</li>
+              <li>Content strategy and posting support</li>
+              <li>Growth coaching for creator commerce</li>
             </ul>
             <div class="actions">
               <a class="btn primary" href="for-creators.html">Join the Network</a>
@@ -769,60 +699,55 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="section light" id="contact">
       <div class="container">
         <div class="kicker"><i></i> Contact</div>
         <h2>Let’s #BeJunglee.</h2>
         <p class="lead" style="margin-top:10px;">
-          Tell us what you’re building, we’ll show you what’s possible.
+          Let’s build your next revenue engine. Tell us what you’re building, and we’ll show you the best way to launch, optimize, or scale it.
         </p>
 
         <div class="contact-wrap">
-  <iframe
-  data-tally-src="https://tally.so/embed/Y5G1Md?alignLeft=1&hideTitle=1&dynamicHeight=1"
-  loading="lazy"
-  width="100%"
-  height="1"
-  frameborder="0"
-  marginheight="0"
-  marginwidth="0"
-  title="Let’s #BeJunglee"
-></iframe>
-  <script>
-    (function () {
-      var d = document,
-        w = "https://tally.so/widgets/embed.js",
-        v = function () {
-          if (typeof Tally !== "undefined") Tally.loadEmbeds();
-          else
-            d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
-              e.src = e.dataset.tallySrc;
-            });
-        };
+          <iframe
+            data-tally-src="https://tally.so/embed/Y5G1Md?alignLeft=1&hideTitle=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="1"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Let’s #BeJunglee"
+          ></iframe>
+          <script>
+            (function () {
+              var d = document,
+                w = "https://tally.so/widgets/embed.js",
+                v = function () {
+                  if (typeof Tally !== "undefined") Tally.loadEmbeds();
+                  else
+                    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+                      e.src = e.dataset.tallySrc;
+                    });
+                };
 
-      if (typeof Tally !== "undefined") v();
-      else if (d.querySelector('script[src="' + w + '"]') == null) {
-        var s = d.createElement("script");
-        s.src = w;
-        s.onload = v;
-        s.onerror = v;
-        d.body.appendChild(s);
-      }
-    })();
-  </script>
-</div>
-
-
+              if (typeof Tally !== "undefined") v();
+              else if (d.querySelector('script[src="' + w + '"]') == null) {
+                var s = d.createElement("script");
+                s.src = w;
+                s.onload = v;
+                s.onerror = v;
+                d.body.appendChild(s);
+              }
+            })();
+          </script>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="foot">
-          <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
-
+          <div class="fine">© 2026 Junglee Studios. All rights reserved.</div>
           <div class="social" aria-label="Social links">
             <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
               <img src="IGIcon.png" alt="" width="25" height="25" />
@@ -842,7 +767,6 @@
     </footer>
 
     <script>
-      // Mobile menu
       (function(){
         const btn = document.getElementById('menuBtn');
         const panel = document.getElementById('mobilePanel');
@@ -859,8 +783,6 @@
           });
         });
       })();
-
-    
     </script>
   </body>
 </html>
