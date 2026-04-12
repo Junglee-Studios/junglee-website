@@ -85,75 +85,139 @@
         text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
       }
 
-      .hero-proof {
-        margin: 22px auto 0;
-        max-width: 720px;
-        border-radius: var(--radius-lg);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(10px);
-        padding: 16px var(--space-md);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-      }
-      .hero-proof .row {
+      /* --- Stat strip --- */
+      .stat-strip {
+        margin-top: 32px;
         display: flex;
-        flex-direction: column;
-        gap: 16px;
-        align-items: center;
-        text-align: center;
-      }
-      .hero-proof-text {
-        margin: 0;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        font-size: 1.02rem;
-        color: rgba(255, 255, 255, 0.92);
-      }
-      .mini {
-        display: flex;
-        gap: var(--space-sm);
-        flex-wrap: nowrap;
+        gap: 0;
         justify-content: center;
         align-items: stretch;
-        font-weight: 900;
-        font-size: 1.15rem;
-        color: var(--color-white);
-        width: 100%;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.14);
+        backdrop-filter: blur(14px);
+        background: rgba(0,0,0,0.48);
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
       }
-      .mini span {
-        flex: 1 1 0;
-        min-width: 0;
-        display: inline-flex;
+      .stat-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 0.92rem 1rem;
-        border-radius: var(--radius-pill);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: rgba(0, 0, 0, 0.35);
-        white-space: normal;
+        padding: 18px 12px;
         text-align: center;
-        line-height: 1.2;
+        gap: 4px;
+        border-right: 1px solid rgba(255,255,255,0.10);
       }
-      .mini span i {
-        width: 10px;
-        height: 10px;
-        border-radius: var(--radius-pill);
-        background: var(--color-cyan);
-        display: inline-block;
-        flex: 0 0 10px;
-        min-width: 10px;
-        max-width: 10px;
+      .stat-item:last-child { border-right: none; }
+      .stat-num {
+        font-size: clamp(1.45rem, 2.8vw, 2rem);
+        font-weight: 950;
+        letter-spacing: -0.04em;
+        color: var(--color-white);
+        line-height: 1;
+      }
+      .stat-num.cyan { color: var(--color-cyan); }
+      .stat-num.pink { color: var(--color-magenta); }
+      .stat-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.55);
       }
 
+      /* --- Chips --- */
       .chips { font-weight: 800; font-size: 0.93rem; }
 
+      /* --- Icon-led list items in cards --- */
+      .feat-list {
+        margin: var(--space-md) 0 var(--space-md);
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .feat-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-weight: 650;
+        color: rgba(255,255,255,0.88);
+        line-height: 1.45;
+        font-size: 0.95rem;
+      }
+      .feat-list li::before {
+        content: '';
+        flex: 0 0 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-top: 6px;
+      }
+      .feat-list.cyan li::before { background: var(--color-cyan); }
+      .feat-list.pink li::before { background: var(--color-magenta); }
+
+      /* --- Gradient bridge between hero and white section --- */
+      .grad-bridge {
+        height: 80px;
+        background: linear-gradient(to bottom, #000 0%, #fff 100%);
+        margin: 0;
+        padding: 0;
+      }
+
+      /* --- Trust logos strip --- */
+      .trust-strip {
+        background: var(--color-white);
+        padding: 0 0 clamp(32px, 4vw, 52px);
+        color: var(--color-dark);
+      }
+      .trust-label {
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(11,15,20,0.38);
+        margin-bottom: 24px;
+      }
+      .trust-logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+      .trust-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: var(--radius-pill);
+        border: 1.5px solid rgba(11,15,20,0.10);
+        background: rgba(11,15,20,0.04);
+        font-size: 0.875rem;
+        font-weight: 800;
+        color: rgba(11,15,20,0.70);
+        letter-spacing: -0.01em;
+      }
+      .trust-badge svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+
+      /* --- Two-engine card enhancements --- */
       .two-engine .actions { justify-content: flex-start; }
 
       @media (max-width: 980px) {
-        .mini { flex-wrap: wrap; font-size: 1.05rem; }
-        .mini span { width: 100%; justify-content: center; }
+        .stat-strip { flex-direction: column; border-radius: var(--radius-md); }
+        .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); padding: 14px; }
+        .stat-item:last-child { border-bottom: none; }
         .two-engine .actions { justify-content: flex-start; }
+        .trust-logos { gap: 8px; }
       }
     </style>
   </head>
@@ -185,18 +249,50 @@
             <span class="chip"><i></i>Branded Lifestyle Content</span>
           </div>
 
-          <div class="hero-proof" aria-label="Performance proof">
-            <div class="row">
-              <p class="hero-proof-text">
-                Performance proof across TikTok Shop, creator commerce, and live selling.
-              </p>
-              <div class="mini">
-                <span><i></i> $1.3B+ D2C Sales</span>
-                <span><i></i> 1.5K+ Sellers &amp; Creators</span>
-                <span><i></i> $500M+ Live GMV</span>
-              </div>
+          <div class="stat-strip" aria-label="Performance stats">
+            <div class="stat-item">
+              <div class="stat-num cyan">$1.3B+</div>
+              <div class="stat-label">D2C Sales</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">1.5K+</div>
+              <div class="stat-label">Sellers &amp; Creators</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num pink">$500M+</div>
+              <div class="stat-label">Live GMV</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grad-bridge" aria-hidden="true"></div>
+
+    <section class="trust-strip">
+      <div class="container">
+        <p class="trust-label">Trusted partners &amp; credentials</p>
+        <div class="trust-logos">
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#00f2ea" stroke="#00f2ea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            TikTok Shop Partner
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Creator Agency Partner
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#0b0f14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><path d="M8 21h8M12 17v4" stroke="#0b0f14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/></svg>
+            E-commerce Consulting
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7" stroke="#0b0f14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/><rect x="1" y="5" width="15" height="14" rx="2" stroke="#0b0f14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/></svg>
+            Live Selling Support
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#0b0f14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/></svg>
+            Branded Lifestyle Content
+          </span>
         </div>
       </div>
     </section>
@@ -248,7 +344,7 @@
           <div class="card">
             <h3>For Brands</h3>
             <p>Launch, run, and scale TikTok Shop with consulting, operations support, and creator-led growth.</p>
-            <ul class="list">
+            <ul class="feat-list cyan">
               <li>TikTok Shop launch and setup</li>
               <li>Shop management and optimization</li>
               <li>Creator and affiliate program support</li>
@@ -263,7 +359,7 @@
           <div class="card">
             <h3>For Creators</h3>
             <p>Build your affiliate income and grow with support from a team that understands how TikTok commerce works.</p>
-            <ul class="list">
+            <ul class="feat-list pink">
               <li>Affiliate onboarding and monetization support</li>
               <li>Brand partnership guidance</li>
               <li>Content strategy and posting support</li>
