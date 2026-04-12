@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Junglee — Junglee Studios</title>
-  <meta name="description" content="Junglee Studios was founded by a former TikTok Shop Category Leader with leadership experience at TikTok and Amazon. We bring platform-built playbooks to help brands grow faster, convert better, and scale with confidence." />
+  <meta name="description" content="Junglee Studios was founded by a former TikTok Shop Category Leader with leadership experience at TikTok and Amazon. We bring platform-built playbooks to help brands and creators grow with clarity, structure, and confidence." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,13 +20,13 @@
     ====================================================== */
 
     :root{
-      --paper: #000000;                 /* PURE BLACK */
-      --text: #ffffff;                  /* solid white (no transparency) */
-      --muted: #d6d6d6;                 /* solid light gray */
+      --paper: #000000;
+      --text: #ffffff;
+      --muted: #d6d6d6;
       --border: rgba(255,255,255,.12);
 
-      --accent: #00f2ea;                /* neon blue */
-      --accent2: #ff2d9a;               /* hot pink */
+      --accent: #00f2ea;
+      --accent2: #ff2d9a;
 
       --container: 1120px;
       --pad: 24px;
@@ -34,7 +34,6 @@
 
       --shadow: 0 18px 60px rgba(0,0,0,.45);
 
-      /* About hero image */
       --hero-img: url("assets/logos/assets/LiveSellingShoesx2.jpeg");
     }
 
@@ -55,9 +54,6 @@
       margin: 0 auto;
     }
 
-    /* =========================================
-       Header (match index)
-    ========================================= */
     header{
       position: sticky;
       top: 0;
@@ -122,7 +118,6 @@
       transform: translateY(-1px);
     }
 
-    /* Buttons (NO glow anywhere) */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -160,16 +155,14 @@
       border: 1px solid rgba(255,255,255,.30);
     }
 
-    /* Actions row */
     .actions{
       margin-top: 18px;
       display:flex;
       gap: 12px;
       flex-wrap: wrap;
-      justify-content: center; /* keep centered globally (hero looks right) */
+      justify-content: center;
     }
 
-    /* Mobile menu */
     .menu{
       display:none;
       width: 44px;
@@ -217,9 +210,6 @@
     .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
     .mobile-panel.open{ display:block; }
 
-    /* =========================================
-       Sections + White break sections
-    ========================================= */
     .section{
       padding: clamp(44px, 5vw, 72px) 0;
     }
@@ -239,7 +229,8 @@
       color: #ffffff;
     }
     .kicker i{
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
       background: var(--accent);
       display:inline-block;
@@ -281,25 +272,21 @@
       color: rgba(11,15,20,.78);
       text-shadow: none;
     }
-/* Hero: ensure the lead paragraph block is centered under the H1 */
-.hero .lead{
-  margin-left: auto;
-  margin-right: auto;
-}
 
-    /* =========================================
-       HERO (About) — centered (keep as-is)
-    ========================================= */
+    .hero .lead{
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .hero{
       position: relative;
       overflow: hidden;
-      min-height: calc(100svh - 72px); /* full screen minus header */
+      min-height: calc(100svh - 72px);
       display: flex;
       align-items: center;
       padding: clamp(28px, 4vw, 56px) 0;
     }
 
-    /* Background image */
     .hero::before{
       content:"";
       position:absolute;
@@ -313,7 +300,6 @@
       transform: scale(1.02);
     }
 
-    /* Overlay */
     .hero::after{
       content:"";
       position:absolute;
@@ -322,7 +308,6 @@
       z-index: 1;
     }
 
-    /* Accent vignette */
     .hero .vignette{
       position:absolute;
       inset:0;
@@ -334,7 +319,6 @@
       opacity: .55;
     }
 
-    /* Ensure hero content stays above overlays */
     .hero > .container{
       position: relative;
       z-index: 2;
@@ -346,7 +330,6 @@
       text-align: center;
     }
 
-    /* Mobile tuning */
     @media (max-width: 980px){
       .hero{
         min-height: calc(92svh - 72px);
@@ -356,9 +339,6 @@
       }
     }
 
-    /* =========================================
-       Grids + Cards
-    ========================================= */
     .grid3{
       margin-top: 22px;
       display:grid;
@@ -372,7 +352,6 @@
       gap: 14px;
     }
 
-    /* Dark cards default */
     .card{
       border-radius: var(--r-xl);
       border: 1px solid rgba(255,255,255,.12);
@@ -399,7 +378,6 @@
       line-height: 1.6;
     }
 
-    /* White sections: dark cards with white text (your preference) */
     .section.light .card{
       background: #0b0f14;
       border: 1px solid rgba(0,0,0,.25);
@@ -408,13 +386,12 @@
     .section.light .card h3{ color:#ffffff; }
     .section.light .card p{ color: rgba(255,255,255,.78); }
 
-    /* Platform pills */
     .pills{
       margin-top: 18px;
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: center; /* default centered (used elsewhere if needed) */
+      justify-content: center;
     }
     .pill{
       display:inline-flex;
@@ -441,12 +418,10 @@
     }
     .section.light .pill i{ background: var(--accent); }
 
-    /* ✅ Platform Expertise pills should be LEFT aligned (matches text above) */
     .platform-expertise .pills{
       justify-content: flex-start;
     }
 
-    /* Partner status row */
     .status{
       margin-top: 22px;
       display:grid;
@@ -457,9 +432,6 @@
       text-align: center;
     }
 
-    /* =========================================
-       Footer (match index)
-    ========================================= */
     footer{
       padding: 32px 0;
       border-top: 1px solid rgba(255,255,255,.08);
@@ -502,18 +474,13 @@
       transform: translateY(-1px);
     }
 
-    /* Responsive */
     @media (max-width: 980px){
       .navlinks{ display:none; }
       .menu{ display:inline-flex; }
-      .mobile-panel.open{ display:block; }
-
       .grid3{ grid-template-columns: 1fr; }
       .grid2{ grid-template-columns: 1fr; }
       .status{ grid-template-columns: 1fr; }
       .actions .btn{ width: 100%; }
-
-      /* On mobile, left-aligned pills can feel awkward—keep them left per your request */
       .platform-expertise .pills{ justify-content: flex-start; }
     }
 
@@ -521,9 +488,6 @@
       * { scroll-behavior:auto !important; transition:none !important; }
     }
 
-    /* =========================================
-       Founder Profile (updated sizing)
-    ========================================= */
     .profile{
       margin-top: 22px;
       display:grid;
@@ -572,7 +536,6 @@
       color: rgba(255,255,255,.85);
     }
 
-    /* Founder text hierarchy */
     .profile-sub{
       margin: 10px 0 0;
       font-weight: 450;
@@ -616,7 +579,6 @@
       backdrop-filter: none !important;
     }
 
-    /* Partner Status — white cards on black section */
     .partner-status .card{
       background: #ffffff;
       border: 1px solid rgba(0,0,0,.10);
@@ -642,7 +604,6 @@
       color: #0b0f14;
     }
 
-    /* ✅ Partner Status bottom CTA buttons LEFT aligned (matches text above) */
     .partner-status .actions{
       justify-content: flex-start;
     }
@@ -650,7 +611,6 @@
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
@@ -678,7 +638,6 @@
         </button>
       </nav>
 
-      <!-- Mobile panel -->
       <div class="mobile-panel" id="mobilePanel">
         <a href="index.html">Home</a>
         <a href="about-junglee.html" aria-current="page">About</a>
@@ -691,7 +650,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="vignette" aria-hidden="true"></div>
 
@@ -699,10 +657,10 @@
       <div class="hero-grid">
         <div class="kicker"><i></i> About Junglee Studios</div>
 
-        <h1>Built by leaders who scaled commerce inside TikTok Shop.</h1>
+        <h1>Built by leaders who know how to scale commerce inside TikTok Shop.</h1>
 
         <p class="lead">
-          Founded by a TikTok Shop Category Leader who built the Collectibles category from the ground up and helped define how commerce works on the platform—bringing that firsthand experience to brands and creators navigating what’s next.
+          Junglee Studios was founded by a former TikTok Shop Category Leader who helped build the Collectibles category from the ground up. We bring that firsthand experience to brands and creators who want to grow with more clarity, better execution, and stronger results.
         </p>
 
         <div class="actions">
@@ -714,7 +672,6 @@
     </div>
   </section>
 
-  <!-- FOUNDER -->
   <section class="section">
     <div class="container">
       <div class="kicker"><i></i> Founder</div>
@@ -728,7 +685,7 @@
           <h2 class="profile-title">Meet Jatin Patel “JT”</h2>
 
           <p class="profile-sub intro">
-            Junglee Studios was founded by JT Patel, a former TikTok Shop Category Leader who helped shape how social commerce operates today.
+            Junglee Studios was founded by JT Patel, a former TikTok Shop Category Leader who helped shape how social commerce operates at scale.
           </p>
 
           <p class="profile-sub body">
@@ -736,16 +693,16 @@
           </p>
 
           <p class="profile-sub body emphasis">
-            After seeing how often brands were left to “figure it out” inside complex platforms, JT founded Junglee Studios to share the real playbooks built inside TikTok and Amazon — helping brands scale correctly, build internal teams, and understand where social commerce is headed.
+            After seeing how often brands were left to figure it out inside complex platforms, JT founded Junglee Studios to bring real playbooks from TikTok and Amazon to brands and creators — helping them scale correctly, build stronger systems, and better understand where social commerce is headed.
           </p>
 
           <p class="profile-label">Highlights</p>
 
           <ul class="profile-points">
-            <li>Scaled TikTok Shop Collectibles from launch → $750M+ GMV run-rate in under two years</li>
+            <li>Scaled TikTok Shop Collectibles from launch to a $750M+ GMV run-rate in under two years</li>
             <li>Spearheaded TikTok Shop Auctions and helped shape key commerce features</li>
             <li>Led platform strategy across sellers, live commerce, monetization, and analytics</li>
-            <li>Built Junglee Studios to bring platform-grade playbooks to brands and creators — with in-house enablement</li>
+            <li>Built Junglee Studios to bring platform-grade playbooks to brands and creators</li>
           </ul>
 
           <div class="actions" style="justify-content:flex-start; margin-top:14px;">
@@ -756,7 +713,7 @@
       </div>
     </div>
   </section>
-  <!-- TEAM -->
+
   <section class="section">
     <div class="container">
       <div class="kicker"><i></i> Director of Client Media</div>
@@ -788,12 +745,11 @@
       </div>
     </div>
   </section>
-  
-  <!-- WHAT WE DO (WHITE BREAK SECTION) -->
+
   <section class="section light">
     <div class="container">
       <div class="kicker"><i></i> What we do</div>
-      <h2>We bring clarity, structure, and direction to social commerce.</h2>
+      <h2>We help brands and creators turn social commerce into a repeatable growth engine.</h2>
       <p class="lead">
         Most brands are left to navigate complex platforms on their own. We apply proven platform playbooks across storefronts, content, partnerships, and performance, so growth is intentional, scalable, and built to last.
       </p>
@@ -809,19 +765,18 @@
         </div>
         <div class="card">
           <h3>Content Playbooks</h3>
-          <p>Clear frameworks—hooks, proof, offers, and CTAs—that teams can execute daily without relying on guesswork.</p>
+          <p>Clear frameworks — hooks, proof, offers, and CTAs — that teams can execute daily without relying on guesswork.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLATFORM EXPERTISE (DARK) -->
   <section class="section platform-expertise">
     <div class="container">
       <div class="kicker"><i></i> Platform expertise</div>
       <h2>Deep platform expertise. Real-world application.</h2>
       <p class="lead">
-        Our experience comes from building, scaling, and stress-testing commerce directly within major platforms. We understand how products are discovered, how trust is built, and what actually drives conversion—because we’ve helped design and scale it.
+        Our experience comes from building, scaling, and stress-testing commerce directly within major platforms. We understand how products are discovered, how trust is built, and what actually drives conversion — because we’ve helped design and scale it.
       </p>
 
       <div class="pills" aria-label="Platforms">
@@ -835,29 +790,27 @@
     </div>
   </section>
 
-  <!-- PHILOSOPHY (WHITE BREAK SECTION) -->
   <section class="section light">
     <div class="container">
       <div class="kicker"><i></i> Philosophy</div>
       <h2>“Junglee” is a mindset — bold, intentional, and earned.</h2>
       <p class="lead">
-        “Junglee” means “wild” in Hindi. For us, it’s a mindset: move fast, stay authentic, and build playbooks that outperform trends.
+        “Junglee” means “wild” in Hindi. For us, it means moving fast, staying original, and building strategies that outperform trends.
       </p>
 
       <div class="grid2">
         <div class="card">
           <h3>Built from platform experience</h3>
-          <p>We bring the playbooks we built inside TikTok Shop—then tailor them to your brand's products, categories, audience and affiliate strategy.</p>
+          <p>We bring the playbooks we built inside TikTok Shop — then tailor them to your brand’s products, category, audience, and affiliate strategy.</p>
         </div>
         <div class="card">
           <h3>Trust and community come first</h3>
-          <p>People buy from people they trust. When brands show up consistently and creators share authentic experiences, conversion becomes a natural outcome—not a forced one.</p>
+          <p>People buy from people they trust. When brands show up consistently and creators share authentic experiences, conversion becomes a natural outcome — not a forced one.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OFFICIAL STATUS (DARK) -->
   <section class="section partner-status">
     <div class="container">
       <div class="kicker"><i></i> Partner status</div>
@@ -891,7 +844,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="foot">
@@ -916,7 +868,6 @@
   </footer>
 
   <script>
-    // Mobile menu (same behavior as index)
     (function(){
       const btn = document.getElementById('menuBtn');
       const panel = document.getElementById('mobilePanel');
