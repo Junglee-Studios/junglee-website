@@ -48,492 +48,111 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles/base.css" />
 
     <style>
-      :root{
-        --paper:#000;
-        --text:#fff;
-        --muted: rgba(255,255,255,.80);
-        --border: rgba(255,255,255,.12);
-        --accent:#00f2ea;
-        --accent2:#ff2d9a;
-        --container:1120px;
-        --pad:24px;
-        --r-xl:28px;
+      /* Page-specific: hero image, hero proof bar, mini stats */
+      :root {
         --hero-img: url("assets/logos/assets/LiveSellingClothes.jpeg");
       }
 
-      *{ box-sizing:border-box; }
-      html,body{ height:100%; }
-      body{
-        margin:0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        background: var(--paper);
-        color: var(--text);
-        overflow-x:hidden;
-      }
-      a{ color:inherit; }
-      img{ display:block; max-width:100%; }
-      .container{
-        width:min(var(--container), calc(100% - (2 * var(--pad))));
-        margin:0 auto;
-      }
-
-      header{
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background:#000;
-        border-bottom:1px solid rgba(255,255,255,.08);
-      }
-      .nav{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:16px;
-        padding:16px 0;
-      }
-      .brand{
-        display:flex;
-        align-items:center;
-        gap:12px;
-        text-decoration:none;
-        min-width:220px;
-      }
-      .brand img.logo{
-        height:38px;
-        width:auto;
-        max-width:160px;
-        object-fit:contain;
-      }
-      .wm{
-        display:flex;
-        flex-direction:column;
-        line-height:1.05;
-      }
-      .wm b{
-        font-weight:900;
-        letter-spacing:-0.01em;
-      }
-      .navlinks{
-        display:flex;
-        gap:18px;
-        align-items:center;
-      }
-      .navlinks a{
-        text-decoration:none;
-        font-weight:750;
-        font-size:.95rem;
-        color:rgba(255,255,255,.85);
-        padding:.55rem .65rem;
-        border-radius:12px;
-        transition: background .15s ease, transform .15s ease;
-      }
-      .navlinks a:hover{
-        background:rgba(255,255,255,.08);
-        transform:translateY(-1px);
-      }
-      .btn{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:10px;
-        padding:.9rem 1.05rem;
-        border-radius:14px;
-        border:1px solid rgba(255,255,255,.16);
-        background:rgba(255,255,255,.07);
-        color:rgba(255,255,255,.92);
-        font-weight:900;
-        text-decoration:none;
-        white-space:nowrap;
-        transition: transform .15s ease, border-color .15s ease, background .15s ease;
-        box-shadow:none !important;
-        outline:none;
-        cursor:pointer;
-      }
-      .btn:hover{
-        transform:translateY(-1px);
-        border-color:rgba(255,255,255,.30);
-      }
-      .btn.primary{
-        background:var(--accent);
-        color:#000;
-        border:none;
-      }
-      .btn.pink{
-        background:var(--accent2);
-        color:#000;
-        border:none;
-      }
-
-      .menu{
-        display:none;
-        width:44px;
-        height:44px;
-        border-radius:14px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(255,255,255,.07);
-        cursor:pointer;
-        align-items:center;
-        justify-content:center;
-      }
-      .menu span{
-        width:20px;
-        height:2px;
-        background:rgba(255,255,255,.92);
-        border-radius:2px;
-        position:relative;
-      }
-      .menu span:before,.menu span:after{
-        content:"";
-        position:absolute;
-        left:0;
-        width:20px;
-        height:2px;
-        background:rgba(255,255,255,.92);
-        border-radius:2px;
-      }
-      .menu span:before{ top:-6px; }
-      .menu span:after{ top:6px; }
-
-      .mobile-panel{ display:none; padding:10px 0 18px; }
-      .mobile-panel a{
-        display:block;
-        text-decoration:none;
-        padding:12px 10px;
-        border-radius:14px;
-        font-weight:850;
-        color:rgba(255,255,255,.88);
-      }
-      .mobile-panel a:hover{ background:rgba(255,255,255,.08); }
-      .mobile-cta{ margin-top:10px; display:grid; gap:10px; }
-      .mobile-panel.open{ display:block; }
-
-      .section{ padding: clamp(44px, 5vw, 72px) 0; }
-      .section.tight-bottom{ padding-bottom: 28px; }
-      .section.tight-top{ padding-top: 28px; }
-
-      .section.light{
-        background:#fff;
-        color:#0b0f14;
-      }
-      .section.light .kicker{ color:rgba(11,15,20,.55); }
-      .section.light .lead, .section.light p{
-        color:rgba(11,15,20,.75);
-        text-shadow:none;
-      }
-      .section.light h2, .section.light h3{ color:#0b0f14; }
-
-      .kicker{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        font-weight:900;
-        font-size:.8rem;
-        letter-spacing:.14em;
-        text-transform:uppercase;
-        color:#fff;
-      }
-      .kicker i{
-        width:10px;
-        height:10px;
-        border-radius:999px;
-        background:var(--accent);
-        display:inline-block;
-      }
-
-      h1{
-        margin:14px 0 0;
-        font-size:clamp(2.25rem, 4.6vw, 3.7rem);
-        line-height:1.02;
-        letter-spacing:-0.045em;
-        font-weight:950;
-        color:#fff;
-        text-shadow:0 14px 40px rgba(0,0,0,.55);
-      }
-      h2{
-        margin:14px 0 0;
-        font-size:clamp(1.55rem, 2.6vw, 2.05rem);
-        font-weight:950;
-        letter-spacing:-.03em;
-      }
-      .lead{
-        margin-top:14px;
-        max-width:72ch;
-        color:#fff;
-        font-weight:650;
-        line-height:1.65;
-        text-shadow:0 10px 28px rgba(0,0,0,.45);
-      }
-
-      .hero .lead{
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .hero{
-        position: relative;
-        overflow: hidden;
-        background: #000;
+      /* Homepage hero uses background directly (no ::before image) */
+      .hero {
+        background: var(--color-black);
         background-image: var(--hero-img);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         min-height: calc(100svh - 72px);
-        display: flex;
-        align-items: center;
         padding: clamp(28px, 4vw, 56px) 0;
       }
-      .hero::before{
-        content:"";
-        position:absolute;
-        inset:0;
-        background: rgba(0,0,0,.34);
-        pointer-events:none;
+      .hero::before {
+        background-image: none;
+        background: rgba(0, 0, 0, 0.34);
+        filter: none;
+        transform: none;
+        z-index: 0;
       }
-      .hero .vignette{
-        position:absolute;
-        inset:0;
-        pointer-events:none;
-        background:
-          radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
-          radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
-        opacity: .55;
-      }
-      .hero > .container{
-        position: relative;
-        z-index: 1;
+      .hero::after { display: none; }
+      .hero .vignette { opacity: 0.55; }
+      .hero > .container { z-index: 1; }
+
+      .hero-grid { max-width: 820px; }
+
+      .hero .lead {
+        color: var(--color-white);
+        text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
       }
 
-      .hero-grid{
-        max-width:820px;
-        margin:0 auto;
-        text-align:center;
-      }
-      .actions{
-        margin-top:18px;
-        display:flex;
-        gap:12px;
-        flex-wrap:wrap;
-        justify-content:center;
-      }
-
-      .chips{
-        margin-top:18px;
-        display:flex;
-        gap:10px;
-        flex-wrap:wrap;
-        justify-content:center;
-        font-weight:800;
-        font-size:.93rem;
-      }
-      .chip{
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        padding:.6rem .75rem;
-        border-radius:999px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(255,255,255,.07);
+      .hero-proof {
+        margin: 22px auto 0;
+        max-width: 720px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.45);
         backdrop-filter: blur(10px);
+        padding: 16px var(--space-md);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
       }
-      .chip i{
-        width:10px;
-        height:10px;
-        border-radius:999px;
-        background:var(--accent2);
-        display:inline-block;
-        flex:0 0 10px;
+      .hero-proof .row {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        text-align: center;
       }
-
-      .hero-proof{
-        margin:22px auto 0;
-        max-width:720px;
-        border-radius:18px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(0,0,0,.45);
-        backdrop-filter: blur(10px);
-        padding:16px 18px;
-        box-shadow:0 12px 30px rgba(0,0,0,.45);
+      .hero-proof-text {
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        font-size: 1.02rem;
+        color: rgba(255, 255, 255, 0.92);
       }
-      .hero-proof .row{
-        display:flex;
-        flex-direction:column;
-        gap:16px;
-        align-items:center;
-        text-align:center;
+      .mini {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: stretch;
+        font-weight: 900;
+        font-size: 1.15rem;
+        color: var(--color-white);
+        width: 100%;
       }
-      .hero-proof-text{
-        margin:0;
-        font-weight:700;
-        letter-spacing:-.01em;
-        font-size:1.02rem;
-        color:rgba(255,255,255,.92);
+      .mini span {
+        flex: 1 1 0;
+        min-width: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0.92rem 1rem;
+        border-radius: var(--radius-pill);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(0, 0, 0, 0.35);
+        white-space: normal;
+        text-align: center;
+        line-height: 1.2;
       }
-      .mini{
-        display:flex;
-        gap:12px;
-        flex-wrap:nowrap;
-        justify-content:center;
-        align-items:stretch;
-        font-weight:900;
-        font-size:1.15rem;
-        color:#fff;
-        width:100%;
-      }
-      .mini span{
-        flex:1 1 0;
-        min-width:0;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:10px;
-        padding:.92rem 1rem;
-        border-radius:999px;
-        border:1px solid rgba(255,255,255,.22);
-        background:rgba(0,0,0,.35);
-        white-space:normal;
-        text-align:center;
-        line-height:1.2;
-      }
-      .mini span i{
-        width:10px;
-        height:10px;
-        border-radius:999px;
-        background:var(--accent);
-        display:inline-block;
-        flex:0 0 10px;
-        min-width:10px;
-        max-width:10px;
+      .mini span i {
+        width: 10px;
+        height: 10px;
+        border-radius: var(--radius-pill);
+        background: var(--color-cyan);
+        display: inline-block;
+        flex: 0 0 10px;
+        min-width: 10px;
+        max-width: 10px;
       }
 
-      .grid3{
-        margin-top:22px;
-        display:grid;
-        grid-template-columns:repeat(3, 1fr);
-        gap:14px;
-      }
-      .grid2{
-        margin-top:22px;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-      }
-      .card{
-        border-radius:var(--r-xl);
-        border:1px solid rgba(255,255,255,.12);
-        background:rgba(255,255,255,.06);
-        padding:20px;
-        box-shadow:0 18px 60px rgba(0,0,0,.28);
-        transition: transform .2s ease, border-color .2s ease;
-      }
-      .card:hover{
-        transform: translateY(-3px);
-        border-color: rgba(255,255,255,.22);
-      }
-      .card h3{
-        margin:0;
-        font-size:1.1rem;
-        font-weight:950;
-        letter-spacing:-.02em;
-      }
-      .card p{
-        margin:10px 0 0;
-        color:rgba(255,255,255,.72);
-        font-weight:650;
-        line-height:1.6;
-      }
+      .chips { font-weight: 800; font-size: 0.93rem; }
 
-      .section.light .card{
-        background:#0b0f14;
-        color:#fff;
-        border:1px solid rgba(0,0,0,.25);
-        box-shadow:0 18px 40px rgba(0,0,0,.16);
-      }
-      .section.light .card h3{ color:#fff; }
-      .section.light .card p{ color:rgba(255,255,255,.80); }
+      .two-engine .actions { justify-content: flex-start; }
 
-      .list{
-        margin:12px 0 0;
-        padding-left:18px;
-        display:grid;
-        gap:8px;
-        color:rgba(255,255,255,.80);
-        font-weight:750;
-      }
-      .section.light .list{ color: rgba(11,15,20,.75); }
-
-      .contact-wrap{
-        margin-top:18px;
-        padding:0;
-        border:none;
-        border-radius:0;
-        background:transparent;
-        box-shadow:none;
-      }
-      .contact-wrap iframe{
-        width:100%;
-        border:0;
-        border-radius:0;
-        display:block;
-      }
-
-      footer{
-        padding:32px 0;
-        border-top:1px solid rgba(255,255,255,.08);
-        background:#000;
-      }
-      .foot{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
-        flex-wrap:wrap;
-      }
-      .fine{
-        color:rgba(255,255,255,.55);
-        font-weight:500;
-        font-size:.9rem;
-        letter-spacing:.01em;
-      }
-      .social{
-        display:flex;
-        gap:10px;
-        align-items:center;
-      }
-      .icon{
-        background:transparent;
-        border:none;
-        padding:0;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        opacity:.7;
-        transition: opacity .15s ease, transform .15s ease;
-        text-decoration:none;
-      }
-      .icon:hover{
-        opacity:1;
-        transform: translateY(-1px);
-      }
-
-      .two-engine .actions{
-        justify-content:flex-start;
-      }
-
-      @media (max-width: 980px){
-        .navlinks{ display:none; }
-        .menu{ display:inline-flex; }
-        .grid3{ grid-template-columns:1fr; }
-        .grid2{ grid-template-columns:1fr; }
-        .actions .btn{ width:100%; }
-        .mini{ flex-wrap:wrap; font-size:1.05rem; }
-        .mini span{ width:100%; justify-content:center; }
-        .two-engine .actions{ justify-content:flex-start; }
-      }
-
-      @media (prefers-reduced-motion: reduce){
-        *{ scroll-behavior:auto !important; transition:none !important; }
+      @media (max-width: 980px) {
+        .mini { flex-wrap: wrap; font-size: 1.05rem; }
+        .mini span { width: 100%; justify-content: center; }
+        .two-engine .actions { justify-content: flex-start; }
       }
     </style>
   </head>
@@ -554,8 +173,8 @@
           <div class="navlinks" role="navigation">
             <a href="index.html">Home</a>
             <a href="about-junglee.html">About</a>
-            <a href="brand-growth.html">I’m a Brand</a>
-            <a href="for-creators.html">I’m a Creator</a>
+            <a href="brand-growth.html">I'm a Brand</a>
+            <a href="for-creators.html">I'm a Creator</a>
             <a class="btn primary" href="#contact">Contact</a>
           </div>
 
@@ -573,8 +192,8 @@
         <div class="mobile-panel" id="mobilePanel">
           <a href="index.html">Home</a>
           <a href="about-junglee.html">About</a>
-          <a href="brand-growth.html">I’m a Brand</a>
-          <a href="for-creators.html">I’m a Creator</a>
+          <a href="brand-growth.html">I'm a Brand</a>
+          <a href="for-creators.html">I'm a Creator</a>
           <div class="mobile-cta">
             <a class="btn primary" href="#contact">Contact</a>
           </div>
@@ -594,8 +213,8 @@
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="brand-growth.html">I’m a Brand</a>
-            <a class="btn pink" href="for-creators.html">I’m a Creator</a>
+            <a class="btn primary" href="brand-growth.html">I'm a Brand</a>
+            <a class="btn pink" href="for-creators.html">I'm a Creator</a>
           </div>
 
           <div class="chips" aria-label="Trust indicators">
@@ -626,7 +245,7 @@
       <div class="container">
         <div class="kicker"><i></i> Who we are</div>
         <h2>Built inside TikTok Shop. Focused on growth that lasts.</h2>
-        <p class="lead" style="margin-top:10px;">
+        <p class="lead">
           Junglee Studios was founded from direct experience inside TikTok Shop, which means we understand how the platform works behind the scenes and how to turn that knowledge into real growth for brands and creators.
         </p>
       </div>
@@ -636,7 +255,7 @@
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
         <h2>Where social commerce actually converts.</h2>
-        <p class="lead" style="margin-top:10px;">
+        <p class="lead">
           We connect strategy, content, creators, and storefronts so your TikTok commerce system works as one engine.
         </p>
 
@@ -661,7 +280,7 @@
       <div class="container">
         <div class="kicker"><i></i> Two sides • one engine</div>
         <h2>Brands + creators, managed as one system.</h2>
-        <p class="lead" style="margin-top:10px;">
+        <p class="lead">
           Most growth breaks when shop strategy, content, creators, and offers are disconnected. Junglee brings them together so performance compounds.
         </p>
 
@@ -702,9 +321,9 @@
     <section class="section light" id="contact">
       <div class="container">
         <div class="kicker"><i></i> Contact</div>
-        <h2>Let’s #BeJunglee.</h2>
-        <p class="lead" style="margin-top:10px;">
-          Let’s build your next revenue engine. Tell us what you’re building, and we’ll show you the best way to launch, optimize, or scale it.
+        <h2>Let's #BeJunglee.</h2>
+        <p class="lead">
+          Let's build your next revenue engine. Tell us what you're building, and we'll show you the best way to launch, optimize, or scale it.
         </p>
 
         <div class="contact-wrap">
@@ -716,7 +335,7 @@
             frameborder="0"
             marginheight="0"
             marginwidth="0"
-            title="Let’s #BeJunglee"
+            title="Let's #BeJunglee"
           ></iframe>
           <script>
             (function () {
@@ -747,7 +366,7 @@
     <footer>
       <div class="container">
         <div class="foot">
-          <div class="fine">© 2026 Junglee Studios. All rights reserved.</div>
+          <div class="fine">&copy; <span id="year"></span> Junglee Studios. All rights reserved.</div>
           <div class="social" aria-label="Social links">
             <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
               <img src="IGIcon.png" alt="" width="25" height="25" />
@@ -782,6 +401,9 @@
             btn.setAttribute('aria-expanded', 'false');
           });
         });
+
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
       })();
     </script>
   </body>
