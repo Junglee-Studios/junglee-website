@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/base.css" />
+  <script src="partials/loader.js" defer></script>
 
   <style>
     /* Page-specific: hero image, creator support cards, miniGrid, ctaStrip variants */
@@ -158,45 +159,8 @@
   </style>
 </head>
 
-<body>
-  <header>
-    <div class="container">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="index.html" aria-label="Junglee Studios home">
-          <img
-            src="assets/logos/assets/Junglee Studios - without black shadow.png"
-            alt="Junglee Studios logo"
-            class="logo"
-          />
-          <div class="wm">
-            <b>Studios</b>
-          </div>
-        </a>
-
-        <div class="navlinks" role="navigation">
-          <a href="index.html">Home</a>
-          <a href="about-junglee.html">About</a>
-          <a href="brand-growth.html">I'm a Brand</a>
-          <a href="for-creators.html" aria-current="page">I'm a Creator</a>
-          <a class="btn primary" href="index.html#contact">Contact</a>
-        </div>
-
-        <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
-          <span></span>
-        </button>
-      </nav>
-
-      <div class="mobile-panel" id="mobilePanel">
-        <a href="index.html">Home</a>
-        <a href="about-junglee.html">About</a>
-        <a href="brand-growth.html">I'm a Brand</a>
-        <a href="for-creators.html" aria-current="page">I'm a Creator</a>
-        <div class="mobile-cta">
-          <a class="btn primary" href="index.html#contact">Contact</a>
-        </div>
-      </div>
-    </div>
-  </header>
+<body data-page="creators">
+  <header id="site-header"></header>
 
   <section class="hero">
     <div class="vignette" aria-hidden="true"></div>
@@ -379,49 +343,6 @@
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="foot">
-        <div class="fine">&copy; <span id="year"></span> Junglee Studios. All rights reserved.</div>
-
-        <div class="social" aria-label="Social links">
-          <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
-            <img src="IGIcon.png" alt="" width="25" height="25" />
-          </a>
-          <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
-            <img src="FBIcon.png" alt="" width="25" height="25" />
-          </a>
-          <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
-            <img src="TikTokIcon.png" alt="" width="25" height="25" />
-          </a>
-          <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <img src="LinkedinIcon.png" alt="" width="25" height="25" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    (function(){
-      const btn = document.getElementById('menuBtn');
-      const panel = document.getElementById('mobilePanel');
-
-      btn?.addEventListener('click', () => {
-        const open = panel.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-
-      panel?.querySelectorAll('a')?.forEach(a => {
-        a.addEventListener('click', () => {
-          panel.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        });
-      });
-
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-    })();
-  </script>
+  <footer id="site-footer"></footer>
 </body>
 </html>
