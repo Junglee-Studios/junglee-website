@@ -26,592 +26,222 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css" />
 
-   <style>
-    :root{
-      --paper:#000000;
-      --text:#ffffff;
-      --muted:#d6d6d6;
-      --border:rgba(255,255,255,.12);
-      --accent:#00f2ea;
-      --accent2:#ff2d9a;
-      --container:1120px;
-      --pad:24px;
-      --r-xl:28px;
-      --shadow:0 18px 60px rgba(0,0,0,.45);
-      --hero-img:url("assets/logos/assets/BrandPage.jpeg");
+  <style>
+    /* Page-specific: hero image, tier cards, service cards, logos grid */
+    :root {
+      --hero-img: url("assets/logos/assets/BrandPage.jpeg");
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:var(--paper);
-      color:var(--text);
-      overflow-x:hidden;
+    /* Tier cards */
+    .tierGrid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(var(--container),calc(100% - (2 * var(--pad))));margin:0 auto}
+    .tierCard {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border-light);
+      background: var(--color-white);
+      padding: var(--space-lg);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    }
+    .tierPill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.8rem 1.1rem;
+      border-radius: var(--radius-pill);
+      background: var(--color-dark);
+      border: 1px solid var(--color-border-light);
+      font-weight: 950;
+      font-size: 1.05rem;
+      color: var(--color-white);
+      white-space: nowrap;
+    }
+    .tierPill i {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-pill);
+      background: var(--color-cyan);
+      display: inline-block;
+    }
+    .tierCard:nth-child(2) .tierPill i { background: var(--color-magenta); }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:#000;
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .tierFor {
+      margin: 6px 0 0;
+      font-weight: 900;
+      line-height: 1.45;
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:16px 0;
+    .tierFor.blue { color: var(--color-cyan); }
+    .tierFor.pink { color: var(--color-magenta); }
+    .tierGoal {
+      margin: 10px 0 0;
+      font-weight: 800;
+      color: rgba(11, 15, 20, 0.88);
+      line-height: 1.45;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      min-width:220px;
+    .tierLabel {
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: rgba(11, 15, 20, 0.55);
     }
-    .brand img.logo{
-      height:38px;
-      max-height:38px;
-      width:auto;
-      max-width:160px;
-      object-fit:contain;
-      display:block;
+    .tierList {
+      margin: 10px 0 0;
+      padding-left: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: rgba(11, 15, 20, 0.78);
+      line-height: 1.45;
     }
-    .wm{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
+    .tierBest {
+      margin-top: 16px;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 14px;
+      font-weight: 900;
+      color: var(--color-dark);
+      letter-spacing: -0.01em;
     }
-    .wm b{
-      font-weight:900;
-      letter-spacing:-0.01em;
-      color:#fff;
-    }
-    .navlinks{
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-    .navlinks a{
-      text-decoration:none;
-      font-weight:750;
-      font-size:.95rem;
-      color:rgba(255,255,255,.85);
-      padding:.55rem .65rem;
-      border-radius:12px;
-      transition:background .15s ease, transform .15s ease;
-    }
-    .navlinks a:hover{
-      background:rgba(255,255,255,.08);
-      transform:translateY(-1px);
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:.9rem 1.05rem;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.07);
-      color:#fff;
-      font-weight:900;
-      text-decoration:none;
-      white-space:nowrap;
-      transition:transform .15s ease, border-color .15s ease, background .15s ease;
-    }
-    .btn:hover{
-      transform:translateY(-1px);
-      border-color:rgba(255,255,255,.30);
-    }
-    .btn.primary{
-      background:var(--accent);
-      color:#000;
-      border:none;
-    }
-    .btn.pink{
-      background:var(--accent2);
-      color:#000;
-      border:none;
-    }
-    .btn.white{
-      background:#fff;
-      color:#000;
-      border:1px solid rgba(255,255,255,.30);
+    .tierBest ul {
+      margin: 10px 0 0;
+      padding-left: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+      font-size: 0.93rem;
+      font-weight: 550;
+      color: rgba(11, 15, 20, 0.75);
+      line-height: 1.45;
     }
 
-    .actions{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
+    /* Service cards (dark background) */
+    .svcCard {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      background: var(--color-dark);
+      padding: 22px;
+      box-shadow: var(--shadow-card-light);
+    }
+    .svcCard h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      color: var(--color-white);
+    }
+    .svcCard.blue h3 { color: var(--color-cyan); }
+    .svcCard.pink h3 { color: var(--color-magenta); }
+    .svcTagline {
+      margin-top: var(--space-xs);
+      font-weight: 850;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.45;
+    }
+    .svcList {
+      margin: var(--space-sm) 0 0;
+      padding-left: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 650;
+      line-height: 1.45;
+    }
+    .svcBest {
+      margin-top: 14px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 14px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .svcBest ul {
+      margin: 10px 0 0;
+      padding-left: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+      font-weight: 650;
+      color: var(--color-muted);
     }
 
-    .menu{
-      display:none;
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.07);
-      cursor:pointer;
-      align-items:center;
-      justify-content:center;
+    /* Sub-options */
+    .subOptions {
+      margin-top: var(--space-sm);
+      display: grid;
+      gap: 10px;
     }
-    .menu span{
-      width:20px;
-      height:2px;
-      background:rgba(255,255,255,.92);
-      border-radius:2px;
-      position:relative;
+    .subBox {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-light);
+      background: var(--color-white);
+      padding: 14px;
     }
-    .menu span:before,.menu span:after{
-      content:"";
-      position:absolute;
-      left:0;
-      width:20px;
-      height:2px;
-      background:rgba(255,255,255,.92);
-      border-radius:2px;
+    .subBox b {
+      display: block;
+      font-weight: 950;
+      letter-spacing: -0.01em;
+      color: var(--color-dark);
+      margin-bottom: 6px;
     }
-    .menu span:before{top:-6px}
-    .menu span:after{top:6px}
-
-    .mobile-panel{
-      display:none;
-      padding:10px 0 18px;
-    }
-    .mobile-panel a{
-      display:block;
-      text-decoration:none;
-      padding:12px 10px;
-      border-radius:14px;
-      font-weight:850;
-      color:rgba(255,255,255,.88);
-    }
-    .mobile-panel a:hover{background:rgba(255,255,255,.08)}
-    .mobile-cta{margin-top:10px;display:grid;gap:10px}
-    .mobile-panel.open{display:block}
-
-    .section{padding:clamp(44px,5vw,72px) 0}
-    .section.light{background:#fff;color:#0b0f14}
-
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      font-size:.8rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:#fff;
-    }
-    .kicker i{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:var(--accent);
-      display:inline-block;
-    }
-    .section.light .kicker{color:rgba(11,15,20,.55)}
-    .section.light .kicker i{background:var(--accent2)}
-
-    h1{
-      margin:14px 0 0;
-      font-size:clamp(2.25rem,4.6vw,3.4rem);
-      line-height:1.02;
-      letter-spacing:-0.045em;
-      font-weight:950;
-      color:#fff;
-      text-shadow:0 14px 40px rgba(0,0,0,.55);
-    }
-    h2{
-      margin:14px 0 0;
-      font-size:clamp(1.55rem,2.6vw,2.05rem);
-      font-weight:950;
-      letter-spacing:-.03em;
-    }
-    .lead{
-      margin-top:14px;
-      max-width:72ch;
-      color:#fff;
-      font-weight:650;
-      line-height:1.65;
-      text-shadow:0 10px 28px rgba(0,0,0,.45);
-    }
-    .hero .lead{
-      margin-left:auto;
-      margin-right:auto;
-    }
-    .section.light h2,.section.light h3{color:#0b0f14}
-    .section.light .lead,.section.light p{
-      color:rgba(11,15,20,.78);
-      text-shadow:none;
+    .subBox p {
+      margin: 0;
+      color: rgba(11, 15, 20, 0.75);
+      font-weight: 650;
+      line-height: 1.55;
     }
 
-    .hero{
-      position:relative;
-      overflow:hidden;
-      min-height:calc(100svh - 72px);
-      display:flex;
-      align-items:center;
-      padding:clamp(28px,4vw,56px) 0;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image:var(--hero-img);
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center;
-      z-index:0;
-      filter:brightness(1.08) contrast(1.03) saturate(1.05);
-      transform:scale(1.02);
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.32);
-      z-index:1;
-    }
-    .hero .vignette{
-      position:absolute;
-      inset:0;
-      z-index:1;
-      pointer-events:none;
-      background:
-        radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.10), transparent 60%),
-        radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.08), transparent 60%);
-      opacity:.55;
-    }
-    .hero>.container{
-      position:relative;
-      z-index:2;
-    }
-    .hero-grid{
-      max-width:920px;
-      margin:0 auto;
-      text-align:center;
+    /* Logos grid */
+    .logos {
+      margin-top: var(--space-md);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-md);
+      align-items: center;
     }
 
-    .grid3{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .grid2{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-
-    .card{
-      border-radius:var(--r-xl);
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      padding:20px;
-      box-shadow:0 18px 60px rgba(0,0,0,.28);
-      transition:transform .2s ease, border-color .2s ease;
-    }
-    .card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(255,255,255,.22);
-    }
-    .card h3{
-      margin:0;
-      font-size:1.1rem;
-      font-weight:950;
-      letter-spacing:-.02em;
-      color:#fff;
-    }
-    .card p{
-      margin:10px 0 0;
-      color:rgba(255,255,255,.78);
-      font-weight:650;
-      line-height:1.6;
-    }
-    .section.light .card{
-      background:#0b0f14;
-      border:1px solid rgba(0,0,0,.25);
-      box-shadow:0 18px 40px rgba(0,0,0,.14);
-    }
-    .section.light .card h3{color:#fff}
-    .section.light .card p{color:rgba(255,255,255,.78)}
-
-    .tierGrid{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .tierCard{
-      border-radius:var(--r-xl);
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      padding:24px;
-      box-shadow:0 18px 50px rgba(0,0,0,.25);
-    }
-    .tierPill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:.8rem 1.1rem;
-      border-radius:999px;
-      background:#0b0f14;
-      border:1px solid rgba(0,0,0,.12);
-      font-weight:950;
-      font-size:1.05rem;
-      color:#fff;
-      white-space:nowrap;
-    }
-    .tierPill i{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:var(--accent);
-      display:inline-block;
-    }
-    .tierCard:nth-child(2) .tierPill i{background:var(--accent2)}
-
-    .tierFor{
-      margin:6px 0 0;
-      font-weight:900;
-      line-height:1.45;
-    }
-    .tierFor.blue{color:var(--accent)}
-    .tierFor.pink{color:var(--accent2)}
-    .tierGoal{
-      margin:10px 0 0;
-      font-weight:800;
-      color:rgba(11,15,20,.88);
-      line-height:1.45;
-    }
-    .tierLabel{
-      margin-top:16px;
-      font-size:.7rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      font-weight:900;
-      color:rgba(11,15,20,.55);
-    }
-    .tierList{
-      margin:10px 0 0;
-      padding-left:18px;
-      display:grid;
-      gap:8px;
-      font-size:.93rem;
-      font-weight:500;
-      color:rgba(11,15,20,.78);
-      line-height:1.45;
-    }
-    .tierBest{
-      margin-top:16px;
-      border-top:1px solid rgba(0,0,0,.12);
-      padding-top:14px;
-      font-weight:900;
-      color:#0b0f14;
-      letter-spacing:-.01em;
-    }
-    .tierBest ul{
-      margin:10px 0 0;
-      padding-left:18px;
-      display:grid;
-      gap:8px;
-      font-size:.93rem;
-      font-weight:550;
-      color:rgba(11,15,20,.75);
-      line-height:1.45;
+    .logoTile {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 88px;
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
-    .svcCard{
-      border-radius:var(--r-xl);
-      border:1px solid rgba(255,255,255,.12);
-      background:#0b0f14;
-      padding:22px;
-      box-shadow:0 18px 40px rgba(0,0,0,.14);
-    }
-    .svcCard h3{
-      margin:0;
-      font-size:1.15rem;
-      font-weight:950;
-      letter-spacing:-.02em;
-      color:#fff;
-    }
-    .svcCard.blue h3{color:var(--accent)}
-    .svcCard.pink h3{color:var(--accent2)}
-    .svcTagline{
-      margin-top:8px;
-      font-weight:850;
-      color:rgba(255,255,255,.92);
-      line-height:1.45;
-    }
-    .svcList{
-      margin:12px 0 0;
-      padding-left:18px;
-      display:grid;
-      gap:8px;
-      color:rgba(255,255,255,.82);
-      font-weight:650;
-      line-height:1.45;
-    }
-    .svcBest{
-      margin-top:14px;
-      border-top:1px solid rgba(255,255,255,.12);
-      padding-top:14px;
-      font-weight:900;
-      color:rgba(255,255,255,.92);
-    }
-    .svcBest ul{
-      margin:10px 0 0;
-      padding-left:18px;
-      display:grid;
-      gap:8px;
-      font-weight:650;
-      color:rgba(255,255,255,.78);
+    .logoTile img {
+      max-width: 100%;
+      max-height: 44px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      opacity: 0.92;
     }
 
-    .subOptions{
-      margin-top:12px;
-      display:grid;
-      gap:10px;
-    }
-    .subBox{
-      border-radius:18px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      padding:14px;
-    }
-    .subBox b{
-      display:block;
-      font-weight:950;
-      letter-spacing:-.01em;
-      color:#0b0f14;
-      margin-bottom:6px;
-    }
-    .subBox p{
-      margin:0;
-      color:rgba(11,15,20,.75);
-      font-weight:650;
-      line-height:1.55;
+    .section.light .logoTile {
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      background: var(--color-white);
     }
 
-    footer{
-      padding:32px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-      background:#000;
-    }
-    .foot{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .fine{
-      color:rgba(255,255,255,.55);
-      font-weight:500;
-      font-size:.9rem;
-      letter-spacing:.01em;
-    }
-    .social{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .icon{
-      background:transparent;
-      border:none;
-      padding:0;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      opacity:.7;
-      transition:opacity .15s ease, transform .15s ease;
-      text-decoration:none;
-    }
-    .icon:hover{
-      opacity:1;
-      transform:translateY(-1px);
+    .section.light .logoTile img { max-height: 44px; }
+
+    @media (max-width: 980px) {
+      .tierGrid { grid-template-columns: 1fr; }
+      .logos { grid-template-columns: repeat(3, 1fr); }
     }
 
-    @media (max-width: 980px){
-      .navlinks{display:none}
-      .menu{display:inline-flex}
-      .grid3,.grid2,.tierGrid{grid-template-columns:1fr}
-      .actions .btn{width:100%}
-      .hero{min-height:calc(92svh - 72px)}
-      .hero::before{background-position:center top}
+    @media (max-width: 520px) {
+      .logos { grid-template-columns: repeat(2, 1fr); }
     }
-
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important; transition:none !important}
-    }
-      /* Logos grid */
-.logos{
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 18px;
-  align-items: center;
-}
-
-.logoTile{
-  width: 100%;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 88px;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.logoTile img{
-  max-width: 100%;
-  max-height: 44px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  opacity: .92;
-}
-
-/* White section variant */
-.section.light .logoTile{
-  border: 1px solid rgba(0,0,0,.14);
-  background: #ffffff;
-}
-
-.section.light .logoTile img{
-  max-height: 44px;
-}
-
-@media (max-width: 980px){
-  .logos{
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 520px){
-  .logos{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
   </style>
 </head>
 
@@ -741,13 +371,13 @@
     <div class="container">
       <div class="kicker"><i></i> What we offer</div>
       <h2>How we help brands win on TikTok Shop.</h2>
-      <p class="lead">We don’t just manage TikTok Shop. We help you understand it, scale it, and own it long-term.</p>
+      <p class="lead">We don't just manage TikTok Shop. We help you understand it, scale it, and own it long-term.</p>
 
       <div class="grid3">
         <div class="card">
           <h3>TikTok Shop Foundation</h3>
           <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Launch with clarity, not trial and error.</p>
-          <p>We set up TikTok Shop the right way from day one, covering structure, compliance, catalog hygiene, and operational readiness so your team isn’t fixing mistakes while trying to scale.</p>
+          <p>We set up TikTok Shop the right way from day one, covering structure, compliance, catalog hygiene, and operational readiness so your team isn't fixing mistakes while trying to scale.</p>
         </div>
 
         <div class="card">
@@ -765,7 +395,7 @@
         <div class="card">
           <h3>Content Direction Playbooks</h3>
           <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Give your team a repeatable way to win.</p>
-          <p>We don’t produce content for you — we give your team clear formats, frameworks, and examples so they know what to post, why it works, and how to improve it over time.</p>
+          <p>We don't produce content for you — we give your team clear formats, frameworks, and examples so they know what to post, why it works, and how to improve it over time.</p>
         </div>
 
         <div class="card">
@@ -776,8 +406,8 @@
 
         <div class="card">
           <h3>Reporting & Insights Enablement</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Know what’s working and why.</p>
-          <p>We provide clear reporting, insights, and team training so performance isn’t a black box. The goal is confidence, not dependence.</p>
+          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Know what's working and why.</p>
+          <p>We provide clear reporting, insights, and team training so performance isn't a black box. The goal is confidence, not dependence.</p>
         </div>
       </div>
     </div>
@@ -788,7 +418,7 @@
       <div class="kicker"><i></i> Packages</div>
       <h2>Engagement tiers built for where you are today.</h2>
       <p class="lead">
-        These tiers keep it simple and outcomes clear. We’ll confirm the right fit based on category, goals, and internal resources.
+        These tiers keep it simple and outcomes clear. We'll confirm the right fit based on category, goals, and internal resources.
       </p>
 
       <div class="tierGrid">
@@ -798,7 +428,7 @@
           </div>
           <p class="tierFor blue">For brands new to TikTok Shop or relaunching.</p>
           <p class="tierGoal">Goal: get live correctly, fast, and conversion-ready.</p>
-          <div class="tierLabel">What’s included</div>
+          <div class="tierLabel">What's included</div>
           <ul class="tierList">
             <li>TikTok Shop setup & infrastructure</li>
             <li>Product catalog and listing optimization</li>
@@ -826,7 +456,7 @@
           </div>
           <p class="tierFor pink">For brands ready to drive consistent sales.</p>
           <p class="tierGoal">Goal: build momentum, creator velocity, and repeatable GMV.</p>
-          <div class="tierLabel">What’s included</div>
+          <div class="tierLabel">What's included</div>
           <ul class="tierList">
             <li>Everything in Launch, plus</li>
             <li>Affiliate & creator program management</li>
@@ -855,7 +485,7 @@
           </div>
           <p class="tierFor blue">For brands serious about TikTok as a revenue channel.</p>
           <p class="tierGoal">Goal: turn TikTok Shop into a predictable growth engine.</p>
-          <div class="tierLabel">What’s included</div>
+          <div class="tierLabel">What's included</div>
           <ul class="tierList">
             <li>Everything in Growth, plus</li>
             <li>Advanced creator & affiliate scaling</li>
@@ -981,17 +611,17 @@
       <div class="kicker"><i></i> Why Junglee</div>
       <h2>Built by leaders who helped shape TikTok Shop.</h2>
       <p class="lead">
-        We don’t guess how social commerce works — we’ve seen what succeeds, what fails, and why. Our role is to help your team execute with clarity, confidence, and direction.
+        We don't guess how social commerce works — we've seen what succeeds, what fails, and why. Our role is to help your team execute with clarity, confidence, and direction.
       </p>
 
       <div class="grid3">
         <div class="card">
           <h3>Platform-Informed Perspective</h3>
-          <p>We’ve worked inside TikTok Shop during its formative growth, helping define category strategy, live commerce mechanics, and seller education as the platform scaled.</p>
+          <p>We've worked inside TikTok Shop during its formative growth, helping define category strategy, live commerce mechanics, and seller education as the platform scaled.</p>
         </div>
         <div class="card">
           <h3>Built for Brand Teams</h3>
-          <p>Our goal isn’t to own your shop forever. We help brands understand what’s happening, why it’s working, and how to build internal capability that lasts.</p>
+          <p>Our goal isn't to own your shop forever. We help brands understand what's happening, why it's working, and how to build internal capability that lasts.</p>
         </div>
         <div class="card">
           <h3>Execution That Holds</h3>
@@ -1003,57 +633,58 @@
 
   <section class="section light" id="brand-logos">
     <div class="container">
-      <div class="kicker"><i></i> Brands we’ve supported across modern commerce</div>
+      <div class="kicker"><i></i> Brands we've supported across modern commerce</div>
       <p class="lead" style="max-width:68ch;">
-        We’ve partnered with forward-thinking teams to launch, scale, and navigate growth across TikTok Shop, Amazon, and emerging social commerce channels.
+        We've partnered with forward-thinking teams to launch, scale, and navigate growth across TikTok Shop, Amazon, and emerging social commerce channels.
       </p>
 
       <div class="logos">
- <div class="logoTile">
-    <img src="assets/logos/Disliz Logo.png" alt="Disliz Logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/disneystore.png" alt="Disney Store logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/Goli.png" alt="Goli Nutrition logo">
-  </div>     
-  <div class="logoTile">
-    <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
-  </div>      
-  <div class="logoTile">
-    <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/RipNHits.png" alt="Rip N Hits logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/xpcollect_logo.png" alt="XP Collect logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
-  </div>
-  <div class="logoTile">
-    <img src="assets/logos/Yucca.png" alt="Yucca Logo">
-  </div>      </div>
+        <div class="logoTile">
+          <img src="assets/logos/Disliz Logo.png" alt="Disliz Logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/disneystore.png" alt="Disney Store logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/Goli.png" alt="Goli Nutrition logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/RipNHits.png" alt="Rip N Hits logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/xpcollect_logo.png" alt="XP Collect logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
+        </div>
+        <div class="logoTile">
+          <img src="assets/logos/Yucca.png" alt="Yucca Logo">
+        </div>
+      </div>
 
       <div class="card" style="margin-top:22px; text-align:center;">
         <b>Ready to grow your TikTok Shop?</b>
@@ -1067,7 +698,7 @@
   <footer>
     <div class="container">
       <div class="foot">
-        <div class="fine">© 2025 Junglee Studios. All rights reserved.</div>
+        <div class="fine">&copy; <span id="year"></span> Junglee Studios. All rights reserved.</div>
         <div class="social" aria-label="Social links">
           <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
             <img src="IGIcon.png" alt="" width="25" height="25" />
@@ -1102,6 +733,9 @@
           btn.setAttribute('aria-expanded', 'false');
         });
       });
+
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
 </body>
