@@ -27,6 +27,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  /* Logos grid */
+.logos{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.logoTile{
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.logoTile img{
+  max-width: 100%;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  opacity: .92;
+}
+
+/* White section variant */
+.section.light .logoTile{
+  border: 1px solid rgba(0,0,0,.14);
+  background: #ffffff;
+}
+
+.section.light .logoTile img{
+  max-height: 44px;
+}
+
+@media (max-width: 980px){
+  .logos{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 520px){
+  .logos{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
   <style>
     :root{
       --paper:#000000;
