@@ -18,6 +18,20 @@
       --hero-img: url("assets/logos/assets/LiveSellingShoesx2.jpeg");
     }
 
+    /* About hero: apply background directly on .hero */
+    .hero {
+      background-image: var(--hero-img);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .hero::before {
+      background-image: none;
+      background: rgba(0, 0, 0, 0.34);
+      filter: none;
+      transform: none;
+    }
+
     /* Profile layout */
     .profile {
       margin-top: 22px;
