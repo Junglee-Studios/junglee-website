@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Creators — Junglee Studios</title>
-  <meta name="description" content="Join Junglee Studios' creator network. Get products, samples, daily posting guidance, and creator support that helps you earn consistently." />
+  <meta name="description" content="Join Junglee Studios’ creator network. Get products, samples, daily posting guidance, and creator support so you can earn more consistently from TikTok Shop." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,616 +12,579 @@
 
   <style>
     :root{
-      --paper: #000000;                 /* PURE BLACK */
-      --text: #ffffff;                  /* solid white */
-      --muted: rgba(255,255,255,.78);
-      --border: rgba(255,255,255,.12);
+      --paper:#000000;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.78);
+      --border:rgba(255,255,255,.12);
 
-      --accent: #00f2ea;                /* neon blue */
-      --accent2: #ff2d9a;               /* hot pink */
+      --accent:#00f2ea;
+      --accent2:#ff2d9a;
 
-      --container: 1120px;
-      --pad: 24px;
-      --r-xl: 28px;
+      --container:1120px;
+      --pad:24px;
+      --r-xl:28px;
 
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-
-      /* ✅ Keep relative path for GitHub Pages */
-      --hero-img: url("assets/logos/assets/CreatorPage.jpeg");
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --hero-img:url("assets/logos/assets/CreatorPage.jpeg");
     }
 
-    *{ box-sizing:border-box; }
-    html, body { height: 100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--paper);
-      color: var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:var(--paper);
+      color:var(--text);
       overflow-x:hidden;
     }
-    a{ color: inherit; }
-    img{ display:block; max-width:100%; }
+    a{color:inherit}
+    img{display:block;max-width:100%}
 
     .container{
-      width: min(var(--container), calc(100% - (2 * var(--pad))));
-      margin: 0 auto;
+      width:min(var(--container),calc(100% - (2 * var(--pad))));
+      margin:0 auto;
     }
 
-    /* =========================================
-       Header (match index)
-    ========================================= */
     header{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #000000;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:#000000;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 16px;
-      padding: 16px 0;
+      gap:16px;
+      padding:16px 0;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap: 12px;
+      gap:12px;
       text-decoration:none;
-      min-width: 220px;
+      min-width:220px;
     }
     .brand img.logo{
-      height: 38px;
-      max-height: 38px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
-      display: block;
+      height:38px;
+      max-height:38px;
+      width:auto;
+      max-width:160px;
+      object-fit:contain;
+      display:block;
     }
     .wm{
       display:flex;
       flex-direction:column;
-      line-height: 1.05;
+      line-height:1.05;
     }
     .wm b{
-      font-weight: 900;
-      letter-spacing: -0.01em;
-      color: #ffffff;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      color:#ffffff;
     }
 
     .navlinks{
       display:flex;
-      gap: 18px;
+      gap:18px;
       align-items:center;
     }
     .navlinks a{
       text-decoration:none;
-      font-weight: 750;
-      font-size: .95rem;
-      color: rgba(255,255,255,.85);
-      padding: .55rem .65rem;
-      border-radius: 12px;
-      transition: background .15s ease, transform .15s ease;
+      font-weight:750;
+      font-size:.95rem;
+      color:rgba(255,255,255,.85);
+      padding:.55rem .65rem;
+      border-radius:12px;
+      transition:background .15s ease, transform .15s ease;
     }
     .navlinks a:hover{
-      background: rgba(255,255,255,.08);
-      transform: translateY(-1px);
+      background:rgba(255,255,255,.08);
+      transform:translateY(-1px);
     }
 
-    /* Buttons (NO glow anywhere) */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap: 10px;
-      padding: .9rem 1.05rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.07);
-      color: #ffffff;
-      font-weight: 900;
+      gap:10px;
+      padding:.9rem 1.05rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.07);
+      color:#ffffff;
+      font-weight:900;
       text-decoration:none;
       white-space:nowrap;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-      box-shadow: none !important;
-      outline: none;
-      cursor: pointer;
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+      box-shadow:none !important;
+      outline:none;
+      cursor:pointer;
     }
     .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,.30);
-      box-shadow: none !important;
+      transform:translateY(-1px);
+      border-color:rgba(255,255,255,.30);
+      box-shadow:none !important;
     }
-    .btn:focus, .btn:active{ outline:none; box-shadow:none !important; }
-
+    .btn:focus,.btn:active{
+      outline:none;
+      box-shadow:none !important;
+    }
     .btn.primary{
-      background: var(--accent);
-      color: #000;
-      border: none;
+      background:var(--accent);
+      color:#000;
+      border:none;
     }
     .btn.pink{
-      background: var(--accent2);
-      color: #000;
-      border: none;
+      background:var(--accent2);
+      color:#000;
+      border:none;
     }
     .btn.white{
-      background: #ffffff;
-      color: #000;
-      border: 1px solid rgba(255,255,255,.30);
+      background:#ffffff;
+      color:#000;
+      border:1px solid rgba(255,255,255,.30);
     }
 
     .actions{
-      margin-top: 18px;
+      margin-top:18px;
       display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
 
-    /* Mobile menu */
     .menu{
       display:none;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.07);
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
       cursor:pointer;
       align-items:center;
       justify-content:center;
     }
     .menu span{
-      width: 20px;
-      height: 2px;
-      background: rgba(255,255,255,.92);
-      border-radius: 2px;
-      position: relative;
+      width:20px;
+      height:2px;
+      background:rgba(255,255,255,.92);
+      border-radius:2px;
+      position:relative;
     }
     .menu span:before,
     .menu span:after{
       content:"";
       position:absolute;
       left:0;
-      width: 20px;
-      height: 2px;
-      background: rgba(255,255,255,.92);
+      width:20px;
+      height:2px;
+      background:rgba(255,255,255,.92);
       border-radius:2px;
     }
-    .menu span:before{ top: -6px; }
-    .menu span:after{ top: 6px; }
+    .menu span:before{top:-6px}
+    .menu span:after{top:6px}
 
     .mobile-panel{
       display:none;
-      padding: 10px 0 18px;
+      padding:10px 0 18px;
     }
     .mobile-panel a{
       display:block;
       text-decoration:none;
-      padding: 12px 10px;
-      border-radius: 14px;
-      font-weight: 850;
-      color: rgba(255,255,255,.88);
+      padding:12px 10px;
+      border-radius:14px;
+      font-weight:850;
+      color:rgba(255,255,255,.88);
     }
-    .mobile-panel a:hover{ background: rgba(255,255,255,.08); }
-    .mobile-cta{ margin-top: 10px; display:grid; gap:10px; }
-    .mobile-panel.open{ display:block; }
+    .mobile-panel a:hover{background:rgba(255,255,255,.08)}
+    .mobile-cta{
+      margin-top:10px;
+      display:grid;
+      gap:10px;
+    }
+    .mobile-panel.open{display:block}
 
-    /* =========================================
-       Sections
-    ========================================= */
     .section{
-      padding: clamp(44px, 5vw, 72px) 0;
+      padding:clamp(44px,5vw,72px) 0;
     }
     .section.light{
-      background: #ffffff;
-      color: #0b0f14;
+      background:#ffffff;
+      color:#0b0f14;
     }
 
     .kicker{
       display:inline-flex;
       align-items:center;
-      gap: 10px;
-      font-weight: 900;
-      font-size: .8rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #ffffff;
+      gap:10px;
+      font-weight:900;
+      font-size:.8rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#ffffff;
     }
     .kicker i{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--accent);
       display:inline-block;
     }
 
-    .section.light .kicker{ color: rgba(11,15,20,.55); }
-    .section.light .kicker i{ background: var(--accent2); }
+    .section.light .kicker{color:rgba(11,15,20,.55)}
+    .section.light .kicker i{background:var(--accent2)}
 
     h1{
-      margin: 14px 0 0;
-      font-size: clamp(2.25rem, 4.6vw, 3.35rem);
-      line-height: 1.02;
-      letter-spacing: -0.045em;
-      font-weight: 950;
-      color: #ffffff;
-      text-shadow: 0 14px 40px rgba(0,0,0,.55);
+      margin:14px 0 0;
+      font-size:clamp(2.25rem,4.6vw,3.35rem);
+      line-height:1.02;
+      letter-spacing:-0.045em;
+      font-weight:950;
+      color:#ffffff;
+      text-shadow:0 14px 40px rgba(0,0,0,.55);
     }
     h2{
-      margin: 14px 0 0;
-      font-size: clamp(1.55rem, 2.6vw, 2.05rem);
-      font-weight: 950;
-      letter-spacing: -.03em;
+      margin:14px 0 0;
+      font-size:clamp(1.55rem,2.6vw,2.05rem);
+      font-weight:950;
+      letter-spacing:-.03em;
     }
 
     .lead{
-      margin-top: 14px;
-      max-width: 72ch;
-      color: var(--muted);
-      font-weight: 650;
-      line-height: 1.65;
-      text-shadow: 0 10px 28px rgba(0,0,0,.45);
+      margin-top:14px;
+      max-width:72ch;
+      color:var(--muted);
+      font-weight:650;
+      line-height:1.65;
+      text-shadow:0 10px 28px rgba(0,0,0,.45);
     }
 
     .section.light h2,
-    .section.light h3{ color: #0b0f14; }
+    .section.light h3{color:#0b0f14}
     .section.light .lead,
     .section.light p{
-      color: rgba(11,15,20,.78);
-      text-shadow: none;
+      color:rgba(11,15,20,.78);
+      text-shadow:none;
     }
 
-    /* =========================================
-       HERO
-    ========================================= */
     .hero{
-      position: relative;
-      overflow: hidden;
-
-      min-height: calc(100svh - 72px);
+      position:relative;
+      overflow:hidden;
+      min-height:calc(100svh - 72px);
       display:flex;
       align-items:center;
-
-      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
-
-      background-image: var(--hero-img);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      padding:clamp(28px,4vw,50px) 0 clamp(44px,5vw,64px);
+      background-image:var(--hero-img);
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
     }
-
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background: rgba(0,0,0,.32);
+      background:rgba(0,0,0,.32);
       pointer-events:none;
-      z-index: 1;
+      z-index:1;
     }
-
     .vignette{
       position:absolute;
       inset:0;
-      z-index: 1;
+      z-index:1;
       pointer-events:none;
       background:
         radial-gradient(1200px 520px at 20% 30%, rgba(0,242,234,.12), transparent 60%),
         radial-gradient(1200px 520px at 75% 15%, rgba(255,45,154,.10), transparent 60%);
-      opacity: .6;
+      opacity:.6;
     }
-
     .hero > .container{
-      position: relative;
-      z-index: 2;
+      position:relative;
+      z-index:2;
     }
-
     .hero-grid{
-      max-width: 940px;
-      margin: 0 auto;
-      text-align: center;
+      max-width:940px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .hero .lead{
+      margin-left:auto;
+      margin-right:auto;
     }
 
-    .hero .lead{ margin-left:auto; margin-right:auto; }
-
-    /* Fun highlight chips */
     .chips{
-      margin-top: 18px;
+      margin-top:18px;
       display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      font-weight: 900;
-      font-size: .92rem;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      font-weight:900;
+      font-size:.92rem;
     }
     .chip{
       display:inline-flex;
       align-items:center;
-      gap: 10px;
-      padding: .6rem .78rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.07);
-      backdrop-filter: blur(10px);
-      /* ✅ Make hero pill text white (not gray) */
-      color: #ffffff;
+      gap:10px;
+      padding:.6rem .78rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
+      backdrop-filter:blur(10px);
+      color:#ffffff;
     }
     .chip i{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--accent);
       display:inline-block;
     }
-    .chip:nth-child(even) i{ background: var(--accent2); }
+    .chip:nth-child(even) i{background:var(--accent2)}
 
-    /* =========================================
-       Cards / Layout
-    ========================================= */
     .grid3{
-      margin-top: 22px;
+      margin-top:22px;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
     }
     .grid2{
-      margin-top: 22px;
+      margin-top:22px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
     }
 
     .card{
-      border-radius: var(--r-xl);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      padding: 20px;
-      box-shadow: 0 18px 60px rgba(0,0,0,.28);
-      transition: transform .2s ease, border-color .2s ease;
+      border-radius:var(--r-xl);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      padding:20px;
+      box-shadow:0 18px 60px rgba(0,0,0,.28);
+      transition:transform .2s ease, border-color .2s ease;
     }
     .card:hover{
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,.22);
+      transform:translateY(-3px);
+      border-color:rgba(255,255,255,.22);
     }
     .card h3{
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 950;
+      margin:0;
+      font-size:1.1rem;
+      font-weight:950;
       letter-spacing:-.02em;
-      color: #ffffff;
+      color:#ffffff;
     }
     .card p{
-      margin: 10px 0 0;
-      color: rgba(255,255,255,.80);
-      font-weight: 650;
-      line-height: 1.6;
+      margin:10px 0 0;
+      color:rgba(255,255,255,.80);
+      font-weight:650;
+      line-height:1.6;
     }
     .card ul{
-      margin: 12px 0 0;
-      padding-left: 18px;
+      margin:12px 0 0;
+      padding-left:18px;
       display:grid;
-      gap: 8px;
-      color: rgba(255,255,255,.84);
-      font-weight: 650;
+      gap:8px;
+      color:rgba(255,255,255,.84);
+      font-weight:650;
     }
-    .card li{ line-height: 1.45; }
+    .card li{line-height:1.45}
 
     .section.light .card{
-      background: #0b0f14;
-      border: 1px solid rgba(0,0,0,.25);
-      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+      background:#0b0f14;
+      border:1px solid rgba(0,0,0,.25);
+      box-shadow:0 18px 40px rgba(0,0,0,.14);
     }
-    .section.light .card h3{ color:#ffffff; }
-    .section.light .card p{ color: rgba(255,255,255,.80); }
-    .section.light .card ul{ color: rgba(255,255,255,.84); }
+    .section.light .card h3{color:#ffffff}
+    .section.light .card p{color:rgba(255,255,255,.80)}
+    .section.light .card ul{color:rgba(255,255,255,.84)}
 
-    /* =========================================
-       "At a glance" fun blocks (simple + digestible)
-    ========================================= */
     .miniGrid{
-      margin-top: 18px;
+      margin-top:18px;
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
     }
     .mini{
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      padding: 14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      padding:14px;
       text-align:center;
     }
     .mini b{
       display:block;
-      font-weight: 950;
+      font-weight:950;
       letter-spacing:-.02em;
-      margin-bottom: 6px;
+      margin-bottom:6px;
     }
     .mini span{
-      color: rgba(255,255,255,.78);
-      font-weight: 650;
-      font-size: .92rem;
-      line-height: 1.35;
+      color:rgba(255,255,255,.78);
+      font-weight:650;
+      font-size:.92rem;
+      line-height:1.35;
       display:block;
     }
-    .mini:nth-child(odd) b{ color: var(--accent); }
-    .mini:nth-child(even) b{ color: var(--accent2); }
+    .mini:nth-child(odd) b{color:var(--accent)}
+    .mini:nth-child(even) b{color:var(--accent2)}
 
-    /* =========================================
-       Creator Support: make CARDS white; make SUPPORT PILL dark (opposite)
-    ========================================= */
     #creator-support .card{
-      position: relative;
-      padding-top: 62px; /* room for the pill */
-      /* ✅ White "translucent pills" (cards) on dark bg */
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,.10);
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      position:relative;
+      padding-top:62px;
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
     }
-    /* Text on white cards */
-    #creator-support .card p{ color: rgba(11,15,20,.78); text-shadow:none; }
-    #creator-support .card ul{ color: rgba(11,15,20,.78); }
-    #creator-support .card li{ color: rgba(11,15,20,.78); }
+    #creator-support .card p{
+      color:rgba(11,15,20,.78);
+      text-shadow:none;
+    }
+    #creator-support .card ul,
+    #creator-support .card li{
+      color:rgba(11,15,20,.78);
+    }
 
     .supportPill{
       position:absolute;
-      top: 18px;
-      left: 18px;
+      top:18px;
+      left:18px;
       display:inline-flex;
       align-items:center;
-      gap: 10px;
-      padding: .55rem .8rem;
-      border-radius: 999px;
-      /* ✅ Opposite of white cards: dark pill */
-      background: rgba(11,15,20,.92);
-      border: 1px solid rgba(11,15,20,.20);
-      color: #ffffff;
-      font-weight: 950;
-      font-size: .9rem;
-      letter-spacing: -.01em;
-      white-space: nowrap;
+      gap:10px;
+      padding:.55rem .8rem;
+      border-radius:999px;
+      background:rgba(11,15,20,.92);
+      border:1px solid rgba(11,15,20,.20);
+      color:#ffffff;
+      font-weight:950;
+      font-size:.9rem;
+      letter-spacing:-.01em;
+      white-space:nowrap;
     }
     .supportPill i{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--accent);
       display:inline-block;
     }
-    #creator-support .card:nth-child(even) .supportPill i{ background: var(--accent2); }
+    #creator-support .card:nth-child(even) .supportPill i{background:var(--accent2)}
+    #creator-support .card h3{color:var(--accent) !important}
+    #creator-support .card:nth-child(even) h3{color:var(--accent2) !important}
 
-    /* Headings alternate (still) */
-    #creator-support .card h3{ color: var(--accent) !important; }
-    #creator-support .card:nth-child(even) h3{ color: var(--accent2) !important; }
-
-    /* =========================================
-       CTA strip
-    ========================================= */
     .ctaStrip{
-      margin-top: 22px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      padding: 18px;
+      margin-top:22px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      padding:18px;
       display:flex;
-      gap: 14px;
+      gap:14px;
       align-items:center;
       justify-content:space-between;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
     }
     .ctaStrip b{
-      font-weight: 950;
+      font-weight:950;
       letter-spacing:-.02em;
     }
     .ctaStrip small{
       display:block;
-      margin-top: 6px;
-      color: rgba(255,255,255,.72);
-      font-weight: 650;
+      margin-top:6px;
+      color:rgba(255,255,255,.72);
+      font-weight:650;
     }
 
-    /* ✅ Network CTA: Want in? + button right next to each other, left aligned */
     .ctaStrip.networkCta{
-      justify-content: flex-start;
-      text-align: left;
-      gap: 10px;
+      justify-content:flex-start;
+      text-align:left;
+      gap:10px;
     }
     .ctaStrip.networkCta .networkTop{
       display:flex;
       align-items:center;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .ctaStrip.networkCta small{
-      margin-top: 0;
-    }
+    .ctaStrip.networkCta small{margin-top:0}
 
-    /* ✅ Services CTA: left aligned like rest */
     .ctaStrip.servicesCta{
-      justify-content: flex-start;
-      text-align: left;
-      gap: 12px;
+      justify-content:flex-start;
+      text-align:left;
+      gap:12px;
     }
     .ctaStrip.servicesCta .actions{
-      margin-top: 0;
-      justify-content: flex-start;
+      margin-top:0;
+      justify-content:flex-start;
     }
 
-    /* =========================================
-       Footer
-    ========================================= */
     footer{
-      padding: 32px 0;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: #000000;
+      padding:32px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:#000000;
     }
     .foot{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap:12px;
+      flex-wrap:wrap;
     }
     .fine{
-      color: rgba(255,255,255,.55);
-      font-weight: 500;
-      font-size: .9rem;
-      letter-spacing: .01em;
+      color:rgba(255,255,255,.55);
+      font-weight:500;
+      font-size:.9rem;
+      letter-spacing:.01em;
     }
     .social{
       display:flex;
-      gap: 10px;
+      gap:10px;
       align-items:center;
     }
     .icon{
-      width: auto;
-      height: auto;
-      border-radius: 0;
-      background: transparent;
-      border: none;
-      padding: 0;
+      width:auto;
+      height:auto;
+      border-radius:0;
+      background:transparent;
+      border:none;
+      padding:0;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      opacity: .7;
-      transition: opacity .15s ease, transform .15s ease;
+      opacity:.7;
+      transition:opacity .15s ease, transform .15s ease;
       text-decoration:none;
     }
     .icon:hover{
-      opacity: 1;
-      transform: translateY(-1px);
+      opacity:1;
+      transform:translateY(-1px);
     }
 
-    /* Responsive */
     @media (max-width: 980px){
-      .navlinks{ display:none; }
-      .menu{ display:inline-flex; }
-
-      .grid3{ grid-template-columns: 1fr; }
-      .grid2{ grid-template-columns: 1fr; }
-      .miniGrid{ grid-template-columns: 1fr 1fr; }
-
-      .actions .btn{ width: 100%; }
-
-      .ctaStrip{ justify-content: center; text-align:center; }
-
+      .navlinks{display:none}
+      .menu{display:inline-flex}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .miniGrid{grid-template-columns:1fr 1fr}
+      .actions .btn{width:100%}
+      .ctaStrip{justify-content:center;text-align:center}
       .ctaStrip.networkCta,
       .ctaStrip.servicesCta{
-        justify-content: flex-start;
-        text-align: left;
+        justify-content:flex-start;
+        text-align:left;
       }
-
       .hero{
-        min-height: calc(92svh - 72px);
-        background-position: center top;
+        min-height:calc(92svh - 72px);
+        background-position:center top;
       }
     }
 
     @media (prefers-reduced-motion: reduce){
-      * { scroll-behavior:auto !important; transition:none !important; }
+      *{scroll-behavior:auto !important; transition:none !important}
     }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
@@ -649,7 +612,6 @@
         </button>
       </nav>
 
-      <!-- Mobile panel -->
       <div class="mobile-panel" id="mobilePanel">
         <a href="index.html">Home</a>
         <a href="about-junglee.html">About</a>
@@ -662,7 +624,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="vignette" aria-hidden="true"></div>
 
@@ -673,8 +634,7 @@
         <h1>Post smarter. Earn more. Keep it fun.</h1>
 
         <p class="lead">
-          We help creators pick the right products, build a simple daily posting rhythm,
-          and improve what converts — so income becomes consistent (not random).
+          We help creators pick the right products, build a simple daily posting rhythm, and improve what converts — so earnings feel steady, not random.
         </p>
 
         <div class="actions">
@@ -698,11 +658,10 @@
     </div>
   </section>
 
-  <!-- CREATOR NETWORK (WHITE) -->
   <section class="section light" id="how-it-works">
     <div class="container">
       <div class="kicker"><i></i> The network</div>
-      <h2>Built for creators who want consistency — not one-off hits.</h2>
+      <h2>For creators who want consistent income — not just one-off hits.</h2>
       <p class="lead">You create. We help with direction, products, support, and momentum.</p>
 
       <div class="grid3">
@@ -722,7 +681,6 @@
         </div>
       </div>
 
-      <!-- ✅ Updated: Want in? + button right next to each other (left aligned) -->
       <div class="ctaStrip networkCta" style="margin-top:22px;">
         <div class="networkTop">
           <b>Want in?</b>
@@ -733,7 +691,6 @@
     </div>
   </section>
 
-  <!-- CREATOR SUPPORT (DARK) -->
   <section class="section" id="creator-support">
     <div class="container">
       <div class="kicker"><i></i> Creator support</div>
@@ -801,7 +758,6 @@
     </div>
   </section>
 
-  <!-- SIMPLE SERVICES (WHITE) -->
   <section class="section light" id="creator-services">
     <div class="container">
       <div class="kicker"><i></i> What we help you do</div>
@@ -814,7 +770,7 @@
           <ul>
             <li>Affiliate onboarding</li>
             <li>Pick products that fit your niche</li>
-            <li>Commission optimization</li>
+            <li>Commission terms that make sense for you</li>
             <li>Campaign participation</li>
           </ul>
         </div>
@@ -834,15 +790,14 @@
           <ul>
             <li>Repeatable momentum system</li>
             <li>Performance reviews</li>
-            <li>Scale income (not one-off hits)</li>
+            <li>Scale income with formats that keep working</li>
             <li>Build what converts</li>
           </ul>
         </div>
       </div>
 
-      <!-- ✅ Updated: left aligned + removed "Ask a Question" -->
       <div class="ctaStrip servicesCta" style="margin-top:22px;">
-        <b>Ready to run a real system?</b>
+        <b>Ready to turn your content into steady income?</b>
         <div class="actions">
           <a class="btn pink" href="index.html#contact">Apply to Join</a>
         </div>
@@ -850,7 +805,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="foot">
@@ -875,7 +829,6 @@
   </footer>
 
   <script>
-    // Mobile menu + dynamic year
     (function(){
       const btn = document.getElementById('menuBtn');
       const panel = document.getElementById('mobilePanel');
@@ -892,7 +845,6 @@
         });
       });
 
-      // ✅ Auto-update footer year
       const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
     })();
