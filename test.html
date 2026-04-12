@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junglee Studios — TikTok Shop Growth & Creator Commerce</title>
+  <meta name="description" content="Junglee Studios helps brands launch and scale TikTok Shop, grow creator affiliate programs, and build social commerce that converts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fffaf2;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: #ffffff;
+      --text: #161616;
+      --muted: #5f5b56;
+      --line: rgba(22, 22, 22, 0.1);
+      --orange: #ff7a18;
+      --red: #ff3d2e;
+      --yellow: #ffd84a;
+      --shadow: 0 24px 60px rgba(17, 17, 17, 0.12);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 216, 74, 0.28), transparent 22%),
+        radial-gradient(circle at top right, rgba(255, 122, 24, 0.18), transparent 18%),
+        linear-gradient(180deg, #fffdf8 0%, #fff7ef 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 250, 242, 0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--red), var(--orange) 55%, var(--yellow));
+      box-shadow: 0 12px 26px rgba(255, 90, 26, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--red), var(--orange));
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 16px 30px rgba(255, 61, 46, 0.24);
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 122, 24, 0.12);
+      color: #b04a00;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--red), var(--orange));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      max-width: 11ch;
+    }
+
+    .lead {
+      margin: 20px 0 0;
+      max-width: 62ch;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      font-weight: 700;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(22,22,22,0.06);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .side-panel {
+      padding: 22px;
+      border-radius: 24px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(22,22,22,0.06);
+    }
+
+    .side-panel h3 {
+      margin: 0 0 8px;
+      letter-spacing: -0.04em;
+      font-size: 1.25rem;
+    }
+
+    .side-panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .mini {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,250,242,0.95));
+      border: 1px solid rgba(22,22,22,0.06);
+    }
+
+    .mini h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .mini p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 18px 0 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service {
+      padding: 24px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(22,22,22,0.06);
+      min-height: 220px;
+    }
+
+    .badge {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #8a3200;
+      background: rgba(255, 122, 24, 0.12);
+    }
+
+    .service h3 {
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+      letter-spacing: -0.04em;
+    }
+
+    .service p, .service li {
+      color: var(--muted);
+    }
+
+    .service ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .audience {
+      padding: 28px;
+    }
+
+    .audience h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+    }
+
+    .audience p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .audience ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .cta-band {
+      margin: 26px 0 48px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,61,46,0.98), rgba(255,122,24,0.98));
+      color: white;
+      box-shadow: 0 20px 40px rgba(255, 90, 26, 0.26);
+    }
+
+    .cta-band h2 {
+      margin: 0 0 10px;
+      letter-spacing: -0.05em;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .cta-band p {
+      margin: 0 0 20px;
+      max-width: 60ch;
+      opacity: 0.95;
+    }
+
+    .cta-band .ghost {
+      border: none;
+      color: var(--text);
+      background: #fff;
+    }
+
+    footer {
+      padding: 10px 0 34px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid, .services, .two-col {
+        grid-template-columns: 1fr;
+      }
+      .metrics, .split {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-main {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <div class="brand-mark"></div>
+        <div>Junglee Studios</div>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#brands">For Brands</a>
+        <a href="#creators">For Creators</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="#contact">Book a Call</a>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="eyebrow"><span></span> TikTok Shop Partner • Creator Agency Partner</div>
+          <h1>Build social commerce that actually converts.</h1>
+          <p class="lead">
+            Junglee Studios helps brands launch, run, and scale TikTok Shop while supporting creators
+            with affiliate growth, content strategy, and monetization systems. We bring structure to
+            social commerce without losing the energy that makes it work.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#brands">I’m a Brand</a>
+            <a class="ghost" href="#creators">I’m a Creator</a>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <strong>Launch</strong>
+              <span>TikTok Shop setup, strategy, and go-to-market support</span>
+            </div>
+            <div class="metric">
+              <strong>Run</strong>
+              <span>Ongoing shop management, creators, and live selling support</span>
+            </div>
+            <div class="metric">
+              <strong>Scale</strong>
+              <span>Affiliate growth, content systems, and performance optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card hero-side">
+          <div class="side-panel">
+            <h3>What we help with</h3>
+            <p>E-commerce consulting, TikTok Shop operations, creator affiliate growth, lifestyle content, and live selling.</p>
+          </div>
+          <div class="split">
+            <div class="mini">
+              <h4>Brand side</h4>
+              <p>Consult your team, launch your shop, manage creators, and improve conversion.</p>
+            </div>
+            <div class="mini">
+              <h4>Creator side</h4>
+              <p>Help creators get set up, earn through affiliate, and grow with support.</p>
+            </div>
+          </div>
+          <div class="side-panel">
+            <h3>Wild by nature. Structured for growth.</h3>
+            <p>Playful brand energy on the outside. Clear commerce systems on the inside.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Services built for TikTok commerce</h2>
+        <p>Your site should make it obvious that you can consult, launch, manage, and scale social commerce programs.</p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <div class="badge">E-commerce consulting</div>
+          <h3>Strategy for teams that need direction.</h3>
+          <p>We audit your current setup and build a practical path to stronger conversion, cleaner offers, and better execution.</p>
+          <ul>
+            <li>Shop audits</li>
+            <li>Growth strategy</li>
+            <li>Offer and pricing guidance</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="badge">TikTok Shop partner</div>
+          <h3>Launch and run your TikTok Shop.</h3>
+          <p>From setup to optimization, we help brands get their shop live and operating in a way that supports real growth.</p>
+          <ul>
+            <li>Shop launch support</li>
+            <li>Catalog and listing optimization</li>
+            <li>Creator and affiliate systems</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="badge">Creator agency partner</div>
+          <h3>Affiliate growth and creator support.</h3>
+          <p>We help creators monetize their TikTok presence, get organized, and work with the right brands.</p>
+          <ul>
+            <li>Affiliate onboarding</li>
+            <li>Monetization guidance</li>
+            <li>Brand partnership support</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="badge">Lifestyle content creation</div>
+          <h3>Content that feels human and sells.</h3>
+          <p>We create lifestyle content, posting support, and photography that makes your brand feel active and credible.</p>
+          <ul>
+            <li>Social content production</li>
+            <li>Photography</li>
+            <li>Posting support</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="badge">Live selling consulting</div>
+          <h3>Live commerce that drives momentum.</h3>
+          <p>We help you plan live selling, source better, and build a repeatable live commerce engine.</p>
+          <ul>
+            <li>Live strategy</li>
+            <li>Host and format guidance</li>
+            <li>Sourcing support</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="badge">Conversion support</div>
+          <h3>Everything aligned to performance.</h3>
+          <p>We connect storefronts, creators, content, and commerce so your system works as one engine instead of disconnected parts.</p>
+          <ul>
+            <li>Full-funnel alignment</li>
+            <li>Campaign planning</li>
+            <li>Operational support</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Two audiences, one system</h2>
+        <p>Keep the brand clear by speaking directly to the two groups 
