@@ -575,6 +575,13 @@ h2 {
   color: var(--color-cyan) !important;
 }
 
+/* Cards on light/white backgrounds: ensure visible borders */
+.section.light .card,
+.section-light .card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-card);
+}
+
 /* --- Contact Wrap --- */
 .contact-wrap {
   margin-top: var(--space-md);

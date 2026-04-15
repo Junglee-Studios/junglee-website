@@ -47,19 +47,25 @@
       })
     : Promise.resolve();
 
-  // Scroll-triggered reveal animations
-  document.documentElement.classList.add('js-reveal-ready');
+  // Scroll-triggered reveal animations — guard ensures elements stay visible if observer fails
+  if (typeof IntersectionObserver !== 'undefined') {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+    var revealEls = document.querySelectorAll('.reveal');
+    revealEls.forEach(function (el) {
+      observer.observe(el);
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    observer.observe(el);
-  });
+    // Only hide elements after observer is watching them
+    if (revealEls.length) {
+      document.documentElement.classList.add('js-reveal-ready');
+    }
+  }
 })();
