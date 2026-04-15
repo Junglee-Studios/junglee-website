@@ -205,6 +205,16 @@
   }
 
   /* -------------------------------------------------
+     5. GRAIN OVERLAY
+     Injects a fixed noise texture overlay for film grain.
+   ------------------------------------------------- */
+  function initGrainOverlay() {
+    var overlay = document.createElement('div');
+    overlay.id = 'grain-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  /* -------------------------------------------------
      INIT — Run everything after DOM is ready
    ------------------------------------------------- */
   function init() {
@@ -212,6 +222,7 @@
     initTypewriter();
     initStaggeredReveals();
     initHeadingReveals();
+    initGrainOverlay();
   }
 
   if (document.readyState === 'loading') {
