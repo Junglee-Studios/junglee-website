@@ -188,7 +188,7 @@
       color: var(--color-dark);
     }
     .svcCard.blue h3 { color: var(--color-dark); }
-    .svcCard.pink h3 { color: var(--color-magenta); }
+    .svcCard.pink h3 { color: var(--color-dark); }
     .svcTagline {
       margin-top: var(--space-xs);
       font-weight: 850;
@@ -314,7 +314,7 @@
     /* Hero stat row */
     .hero-stats {
       margin-top: 28px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0;
       background: #111111;
@@ -322,6 +322,7 @@
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
       max-width: 520px;
+      align-self: flex-start;
     }
     .hstat {
       flex: 1;
@@ -477,24 +478,24 @@
       </p>
 
       <div class="grid3">
-        <div class="card">
-          <div class="cardHead"><div class="step blue">01</div><h3>Shop & Strategy</h3></div>
+        <div class="card" style="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.10);">
+          <div class="cardHead"><div class="step" style="color:var(--color-magenta);">01</div><h3 style="color:#ffffff;">Shop & Strategy</h3></div>
           <ul>
             <li style="color:rgba(255,255,255,0.72);">Storefront architecture, catalog hygiene, and compliance</li>
             <li style="color:rgba(255,255,255,0.72);">Offer structure, pricing, and campaign architecture</li>
             <li style="color:rgba(255,255,255,0.72);">Category, competitor, and platform opportunity mapping</li>
           </ul>
         </div>
-        <div class="card">
-          <div class="cardHead"><div class="step pink">02</div><h3>Creator & Content</h3></div>
+        <div class="card" style="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.10);">
+          <div class="cardHead"><div class="step" style="color:var(--color-magenta);">02</div><h3 style="color:#ffffff;">Creator & Content</h3></div>
           <ul>
             <li style="color:rgba(255,255,255,0.72);">Affiliate and creator program design and management</li>
             <li style="color:rgba(255,255,255,0.72);">Content direction for short-form and live formats</li>
             <li style="color:rgba(255,255,255,0.72);">Product seeding, sampling, and partnership workflows</li>
           </ul>
         </div>
-        <div class="card">
-          <div class="cardHead"><div class="step blue">03</div><h3>Execution & Scale</h3></div>
+        <div class="card" style="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.10);">
+          <div class="cardHead"><div class="step" style="color:var(--color-magenta);">03</div><h3 style="color:#ffffff;">Execution & Scale</h3></div>
           <ul>
             <li style="color:rgba(255,255,255,0.72);">Campaign execution, GMV acceleration, and live selling</li>
             <li style="color:rgba(255,255,255,0.72);">Paid amplification strategy where applicable</li>
@@ -736,7 +737,7 @@
       <div class="ctaStrip" style="margin-top:22px; text-align:center; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.20);">
         <b style="color:#ffffff;">Want to build a custom package around your needs?</b>
         <div class="actions" style="margin-top:0;">
-          <a class="btn" style="background:#ffffff; color:var(--color-magenta); border:none; font-weight:800;" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Build-Out</a>
+          <a class="btn cyan" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Build-Out</a>
         </div>
       </div>
     </div>
