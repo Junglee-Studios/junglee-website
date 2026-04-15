@@ -1,19 +1,24 @@
 /* =====================================================
    Junglee Studios — Shared Base CSS
    Unified layout system, variables, and components
+   LIGHT THEME — alive, high-energy, social commerce
    ====================================================== */
 
 /* --- Custom Properties --- */
 :root {
   /* Brand colors */
-  --color-black: #000000;
+  --color-black: #0a0a0a;
   --color-white: #ffffff;
   --color-cyan: #00f2ea;
   --color-magenta: #ff2d9a;
-  --color-dark: #0b0f14;
-  --color-muted: rgba(255, 255, 255, 0.78);
-  --color-border: rgba(255, 255, 255, 0.12);
+  --color-dark: #0a0a0a;
+  --color-muted: rgba(10, 10, 10, 0.65);
+  --color-border: rgba(0, 0, 0, 0.10);
   --color-border-light: rgba(0, 0, 0, 0.12);
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f8f8;
+  --color-text: #0a0a0a;
+  --color-text-secondary: #444444;
 
   /* Spacing scale */
   --space-xs: 8px;
@@ -40,8 +45,8 @@
   --radius-pill: 999px;
 
   /* Shadows */
-  --shadow-card: 0 18px 60px rgba(0, 0, 0, 0.28);
-  --shadow-card-light: 0 18px 40px rgba(0, 0, 0, 0.14);
+  --shadow-card: 0 18px 60px rgba(0, 0, 0, 0.08);
+  --shadow-card-light: 0 18px 40px rgba(0, 0, 0, 0.06);
 
   /* Font */
   --font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -53,8 +58,8 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: var(--font-family);
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-bg);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 a { color: inherit; }
@@ -71,8 +76,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--color-black);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-white);
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .nav {
@@ -109,7 +114,7 @@ header {
 .wm b {
   font-weight: 900;
   letter-spacing: -0.01em;
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 
 /* --- Nav Links --- */
@@ -123,14 +128,15 @@ header {
   text-decoration: none;
   font-weight: 750;
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-dark);
   padding: 0.55rem 0.65rem;
   border-radius: 12px;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .navlinks a:hover {
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-magenta);
+  background: rgba(255, 45, 154, 0.06);
   transform: translateY(-1px);
 }
 
@@ -142,9 +148,9 @@ header {
   gap: 10px;
   padding: 0.9rem 1.05rem;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--color-white);
+  border: 1px solid var(--color-dark);
+  background: transparent;
+  color: var(--color-dark);
   font-weight: 900;
   text-decoration: none;
   white-space: nowrap;
@@ -154,7 +160,9 @@ header {
 
 .btn:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.30);
+  background: var(--color-magenta);
+  color: var(--color-white);
+  border-color: var(--color-magenta);
 }
 
 .btn:focus,
@@ -164,20 +172,26 @@ header {
 }
 
 .btn.primary {
-  background: var(--color-cyan);
-  color: var(--color-black);
+  background: var(--color-magenta);
+  color: var(--color-white);
   border: none;
 }
 
 .btn.pink {
   background: var(--color-magenta);
-  color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+}
+
+.btn.cyan {
+  background: var(--color-cyan);
+  color: var(--color-dark);
   border: none;
 }
 
 .btn.white {
   background: var(--color-white);
-  color: var(--color-black);
+  color: var(--color-dark);
   border: 1px solid rgba(255, 255, 255, 0.30);
 }
 
@@ -195,8 +209,8 @@ header {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(0, 0, 0, 0.04);
   cursor: pointer;
   align-items: center;
   justify-content: center;
@@ -205,7 +219,7 @@ header {
 .menu span {
   width: 20px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--color-dark);
   border-radius: 2px;
   position: relative;
 }
@@ -217,7 +231,7 @@ header {
   left: 0;
   width: 20px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--color-dark);
   border-radius: 2px;
 }
 
@@ -235,10 +249,10 @@ header {
   padding: var(--space-sm) 10px;
   border-radius: var(--radius-md);
   font-weight: 850;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--color-dark);
 }
 
-.mobile-panel a:hover { background: rgba(255, 255, 255, 0.08); }
+.mobile-panel a:hover { background: rgba(0, 0, 0, 0.04); }
 .mobile-cta { margin-top: 10px; display: grid; gap: 10px; }
 .mobile-panel.open { display: block; }
 
@@ -250,18 +264,55 @@ header {
 .section.tight-bottom { padding-bottom: var(--radius-xl); }
 .section.tight-top { padding-top: var(--radius-xl); }
 
+/* Light sections (default on white/light theme) */
 .section.light {
   background: var(--color-white);
   color: var(--color-dark);
 }
 
-.section.light .kicker { color: rgba(11, 15, 20, 0.55); }
+.section.light .kicker { color: rgba(10, 10, 10, 0.55); }
 .section.light .kicker i { background: var(--color-magenta); }
 .section.light h2,
 .section.light h3 { color: var(--color-dark); }
 .section.light .lead,
 .section.light p {
-  color: rgba(11, 15, 20, 0.78);
+  color: rgba(10, 10, 10, 0.78);
+  text-shadow: none;
+}
+
+/* Dark sections (stat strip, footer, select sections) */
+.section-dark {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+.section-dark .kicker { color: rgba(255, 255, 255, 0.78); }
+.section-dark .kicker i { background: var(--color-cyan); }
+.section-dark h2,
+.section-dark h3 { color: var(--color-white); }
+.section-dark .lead,
+.section-dark p {
+  color: rgba(255, 255, 255, 0.78);
+}
+.section-dark .card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.section-dark .card h3 { color: var(--color-white); }
+.section-dark .card p { color: rgba(255, 255, 255, 0.78); }
+.section-dark .card ul { color: rgba(255, 255, 255, 0.84); }
+
+/* Cyan band sections */
+.section-cyan {
+  background: var(--color-cyan);
+  color: var(--color-dark);
+}
+.section-cyan .kicker { color: rgba(10, 10, 10, 0.65); }
+.section-cyan .kicker i { background: var(--color-dark); }
+.section-cyan h2,
+.section-cyan h3 { color: var(--color-dark); }
+.section-cyan .lead,
+.section-cyan p {
+  color: rgba(10, 10, 10, 0.80);
   text-shadow: none;
 }
 
@@ -274,14 +325,14 @@ header {
   font-size: var(--text-sm);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-white);
+  color: var(--color-text-secondary);
 }
 
 .kicker i {
   width: 10px;
   height: 10px;
   border-radius: var(--radius-pill);
-  background: var(--color-cyan);
+  background: var(--color-magenta);
   display: inline-block;
 }
 
@@ -292,8 +343,8 @@ h1 {
   line-height: 1.02;
   letter-spacing: -0.045em;
   font-weight: 950;
-  color: var(--color-white);
-  text-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  color: var(--color-dark);
+  text-shadow: none;
 }
 
 h2 {
@@ -301,15 +352,16 @@ h2 {
   font-size: var(--text-lg);
   font-weight: 950;
   letter-spacing: -0.03em;
+  color: var(--color-dark);
 }
 
 .lead {
   margin-top: 14px;
   max-width: 72ch;
-  color: var(--color-muted);
+  color: var(--color-text-secondary);
   font-weight: 650;
   line-height: 1.65;
-  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  text-shadow: none;
 }
 
 /* --- Hero --- */
@@ -320,26 +372,20 @@ h2 {
   display: flex;
   align-items: center;
   padding: clamp(28px, 4vw, 56px) 0;
+  background: var(--color-bg);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: var(--hero-img);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   z-index: 0;
-  filter: brightness(1.08) contrast(1.03) saturate(1.05);
-  transform: scale(1.02);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.32);
   z-index: 1;
 }
 
@@ -348,9 +394,6 @@ h2 {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    radial-gradient(1200px 520px at 20% 30%, rgba(0, 242, 234, 0.10), transparent 60%),
-    radial-gradient(1200px 520px at 75% 15%, rgba(255, 45, 154, 0.08), transparent 60%);
   opacity: 0.55;
 }
 
@@ -385,11 +428,11 @@ h2 {
   gap: 14px;
 }
 
-/* --- Cards --- */
+/* --- Cards (light theme default: white cards) --- */
 .card {
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--color-white);
   padding: 20px;
   box-shadow: var(--shadow-card);
 }
@@ -399,12 +442,12 @@ h2 {
   font-size: var(--text-md);
   font-weight: 950;
   letter-spacing: -0.02em;
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 
 .card p {
   margin: 10px 0 0;
-  color: var(--color-muted);
+  color: var(--color-text-secondary);
   font-weight: 650;
   line-height: 1.6;
 }
@@ -414,22 +457,22 @@ h2 {
   padding-left: var(--space-md);
   display: grid;
   gap: var(--space-xs);
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(10, 10, 10, 0.78);
   font-weight: 650;
 }
 
 .card li { line-height: 1.45; }
 
-/* Cards in light sections */
+/* Cards in light sections — same as default (white cards) */
 .section.light .card {
-  background: var(--color-dark);
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-shadow: var(--shadow-card-light);
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-card);
 }
 
-.section.light .card h3 { color: var(--color-white); }
-.section.light .card p { color: var(--color-muted); }
-.section.light .card ul { color: rgba(255, 255, 255, 0.84); }
+.section.light .card h3 { color: var(--color-dark); }
+.section.light .card p { color: var(--color-text-secondary); }
+.section.light .card ul { color: rgba(10, 10, 10, 0.78); }
 
 /* --- Chips --- */
 .chips {
@@ -448,10 +491,10 @@ h2 {
   gap: 10px;
   padding: 0.6rem 0.78rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.03);
   backdrop-filter: blur(10px);
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 
 .chip i {
@@ -478,10 +521,10 @@ h2 {
   gap: 10px;
   padding: 0.65rem 0.9rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
   font-weight: 850;
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 
 .pill i {
@@ -493,12 +536,20 @@ h2 {
 }
 
 .section.light .pill {
-  border: 1px solid rgba(0, 0, 0, 0.20);
-  background: rgba(11, 15, 20, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--color-dark);
 }
 
 .section.light .pill i { background: var(--color-magenta); }
+
+/* Dark section pills — white text */
+.section-dark .pill {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--color-white);
+}
+.section-dark .pill i { background: var(--color-magenta); }
 
 /* --- List (in cards/sections) --- */
 .list {
@@ -506,24 +557,21 @@ h2 {
   padding-left: var(--space-md);
   display: grid;
   gap: var(--space-xs);
-  color: rgba(255, 255, 255, 0.80);
+  color: rgba(10, 10, 10, 0.75);
   font-weight: 750;
 }
 
-.section.light .list { color: rgba(11, 15, 20, 0.75); }
+.section.light .list { color: rgba(10, 10, 10, 0.75); }
 
-/* Cyan text is illegible on white/light backgrounds — swap to magenta.
-   Exclude elements inside .card (dark bg) so cyan stays readable there. */
+/* Cyan text handling — keep cyan readable in dark sections, use magenta on light */
 .section.light .text-cyan,
 .section.light .cyan,
 .section.light [style*="color: var(--color-cyan)"],
 .section.light [style*="color:var(--color-cyan)"] {
   color: var(--color-magenta) !important;
 }
-.section.light .card .text-cyan,
-.section.light .card .cyan,
-.section.light .card [style*="color: var(--color-cyan)"],
-.section.light .card [style*="color:var(--color-cyan)"] {
+.section-dark .text-cyan,
+.section-dark .cyan {
   color: var(--color-cyan) !important;
 }
 
@@ -548,8 +596,8 @@ h2 {
 .ctaStrip {
   margin-top: 22px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.03);
   padding: var(--space-md);
   display: flex;
   gap: 14px;
@@ -561,20 +609,29 @@ h2 {
 .ctaStrip b {
   font-weight: 950;
   letter-spacing: -0.02em;
+  color: var(--color-dark);
 }
 
 .ctaStrip small {
   display: block;
   margin-top: 6px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-secondary);
   font-weight: 650;
 }
 
-/* --- Footer --- */
+/* Dark section CTA strip */
+.section-dark .ctaStrip {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+}
+.section-dark .ctaStrip b { color: var(--color-white); }
+.section-dark .ctaStrip small { color: rgba(255, 255, 255, 0.72); }
+
+/* --- Footer (kept dark) --- */
 footer {
   padding: 32px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--color-black);
+  background: var(--color-dark);
 }
 
 .foot {
@@ -620,31 +677,37 @@ footer {
 /* Smooth scrolling */
 html { scroll-behavior: smooth; }
 
-/* --- Card Hover Glow (dark background cards — cyan glow) --- */
+/* --- Card Hover Glow (white cards on light background — magenta glow) --- */
 .card {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.10), 0 0 24px rgba(255, 45, 154, 0.20);
+}
+
+/* Dark-background card variants — cyan glow */
+.section-dark .card:hover {
+  transform: translateY(-6px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28), 0 0 24px rgba(0, 242, 234, 0.25);
 }
 
-/* Light-background card variants — magenta glow */
+/* Light-background specific overrides */
 .section.light .card:hover,
 .tierCard:hover,
 .partner-status .card:hover,
 #creator-support .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18), 0 0 24px rgba(255, 45, 154, 0.25);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.10), 0 0 24px rgba(255, 45, 154, 0.20);
 }
 
-/* Dark service cards — cyan glow */
+/* Service cards — magenta glow on light */
 .svcCard {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .svcCard:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14), 0 0 24px rgba(0, 242, 234, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10), 0 0 24px rgba(255, 45, 154, 0.20);
 }
 
 /* Tier cards — magenta glow (light background) */
@@ -661,18 +724,18 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28), 0 0 24px rgba(0, 242, 234, 0.25);
 }
 
-/* Step cards in light section — magenta glow */
+/* Step cards */
 .stepCard {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* --- Button Hover Glow --- */
 .btn {
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.15s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.15s ease, color 0.15s ease;
 }
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 242, 234, 0.35);
+  box-shadow: 0 6px 20px rgba(255, 45, 154, 0.35);
 }
 .btn.pink:hover {
   transform: translateY(-2px);
@@ -685,8 +748,8 @@ html { scroll-behavior: smooth; }
 
 /* --- Typewriter Cursor --- */
 .typewriter-word {
-  color: var(--color-cyan);
-  border-right: 2px solid var(--color-cyan);
+  color: var(--color-magenta);
+  border-right: 2px solid var(--color-magenta);
   padding-right: 2px;
   animation: blink-cursor 0.7s step-end infinite;
 }
@@ -793,7 +856,7 @@ html { scroll-behavior: smooth; }
   width: 200%; height: 200%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.035;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
