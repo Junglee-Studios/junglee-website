@@ -624,11 +624,15 @@ footer {
 
 /* --- Scroll Reveal --- */
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+.js-reveal-ready .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.reveal.visible {
+.js-reveal-ready .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }

@@ -48,6 +48,8 @@
     : Promise.resolve();
 
   // Scroll-triggered reveal animations
+  document.documentElement.classList.add('js-reveal-ready');
+
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
