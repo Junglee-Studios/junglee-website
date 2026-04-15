@@ -15,10 +15,11 @@
   <script src="js/cursor.js" defer></script>
 
   <style>
-    /* Page-specific: hero image, creator support cards, miniGrid, ctaStrip variants, credentials, how-it-works */
-    /* Creator hero: dark background with animated magenta orb */
+    /* Page-specific: hero, creator support cards, miniGrid, credentials, how-it-works */
+
+    /* Creator hero: light background with animated magenta orb */
     .hero {
-      background: #080808;
+      background: #ffffff;
       padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
     }
     .hero::before {
@@ -37,12 +38,14 @@
     .hero::after { display: none; }
     .hero .vignette {
       background:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
       background-size: 60px 60px;
       opacity: 1;
     }
     .hero > .container { z-index: 2; }
+    .hero h1 { color: var(--color-dark); text-shadow: none; }
+    .hero .lead { color: var(--color-text-secondary); text-shadow: none; }
 
     @keyframes drift-magenta-creators {
       from { transform: translate(0, 0); }
@@ -52,9 +55,9 @@
     .hero-grid { max-width: 940px; }
 
     .hero .chip {
-      background: rgba(0, 0, 0, 0.48);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: rgba(255, 255, 255, 0.72);
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      color: var(--color-dark);
       backdrop-filter: blur(14px);
     }
     .chip:nth-child(even) i { background: var(--color-magenta); }
@@ -68,8 +71,8 @@
     }
     .mini-stat {
       border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(0, 0, 0, 0.48);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(0, 0, 0, 0.02);
       backdrop-filter: blur(14px);
       padding: 14px;
       text-align: center;
@@ -81,16 +84,16 @@
       margin-bottom: 6px;
     }
     .mini-stat span {
-      color: var(--color-muted);
+      color: var(--color-text-secondary);
       font-weight: 650;
       font-size: 0.92rem;
       line-height: 1.35;
       display: block;
     }
-    .mini-stat:nth-child(odd) b { color: var(--color-cyan); }
-    .mini-stat:nth-child(even) b { color: var(--color-magenta); }
+    .mini-stat:nth-child(odd) b { color: var(--color-magenta); }
+    .mini-stat:nth-child(even) b { color: var(--color-cyan); }
 
-    /* Credential cards */
+    /* Credential cards (dark section — keep cyan glow) */
     .credCard {
       position: relative;
       padding-top: 58px;
@@ -122,21 +125,22 @@
     .credCard h3.cyan { color: var(--color-cyan) !important; }
     .credCard h3.magenta { color: var(--color-magenta) !important; }
 
-    /* Creator support cards */
+    /* Creator support cards (white cards with magenta accent) */
     #creator-support .card {
       position: relative;
       padding-top: 62px;
       background: var(--color-white);
-      border: 1px solid rgba(0, 0, 0, 0.10);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
     }
+    #creator-support .card h3 { color: var(--color-magenta) !important; }
     #creator-support .card p {
-      color: rgba(11, 15, 20, 0.78);
+      color: rgba(10, 10, 10, 0.72);
       text-shadow: none;
     }
     #creator-support .card ul,
     #creator-support .card li {
-      color: rgba(11, 15, 20, 0.78);
+      color: rgba(10, 10, 10, 0.72);
     }
 
     .supportPill {
@@ -148,8 +152,8 @@
       gap: 10px;
       padding: 0.55rem 0.8rem;
       border-radius: var(--radius-pill);
-      background: rgba(11, 15, 20, 0.92);
-      border: 1px solid rgba(11, 15, 20, 0.20);
+      background: var(--color-dark);
+      border: 1px solid rgba(0, 0, 0, 0.10);
       color: var(--color-white);
       font-weight: 950;
       font-size: 0.9rem;
@@ -164,7 +168,6 @@
       display: inline-block;
     }
     #creator-support .card:nth-child(even) .supportPill i { background: var(--color-magenta); }
-    #creator-support .card h3 { color: var(--color-magenta) !important; }
 
     /* How it works — step numbers */
     .stepCard {
@@ -204,6 +207,43 @@
     .ctaStrip.servicesCta .actions {
       margin-top: 0;
       justify-content: flex-start;
+    }
+
+    /* How it works: cyan band */
+    .how-it-works-cyan {
+      background: var(--color-cyan);
+    }
+    .how-it-works-cyan .kicker { color: rgba(10,10,10,0.55); }
+    .how-it-works-cyan .kicker i { background: var(--color-dark); }
+    .how-it-works-cyan h2 { color: var(--color-dark); }
+    .how-it-works-cyan .card {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .how-it-works-cyan .card h3 { color: var(--color-dark); }
+    .how-it-works-cyan .card p { color: rgba(10,10,10,0.72); }
+    .how-it-works-cyan .ctaStrip {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Closing CTA — magenta background */
+    .cta-magenta {
+      background: var(--color-magenta);
+    }
+    .cta-magenta .kicker { color: rgba(255,255,255,0.80); }
+    .cta-magenta .kicker i { background: var(--color-white); }
+    .cta-magenta h2,
+    .cta-magenta h3 { color: var(--color-white); }
+    .cta-magenta p { color: rgba(255,255,255,0.88); }
+    .cta-magenta .btn {
+      background: transparent;
+      color: var(--color-white);
+      border: 2px solid var(--color-white);
+    }
+    .cta-magenta .btn:hover {
+      background: var(--color-white);
+      color: var(--color-magenta);
     }
 
     @media (max-width: 980px) {
@@ -246,7 +286,7 @@
 
         <div class="actions">
           <a class="btn pink" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
-          <a class="btn primary" href="#how-it-works">See What You Get</a>
+          <a class="btn cyan" href="#how-it-works">See What You Get</a>
         </div>
 
         <div class="chips" aria-label="Creator perks">
@@ -265,10 +305,10 @@
     </div>
   </section>
 
-  <!-- CREDENTIALS — Why Junglee -->
+  <!-- CREDENTIALS — Why Junglee (dark section) -->
   <section class="section section-dark reveal" id="credentials">
     <div class="container">
-      <div class="kicker"><i></i> Why Junglee</div>
+      <div class="kicker"><i style="background:var(--color-cyan);"></i> Why Junglee</div>
       <h2>Backed by TikTok. Built for creators.</h2>
       <p class="lead">Most agencies talk about TikTok. We're certified by it.</p>
 
@@ -294,8 +334,8 @@
     </div>
   </section>
 
-  <!-- THE NETWORK -->
-  <section class="section light section-light reveal" id="the-network">
+  <!-- THE NETWORK (light grey) -->
+  <section class="section light section-light reveal" id="the-network" style="background:var(--color-bg-alt);">
     <div class="container">
       <div class="kicker"><i></i> The network</div>
       <h2>Not just another affiliate program.</h2>
@@ -328,8 +368,8 @@
     </div>
   </section>
 
-  <!-- CREATOR SUPPORT — What You Get -->
-  <section class="section section-dark reveal" id="creator-support">
+  <!-- CREATOR SUPPORT — What You Get (light section with white cards) -->
+  <section class="section light section-light reveal" id="creator-support">
     <div class="container">
       <div class="kicker"><i></i> What you get</div>
       <h2>Everything you need. Nothing you don't.</h2>
@@ -396,27 +436,27 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section light section-light reveal" id="how-it-works">
+  <!-- HOW IT WORKS (cyan band) -->
+  <section class="section how-it-works-cyan reveal" id="how-it-works">
     <div class="container">
-      <div class="kicker"><i></i> How it works</div>
+      <div class="kicker"><i style="background:var(--color-dark);"></i> How it works</div>
       <h2>Three steps to get started.</h2>
 
       <div class="grid3">
         <div class="card stepCard">
-          <div class="stepNum cyan">01</div>
+          <div class="stepNum" style="color:var(--color-dark);">01</div>
           <h3>Apply</h3>
           <p>Click Apply to Join below. Tell us about your content, your niche, and your goals.</p>
         </div>
 
         <div class="card stepCard">
-          <div class="stepNum magenta">02</div>
+          <div class="stepNum" style="color:var(--color-magenta);">02</div>
           <h3>Get Reviewed</h3>
           <p>We review every application personally. If it's a fit, we'll reach out within 48 hours with next steps.</p>
         </div>
 
         <div class="card stepCard">
-          <div class="stepNum cyan">03</div>
+          <div class="stepNum" style="color:var(--color-dark);">03</div>
           <h3>Start Earning</h3>
           <p>Get onboarded, access your first products and campaigns, and start building consistent income with our system behind you.</p>
         </div>
@@ -425,20 +465,20 @@
       <div class="ctaStrip servicesCta" style="margin-top:22px;">
         <b>Ready to turn your content into steady income?</b>
         <div class="actions">
-          <a class="btn pink" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
+          <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL -->
-  <section class="section section-dark reveal" style="background:var(--color-black); padding:clamp(48px,6vw,80px) 0;">
+  <!-- CLOSING CTA (magenta background) -->
+  <section class="section cta-magenta reveal" style="padding:clamp(48px,6vw,80px) 0;">
     <div class="container" style="max-width:800px; text-align:center;">
-      <div class="kicker" style="justify-content:center;"><i></i> What people say</div>
+      <div class="kicker" style="justify-content:center;"><i style="background:var(--color-white);"></i> What people say</div>
       <p style="margin:24px 0 0; font-size:clamp(1.3rem,2.4vw,1.75rem); font-weight:700; font-style:italic; line-height:1.5; color:var(--color-white);">
         &ldquo;Junglee made it easy to start earning. The coaching and support changed everything for me.&rdquo;
       </p>
-      <p style="margin:16px 0 0; color:rgba(255,255,255,0.5); font-weight:650;">— Junglee Creator</p>
+      <p style="margin:16px 0 0; color:rgba(255,255,255,0.70); font-weight:650;">— Junglee Creator</p>
     </div>
   </section>
 

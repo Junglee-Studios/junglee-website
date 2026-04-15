@@ -32,10 +32,11 @@
   <script src="js/cursor.js" defer></script>
 
   <style>
-    /* Page-specific: hero image, tier cards, service cards, logos grid */
-    /* Brand hero: dark background with animated cyan orb */
+    /* Page-specific: hero, tier cards, service cards, logos grid */
+
+    /* Brand hero: light background with animated cyan orb */
     .hero {
-      background: #080808;
+      background: #ffffff;
     }
     .hero::before {
       content: "";
@@ -45,7 +46,7 @@
       top: -5%;
       right: -5%;
       inset: auto;
-      background: radial-gradient(circle, rgba(0,242,234,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,242,234,0.15) 0%, transparent 70%);
       filter: blur(70px);
       z-index: 0;
       animation: drift-cyan-brands 9s ease-in-out infinite alternate;
@@ -55,8 +56,8 @@
     }
     .hero .vignette {
       background:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
       background-size: 60px 60px;
       opacity: 1;
     }
@@ -64,13 +65,15 @@
       position: relative;
       z-index: 2;
     }
+    .hero h1 { color: var(--color-dark); text-shadow: none; }
+    .hero .lead { color: var(--color-text-secondary); text-shadow: none; }
 
     @keyframes drift-cyan-brands {
       from { transform: translate(0, 0); }
       to   { transform: translate(-15px, 15px); }
     }
 
-    /* Tier cards */
+    /* Tier cards — white cards with magenta top border */
     .tierGrid {
       margin-top: 22px;
       display: grid;
@@ -79,10 +82,11 @@
     }
     .tierCard {
       border-radius: var(--radius-xl);
-      border: 1px solid var(--color-border-light);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-top: 3px solid var(--color-magenta);
       background: var(--color-white);
       padding: var(--space-lg);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
     }
     .tierPill {
       display: inline-flex;
@@ -91,7 +95,7 @@
       padding: 0.8rem 1.1rem;
       border-radius: var(--radius-pill);
       background: var(--color-dark);
-      border: 1px solid var(--color-border-light);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       font-weight: 950;
       font-size: 1.05rem;
       color: var(--color-white);
@@ -116,7 +120,7 @@
     .tierGoal {
       margin: 10px 0 0;
       font-weight: 800;
-      color: rgba(11, 15, 20, 0.88);
+      color: rgba(10, 10, 10, 0.78);
       line-height: 1.45;
     }
     .tierLabel {
@@ -125,7 +129,7 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 900;
-      color: rgba(0, 0, 0, 0.65);
+      color: rgba(10, 10, 10, 0.55);
     }
     .tierList {
       margin: 10px 0 0;
@@ -134,15 +138,15 @@
       gap: var(--space-xs);
       font-size: 0.93rem;
       font-weight: 500;
-      color: rgba(11, 15, 20, 0.78);
+      color: rgba(10, 10, 10, 0.72);
       line-height: 1.45;
     }
     .tierBest {
       margin-top: 16px;
-      border-top: 1px solid var(--color-border-light);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
       padding-top: 14px;
       font-weight: 700;
-      color: rgba(0, 0, 0, 0.7);
+      color: rgba(10, 10, 10, 0.65);
       letter-spacing: -0.01em;
     }
     .tierBest ul {
@@ -152,31 +156,31 @@
       gap: var(--space-xs);
       font-size: 0.93rem;
       font-weight: 550;
-      color: rgba(11, 15, 20, 0.75);
+      color: rgba(10, 10, 10, 0.65);
       line-height: 1.45;
     }
 
-    /* Service cards (dark background) */
+    /* Service cards (white background with magenta accent) */
     .svcCard {
       border-radius: var(--radius-xl);
-      border: 1px solid var(--color-border);
-      background: var(--color-dark);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: var(--color-white);
       padding: 22px;
-      box-shadow: var(--shadow-card-light);
+      box-shadow: var(--shadow-card);
     }
     .svcCard h3 {
       margin: 0;
       font-size: 1.15rem;
       font-weight: 950;
       letter-spacing: -0.02em;
-      color: var(--color-white);
+      color: var(--color-dark);
     }
-    .svcCard.blue h3 { color: var(--color-cyan); }
+    .svcCard.blue h3 { color: var(--color-dark); }
     .svcCard.pink h3 { color: var(--color-magenta); }
     .svcTagline {
       margin-top: var(--space-xs);
       font-weight: 850;
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(10, 10, 10, 0.85);
       line-height: 1.45;
     }
     .svcList {
@@ -184,16 +188,16 @@
       padding-left: var(--space-md);
       display: grid;
       gap: var(--space-xs);
-      color: rgba(255, 255, 255, 0.82);
+      color: rgba(10, 10, 10, 0.72);
       font-weight: 650;
       line-height: 1.45;
     }
     .svcBest {
       margin-top: 14px;
-      border-top: 1px solid var(--color-border);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
       padding-top: 14px;
       font-weight: 900;
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(10, 10, 10, 0.85);
     }
     .svcBest ul {
       margin: 10px 0 0;
@@ -201,7 +205,7 @@
       display: grid;
       gap: var(--space-xs);
       font-weight: 650;
-      color: var(--color-muted);
+      color: rgba(10, 10, 10, 0.65);
     }
 
     /* Sub-options */
@@ -212,8 +216,8 @@
     }
     .subBox {
       border-radius: var(--radius-lg);
-      border: 1px solid var(--color-border-light);
-      background: var(--color-white);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: var(--color-bg-alt);
       padding: 14px;
     }
     .subBox b {
@@ -225,7 +229,7 @@
     }
     .subBox p {
       margin: 0;
-      color: rgba(11, 15, 20, 0.75);
+      color: rgba(10, 10, 10, 0.68);
       font-weight: 650;
       line-height: 1.55;
     }
@@ -247,69 +251,6 @@
     .step.pink {
       color: var(--color-magenta);
     }
-
-    /* Logos grid */
-    .logos {
-      margin-top: var(--space-md);
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: var(--space-md);
-      align-items: center;
-    }
-
-    .logoTile {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.06);
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 88px;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-
-    .logoTile img {
-      max-width: 100%;
-      max-height: 44px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      opacity: 0.92;
-    }
-
-    .section.light .logoTile {
-      border: 1px solid rgba(0, 0, 0, 0.14);
-      background: var(--color-white);
-    }
-
-    .section.light .logoTile img { max-height: 44px; }
-
-    @media (max-width: 980px) {
-      .tierGrid { grid-template-columns: 1fr; }
-      .logos { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    /* Remove dark card bubble behind CTAs in brand-logos and services sections */
-    #brand-logos .card,
-    #brand-logos .card:hover,
-    #services .card,
-    #services .card:hover {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      transform: none;
-    }
-
-    @media (max-width: 520px) {
-      .logos { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* Tighten section spacing on brands page */
-    .section { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
 
     /* --- Logo marquee --- */
     .logo-marquee-track {
@@ -337,6 +278,22 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+
+    /* --- Closing CTA section (cyan background) --- */
+    .cta-cyan-band {
+      background: var(--color-cyan);
+    }
+    .cta-cyan-band .card {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 980px) {
+      .tierGrid { grid-template-columns: 1fr; }
+    }
+
+    /* Tighten section spacing on brands page */
+    .section { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
 
     @media (max-width: 768px) {
       .hero::before {
@@ -405,7 +362,7 @@
         Our proprietary approach connects your TikTok Shop operations, creator partnerships, and content strategy so every piece feeds the next. Nothing runs in isolation. Everything compounds.
       </p>
 
-      <p class="credential-callout" style="font-style:italic; color:#111111; display:block; max-width:680px; margin:24px auto 28px; border-left:4px solid var(--color-magenta); padding-left:20px; line-height:1.55; font-weight:600;">
+      <p class="credential-callout" style="font-style:italic; color:var(--color-text-secondary); display:block; max-width:680px; margin:24px auto 28px; border-left:4px solid var(--color-magenta); padding-left:20px; line-height:1.55; font-weight:600;">
         Including helping launch Countdown Bidding on TikTok Shop — the platform's live auction selling mechanic that enables brands to drive urgency, competition, and real-time conversions during live streams.
       </p>
 
@@ -436,8 +393,8 @@
         </div>
       </div>
 
-      <div class="card ctaStrip" style="margin-top:22px;">
-        <b style="color: #ffffff;">Ready to see how The Junglee System applies to your brand?</b>
+      <div class="ctaStrip" style="margin-top:22px;">
+        <b>Ready to see how The Junglee System applies to your brand?</b>
         <div class="actions" style="margin-top:0;">
           <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
         </div>
@@ -452,50 +409,50 @@
       <p class="lead">Some brands need us to run everything. Others have strong teams and just need strategic leadership. We work both ways.</p>
 
       <div class="grid3">
-        <div class="card">
+        <div class="svcCard blue">
           <h3>Full TikTok Shop Management</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">We run it. You grow.</p>
-          <p>Full end-to-end management of your TikTok Shop — storefront, campaigns, affiliates, content direction, and live selling. You stay focused on your product and brand while we handle the platform.</p>
+          <p class="svcTagline">We run it. You grow.</p>
+          <p style="margin:10px 0 0; color:rgba(10,10,10,0.72); font-weight:650; line-height:1.6;">Full end-to-end management of your TikTok Shop — storefront, campaigns, affiliates, content direction, and live selling. You stay focused on your product and brand while we handle the platform.</p>
         </div>
 
-        <div class="card">
+        <div class="svcCard blue">
           <h3>Strategic Consulting & Advisory</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Your team runs it. We make it smarter.</p>
-          <p>We work alongside your existing team as a strategic partner — bringing platform expertise, campaign architecture, and creator strategy without taking over execution.</p>
+          <p class="svcTagline">Your team runs it. We make it smarter.</p>
+          <p style="margin:10px 0 0; color:rgba(10,10,10,0.72); font-weight:650; line-height:1.6;">We work alongside your existing team as a strategic partner — bringing platform expertise, campaign architecture, and creator strategy without taking over execution.</p>
         </div>
 
-        <div class="card">
+        <div class="svcCard blue">
           <h3>Creator & Affiliate Program Management</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Build the creator engine your competitors don't have.</p>
-          <p>We design, recruit, and manage your affiliate and creator programs — finding the right fits for your brand, setting commission structures, and keeping performance moving.</p>
+          <p class="svcTagline">Build the creator engine your competitors don't have.</p>
+          <p style="margin:10px 0 0; color:rgba(10,10,10,0.72); font-weight:650; line-height:1.6;">We design, recruit, and manage your affiliate and creator programs — finding the right fits for your brand, setting commission structures, and keeping performance moving.</p>
         </div>
 
-        <div class="card">
+        <div class="svcCard blue">
           <h3>Live Selling Management</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Turn live commerce into a real revenue channel.</p>
-          <p>Show planning, run-of-show, product sequencing, host coaching, and real-time execution. We help brands treat live selling as a repeatable performance channel — not a one-off event.</p>
+          <p class="svcTagline">Turn live commerce into a real revenue channel.</p>
+          <p style="margin:10px 0 0; color:rgba(10,10,10,0.72); font-weight:650; line-height:1.6;">Show planning, run-of-show, product sequencing, host coaching, and real-time execution. We help brands treat live selling as a repeatable performance channel — not a one-off event.</p>
         </div>
 
-        <div class="card">
+        <div class="svcCard blue">
           <h3>Content Production & UGC</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">The assets your shop actually needs.</p>
-          <p>Short-form video, UGC-style content, lifestyle shoots, and product listing images (PDPs) built for TikTok Shop, Amazon, and social — designed to convert, not just look good.</p>
+          <p class="svcTagline">The assets your shop actually needs.</p>
+          <p style="margin:10px 0 0; color:rgba(10,10,10,0.72); font-weight:650; line-height:1.6;">Short-form video, UGC-style content, lifestyle shoots, and product listing images (PDPs) built for TikTok Shop, Amazon, and social — designed to convert, not just look good.</p>
         </div>
 
-        <div class="card">
+        <div class="svcCard blue">
           <h3>TikTok Ads Management</h3>
-          <p style="margin:10px 0 0; font-weight:900; color:rgba(255,255,255,.92);">Amplify what's already working.</p>
-          <p>We run TikTok ad campaigns that amplify your organic and affiliate performance — not replace it. Smart spend, clear attribution, and full transparency on what's driving GMV.</p>
+          <p class="svcTagline">Amplify what's already working.</p>
+          <p style="margin:10px 0 0; color:rgba(10,10,10,0.72); font-weight:650; line-height:1.6;">We run TikTok ad campaigns that amplify your organic and affiliate performance — not replace it. Smart spend, clear attribution, and full transparency on what's driving GMV.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark reveal" id="packages">
+  <section class="section section-light reveal" id="packages" style="background:var(--color-bg-alt);">
     <div class="container">
       <div class="kicker"><i></i> Engagement tiers</div>
       <h2>Choose how you want to work with us.</h2>
-      <p style="margin:6px 0 0; font-size:0.88rem; font-weight:700; color:var(--color-cyan); letter-spacing:0.04em;">All tiers run on The Junglee System</p>
+      <p style="margin:6px 0 0; font-size:0.88rem; font-weight:700; color:var(--color-magenta); letter-spacing:0.04em;">All tiers run on The Junglee System</p>
       <p class="lead">
         We scope every engagement based on your category, current GMV, team resources, and growth goals. These tiers are starting points — not rigid boxes.
       </p>
@@ -666,8 +623,8 @@
         </div>
       </div>
 
-      <div class="card" style="margin-top:22px; text-align:center;">
-        <b style="margin-bottom:32px; display:block;">Want to build a custom package around your needs?</b>
+      <div class="ctaStrip" style="margin-top:22px; text-align:center;">
+        <b>Want to build a custom package around your needs?</b>
         <div class="actions" style="margin-top:0;">
           <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Build-Out</a>
         </div>
@@ -700,10 +657,10 @@
     </div>
   </section>
 
-  <section class="section light section-light reveal" id="brand-logos">
+  <section class="section cta-cyan-band reveal" id="brand-logos" style="padding:clamp(48px,6vw,80px) 0;">
     <div class="container">
-      <div class="kicker"><i></i> Brands we've supported across modern commerce</div>
-      <p class="lead" style="max-width:68ch;">
+      <div class="kicker" style="color:rgba(10,10,10,0.55);"><i style="background:var(--color-dark);"></i> Brands we've supported across modern commerce</div>
+      <p class="lead" style="max-width:68ch; color:rgba(10,10,10,0.70);">
         We've partnered with forward-thinking teams to launch, scale, and navigate growth across TikTok Shop, Amazon, and emerging social commerce channels.
       </p>
 
@@ -743,11 +700,9 @@
         </div>
       </div>
 
-      <div class="card" style="margin-top:22px; text-align:center;">
-        <b style="margin-bottom:32px; display:block;">Ready to scale your brand on TikTok Shop?</b>
-        <div class="actions" style="margin-top:0;">
-          <a class="btn pink" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
-        </div>
+      <div style="margin-top:32px; text-align:center;">
+        <b style="display:block; margin-bottom:14px; font-size:1.1rem; color:var(--color-dark);">Ready to scale your brand on TikTok Shop?</b>
+        <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
       </div>
     </div>
   </section>

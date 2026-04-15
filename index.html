@@ -54,11 +54,11 @@
     <script src="js/cursor.js" defer></script>
 
     <style>
-      /* Page-specific: hero (animated dark bg), hero proof bar, mini stats */
+      /* Page-specific: hero (light bg + color wash orbs), hero proof bar, mini stats */
 
-      /* --- Animated dark hero background --- */
+      /* --- Light hero with color wash orbs --- */
       .hero {
-        background: #080808;
+        background: #ffffff;
         min-height: calc(100svh - 72px);
         padding: clamp(28px, 4vw, 56px) 0;
       }
@@ -83,7 +83,7 @@
         height: 600px;
         bottom: -10%;
         right: -8%;
-        background: radial-gradient(circle, rgba(255,45,154,0.12) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(255,45,154,0.10) 0%, transparent 70%);
         filter: blur(80px);
         z-index: 0;
         animation: drift-magenta 10s ease-in-out infinite alternate;
@@ -102,8 +102,8 @@
       .hero .vignette {
         opacity: 1;
         background:
-          linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+          linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
         background-size: 60px 60px;
       }
 
@@ -111,14 +111,16 @@
 
       .hero-grid { max-width: 820px; }
 
-      /* Bolder headline — no photo to compete with */
+      /* Bolder headline */
       .hero h1 {
         font-size: clamp(2.5rem, 5.2vw, 4.2rem);
+        color: var(--color-dark);
+        text-shadow: none;
       }
 
       .hero .lead {
-        color: var(--color-white);
-        text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+        color: var(--color-text-secondary);
+        text-shadow: none;
       }
 
       /* Stat numbers slightly larger for visual anchor */
@@ -126,7 +128,7 @@
         font-size: clamp(1.6rem, 3.2vw, 2.25rem);
       }
 
-      /* --- Stat strip --- */
+      /* --- Stat strip (on light hero) --- */
       .stat-strip {
         margin-top: 32px;
         display: flex;
@@ -135,9 +137,9 @@
         align-items: stretch;
         border-radius: var(--radius-lg);
         overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.14);
+        border: 1px solid rgba(0,0,0,0.08);
         backdrop-filter: blur(14px);
-        background: rgba(0,0,0,0.48);
+        background: rgba(0,0,0,0.03);
         max-width: 680px;
         margin-left: auto;
         margin-right: auto;
@@ -151,24 +153,24 @@
         padding: 18px 12px;
         text-align: center;
         gap: 4px;
-        border-right: 1px solid rgba(255,255,255,0.10);
+        border-right: 1px solid rgba(0,0,0,0.06);
       }
       .stat-item:last-child { border-right: none; }
       .stat-num {
         font-size: clamp(1.45rem, 2.8vw, 2rem);
         font-weight: 950;
         letter-spacing: -0.04em;
-        color: var(--color-white);
+        color: var(--color-dark);
         line-height: 1;
       }
-      .stat-num.cyan { color: var(--color-cyan); }
+      .stat-num.cyan { color: var(--color-magenta); }
       .stat-num.pink { color: var(--color-magenta); }
       .stat-label {
         font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.55);
+        color: rgba(10,10,10,0.45);
       }
 
       /* --- Icon-led list items in cards --- */
@@ -184,7 +186,7 @@
         align-items: flex-start;
         gap: 10px;
         font-weight: 650;
-        color: rgba(255,255,255,0.88);
+        color: rgba(10,10,10,0.78);
         line-height: 1.45;
         font-size: 0.95rem;
       }
@@ -198,9 +200,9 @@
       .feat-list.cyan li::before { background: var(--color-cyan); }
       .feat-list.pink li::before { background: var(--color-magenta); }
 
-      /* --- Trust logos strip --- */
+      /* --- Trust logos strip (DARK — contrast anchor) --- */
       .trust-strip {
-        background: var(--color-black);
+        background: var(--color-dark);
         padding: clamp(28px, 4vw, 44px) 0 clamp(32px, 4vw, 52px);
         border-bottom: 1px solid rgba(255,255,255,0.08);
       }
@@ -283,6 +285,24 @@
         100% { transform: translateX(-50%); }
       }
 
+      /* --- Testimonial (DARK section) --- */
+      .testimonial-dark {
+        background: var(--color-dark);
+      }
+
+      /* --- Closing CTA (cyan background) --- */
+      .cta-cyan {
+        background: var(--color-cyan);
+      }
+      .cta-cyan .kicker { color: rgba(10,10,10,0.65); }
+      .cta-cyan .kicker i { background: var(--color-dark); }
+      .cta-cyan h2 { color: var(--color-dark); }
+      .cta-cyan .lead { color: rgba(10,10,10,0.75); }
+      .cta-cyan .card {
+        background: rgba(255,255,255,0.85);
+        border: 1px solid rgba(0,0,0,0.08);
+      }
+
       @media (max-width: 980px) {
         .hero::before, .hero::after {
           width: 350px;
@@ -290,7 +310,7 @@
           filter: blur(60px);
         }
         .stat-strip { flex-direction: column; border-radius: var(--radius-md); }
-        .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); padding: 14px; }
+        .stat-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 14px; }
         .stat-item:last-child { border-bottom: none; }
         .services-split .actions { justify-content: flex-start; }
         .trust-logos { gap: 8px; }
@@ -338,7 +358,7 @@
               <div class="stat-label">Live GMV</div>
             </div>
           </div>
-          <p style="margin:12px auto 0;text-align:center;font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.45);">From our founder's tenure as TikTok Shop Category Leader</p>
+          <p style="margin:12px auto 0;text-align:center;font-size:0.72rem;font-weight:600;color:rgba(10,10,10,0.40);">From our founder's tenure as TikTok Shop Category Leader</p>
         </div>
       </div>
     </section>
@@ -398,7 +418,7 @@
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
         <h2>Built for brands. Built for creators. One system.</h2>
-        <p style="margin:-4px 0 8px;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-cyan);">Powered by The Junglee System</p>
+        <p style="margin:-4px 0 8px;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-magenta);">Powered by The Junglee System</p>
         <p class="lead">
           Whether you're scaling a TikTok Shop or growing your creator income, we have a dedicated path for you.
         </p>
@@ -488,9 +508,9 @@
       </div>
     </section>
 
-    <section class="section section-dark reveal" style="background:var(--color-black); padding:clamp(48px,6vw,80px) 0 clamp(24px,3vw,40px);">
+    <section class="section section-dark testimonial-dark reveal" style="padding:clamp(48px,6vw,80px) 0 clamp(24px,3vw,40px);">
       <div class="container" style="max-width:800px; text-align:center;">
-        <div class="kicker" style="justify-content:center;"><i></i> What people say</div>
+        <div class="kicker" style="justify-content:center; color:rgba(255,255,255,0.78);"><i style="background:var(--color-cyan);"></i> What people say</div>
         <p style="margin:24px 0 0; font-size:clamp(1.3rem,2.4vw,1.75rem); font-weight:700; font-style:italic; line-height:1.5; color:var(--color-white);">
           &ldquo;Working with the Junglee team transformed our TikTok Shop strategy. Their system just works.&rdquo;
         </p>
@@ -498,30 +518,30 @@
       </div>
     </section>
 
-    <section class="section light section-light reveal" id="contact" style="padding:clamp(48px,6vw,80px) 0;">
+    <section class="section cta-cyan reveal" id="contact" style="padding:clamp(48px,6vw,80px) 0;">
       <div class="container" style="max-width:900px;">
         <div style="text-align:center; margin-bottom:clamp(28px,4vw,44px);">
-          <div class="kicker" style="justify-content:center; color:var(--color-black);"><i></i> Get Started</div>
-          <h2 style="color:var(--color-black);">Ready to grow with Junglee?</h2>
-          <p class="lead" style="color:rgba(0,0,0,0.55); max-width:620px; margin-left:auto; margin-right:auto;">
+          <div class="kicker" style="justify-content:center; color:rgba(10,10,10,0.65);"><i style="background:var(--color-dark);"></i> Get Started</div>
+          <h2 style="color:var(--color-dark);">Ready to grow with Junglee?</h2>
+          <p class="lead" style="color:rgba(10,10,10,0.65); max-width:620px; margin-left:auto; margin-right:auto;">
             Whether you're a brand looking for TikTok Shop growth or a creator ready to earn, we have a path for you.
           </p>
         </div>
 
         <div class="grid2">
           <div class="card">
-            <span class="card-label cyan">For Brands</span>
-            <p style="color:rgba(255,255,255,0.78); font-weight:500; line-height:1.6;">
+            <span class="card-label" style="color:var(--color-cyan);">For Brands</span>
+            <p style="color:rgba(10,10,10,0.75); font-weight:500; line-height:1.6;">
               Tell us where you are and where you want to go. We'll build a plan around your product, your category, and your TikTok Shop goals.
             </p>
             <div class="actions" style="margin-top:18px;">
-              <a class="btn pink" style="color:#fff;" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
+              <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
             </div>
           </div>
 
           <div class="card">
             <span class="card-label pink">For Creators</span>
-            <p style="color:rgba(255,255,255,0.78); font-weight:500; line-height:1.6;">
+            <p style="color:rgba(10,10,10,0.75); font-weight:500; line-height:1.6;">
               Apply to join our creator network. We'll match you with the right products, build your posting system, and help you earn consistently.
             </p>
             <div class="actions" style="margin-top:18px;">
@@ -530,8 +550,8 @@
           </div>
         </div>
 
-        <p style="text-align:center; margin-top:28px; color:rgba(0,0,0,0.4); font-size:0.88rem; font-weight:500;">
-          Or email us directly at <a href="mailto:info@jungleestudios.com" style="color:rgba(0,0,0,0.6); text-decoration:underline;">info@jungleestudios.com</a>
+        <p style="text-align:center; margin-top:28px; color:rgba(10,10,10,0.45); font-size:0.88rem; font-weight:500;">
+          Or email us directly at <a href="mailto:info@jungleestudios.com" style="color:rgba(10,10,10,0.65); text-decoration:underline;">info@jungleestudios.com</a>
         </p>
       </div>
     </section>

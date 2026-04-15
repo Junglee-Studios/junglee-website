@@ -15,10 +15,11 @@
   <script src="js/cursor.js" defer></script>
 
   <style>
-    /* Page-specific: hero image, profile layout, partner status */
-    /* About hero: dark background with soft animated cyan orb */
+    /* Page-specific: hero, profile layout, partner status */
+
+    /* About hero: light background with soft animated cyan orb */
     .hero {
-      background: #080808;
+      background: #ffffff;
     }
     .hero::before {
       content: "";
@@ -29,7 +30,7 @@
       left: 50%;
       margin-left: -200px;
       inset: auto;
-      background: radial-gradient(circle, rgba(0,242,234,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,242,234,0.12) 0%, transparent 70%);
       filter: blur(80px);
       z-index: 0;
       animation: drift-cyan-about 12s ease-in-out infinite alternate;
@@ -39,8 +40,8 @@
     }
     .hero .vignette {
       background:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
       background-size: 60px 60px;
       opacity: 1;
     }
@@ -48,6 +49,8 @@
       position: relative;
       z-index: 2;
     }
+    .hero h1 { color: var(--color-dark); text-shadow: none; }
+    .hero .lead { color: var(--color-text-secondary); text-shadow: none; }
 
     @keyframes drift-cyan-about {
       from { transform: translate(0, 0); }
@@ -69,7 +72,7 @@
       max-width: 280px;
       border-radius: 50%;
       overflow: hidden;
-      background: var(--color-black);
+      background: var(--color-bg-alt);
       border: 3px solid var(--color-magenta);
       box-shadow: none;
     }
@@ -85,9 +88,14 @@
       object-position: center 15%;
     }
 
+    /* JT profile section — white background */
+    .profile-section-white {
+      background: var(--color-white);
+    }
+
     .profile-card {
       border-radius: var(--radius-xl);
-      background: var(--color-black);
+      background: var(--color-white);
       border: none;
       box-shadow: none;
       padding: 20px;
@@ -98,7 +106,7 @@
       font-size: clamp(1.35rem, 2vw, 1.6rem);
       font-weight: 950;
       letter-spacing: -0.02em;
-      color: var(--color-white);
+      color: var(--color-dark);
     }
 
     .profile-points {
@@ -108,20 +116,20 @@
       gap: 6px;
       font-size: var(--text-base);
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(10, 10, 10, 0.78);
     }
 
     .profile-sub {
       margin: 10px 0 0;
       font-weight: 450;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(10, 10, 10, 0.65);
       line-height: 1.65;
     }
 
     .profile-sub.intro {
       font-weight: 650;
       font-size: 1.05rem;
-      color: var(--color-white);
+      color: var(--color-dark);
     }
 
     .profile-sub.body {
@@ -130,7 +138,7 @@
     }
 
     .profile-sub.emphasis {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(10, 10, 10, 0.80);
     }
 
     .profile-label {
@@ -139,7 +147,12 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 750;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(10, 10, 10, 0.50);
+    }
+
+    /* Lara section — light grey */
+    .profile-section-grey {
+      background: var(--color-bg-alt);
     }
 
     /* Platform expertise pills alignment */
@@ -147,7 +160,22 @@
       justify-content: flex-start;
     }
 
-    /* Partner status cards */
+    /* Values section: cyan band */
+    .values-cyan {
+      background: var(--color-cyan);
+    }
+    .values-cyan .kicker { color: rgba(10,10,10,0.55); }
+    .values-cyan .kicker i { background: var(--color-dark); }
+    .values-cyan h2 { color: var(--color-dark); }
+    .values-cyan .lead { color: rgba(10,10,10,0.70); }
+    .values-cyan .card {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .values-cyan .card h3 { color: var(--color-dark); }
+    .values-cyan .card p { color: rgba(10,10,10,0.72); }
+
+    /* Partner status cards — white on dark */
     .status {
       margin-top: 22px;
       display: grid;
@@ -164,7 +192,7 @@
     }
 
     .partner-status .card h3 { color: var(--color-dark); }
-    .partner-status .card p { color: rgba(11, 15, 20, 0.75); }
+    .partner-status .card p { color: rgba(10, 10, 10, 0.68); }
 
     .partner-status .badgeMark {
       background: none;
@@ -174,7 +202,7 @@
       margin-bottom: 10px;
       font-size: 1.6rem;
       font-weight: 950;
-      color: var(--color-dark);
+      color: var(--color-magenta);
     }
 
     .partner-status .actions { justify-content: flex-start; }
@@ -224,7 +252,7 @@
     </div>
   </section>
 
-  <section class="section section-dark reveal">
+  <section class="section profile-section-white section-light reveal">
     <div class="container">
       <div class="kicker"><i></i> Founder</div>
 
@@ -258,14 +286,14 @@
           </ul>
 
           <div class="actions" style="justify-content:flex-start; margin-top:14px;">
-            <a class="btn white" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+            <a class="btn" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark reveal">
+  <section class="section profile-section-grey section-light reveal">
     <div class="container">
       <div class="kicker"><i></i> Director of Client Media</div>
 
@@ -274,7 +302,7 @@
           <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media">
         </div>
 
-        <div class="profile-card">
+        <div class="profile-card" style="background:var(--color-bg-alt);">
           <h2 class="profile-title">Lara Maria Nnoli</h2>
           <p class="profile-sub body">
             Lara leads the creation of high-quality visual content for brands and ecommerce companies. Specializing in product photography and short-form video, she helps brands bring their products to life through assets designed for Amazon, Shopify, TikTok Shop, and social media platforms.
@@ -294,7 +322,7 @@
           </ul>
 
           <div class="actions" style="justify-content:flex-start; margin-top:14px;">
-            <a class="btn white" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+            <a class="btn" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
       </div>
@@ -326,9 +354,9 @@
     </div>
   </section>
 
-  <section class="section platform-expertise section-dark reveal">
+  <section class="section section-dark platform-expertise reveal">
     <div class="container">
-      <div class="kicker"><i></i> Platform expertise</div>
+      <div class="kicker"><i style="background:var(--color-cyan);"></i> Platform expertise</div>
       <h2>Deep platform expertise. Real-world application.</h2>
       <p class="lead">
         Our experience comes from building, scaling, and stress-testing commerce directly within major platforms. We understand how products are discovered, how trust is built, and what actually drives conversion — because we've helped design and scale it.
@@ -345,11 +373,11 @@
     </div>
   </section>
 
-  <section class="section light section-light reveal">
+  <section class="section values-cyan reveal">
     <div class="container">
-      <div class="kicker"><i></i> Philosophy</div>
+      <div class="kicker"><i style="background:var(--color-dark);"></i> Philosophy</div>
       <h2>"Junglee" is a mindset — bold, intentional, and earned.</h2>
-      <p class="lead">
+      <p class="lead" style="color:rgba(10,10,10,0.70);">
         "Junglee" means "wild" in Hindi. For us, it means moving fast, staying original, and building strategies that outperform trends.
       </p>
 
@@ -368,7 +396,7 @@
 
   <section class="section partner-status section-dark reveal">
     <div class="container">
-      <div class="kicker"><i></i> Partner status</div>
+      <div class="kicker"><i style="background:var(--color-cyan);"></i> Partner status</div>
       <h2>Official programs. Real infrastructure.</h2>
       <p class="lead">
         We work directly within the ecosystem — with the standards and experience to run partnerships professionally and drive performance.
