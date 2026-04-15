@@ -254,6 +254,15 @@
       .logos { grid-template-columns: repeat(3, 1fr); }
     }
 
+    /* Remove dark card bubble behind the CTA in brand-logos section */
+    #brand-logos .card,
+    #brand-logos .card:hover {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      transform: none;
+    }
+
     @media (max-width: 520px) {
       .logos { grid-template-columns: repeat(2, 1fr); }
     }
