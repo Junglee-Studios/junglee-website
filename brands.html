@@ -268,6 +268,33 @@
     @media (max-width: 520px) {
       .logos { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* --- Logo marquee --- */
+    .logo-marquee-track {
+      overflow: hidden;
+      width: 100%;
+    }
+    .logo-marquee-inner {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      width: max-content;
+      animation: marquee-scroll 30s linear infinite;
+    }
+    .logo-marquee-inner img {
+      height: 40px;
+      width: auto;
+      opacity: 0.5;
+      filter: grayscale(100%);
+      flex-shrink: 0;
+    }
+    .logo-marquee-inner:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
   </style>
 </head>
 
@@ -630,50 +657,38 @@
         We've partnered with forward-thinking teams to launch, scale, and navigate growth across TikTok Shop, Amazon, and emerging social commerce channels.
       </p>
 
-      <div class="logos">
-        <div class="logoTile">
+      <div class="logo-marquee-track">
+        <div class="logo-marquee-inner">
           <img src="assets/logos/Disliz Logo.png" alt="Disliz Logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/disneystore.png" alt="Disney Store logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/Goli.png" alt="Goli Nutrition logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/RipNHits.png" alt="Rip N Hits logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/xpcollect_logo.png" alt="XP Collect logo">
-        </div>
-        <div class="logoTile">
           <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
-        </div>
-        <div class="logoTile">
+          <img src="assets/logos/Yucca.png" alt="Yucca Logo">
+          <!-- duplicate for seamless loop -->
+          <img src="assets/logos/Disliz Logo.png" alt="Disliz Logo">
+          <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo">
+          <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo">
+          <img src="assets/logos/disneystore.png" alt="Disney Store logo">
+          <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners logo">
+          <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo">
+          <img src="assets/logos/Goli.png" alt="Goli Nutrition logo">
+          <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils logo">
+          <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo">
+          <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards logo">
+          <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports logo">
+          <img src="assets/logos/RipNHits.png" alt="Rip N Hits logo">
+          <img src="assets/logos/xpcollect_logo.png" alt="XP Collect logo">
+          <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo">
           <img src="assets/logos/Yucca.png" alt="Yucca Logo">
         </div>
       </div>
