@@ -148,13 +148,12 @@ header {
   font-weight: 900;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   cursor: pointer;
   outline: none;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.30);
 }
 
@@ -393,12 +392,6 @@ h2 {
   background: rgba(255, 255, 255, 0.06);
   padding: 20px;
   box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .card h3 {
@@ -622,6 +615,107 @@ footer {
   transform: translateY(-1px);
 }
 
+/* === MOTION SYSTEM === */
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* --- Card Hover Glow (dark background cards — cyan glow) --- */
+.card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28), 0 0 24px rgba(0, 242, 234, 0.25);
+}
+
+/* Light-background card variants — magenta glow */
+.section.light .card:hover,
+.tierCard:hover,
+.partner-status .card:hover,
+#creator-support .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18), 0 0 24px rgba(255, 45, 154, 0.25);
+}
+
+/* Dark service cards — cyan glow */
+.svcCard {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.svcCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14), 0 0 24px rgba(0, 242, 234, 0.25);
+}
+
+/* Tier cards — magenta glow (light background) */
+.tierCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Credential cards — cyan glow (dark background) */
+.credCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.credCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28), 0 0 24px rgba(0, 242, 234, 0.25);
+}
+
+/* Step cards in light section — magenta glow */
+.stepCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Button Hover Glow --- */
+.btn {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.15s ease;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 242, 234, 0.35);
+}
+.btn.pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 45, 154, 0.35);
+}
+.btn.cyan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 242, 234, 0.35);
+}
+
+/* --- Typewriter Cursor --- */
+.typewriter-word {
+  color: var(--color-cyan);
+  border-right: 2px solid var(--color-cyan);
+  padding-right: 2px;
+  animation: blink-cursor 0.7s step-end infinite;
+}
+@keyframes blink-cursor {
+  50% { border-color: transparent; }
+}
+
+/* --- Staggered Grid Reveal --- */
+.js-reveal-ready .stagger-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.js-reveal-ready .stagger-item.stagger-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Heading Slide-up Reveal --- */
+.js-reveal-ready .heading-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.js-reveal-ready .heading-reveal.heading-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* --- Scroll Reveal --- */
 .reveal {
   opacity: 1;
@@ -660,6 +754,9 @@ footer {
 
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto !important; transition: none !important; }
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   .reveal { opacity: 1; transform: none; }
+  .stagger-item { opacity: 1; transform: none; }
+  .heading-reveal { opacity: 1; transform: none; }
+  .typewriter-word { border-right: none; animation: none; }
 }
