@@ -607,6 +607,17 @@ footer {
   transform: translateY(-1px);
 }
 
+/* --- Scroll Reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* --- Responsive --- */
 @media (max-width: 980px) {
   .navlinks { display: none; }
@@ -619,7 +630,17 @@ footer {
   .ctaStrip { justify-content: center; text-align: center; }
 }
 
+/* --- Mobile: Footer icon tap targets --- */
+@media (max-width: 768px) {
+  .icon {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+  }
+}
+
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
 }

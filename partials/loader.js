@@ -46,4 +46,18 @@
         if (y) y.textContent = new Date().getFullYear();
       })
     : Promise.resolve();
+
+  // Scroll-triggered reveal animations
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    observer.observe(el);
+  });
 })();
