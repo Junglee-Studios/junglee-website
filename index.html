@@ -130,9 +130,6 @@
         color: rgba(255,255,255,0.55);
       }
 
-      /* --- Chips --- */
-      .chips { font-weight: 800; font-size: 0.93rem; }
-
       /* --- Icon-led list items in cards --- */
       .feat-list {
         margin: var(--space-md) 0 var(--space-md);
@@ -234,14 +231,6 @@
             <a class="btn pink" href="creators.html">I'm a Creator</a>
           </div>
 
-          <div class="chips" aria-label="Trust indicators">
-            <span class="chip"><i></i>TikTok Shop Partner (TSP)</span>
-            <span class="chip"><i></i>Creator Agency Partner (CAP)</span>
-            <span class="chip"><i></i>E-commerce Consulting</span>
-            <span class="chip"><i></i>Live Selling Support</span>
-            <span class="chip"><i></i>Branded Lifestyle Content</span>
-          </div>
-
           <div class="stat-strip" aria-label="Performance stats">
             <div class="stat-item">
               <div class="stat-num cyan">$1.3B+</div>
@@ -263,27 +252,37 @@
     <section class="trust-strip">
       <div class="container">
         <p class="trust-label">Trusted partners &amp; credentials</p>
-        <div class="trust-logos">
-          <span class="trust-badge">
+
+        <!-- Row 1 — Partner badges (official credentials) -->
+        <div class="trust-logos" style="margin-bottom: 12px;">
+          <span class="trust-badge" style="color: var(--color-cyan); border-color: rgba(0,242,234,0.25);">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#00f2ea" stroke="#00f2ea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            TikTok Shop Partner
+            Official TikTok Shop Partner (TSP)
           </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#ff2d9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Creator Agency Partner
+          <span class="trust-badge" style="color: var(--color-cyan); border-color: rgba(0,242,234,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            TikTok Creator Agency Partner
           </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 21h8M12 17v4" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            E-commerce Consulting
+          <span class="trust-badge" style="color: var(--color-cyan); border-color: rgba(0,242,234,0.25);">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            TikTok MultiChannel Network
           </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Live Selling Support
-          </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Branded Lifestyle Content
-          </span>
+        </div>
+
+        <!-- Divider -->
+        <div style="display: flex; align-items: center; gap: 12px; max-width: 480px; margin: 0 auto 14px;">
+          <span style="flex: 1; height: 1px; background: rgba(255,255,255,0.10);"></span>
+          <span style="font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.28);">Services</span>
+          <span style="flex: 1; height: 1px; background: rgba(255,255,255,0.10);"></span>
+        </div>
+
+        <!-- Row 2 — Services -->
+        <div class="trust-logos">
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Full End-to-End TikTok Shop Management</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">LIVE Selling Management</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Creator Campaigns</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Affiliate Outreach &amp; Marketing</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">TikTok Ads</span>
         </div>
       </div>
     </section>
