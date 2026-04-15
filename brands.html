@@ -254,9 +254,11 @@
       .logos { grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* Remove dark card bubble behind the CTA in brand-logos section */
+    /* Remove dark card bubble behind CTAs in brand-logos and services sections */
     #brand-logos .card,
-    #brand-logos .card:hover {
+    #brand-logos .card:hover,
+    #services .card,
+    #services .card:hover {
       background: transparent;
       border: none;
       box-shadow: none;
@@ -676,7 +678,7 @@
       </div>
 
       <div class="card" style="margin-top:22px; text-align:center;">
-        <b>Ready to grow your TikTok Shop?</b>
+        <b style="margin-bottom:32px; display:block;">Ready to grow your TikTok Shop?</b>
         <div class="actions" style="margin-top:0;">
           <a class="btn primary" href="index.html#contact">Start a Strategy Conversation</a>
         </div>
