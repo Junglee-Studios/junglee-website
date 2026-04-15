@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Creators — Junglee Studios</title>
-  <meta name="description" content="Join Junglee Studios' creator network. Get products, samples, daily posting guidance, and creator support so you can earn more consistently from TikTok Shop." />
+  <meta name="description" content="Junglee Studios is an official TikTok Creator Agency Partner and Multi-Channel Network. Join our creator network for free products, strategy, coaching, and consistent TikTok Shop income." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
   <script src="partials/loader.js" defer></script>
 
   <style>
-    /* Page-specific: hero image, creator support cards, miniGrid, ctaStrip variants */
+    /* Page-specific: hero image, creator support cards, miniGrid, ctaStrip variants, credentials, how-it-works */
     :root {
       --hero-img: url("assets/logos/assets/CreatorPage.jpeg");
     }
@@ -83,6 +83,38 @@
     .mini-stat:nth-child(odd) b { color: var(--color-cyan); }
     .mini-stat:nth-child(even) b { color: var(--color-magenta); }
 
+    /* Credential cards */
+    .credCard {
+      position: relative;
+      padding-top: 58px;
+    }
+    .credCard .credPill {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-weight: 950;
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .credPill.cyan {
+      background: rgba(0, 242, 234, 0.14);
+      border: 1px solid rgba(0, 242, 234, 0.28);
+      color: var(--color-cyan);
+    }
+    .credPill.magenta {
+      background: rgba(255, 45, 154, 0.14);
+      border: 1px solid rgba(255, 45, 154, 0.28);
+      color: var(--color-magenta);
+    }
+    .credCard h3.cyan { color: var(--color-cyan) !important; }
+    .credCard h3.magenta { color: var(--color-magenta) !important; }
+
     /* Creator support cards */
     #creator-support .card {
       position: relative;
@@ -125,8 +157,23 @@
       display: inline-block;
     }
     #creator-support .card:nth-child(even) .supportPill i { background: var(--color-magenta); }
-    #creator-support .card h3 { color: var(--color-cyan) !important; }
-    #creator-support .card:nth-child(even) h3 { color: var(--color-magenta) !important; }
+    #creator-support .card h3 { color: var(--color-magenta) !important; }
+
+    /* How it works — step numbers */
+    .stepCard {
+      text-align: center;
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-lg);
+    }
+    .stepNum {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stepNum.cyan { color: var(--color-cyan); }
+    .stepNum.magenta { color: var(--color-magenta); }
 
     /* CTA Strip variants */
     .ctaStrip.networkCta {
@@ -174,12 +221,12 @@
 
     <div class="container">
       <div class="hero-grid">
-        <div class="kicker"><i></i> For Creators</div>
+        <div class="kicker"><i style="background:var(--color-magenta);"></i> For Creators &amp; Affiliates</div>
 
-        <h1>Post smarter. Earn more. Keep it fun.</h1>
+        <h1>Turn your content into a real income stream.</h1>
 
         <p class="lead">
-          We help creators pick the right products, build a simple daily posting rhythm, and improve what converts — so earnings feel steady, not random.
+          Junglee Studios is an official TikTok Creator Agency Partner and Multi-Channel Network. We give creators the products, strategy, and support to earn consistently on TikTok Shop.
         </p>
 
         <div class="actions">
@@ -203,26 +250,56 @@
     </div>
   </section>
 
-  <section class="section light reveal" id="how-it-works">
+  <!-- CREDENTIALS — Why Junglee -->
+  <section class="section reveal" id="credentials">
+    <div class="container">
+      <div class="kicker"><i></i> Why Junglee</div>
+      <h2>Backed by TikTok. Built for creators.</h2>
+      <p class="lead">Most agencies talk about TikTok. We're certified by it.</p>
+
+      <div class="grid3">
+        <div class="card credCard">
+          <span class="credPill cyan">Official Partner</span>
+          <h3 class="cyan">TikTok Creator Agency Partner</h3>
+          <p>We're one of a small group of agencies officially certified by TikTok to represent and grow creators. That means direct platform access, early campaign visibility, and support you can't get anywhere else.</p>
+        </div>
+
+        <div class="card credCard">
+          <span class="credPill magenta">MCN</span>
+          <h3 class="magenta">Multi-Channel Network</h3>
+          <p>As a TikTok MCN, we can formally represent your account, help protect it, and unlock monetization pathways that individual creators can't access on their own.</p>
+        </div>
+
+        <div class="card credCard">
+          <span class="credPill cyan">TikTok Shop Partner</span>
+          <h3 class="cyan">TikTok Shop Partner (TSP)</h3>
+          <p>We manage TikTok Shop operations for brands — which means our creators get first access to products, campaigns, and affiliate deals before they hit the open market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE NETWORK -->
+  <section class="section light reveal" id="the-network">
     <div class="container">
       <div class="kicker"><i></i> The network</div>
-      <h2>For creators who want consistent income — not just one-off hits.</h2>
-      <p class="lead">You create. We help with direction, products, support, and momentum.</p>
+      <h2>Not just another affiliate program.</h2>
+      <p class="lead">We manage your creator career like a business — with the tools, access, and coaching to back it up.</p>
 
       <div class="grid3">
         <div class="card">
-          <h3>Free to Join</h3>
-          <p>No cost. We review creators based on content quality, consistency, and fit.</p>
+          <h3>Free to Join, No Catch</h3>
+          <p>No monthly fees. No contracts. We earn when you earn — so our incentive is to make you as successful as possible.</p>
         </div>
 
         <div class="card">
-          <h3>Earn Through Performance</h3>
-          <p>Earn commissions by promoting products you actually want to post. We handle the admin so you can focus on creating.</p>
+          <h3>Exclusive Product Access</h3>
+          <p>Get first access to brand campaigns and product samples from the brands we manage on TikTok Shop. You promote products that are already optimized to convert.</p>
         </div>
 
         <div class="card">
-          <h3>Support Included</h3>
-          <p>Coaching, reviews, live guidance, platform help, and product workflows — designed to make earning repeatable.</p>
+          <h3>Real Support, Not a Discord Dump</h3>
+          <p>Dedicated coaching, content reviews, live session support, violation guidance, and performance feedback. We're in your corner, not just your inbox.</p>
         </div>
       </div>
 
@@ -231,48 +308,49 @@
           <b>Want in?</b>
           <a class="btn pink" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
         </div>
-        <small>Apply once. We'll send next steps + what to do first.</small>
+        <small>Apply once. We review and respond within 48 hours.</small>
       </div>
     </div>
   </section>
 
+  <!-- CREATOR SUPPORT — What You Get -->
   <section class="section reveal" id="creator-support">
     <div class="container">
-      <div class="kicker"><i></i> Creator support</div>
-      <h2>More help. Less guessing.</h2>
-      <p class="lead">Quick wins, weekly improvements, and a system you can keep running.</p>
+      <div class="kicker"><i></i> What you get</div>
+      <h2>Everything you need. Nothing you don't.</h2>
+      <p class="lead">We built our support system around what actually moves creator revenue on TikTok Shop.</p>
 
       <div class="grid3">
         <div class="card">
           <div class="supportPill"><i></i> Content</div>
-          <h3>Content Coaching</h3>
-          <p>Simple frameworks + feedback so your product videos get better fast.</p>
+          <h3>Content Strategy &amp; Coaching</h3>
+          <p>We help you build hooks that stop the scroll, video structures that convert, and a daily posting rhythm you can actually maintain.</p>
           <ul>
             <li>Hooks, structure, and CTAs</li>
-            <li>Product video formats that convert</li>
-            <li>Story + proof templates</li>
+            <li>Product video formats that sell</li>
+            <li>Story + proof content templates</li>
           </ul>
         </div>
 
         <div class="card">
           <div class="supportPill"><i></i> Analytics</div>
-          <h3>Reviews &amp; Reporting</h3>
-          <p>Know what's working (and what to repeat) so you stop wasting posts.</p>
+          <h3>Performance Reviews &amp; Reporting</h3>
+          <p>No guessing. We review your content, identify what's working, and tell you exactly what to repeat and what to cut.</p>
           <ul>
-            <li>Performance reviews</li>
-            <li>What to fix / what to keep</li>
-            <li>Scale the winners</li>
+            <li>Weekly performance reviews</li>
+            <li>Clear what-to-fix guidance</li>
+            <li>Scale your winning formats</li>
           </ul>
         </div>
 
         <div class="card">
-          <div class="supportPill"><i></i> Live + Platform</div>
-          <h3>Live &amp; Platform Help</h3>
-          <p>Support for going live + navigating flags, policy, and account health.</p>
+          <div class="supportPill"><i></i> Platform</div>
+          <h3>Account Protection &amp; Platform Help</h3>
+          <p>Violations, flags, policy questions — we handle them. As an MCN, we have tools and access individual creators don't.</p>
           <ul>
-            <li>Live formats + structure</li>
-            <li>Violation support &amp; guidance</li>
-            <li>Campaign readiness tips</li>
+            <li>Violation support &amp; appeals</li>
+            <li>Account health monitoring</li>
+            <li>Campaign readiness checks</li>
           </ul>
         </div>
       </div>
@@ -280,64 +358,52 @@
       <div class="grid2">
         <div class="card">
           <div class="supportPill"><i></i> Products</div>
-          <h3>Products &amp; Samples</h3>
-          <p>Access to products, brand campaigns, and sampling workflows (brand-dependent).</p>
+          <h3>Brand Campaigns &amp; Product Access</h3>
+          <p>Because we manage TikTok Shop for brands, our creators get early access to samples, campaigns, and affiliate deals that aren't available to the general creator market.</p>
           <ul>
-            <li>Product access + linking guidance</li>
-            <li>Sampling workflow when available</li>
-            <li>Brand matching based on fit</li>
+            <li>First-look product access</li>
+            <li>Brand matching by niche</li>
+            <li>Sampling workflows + linking guidance</li>
           </ul>
         </div>
 
         <div class="card">
-          <div class="supportPill"><i></i> Optional</div>
-          <h3>Optional Growth (Future)</h3>
-          <p>Deeper coaching and structured education may be offered over time — always optional.</p>
+          <div class="supportPill"><i></i> Growth</div>
+          <h3>Creator Growth Consulting</h3>
+          <p>Whether you're just starting or ready to scale, we build a custom growth plan around your content style, niche, and income goals.</p>
           <ul>
-            <li>Advanced content labs</li>
-            <li>Deeper performance breakdowns</li>
-            <li>Structured learning tracks</li>
+            <li>Affiliate commission strategies</li>
+            <li>Flat-fee and UGC content opportunities</li>
+            <li>Long-term brand partnership development</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section light reveal" id="creator-services">
+  <!-- HOW IT WORKS -->
+  <section class="section light reveal" id="how-it-works">
     <div class="container">
-      <div class="kicker"><i></i> What we help you do</div>
-      <h2>Three lanes. Super simple.</h2>
-      <p class="lead">Pick your focus — we'll help you run it consistently.</p>
+      <div class="kicker"><i></i> How it works</div>
+      <h2>Three steps to get started.</h2>
 
       <div class="grid3">
-        <div class="card">
-          <h3>Monetize</h3>
-          <ul>
-            <li>Affiliate onboarding</li>
-            <li>Pick products that fit your niche</li>
-            <li>Commission terms that make sense for you</li>
-            <li>Campaign participation</li>
-          </ul>
+        <div class="card stepCard">
+          <div class="stepNum cyan">01</div>
+          <h3>Apply</h3>
+          <p>Fill out a short application at join.jungleestudios.com. Tell us about your content, your niche, and your goals.</p>
         </div>
 
-        <div class="card">
-          <h3>Create</h3>
-          <ul>
-            <li>Daily posting guidance</li>
-            <li>Product video frameworks</li>
-            <li>Discord-based education</li>
-            <li>Content feedback loop</li>
-          </ul>
+        <div class="card stepCard">
+          <div class="stepNum magenta">02</div>
+          <h3>Get Reviewed</h3>
+          <p>We review every application personally. If it's a fit, we'll reach out within 48 hours with next steps.</p>
         </div>
 
-        <div class="card">
-          <h3>Grow</h3>
-          <ul>
-            <li>Repeatable momentum system</li>
-            <li>Performance reviews</li>
-            <li>Scale income with formats that keep working</li>
-            <li>Build what converts</li>
-          </ul>
+        <div class="card stepCard">
+          <div class="stepNum cyan">03</div>
+          <h3>Start Earning</h3>
+          <p>Get onboarded, access your first products and campaigns, and start building consistent income with our system behind you.</p>
         </div>
       </div>
 
@@ -350,6 +416,7 @@
     </div>
   </section>
 
+  <!-- TESTIMONIAL -->
   <section class="section reveal" style="background:var(--color-black); padding:clamp(48px,6vw,80px) 0;">
     <div class="container" style="max-width:800px; text-align:center;">
       <div class="kicker" style="justify-content:center;"><i></i> What people say</div>
