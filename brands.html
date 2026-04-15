@@ -310,6 +310,53 @@
     /* Tighten section spacing on brands page */
     .section { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
 
+
+    /* Hero stat row */
+    .hero-stats {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #111111;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      max-width: 520px;
+    }
+    .hstat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 16px;
+      text-align: center;
+      gap: 3px;
+    }
+    .hstat-num {
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .hstat-num.cyan { color: var(--color-cyan); }
+    .hstat-num.pink { color: var(--color-magenta); }
+    .hstat-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .hstat-div {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.10);
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .hero-stats { max-width: 100%; }
+    }
     @media (max-width: 768px) {
       .hero::before {
         width: 280px;
@@ -374,14 +421,21 @@
         <div class="kicker"><i></i>I'm a Brand</div>
         <h1>Full-Service TikTok Shop Management for Established Brands.</h1>
         <p class="lead">
-          We work with established brands — on Amazon, Shopify, and beyond — to launch, grow, and dominate on TikTok Shop. Whether you need full management or strategic leadership for your existing team, we build the system that scales.
+          We work with established brands ready to treat TikTok Shop as a serious revenue channel. Full management, strategic consulting, or somewhere in between — built by a team that helped build the platform itself.
         </p>
-        <p class="lead" style="margin-top:12px;">
-          Our founder was on the ground floor of TikTok Shop — and helped launch Countdown Bidding on TikTok Shop — the platform's live auction selling mechanic that lets brands drive urgency and real-time conversions during live streams. That experience is what you get when you work with Junglee.
-        </p>
+
         <div class="actions">
           <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
           <a class="btn cyan" href="#what-we-offer">See What We Offer</a>
+        </div>
+
+        <!-- Stat row -->
+        <div class="hero-stats" aria-label="Brand performance stats">
+          <div class="hstat"><span class="hstat-num">400+</span><span class="hstat-label">Brands Scaled</span></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><span class="hstat-num cyan">$1.3B+</span><span class="hstat-label">D2C Sales</span></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><span class="hstat-num pink">$500M+</span><span class="hstat-label">Live GMV</span></div>
         </div>
       </div>
     </div>
@@ -410,15 +464,15 @@
     </div>
   </section>
 
-  <section class="section light approach section-light reveal">
+  <section class="section approach reveal" style="background:var(--color-dark);">
     <div class="container">
-      <div class="kicker"><i></i> The Junglee System</div>
-      <h2>Three lanes. One growth engine.</h2>
-      <p class="lead">
+      <div class="kicker" style="color:rgba(255,255,255,0.70);"><i style="background:var(--color-cyan);"></i> The Junglee System</div>
+      <h2 style="color:#ffffff;">Three lanes. One growth engine.</h2>
+      <p class="lead" style="color:rgba(255,255,255,0.80);">
         Our proprietary approach connects your TikTok Shop operations, creator partnerships, and content strategy so every piece feeds the next. Nothing runs in isolation. Everything compounds.
       </p>
 
-      <p class="credential-callout" style="font-style:italic; color:var(--color-text-secondary); display:block; max-width:680px; margin:24px auto 28px; border-left:4px solid var(--color-magenta); padding-left:20px; line-height:1.55; font-weight:600;">
+      <p class="credential-callout" style="font-style:italic; color:rgba(255,255,255,0.65); display:block; max-width:680px; margin:24px auto 28px; border-left:4px solid var(--color-magenta); padding-left:20px; line-height:1.55; font-weight:600;">
         Including helping launch Countdown Bidding on TikTok Shop — the platform's live auction selling mechanic that enables brands to drive urgency, competition, and real-time conversions during live streams.
       </p>
 
@@ -426,33 +480,33 @@
         <div class="card">
           <div class="cardHead"><div class="step blue">01</div><h3>Shop & Strategy</h3></div>
           <ul>
-            <li>Storefront architecture, catalog hygiene, and compliance</li>
-            <li>Offer structure, pricing, and campaign architecture</li>
-            <li>Category, competitor, and platform opportunity mapping</li>
+            <li style="color:rgba(255,255,255,0.72);">Storefront architecture, catalog hygiene, and compliance</li>
+            <li style="color:rgba(255,255,255,0.72);">Offer structure, pricing, and campaign architecture</li>
+            <li style="color:rgba(255,255,255,0.72);">Category, competitor, and platform opportunity mapping</li>
           </ul>
         </div>
         <div class="card">
           <div class="cardHead"><div class="step pink">02</div><h3>Creator & Content</h3></div>
           <ul>
-            <li>Affiliate and creator program design and management</li>
-            <li>Content direction for short-form and live formats</li>
-            <li>Product seeding, sampling, and partnership workflows</li>
+            <li style="color:rgba(255,255,255,0.72);">Affiliate and creator program design and management</li>
+            <li style="color:rgba(255,255,255,0.72);">Content direction for short-form and live formats</li>
+            <li style="color:rgba(255,255,255,0.72);">Product seeding, sampling, and partnership workflows</li>
           </ul>
         </div>
         <div class="card">
           <div class="cardHead"><div class="step blue">03</div><h3>Execution & Scale</h3></div>
           <ul>
-            <li>Campaign execution, GMV acceleration, and live selling</li>
-            <li>Paid amplification strategy where applicable</li>
-            <li>Reporting, optimization, and monthly growth planning</li>
+            <li style="color:rgba(255,255,255,0.72);">Campaign execution, GMV acceleration, and live selling</li>
+            <li style="color:rgba(255,255,255,0.72);">Paid amplification strategy where applicable</li>
+            <li style="color:rgba(255,255,255,0.72);">Reporting, optimization, and monthly growth planning</li>
           </ul>
         </div>
       </div>
 
-      <div class="ctaStrip" style="margin-top:22px;">
-        <b>Ready to see how The Junglee System applies to your brand?</b>
+      <div class="ctaStrip" style="margin-top:22px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.10);">
+        <b style="color:#ffffff;">Ready to see how The Junglee System applies to your brand?</b>
         <div class="actions" style="margin-top:0;">
-          <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
+          <a class="btn cyan" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
         </div>
       </div>
     </div>
@@ -508,7 +562,7 @@
     <div class="container">
       <div class="kicker"><i></i> Engagement tiers</div>
       <h2>Choose how you want to work with us.</h2>
-      <p style="margin:6px 0 0; font-size:0.88rem; font-weight:700; color:var(--color-magenta); letter-spacing:0.04em;">All tiers run on The Junglee System</p>
+      <p style="margin:6px 0 0; font-size:0.88rem; font-weight:700; color:var(--color-magenta); letter-spacing:0.04em; overflow:visible;">All tiers run on The Junglee System</p>
       <p class="lead">
         We scope every engagement based on your category, current GMV, team resources, and growth goals. These tiers are starting points — not rigid boxes.
       </p>
@@ -597,11 +651,11 @@
     </div>
   </section>
 
-  <section class="section light section-light reveal" id="services">
+  <section class="section reveal" id="services" style="background:var(--color-magenta);">
     <div class="container">
-      <div class="kicker"><i></i> Add-on services</div>
-      <h2>Standalone services that plug into any tier.</h2>
-      <p class="lead">
+      <div class="kicker" style="color:rgba(255,255,255,0.80);"><i style="background:rgba(255,255,255,0.90);"></i> Add-on services</div>
+      <h2 style="color:#ffffff;">Standalone services that plug into any tier.</h2>
+      <p class="lead" style="color:rgba(255,255,255,0.85);">
         Need content production without full management? Want live selling support as a standalone? These services work on their own or stack on top of your retainer.
       </p>
 
@@ -679,10 +733,10 @@
         </div>
       </div>
 
-      <div class="ctaStrip" style="margin-top:22px; text-align:center;">
-        <b>Want to build a custom package around your needs?</b>
+      <div class="ctaStrip" style="margin-top:22px; text-align:center; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.20);">
+        <b style="color:#ffffff;">Want to build a custom package around your needs?</b>
         <div class="actions" style="margin-top:0;">
-          <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Build-Out</a>
+          <a class="btn" style="background:#ffffff; color:var(--color-magenta); border:none; font-weight:800;" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Build-Out</a>
         </div>
       </div>
     </div>

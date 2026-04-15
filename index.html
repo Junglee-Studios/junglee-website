@@ -128,7 +128,7 @@
         font-size: clamp(1.6rem, 3.2vw, 2.25rem);
       }
 
-      /* --- Stat strip (on light hero) --- */
+      /* --- Stat strip (dark near-black background) --- */
       .stat-strip {
         margin-top: 32px;
         display: flex;
@@ -137,10 +137,9 @@
         align-items: stretch;
         border-radius: var(--radius-lg);
         overflow: hidden;
-        border: 1px solid rgba(0,0,0,0.08);
-        backdrop-filter: blur(14px);
-        background: rgba(0,0,0,0.03);
-        max-width: 680px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: #111111;
+        max-width: 720px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -153,25 +152,24 @@
         padding: 18px 12px;
         text-align: center;
         gap: 4px;
-        border-right: 1px solid rgba(0,0,0,0.06);
+        border-right: 1px solid rgba(255,255,255,0.07);
       }
       .stat-item:last-child { border-right: none; }
       .stat-num {
         font-size: clamp(1.45rem, 2.8vw, 2rem);
         font-weight: 950;
         letter-spacing: -0.04em;
-        color: var(--color-dark);
+        color: #ffffff;
         line-height: 1;
       }
       .stat-num.cyan { color: var(--color-cyan); }
       .stat-num.pink { color: var(--color-magenta); }
-      .stat-num { color: var(--color-dark); }
       .stat-label {
         font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: rgba(10,10,10,0.45);
+        color: rgba(255,255,255,0.45);
       }
 
       /* --- Icon-led list items in cards --- */
@@ -392,15 +390,19 @@
               <div class="stat-label">D2C Sales</div>
             </div>
             <div class="stat-item">
+              <div class="stat-num" data-count-to="400" data-count-prefix="" data-count-suffix="+" data-count-decimals="0">400+</div>
+              <div class="stat-label">Brands Scaled</div>
+            </div>
+            <div class="stat-item">
               <div class="stat-num" data-count-to="1.5" data-count-prefix="" data-count-suffix="K+" data-count-decimals="1">1.5K+</div>
-              <div class="stat-label">Sellers &amp; Creators</div>
+              <div class="stat-label">Creators Supported</div>
             </div>
             <div class="stat-item">
               <div class="stat-num pink" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
               <div class="stat-label">Live GMV</div>
             </div>
           </div>
-          <p style="margin:12px auto 0;text-align:center;font-size:0.72rem;font-weight:600;color:rgba(10,10,10,0.40);">From our founder's tenure as TikTok Shop Category Leader</p>
+          <p style="margin:12px auto 0;text-align:center;font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.40);">From our founder's tenure as TikTok Shop Category Leader</p>
         </div>
       </div>
     </section>
@@ -446,11 +448,11 @@
       </div>
     </section>
 
-    <section class="section light tight-bottom section-light reveal">
+    <section class="section tight-bottom reveal" style="background:var(--color-magenta);">
       <div class="container">
-        <div class="kicker"><i></i> Who we are</div>
-        <h2>We didn't learn TikTok Shop from the outside.</h2>
-        <p class="lead">
+        <div class="kicker" style="color:rgba(255,255,255,0.80);"><i style="background:rgba(255,255,255,0.90);"></i> Who we are</div>
+        <h2 style="color:#ffffff;">We didn't learn TikTok Shop from the outside.</h2>
+        <p class="lead" style="color:rgba(255,255,255,0.85);">
           Our founder led category strategy at TikTok Shop and helped launch Countdown Bidding — the platform's live auction selling mechanic. We bring that firsthand, ground-floor experience to every brand and creator we work with. Not theory. Not guesswork. The real playbook.
         </p>
       </div>
@@ -460,7 +462,7 @@
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
         <h2>Built for brands. Built for creators. One system.</h2>
-        <p style="margin:0 0 16px;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-magenta);">Powered by The Junglee System</p>
+        <p style="margin:0 0 20px;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-magenta);overflow:visible;white-space:normal;padding:0;">Powered by The Junglee System</p>
         <p class="lead">
           Whether you're scaling a TikTok Shop or growing your creator income, we have a dedicated path for you.
         </p>
@@ -470,7 +472,7 @@
             <span class="card-label cyan">For Brands</span>
             <h3>Scale your TikTok Shop with a team that built the platform.</h3>
             <p>We work with established brands ready to treat TikTok Shop as a serious revenue channel — from full management to strategic consulting for your existing team.</p>
-            <ul class="feat-list pink">
+            <ul class="feat-list cyan">
               <li>Full End-to-End TikTok Shop Management</li>
               <li>TikTok Shop Consulting &amp; Strategy</li>
               <li>LIVE Selling Management</li>
@@ -482,7 +484,7 @@
               <li>Flat-Fee Content Strategies</li>
             </ul>
             <div class="actions">
-              <a class="btn primary" href="/brands">Explore Brand Services</a>
+              <a class="btn cyan" href="/brands">Explore Brand Services</a>
             </div>
           </div>
 
@@ -490,7 +492,7 @@
             <span class="card-label pink">For Creators</span>
             <h3>Turn your content into a real income stream.</h3>
             <p>Join an official TikTok Creator Agency Partner and Multi-Channel Network. We give creators the products, access, and coaching to earn consistently.</p>
-            <ul class="feat-list cyan">
+            <ul class="feat-list pink">
               <li>Creator Growth Consulting</li>
               <li>Affiliate Onboarding &amp; Monetization</li>
               <li>Commission Strategies</li>
@@ -572,12 +574,12 @@
 
         <div class="grid2">
           <div class="card">
-            <span class="card-label" style="color:#00b8b2;">For Brands</span>
+            <span class="card-label cyan" style="color:#00b8b2;">For Brands</span>
             <p style="color:rgba(10,10,10,0.75); font-weight:500; line-height:1.6;">
               Tell us where you are and where you want to go. We'll build a plan around your product, your category, and your TikTok Shop goals.
             </p>
             <div class="actions" style="margin-top:18px;">
-              <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
+              <a class="btn cyan" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
             </div>
           </div>
 
@@ -587,7 +589,7 @@
               Apply to join our creator network. We'll match you with the right products, build your posting system, and help you earn consistently.
             </p>
             <div class="actions" style="margin-top:18px;">
-              <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
+              <a class="btn pink" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
             </div>
           </div>
         </div>
