@@ -199,14 +199,27 @@
         flex-shrink: 0;
       }
 
-      /* --- Two-engine card enhancements --- */
-      .two-engine .actions { justify-content: flex-start; }
+      /* --- Card labels (FOR BRANDS / FOR CREATORS) --- */
+      .card-label {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .card-label.cyan { color: var(--color-cyan); }
+      .card-label.pink { color: var(--color-magenta); }
+
+      /* --- Services split section --- */
+      .services-split .actions { justify-content: flex-start; }
+      .services-split .card { padding: clamp(24px, 3vw, 36px); }
 
       @media (max-width: 980px) {
         .stat-strip { flex-direction: column; border-radius: var(--radius-md); }
         .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); padding: 14px; }
         .stat-item:last-child { border-bottom: none; }
-        .two-engine .actions { justify-content: flex-start; }
+        .services-split .actions { justify-content: flex-start; }
         .trust-logos { gap: 8px; }
       }
     </style>
@@ -283,6 +296,10 @@
           <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Creator Campaigns</span>
           <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Affiliate Outreach &amp; Marketing</span>
           <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">TikTok Ads</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Creator Growth Consulting</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">UGC Content Development</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Lifestyle Content Development</span>
+          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Flat-Fee Content Strategies</span>
         </div>
       </div>
     </section>
@@ -297,67 +314,53 @@
       </div>
     </section>
 
-    <section class="section light tight-top">
+    <section class="section light tight-top services-split">
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
-        <h2>Where social commerce actually converts.</h2>
+        <h2>Built for brands. Built for creators. One system.</h2>
         <p class="lead">
-          We connect strategy, content, creators, and storefronts so your TikTok commerce system works as one engine.
-        </p>
-
-        <div class="grid3">
-          <div class="card">
-            <h3>TikTok Shop Consulting &amp; Strategy</h3>
-            <p>We help brands plan, launch, and improve their TikTok Shop strategy with a focus on conversion, offers, and growth.</p>
-          </div>
-          <div class="card">
-            <h3>TikTok Shop Management &amp; Optimization</h3>
-            <p>We support your team with shop operations, pricing, offer structure, creator programs, and campaign execution.</p>
-          </div>
-          <div class="card">
-            <h3>Creator Growth, Content &amp; Live Selling</h3>
-            <p>We help brands and creators create content that converts, build affiliate systems, and develop live selling strategies.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section two-engine">
-      <div class="container">
-        <div class="kicker"><i></i> Two sides • one engine</div>
-        <h2>Brands + creators, managed as one system.</h2>
-        <p class="lead">
-          Most growth breaks when shop strategy, content, creators, and offers are disconnected. Junglee brings them together so performance compounds.
+          Whether you're scaling a TikTok Shop or growing your creator income, we have a dedicated path for you.
         </p>
 
         <div class="grid2">
           <div class="card">
-            <h3>For Brands</h3>
-            <p>Launch, run, and scale TikTok Shop with consulting, operations support, and creator-led growth.</p>
-            <ul class="feat-list cyan">
-              <li>TikTok Shop launch and setup</li>
-              <li>Shop management and optimization</li>
-              <li>Creator and affiliate program support</li>
-              <li>Live selling strategy and sourcing</li>
+            <span class="card-label cyan">For Brands</span>
+            <h3>Grow your TikTok Shop with a team that knows how it works.</h3>
+            <p>From strategy to execution, we run your entire TikTok commerce operation — so you can focus on your product.</p>
+            <ul class="feat-list pink">
+              <li>Full End-to-End TikTok Shop Management</li>
+              <li>TikTok Shop Consulting &amp; Strategy</li>
+              <li>LIVE Selling Management</li>
+              <li>Creator &amp; Affiliate Campaigns</li>
+              <li>Affiliate Outreach &amp; Marketing</li>
+              <li>TikTok Ads Management</li>
+              <li>UGC Content Development</li>
+              <li>Lifestyle Content Development</li>
+              <li>Flat-Fee Content Strategies</li>
             </ul>
             <div class="actions">
-              <a class="btn primary" href="brands.html">Explore Brand Growth</a>
-              <a class="btn pink" href="#contact">Request a Plan</a>
+              <a class="btn primary" href="brands.html">Explore Brand Services</a>
+              <a class="btn pink" href="brands.html#contact">Request a Plan</a>
             </div>
           </div>
 
           <div class="card">
-            <h3>For Creators</h3>
-            <p>Build your affiliate income and grow with support from a team that understands how TikTok commerce works.</p>
-            <ul class="feat-list pink">
-              <li>Affiliate onboarding and monetization support</li>
-              <li>Brand partnership guidance</li>
-              <li>Content strategy and posting support</li>
-              <li>Growth coaching for creator commerce</li>
+            <span class="card-label pink">For Creators</span>
+            <h3>Turn your content into consistent income.</h3>
+            <p>We help creators grow their affiliate revenue, land brand deals, and build a long-term TikTok commerce business.</p>
+            <ul class="feat-list cyan">
+              <li>Creator Growth Consulting</li>
+              <li>Affiliate Onboarding &amp; Monetization</li>
+              <li>Commission Strategies</li>
+              <li>Exclusive Creator Campaign Access</li>
+              <li>Brand Partnership Guidance</li>
+              <li>Affiliate Coaching</li>
+              <li>Content Strategy &amp; Posting Support</li>
+              <li>UGC &amp; Lifestyle Content Development</li>
             </ul>
             <div class="actions">
               <a class="btn primary" href="creators.html">Join the Network</a>
-              <a class="btn pink" href="#contact">Ask a Question</a>
+              <a class="btn pink" href="creators.html#contact">Ask a Question</a>
             </div>
           </div>
         </div>
