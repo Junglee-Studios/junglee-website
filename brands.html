@@ -32,22 +32,41 @@
 
   <style>
     /* Page-specific: hero image, tier cards, service cards, logos grid */
-    :root {
-      --hero-img: url("assets/logos/assets/BrandPage.jpeg");
-    }
-
-    /* Brand hero: apply background directly on .hero */
+    /* Brand hero: dark background with animated cyan orb */
     .hero {
-      background-image: var(--hero-img);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      background: #080808;
     }
     .hero::before {
-      background-image: none;
-      background: rgba(0, 0, 0, 0.34);
-      filter: none;
-      transform: none;
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      top: -5%;
+      right: -5%;
+      inset: auto;
+      background: radial-gradient(circle, rgba(0,242,234,0.12) 0%, transparent 70%);
+      filter: blur(70px);
+      z-index: 0;
+      animation: drift-cyan-brands 9s ease-in-out infinite alternate;
+    }
+    .hero::after {
+      display: none;
+    }
+    .hero .vignette {
+      background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 1;
+    }
+    .hero > .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes drift-cyan-brands {
+      from { transform: translate(0, 0); }
+      to   { transform: translate(-15px, 15px); }
     }
 
     /* Tier cards */
@@ -316,6 +335,17 @@
     @keyframes marquee-scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .hero::before {
+        width: 280px;
+        height: 280px;
+        filter: blur(50px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before { animation: none; }
     }
   </style>
 </head>
