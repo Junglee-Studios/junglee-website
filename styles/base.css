@@ -173,19 +173,19 @@ header {
 
 .btn.primary {
   background: var(--color-magenta);
-  color: var(--color-white);
+  color: var(--color-white) !important;
   border: none;
 }
 
 .btn.pink {
   background: var(--color-magenta);
-  color: var(--color-white);
+  color: var(--color-white) !important;
   border: none;
 }
 
 .btn.cyan {
   background: var(--color-cyan);
-  color: var(--color-dark);
+  color: var(--color-dark) !important;
   border: none;
 }
 
