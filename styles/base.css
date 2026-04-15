@@ -597,13 +597,13 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.7;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  opacity: 1;
+  transition: filter 0.15s ease, transform 0.15s ease;
   text-decoration: none;
 }
 
 .icon:hover {
-  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(82%) sepia(50%) saturate(1000%) hue-rotate(130deg) brightness(1.05);
   transform: translateY(-1px);
 }
 
