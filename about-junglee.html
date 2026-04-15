@@ -254,6 +254,11 @@
     @media (prefers-reduced-motion: reduce) {
       .hero::before { animation: none; }
     }
+    /* Force btn colors — prevent cascade bleed from section-dark */
+    a.btn.cyan, .card a.btn.cyan, .section-dark a.btn.cyan,
+    .actions a.btn.cyan { color: #0a0a0a !important; }
+    a.btn.pink, .card a.btn.pink, .actions a.btn.pink { color: #ffffff !important; }
+    a.btn.primary, .card a.btn.primary, .actions a.btn.primary { color: #ffffff !important; }
   </style>
 </head>
 

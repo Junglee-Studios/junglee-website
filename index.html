@@ -316,6 +316,13 @@
       }
 
       /* Reduced motion: disable orb animations */
+      /* Force btn colors — prevent any cascade bleed */
+      a.btn.cyan, .card a.btn.cyan, .services-split a.btn.cyan,
+      .actions a.btn.cyan { color: #0a0a0a !important; }
+      a.btn.pink, .card a.btn.pink, .services-split a.btn.pink,
+      .actions a.btn.pink { color: #ffffff !important; }
+      a.btn.primary, .card a.btn.primary,
+      .actions a.btn.primary { color: #ffffff !important; }
       @media (prefers-reduced-motion: reduce) {
         .hero::before, .hero::after {
           animation: none;
@@ -368,7 +375,7 @@
 </div>
 </header>
 
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" style="padding-bottom:clamp(24px,3vw,40px);">
       <div class="vignette" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-grid">
@@ -407,7 +414,7 @@
       </div>
     </section>
 
-    <section class="trust-strip section-dark reveal">
+    <section class="trust-strip section-dark reveal" style="padding-top:clamp(24px,3vw,40px);">
       <div class="container">
         <p class="trust-label">Trusted partners &amp; credentials</p>
 
@@ -484,7 +491,7 @@
               <li>Flat-Fee Content Strategies</li>
             </ul>
             <div class="actions">
-              <a class="btn cyan" style="color:#0a0a0a;" href="/brands">Explore Brand Services</a>
+              <a class="btn cyan" style="color:#0a0a0a !important; font-color:#0a0a0a;" href="/brands">Explore Brand Services</a>
             </div>
           </div>
 

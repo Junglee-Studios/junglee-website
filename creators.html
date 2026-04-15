@@ -294,6 +294,11 @@
     @media (prefers-reduced-motion: reduce) {
       .hero::before { animation: none; }
     }
+    /* Force btn colors — prevent cascade bleed from section-dark */
+    a.btn.cyan, .card a.btn.cyan, .section-dark a.btn.cyan,
+    .actions a.btn.cyan { color: #0a0a0a !important; }
+    a.btn.pink, .card a.btn.pink, .actions a.btn.pink { color: #ffffff !important; }
+    a.btn.primary, .card a.btn.primary, .actions a.btn.primary { color: #ffffff !important; }
   </style>
 </head>
 
@@ -341,7 +346,7 @@
 </div>
 </header>
 
-  <section class="hero">
+  <section class="hero" style="padding-bottom:clamp(24px,3vw,40px);">
     <div class="vignette" aria-hidden="true"></div>
 
     <div class="container">
@@ -376,7 +381,7 @@
   </section>
 
   <!-- CREDENTIALS — Why Junglee (dark section) -->
-  <section class="section section-dark reveal" id="credentials">
+  <section class="section section-dark reveal" id="credentials" style="padding-top:clamp(24px,3vw,40px);">
     <div class="container">
       <div class="kicker"><i style="background:var(--color-cyan);"></i> Why Junglee</div>
       <h2>Backed by TikTok. Built for creators.</h2>
