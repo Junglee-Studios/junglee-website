@@ -15,22 +15,42 @@
 
   <style>
     /* Page-specific: hero image, profile layout, partner status */
-    :root {
-      --hero-img: url("assets/logos/assets/LiveSellingShoesx2.jpeg");
-    }
-
-    /* About hero: apply background directly on .hero */
+    /* About hero: dark background with soft animated cyan orb */
     .hero {
-      background-image: var(--hero-img);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      background: #080808;
     }
     .hero::before {
-      background-image: none;
-      background: rgba(0, 0, 0, 0.05);
-      filter: none;
-      transform: none;
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      top: -5%;
+      left: 50%;
+      margin-left: -200px;
+      inset: auto;
+      background: radial-gradient(circle, rgba(0,242,234,0.08) 0%, transparent 70%);
+      filter: blur(80px);
+      z-index: 0;
+      animation: drift-cyan-about 12s ease-in-out infinite alternate;
+    }
+    .hero::after {
+      display: none;
+    }
+    .hero .vignette {
+      background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 1;
+    }
+    .hero > .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes drift-cyan-about {
+      from { transform: translate(0, 0); }
+      to   { transform: translate(10px, 10px); }
     }
 
     /* Profile layout */
@@ -163,6 +183,18 @@
       .profile-photo { max-width: 280px; }
       .status { grid-template-columns: 1fr; }
       .platform-expertise .pills { justify-content: flex-start; }
+    }
+
+    @media (max-width: 768px) {
+      .hero::before {
+        width: 280px;
+        height: 280px;
+        margin-left: -140px;
+        filter: blur(50px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before { animation: none; }
     }
   </style>
 </head>
