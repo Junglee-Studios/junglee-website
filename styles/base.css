@@ -505,7 +505,7 @@ h2 {
   color: var(--color-dark);
 }
 
-.section.light .pill i { background: var(--color-cyan); }
+.section.light .pill i { background: var(--color-magenta); }
 
 /* --- List (in cards/sections) --- */
 .list {
@@ -518,6 +518,21 @@ h2 {
 }
 
 .section.light .list { color: rgba(11, 15, 20, 0.75); }
+
+/* Cyan text is illegible on white/light backgrounds — swap to magenta.
+   Exclude elements inside .card (dark bg) so cyan stays readable there. */
+.section.light .text-cyan,
+.section.light .cyan,
+.section.light [style*="color: var(--color-cyan)"],
+.section.light [style*="color:var(--color-cyan)"] {
+  color: var(--color-magenta) !important;
+}
+.section.light .card .text-cyan,
+.section.light .card .cyan,
+.section.light .card [style*="color: var(--color-cyan)"],
+.section.light .card [style*="color:var(--color-cyan)"] {
+  color: var(--color-cyan) !important;
+}
 
 /* --- Contact Wrap --- */
 .contact-wrap {
