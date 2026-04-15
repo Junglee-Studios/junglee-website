@@ -27,7 +27,7 @@
     }
     .hero::before {
       background-image: none;
-      background: rgba(0, 0, 0, 0.34);
+      background: rgba(0, 0, 0, 0.20);
       filter: none;
       transform: none;
     }
@@ -42,18 +42,20 @@
     }
 
     .profile-photo {
-      width: 100%;
+      width: 280px;
+      height: 280px;
       max-width: 280px;
-      border-radius: 22px;
+      border-radius: 50%;
       overflow: hidden;
       background: var(--color-black);
-      border: none;
+      border: 3px solid var(--color-magenta);
       box-shadow: none;
     }
 
     .profile-photo img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
 
@@ -170,7 +172,7 @@
       <div class="hero-grid">
         <div class="kicker"><i></i> About Junglee Studios</div>
 
-        <h1>Built by leaders who know how to scale commerce inside TikTok Shop.</h1>
+        <h1>Built inside TikTok. Focused on what works.</h1>
 
         <p class="lead">
           Junglee Studios was founded by a former TikTok Shop Category Leader who helped build the Collectibles category from the ground up. We bring that firsthand experience to brands and creators who want to grow with more clarity, better execution, and stronger results.
@@ -253,6 +255,11 @@
             <li>Creative direction and brand storytelling</li>
             <li>Visual assets designed to strengthen conversion and brand presence</li>
           </ul>
+
+          <div class="actions" style="justify-content:flex-start; margin-top:14px;">
+            <a class="btn white" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+            <a class="btn primary" href="#contact">Work With Us</a>
+          </div>
         </div>
       </div>
     </div>
