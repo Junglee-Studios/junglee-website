@@ -447,48 +447,41 @@
       </div>
     </section>
 
-    <section class="section light reveal" id="contact">
-      <div class="container">
-        <div class="kicker"><i></i> Contact</div>
-        <h2>Let's #BeJunglee.</h2>
-        <p class="lead">
-          Let's build your next revenue engine. Tell us what you're building, and we'll show you the best way to launch, optimize, or scale it.
-        </p>
-
-        <div class="contact-wrap">
-          <iframe
-            data-tally-src="https://tally.so/embed/Y5G1Md?alignLeft=1&hideTitle=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="1"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="Let's #BeJunglee"
-          ></iframe>
-          <script>
-            (function () {
-              var d = document,
-                w = "https://tally.so/widgets/embed.js",
-                v = function () {
-                  if (typeof Tally !== "undefined") Tally.loadEmbeds();
-                  else
-                    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
-                      e.src = e.dataset.tallySrc;
-                    });
-                };
-
-              if (typeof Tally !== "undefined") v();
-              else if (d.querySelector('script[src="' + w + '"]') == null) {
-                var s = d.createElement("script");
-                s.src = w;
-                s.onload = v;
-                s.onerror = v;
-                d.body.appendChild(s);
-              }
-            })();
-          </script>
+    <section class="section reveal" id="contact" style="background:var(--color-black); padding:clamp(48px,6vw,80px) 0;">
+      <div class="container" style="max-width:900px;">
+        <div style="text-align:center; margin-bottom:clamp(28px,4vw,44px);">
+          <div class="kicker" style="justify-content:center;"><i></i> Get Started</div>
+          <h2 style="color:var(--color-white);">Ready to grow with Junglee?</h2>
+          <p class="lead" style="color:rgba(255,255,255,0.62); max-width:620px; margin-left:auto; margin-right:auto;">
+            Whether you're a brand looking for TikTok Shop growth or a creator ready to earn, we have a path for you.
+          </p>
         </div>
+
+        <div class="grid2">
+          <div class="card">
+            <span class="card-label cyan">For Brands</span>
+            <p style="color:rgba(255,255,255,0.78); font-weight:500; line-height:1.6;">
+              Get a strategy built around your product, your market, and your goals. Tell us about your brand and we'll put together a plan.
+            </p>
+            <div class="actions" style="margin-top:18px;">
+              <a class="btn primary" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-label pink">For Creators</span>
+            <p style="color:rgba(255,255,255,0.78); font-weight:500; line-height:1.6;">
+              Join the Junglee creator network. We'll help you find the right products, build your posting system, and start earning.
+            </p>
+            <div class="actions" style="margin-top:18px;">
+              <a class="btn pink" href="https://join.jungleestudios.com" target="_blank" rel="noopener noreferrer">Apply to Join</a>
+            </div>
+          </div>
+        </div>
+
+        <p style="text-align:center; margin-top:28px; color:rgba(255,255,255,0.4); font-size:0.88rem; font-weight:500;">
+          Or email us directly at <a href="mailto:info@jungleestudios.com" style="color:rgba(255,255,255,0.6); text-decoration:underline;">info@jungleestudios.com</a>
+        </p>
       </div>
     </section>
 
