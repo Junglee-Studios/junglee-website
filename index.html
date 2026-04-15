@@ -51,7 +51,6 @@
     <link rel="stylesheet" href="styles/base.css" />
     <script src="partials/loader.js" defer></script>
     <script src="js/animations.js" defer></script>
-    <script src="js/cursor.js" defer></script>
 
     <style>
       /* Page-specific: hero (light bg + color wash orbs), hero proof bar, mini stats */
@@ -59,8 +58,8 @@
       /* --- Light hero with color wash orbs --- */
       .hero {
         background: #ffffff;
-        min-height: calc(100svh - 72px);
-        padding: clamp(28px, 4vw, 56px) 0;
+        min-height: auto;
+        padding: clamp(56px, 8vw, 100px) 0;
       }
 
       /* Cyan orb — top-left, slow drift */
@@ -163,8 +162,9 @@
         color: var(--color-dark);
         line-height: 1;
       }
-      .stat-num.cyan { color: var(--color-magenta); }
+      .stat-num.cyan { color: var(--color-cyan); }
       .stat-num.pink { color: var(--color-magenta); }
+      .stat-num { color: var(--color-dark); }
       .stat-label {
         font-size: 0.72rem;
         font-weight: 700;
@@ -340,7 +340,7 @@
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="brands.html">I'm a Brand</a>
+            <a class="btn cyan" href="brands.html">I'm a Brand</a>
             <a class="btn pink" href="creators.html">I'm a Creator</a>
           </div>
 
@@ -418,7 +418,7 @@
       <div class="container">
         <div class="kicker"><i></i> What we do</div>
         <h2>Built for brands. Built for creators. One system.</h2>
-        <p style="margin:-4px 0 8px;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-magenta);">Powered by The Junglee System</p>
+        <p style="margin:0 0 16px;font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-magenta);">Powered by The Junglee System</p>
         <p class="lead">
           Whether you're scaling a TikTok Shop or growing your creator income, we have a dedicated path for you.
         </p>
