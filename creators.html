@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="styles/base.css" />
   <script src="partials/loader.js" defer></script>
   <script src="js/animations.js" defer></script>
-  <script src="js/cursor.js" defer></script>
 
   <style>
     /* Page-specific: hero, creator support cards, miniGrid, credentials, how-it-works */
@@ -20,7 +19,8 @@
     /* Creator hero: light background with animated magenta orb */
     .hero {
       background: #ffffff;
-      padding: clamp(28px, 4vw, 50px) 0 clamp(44px, 5vw, 64px);
+      min-height: auto;
+      padding: clamp(56px, 8vw, 100px) 0;
     }
     .hero::before {
       content: "";

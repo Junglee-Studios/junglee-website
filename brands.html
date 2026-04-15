@@ -29,7 +29,6 @@
   <link rel="stylesheet" href="styles/base.css" />
   <script src="partials/loader.js" defer></script>
   <script src="js/animations.js" defer></script>
-  <script src="js/cursor.js" defer></script>
 
   <style>
     /* Page-specific: hero, tier cards, service cards, logos grid */
@@ -37,6 +36,8 @@
     /* Brand hero: light background with animated cyan orb */
     .hero {
       background: #ffffff;
+      min-height: auto;
+      padding: clamp(56px, 8vw, 100px) 0;
     }
     .hero::before {
       content: "";
@@ -635,11 +636,11 @@
     </div>
   </section>
 
-  <section class="section light section-light reveal" id="why-junglee">
+  <section class="section cta-cyan-band section-light reveal" id="why-junglee">
     <div class="container">
-      <div class="kicker"><i></i> Why Junglee</div>
-      <h2>We've been inside TikTok Shop. We know what works.</h2>
-      <p class="lead">
+      <div class="kicker" style="color:rgba(10,10,10,0.65);"><i style="background:var(--color-dark);"></i> Why Junglee</div>
+      <h2 style="color:var(--color-dark);">We've been inside TikTok Shop. We know what works.</h2>
+      <p class="lead" style="color:rgba(10,10,10,0.75);">
         Our founding team led category strategy and seller growth at TikTok during the platform's most critical scaling period. We're not guessing — we built this.
       </p>
 
@@ -660,7 +661,7 @@
     </div>
   </section>
 
-  <section class="section cta-cyan-band section-light reveal" id="brand-logos" style="padding:clamp(48px,6vw,80px) 0;">
+  <section class="section light section-light reveal" id="brand-logos" style="padding:clamp(48px,6vw,80px) 0;">
     <div class="container">
       <div class="kicker" style="color:rgba(10,10,10,0.55);"><i style="background:var(--color-dark);"></i> Brands we've supported across modern commerce</div>
       <p class="lead" style="max-width:68ch; color:rgba(10,10,10,0.70);">
