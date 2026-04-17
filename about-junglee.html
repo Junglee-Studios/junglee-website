@@ -251,9 +251,10 @@
     }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
       gap: 2rem;
       margin-top: 2.5rem;
+      justify-content: center;
     }
     .team-card {
       background: var(--color-white);
@@ -266,8 +267,7 @@
     }
     .team-photo-wrap {
       width: 100%;
-      aspect-ratio: 1/1;
-      max-height: 300px;
+      aspect-ratio: 3/4;
       overflow: hidden;
     }
     .team-photo-wrap img {
