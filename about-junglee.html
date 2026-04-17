@@ -112,12 +112,6 @@
     }
 
     #jt-photo { border-color: var(--color-cyan); }
-    #lara-photo { border-color: var(--color-magenta); }
-    #jason-photo { border-color: var(--color-cyan); }
-    #jason-photo img { object-position: center top; }
-    #lara-photo img {
-      object-position: center 15%;
-    }
 
     /* JT profile section — white background */
     .profile-section-white {
@@ -179,11 +173,6 @@
       text-transform: uppercase;
       font-weight: 750;
       color: rgba(10, 10, 10, 0.50);
-    }
-
-    /* Lara section — light grey */
-    .profile-section-grey {
-      background: var(--color-bg-alt);
     }
 
     /* Platform expertise pills alignment */
@@ -256,6 +245,94 @@
     @media (prefers-reduced-motion: reduce) {
       .hero::before { animation: none; }
     }
+    /* Team grid section */
+    .team-section {
+      background: #f8f8f8;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .team-card {
+      background: var(--color-white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-lg, 16px);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .team-photo-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .team-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .team-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .team-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin: 0 0 4px;
+    }
+    .team-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-magenta);
+      margin: 0 0 1rem;
+    }
+    .team-bio {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(10,10,10,0.72);
+      margin: 0 0 1.25rem;
+    }
+    .team-focus-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+      margin: 0 0 0.5rem;
+    }
+    .team-focus-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+    .team-focus-list li {
+      font-size: 0.88rem;
+      color: rgba(10,10,10,0.68);
+      padding: 4px 0 4px 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .team-focus-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-magenta);
+    }
+
     /* Force btn colors — prevent cascade bleed from section-dark */
     a.btn.cyan, .card a.btn.cyan, .section-dark a.btn.cyan,
     .actions a.btn.cyan { color: #0a0a0a !important; }
@@ -374,71 +451,47 @@
     </div>
   </section>
 
-  <section class="section profile-section-grey section-light reveal">
+  <section class="section team-section section-light reveal">
     <div class="container">
-      <div class="kicker"><i></i> Director of Client Media</div>
+      <div class="kicker"><i></i> The Team</div>
+      <h2>The people behind the system.</h2>
+      <p class="lead">Specialists who've operated inside the platforms they now help brands and creators win on.</p>
 
-      <div class="profile">
-        <div id="lara-photo" class="profile-photo">
-          <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media">
-        </div>
-
-        <div class="profile-card" style="background:var(--color-bg-alt);">
-          <h2 class="profile-title">Lara Maria Nnoli</h2>
-          <p class="profile-sub body">
-            Lara leads the creation of high-quality visual content for brands and ecommerce companies. Specializing in product photography and short-form video, she helps brands bring their products to life through assets designed for Amazon, Shopify, TikTok Shop, and social media platforms.
-          </p>
-
-          <p class="profile-sub body emphasis">
-            With a background in photography and brand storytelling, Lara works closely with clients to produce strategic product listing content and engaging social media visuals that elevate brand presence and drive sales. Her approach combines creative direction, technical production, and a strong understanding of what performs best across modern ecommerce and social platforms.
-          </p>
-
-          <p class="profile-label">Focus Areas</p>
-
-          <ul class="profile-points">
-            <li>Product photography for ecommerce and marketplace listings</li>
-            <li>Short-form video content for TikTok Shop and social media</li>
-            <li>Creative direction and brand storytelling</li>
-            <li>Visual assets designed to strengthen conversion and brand presence</li>
-          </ul>
-
-          <div class="actions" style="justify-content:flex-start; margin-top:14px;">
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-photo-wrap">
+            <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" style="object-position: center 15%;">
+          </div>
+          <div class="team-card-body">
+            <h3 class="team-name">Lara Maria Nnoli</h3>
+            <p class="team-title">Director of Client Media</p>
+            <p class="team-bio">Lara leads visual content strategy for brands and ecommerce companies, specializing in product photography and short-form video built for performance across Amazon, Shopify, TikTok Shop, and social. With a background in photography and brand storytelling, she bridges creative direction with a deep understanding of what actually converts — producing assets that elevate brand presence and drive measurable results.</p>
+            <p class="team-focus-label">Focus Areas</p>
+            <ul class="team-focus-list">
+              <li>Product photography for ecommerce and marketplace listings</li>
+              <li>Short-form video content for TikTok Shop and social media</li>
+              <li>Creative direction and brand storytelling</li>
+              <li>Visual assets designed to strengthen conversion and brand presence</li>
+            </ul>
             <a class="btn" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section section-light reveal">
-    <div class="container">
-      <div class="kicker"><i></i> Live Commerce Strategist</div>
-
-      <div class="profile">
-        <div id="jason-photo" class="profile-photo">
-          <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist">
-        </div>
-
-        <div class="profile-card" style="background:var(--color-white);">
-          <h2 class="profile-title">Jason Termechi</h2>
-          <p class="profile-sub body">
-            Jason brings 10+ years of experience across social media and e-commerce, with roles at BIGO, Amazon Live, and TikTok. As a Live Account Manager at TikTok, he generated over $14M in Live GMV, grew Noely Fajas into TikTok&#39;s #1 fashion live seller in under six months, and launched 50+ Mega Live events &#8212; including a record-breaking $180K live in September 2024. He managed a portfolio of 30+ sellers across fashion, combining data-driven strategy with hands-on coaching to drive measurable results.
-          </p>
-
-          <p class="profile-sub body emphasis">
-            With deep expertise in the live shopping ecosystem, Jason works closely with brands and creators to develop live selling strategies that maximize performance on TikTok Shop. His approach blends strategic planning, real-time optimization, and seller development to help clients succeed in social commerce.
-          </p>
-
-          <p class="profile-label">Focus Areas</p>
-
-          <ul class="profile-points">
-            <li>Live selling strategy and Mega Live event planning</li>
-            <li>Host coaching and on-air performance development</li>
-            <li>Live stream optimization and real-time analytics</li>
-            <li>End-to-end live commerce execution for brands</li>
-          </ul>
-
-          <div class="actions" style="justify-content:flex-start; margin-top:14px;">
+        <div class="team-card reveal">
+          <div class="team-photo-wrap">
+            <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" style="object-position: center top;">
+          </div>
+          <div class="team-card-body">
+            <h3 class="team-name">Jason Termechi</h3>
+            <p class="team-title">Live Commerce Strategist</p>
+            <p class="team-bio">Jason brings 10+ years of experience across BIGO, Amazon Live, and TikTok, where he served as a Live Account Manager and generated over $14M in Live GMV. He grew Noely Fajas into TikTok's #1 fashion live seller in under six months, launched 50+ Mega Live events, and managed 30+ seller accounts across fashion. His approach combines hands-on coaching, real-time data analysis, and strategic planning to help brands maximize every live selling moment.</p>
+            <p class="team-focus-label">Focus Areas</p>
+            <ul class="team-focus-list">
+              <li>Live selling strategy and Mega Live event planning</li>
+              <li>Host coaching and on-air performance development</li>
+              <li>Live stream optimization and real-time analytics</li>
+              <li>End-to-end live commerce execution for brands</li>
+            </ul>
             <a class="btn" href="https://www.linkedin.com/in/jasontermechi/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
