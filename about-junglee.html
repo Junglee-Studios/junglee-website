@@ -84,96 +84,90 @@
       to   { transform: translate(10px, 10px); }
     }
 
-    /* Profile layout */
-    .profile {
-      margin-top: 22px;
+    /* Unified team grid */
+    .team-grid-unified {
       display: grid;
-      grid-template-columns: clamp(220px, 26vw, 280px) 1fr;
-      gap: 22px;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 2.5rem;
     }
-
-    .profile-photo {
-      width: 280px;
-      height: 280px;
-      max-width: 280px;
-      border-radius: 50%;
+    .tu-card {
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: var(--color-white);
       overflow: hidden;
-      background: var(--color-bg-alt);
-      border: 3px solid var(--color-cyan);
-      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
-
-    .profile-photo img {
+    .tu-card.founder {
+      border-top: 3px solid var(--color-cyan);
+    }
+    .tu-photo {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .tu-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-
-    #jt-photo { border-color: var(--color-cyan); }
-
-    /* JT profile section — white background */
-    .profile-section-white {
-      background: var(--color-white);
+    .tu-photo img.shift-down {
+      height: auto;
+      min-height: 100%;
+      width: 100%;
+      object-fit: unset;
     }
-
-    .profile-card {
-      border-radius: var(--radius-xl);
-      background: var(--color-white);
-      border: none;
-      box-shadow: none;
-      padding: 20px;
+    .tu-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
-
-    .profile-title {
-      margin: 0;
-      font-size: clamp(1.35rem, 2vw, 1.6rem);
-      font-weight: 950;
-      letter-spacing: -0.02em;
-      color: var(--color-dark);
-    }
-
-    .profile-points {
-      margin: 10px 0 0;
-      padding-left: var(--space-md);
-      display: grid;
-      gap: 6px;
-      font-size: var(--text-base);
-      font-weight: 600;
-      color: rgba(10, 10, 10, 0.78);
-    }
-
-    .profile-sub {
-      margin: 10px 0 0;
-      font-weight: 450;
-      color: rgba(10, 10, 10, 0.65);
-      line-height: 1.65;
-    }
-
-    .profile-sub.intro {
-      font-weight: 650;
-      font-size: 1.05rem;
-      color: var(--color-dark);
-    }
-
-    .profile-sub.body {
-      font-weight: 450;
-      font-size: 0.98rem;
-    }
-
-    .profile-sub.emphasis {
-      color: rgba(10, 10, 10, 0.80);
-    }
-
-    .profile-label {
-      margin-top: var(--space-md);
-      font-size: 0.75rem;
+    .tu-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 750;
-      color: rgba(10, 10, 10, 0.50);
+      background: var(--color-dark);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      align-self: flex-start;
     }
+    .tu-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin: 0 0 4px;
+    }
+    .tu-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-magenta);
+      margin: 0 0 0.75rem;
+    }
+    .tu-bio {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(10,10,10,0.65);
+      margin: 0 0 1rem;
+      flex: 1;
+    }
+    .tu-linkedin {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-magenta);
+      text-decoration: none;
+    }
+    .tu-linkedin:hover { text-decoration: underline; }
 
     /* Platform expertise pills alignment */
     .platform-expertise .pills {
@@ -228,10 +222,17 @@
     .partner-status .actions { justify-content: flex-start; }
 
     @media (max-width: 980px) {
-      .profile { grid-template-columns: 1fr; }
-      .profile-photo { max-width: 280px; }
       .status { grid-template-columns: 1fr; }
       .platform-expertise .pills { justify-content: flex-start; }
+    }
+    @media (max-width: 900px) {
+      .team-grid-unified { grid-template-columns: 1fr 1fr; }
+      .tu-card.founder { grid-column: 1 / -1; }
+      .tu-card.founder .tu-photo { height: 380px; }
+    }
+    @media (max-width: 600px) {
+      .team-grid-unified { grid-template-columns: 1fr; }
+      .tu-card.founder { grid-column: auto; }
     }
 
     @media (max-width: 768px) {
@@ -244,94 +245,6 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .hero::before { animation: none; }
-    }
-    /* Team grid section */
-    .team-section {
-      background: #f8f8f8;
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
-      gap: 2rem;
-      margin-top: 2.5rem;
-      justify-content: center;
-    }
-    .team-card {
-      background: var(--color-white);
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: var(--radius-lg, 16px);
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-    }
-    .team-photo-wrap {
-      width: 100%;
-      aspect-ratio: 3/4;
-      overflow: hidden;
-    }
-    .team-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-    .team-card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .team-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--color-dark);
-      margin: 0 0 4px;
-    }
-    .team-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-magenta);
-      margin: 0 0 1rem;
-    }
-    .team-bio {
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: rgba(10,10,10,0.72);
-      margin: 0 0 1.25rem;
-    }
-    .team-focus-label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-dark);
-      margin: 0 0 0.5rem;
-    }
-    .team-focus-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.5rem;
-    }
-    .team-focus-list li {
-      font-size: 0.88rem;
-      color: rgba(10,10,10,0.68);
-      padding: 4px 0 4px 16px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .team-focus-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 11px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-magenta);
     }
 
     /* Force btn colors — prevent cascade bleed from section-dark */
@@ -407,93 +320,49 @@
     </div>
   </section>
 
-  <section class="section profile-section-white section-light reveal" style="padding-top:clamp(24px,3vw,40px);">
-    <div class="container">
-      <div class="kicker"><i></i> Founder</div>
-
-      <div class="profile">
-        <div id="jt-photo" class="profile-photo">
-          <img src="assets/logos/assets/jt-patel.png" alt="Jatin Patel (JT), Founder of Junglee Studios">
-        </div>
-
-        <div class="profile-card">
-          <h2 class="profile-title">Meet Jatin Patel "JT"</h2>
-
-          <p class="profile-sub intro">
-            Junglee Studios was founded by JT Patel, a former TikTok Shop Category Leader who helped shape how social commerce operates at scale.
-          </p>
-
-          <p class="profile-sub body">
-            At TikTok Shop US, JT built and scaled the Collectibles category from launch to a $750M+ GMV business, leading platform strategy across sellers, live commerce, monetization, and analytics — including spearheading the launch of Countdown Bidding on TikTok Shop. Prior to TikTok, he held leadership roles at Amazon, gaining deep marketplace and category experience.
-          </p>
-
-          <p class="profile-sub body emphasis">
-            After seeing how often brands were left to figure it out inside complex platforms, JT founded Junglee Studios to bring real playbooks from TikTok and Amazon to brands and creators — helping them scale correctly, build stronger systems, and better understand where social commerce is headed.
-          </p>
-
-          <p class="profile-sub body emphasis">
-            JT built Junglee on a simple belief: the best agency is one that works itself out of a job. Every engagement is designed to build your team's capability — not your reliance on ours. Your team, your brand, our system.
-          </p>
-
-          <p class="profile-label">Highlights</p>
-
-          <ul class="profile-points">
-            <li>Scaled TikTok Shop Collectibles from launch to a $750M+ GMV run-rate in under two years</li>
-            <li>Spearheaded the launch of Countdown Bidding on TikTok Shop — the platform's live auction selling mechanic</li>
-            <li>Led platform strategy across sellers, live commerce, monetization, and analytics</li>
-            <li>Built Junglee Studios to bring platform-grade playbooks to brands and creators</li>
-          </ul>
-
-          <div class="actions" style="justify-content:flex-start; margin-top:14px;">
-            <a class="btn" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section team-section section-light reveal">
+  <section class="section team-unified section-light reveal" style="padding-top:clamp(24px,3vw,40px);">
     <div class="container">
       <div class="kicker"><i></i> The Team</div>
-      <h2>The people behind the system.</h2>
+      <h2>Meet the team.</h2>
       <p class="lead">Specialists who've operated inside the platforms they now help brands and creators win on.</p>
 
-      <div class="team-grid">
-        <div class="team-card reveal">
-          <div class="team-photo-wrap">
-            <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" style="object-position: center 25%;">
+      <div class="team-grid-unified">
+        <!-- JT card -->
+        <div class="tu-card founder">
+          <div class="tu-photo">
+            <img src="assets/logos/assets/jt-patel-v4.jpg" alt="Jatin Patel (JT), Founder of Junglee Studios" class="shift-down" style="margin-top: -18%;">
           </div>
-          <div class="team-card-body">
-            <h3 class="team-name">Lara Maria Nnoli</h3>
-            <p class="team-title">Director of Client Media</p>
-            <p class="team-bio">Lara leads visual content strategy for brands and ecommerce companies, specializing in product photography and short-form video built for performance across Amazon, Shopify, TikTok Shop, and social. With a background in photography and brand storytelling, she bridges creative direction with a deep understanding of what actually converts — producing assets that elevate brand presence and drive measurable results.</p>
-            <p class="team-focus-label">Focus Areas</p>
-            <ul class="team-focus-list">
-              <li>Product photography for ecommerce and marketplace listings</li>
-              <li>Short-form video content for TikTok Shop and social media</li>
-              <li>Creative direction and brand storytelling</li>
-              <li>Visual assets designed to strengthen conversion and brand presence</li>
-            </ul>
-            <a class="btn" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          <div class="tu-body">
+            <h3 class="tu-name">Jatin Patel "JT"</h3>
+            <p class="tu-title">Founder & CEO</p>
+            <p class="tu-bio">Former TikTok Shop Category Leader who helped launch Countdown Bidding and scaled the Collectibles category to a $750M+ GMV run-rate. JT founded Junglee Studios to bring platform-grade playbooks from TikTok and Amazon to brands and creators.</p>
+            <a class="tu-linkedin" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
           </div>
         </div>
 
-        <div class="team-card reveal">
-          <div class="team-photo-wrap">
-            <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" style="object-position: center top;">
+        <!-- Lara card -->
+        <div class="tu-card">
+          <div class="tu-photo">
+            <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" style="object-position: center top; transform: scale(1.25); transform-origin: center top;">
           </div>
-          <div class="team-card-body">
-            <h3 class="team-name">Jason Termechi</h3>
-            <p class="team-title">Live Commerce Strategist</p>
-            <p class="team-bio">Jason brings 10+ years of experience across BIGO, Amazon Live, and TikTok, where he served as a Live Account Manager and generated over $14M in Live GMV. He grew Noely Fajas into TikTok's #1 fashion live seller in under six months, launched 50+ Mega Live events, and managed 30+ seller accounts across fashion. His approach combines hands-on coaching, real-time data analysis, and strategic planning to help brands maximize every live selling moment.</p>
-            <p class="team-focus-label">Focus Areas</p>
-            <ul class="team-focus-list">
-              <li>Live selling strategy and Mega Live event planning</li>
-              <li>Host coaching and on-air performance development</li>
-              <li>Live stream optimization and real-time analytics</li>
-              <li>End-to-end live commerce execution for brands</li>
-            </ul>
-            <a class="btn" href="https://www.linkedin.com/in/jasontermechi/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          <div class="tu-body">
+            <h3 class="tu-name">Lara Maria Nnoli</h3>
+            <p class="tu-title">Director of Client Media</p>
+            <p class="tu-bio">Lara leads visual content strategy for brands and ecommerce companies, specializing in product photography and short-form video built for performance across TikTok Shop, Amazon, and Shopify. With a background in photography and brand storytelling, she produces assets that elevate brand presence and drive measurable results.</p>
+            <a class="tu-linkedin" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Jason card -->
+        <div class="tu-card">
+          <div class="tu-photo">
+            <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" style="object-position: center 20%; transform: scale(1.33); transform-origin: center 20%;">
+          </div>
+          <div class="tu-body">
+            <h3 class="tu-name">Jason Termechi</h3>
+            <p class="tu-title">Live Commerce Strategist</p>
+            <p class="tu-bio">Jason brings 10+ years of experience across BIGO, Amazon Live, and TikTok, where he generated over $14M in Live GMV as a Live Account Manager. He grew Noely Fajas into TikTok's #1 fashion live seller in under six months and specializes in live selling strategy, host coaching, and Mega Live event execution.</p>
+            <a class="tu-linkedin" href="https://www.linkedin.com/in/jasontermechi/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
           </div>
         </div>
       </div>
