@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | Junglee Studios</title>
+  <meta name="description" content="Terms of Service for Junglee Studios -- governing use of the Junglee Academy, affiliate program, and all related services." />
+  <link rel="canonical" href="https://jungleestudios.com/terms" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Junglee Studios" />
+  <meta property="og:title" content="Terms of Service | Junglee Studios" />
+  <meta property="og:url" content="https://jungleestudios.com/terms" />
+  <meta property="og:image" content="https://www.jungleestudios.com/assets/logos/assets/og-image.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/base.css" />
+  <script src="/partials/loader.js" defer></script>
+
+  <style>
+    .legal-hero {
+      background: #0a0a0a;
+      padding: clamp(56px, 8vw, 96px) 0 clamp(40px, 6vw, 72px);
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(255,45,154,0.12) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .legal-hero .container { position: relative; z-index: 2; }
+    .legal-hero .eyebrow {
+      display: inline-block;
+      background: rgba(255,45,154,0.15);
+      color: #ff2d9a;
+      border: 1px solid rgba(255,45,154,0.3);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 12px;
+      line-height: 1.1;
+    }
+    .legal-hero .updated {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+    }
+    .legal-hero .updated span {
+      color: #00f2ea;
+      font-weight: 600;
+    }
+
+    .legal-body {
+      background: #ffffff;
+      padding: clamp(48px, 7vw, 88px) 0;
+    }
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Sticky TOC */
+    .legal-toc {
+      position: sticky;
+      top: 80px;
+    }
+    .legal-toc-title {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(10,10,10,0.4);
+      margin: 0 0 12px;
+    }
+    .legal-toc a {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #444;
+      text-decoration: none;
+      padding: 6px 0;
+      border-left: 2px solid rgba(0,0,0,0.08);
+      padding-left: 12px;
+      transition: color 0.2s, border-color 0.2s;
+      line-height: 1.4;
+    }
+    .legal-toc a:hover {
+      color: #ff2d9a;
+      border-left-color: #ff2d9a;
+    }
+
+    /* Content */
+    .legal-content h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0a0a0a;
+      margin: 48px 0 12px;
+      padding-top: 8px;
+    }
+    .legal-content h2:first-child { margin-top: 0; }
+    .legal-content h2 .num {
+      display: inline-block;
+      background: #ff2d9a;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 2px 9px;
+      margin-right: 10px;
+      vertical-align: middle;
+      letter-spacing: 0.04em;
+    }
+    .legal-content p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #333;
+      margin: 0 0 14px;
+    }
+    .legal-content ul {
+      margin: 0 0 16px 0;
+      padding-left: 20px;
+    }
+    .legal-content ul li {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .legal-content a {
+      color: #ff2d9a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .legal-content a:hover { text-decoration: underline; }
+
+    .legal-divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin: 36px 0;
+    }
+
+    .legal-callout {
+      background: #f8f8f8;
+      border-left: 3px solid #ff2d9a;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .legal-callout p { margin: 0; font-size: 0.9rem; color: #444; }
+    .legal-callout strong { color: #0a0a0a; }
+
+    .legal-cyan-callout {
+      background: rgba(0,242,234,0.07);
+      border-left: 3px solid #00f2ea;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .legal-cyan-callout p { margin: 0; font-size: 0.9rem; color: #444; }
+
+    .contact-card {
+      background: #0a0a0a;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 48px;
+    }
+    .contact-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #00f2ea;
+      margin: 0 0 8px;
+    }
+    .contact-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      margin: 0 0 6px;
+    }
+    .contact-card a {
+      color: #ff2d9a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .legal-layout {
+        grid-template-columns: 1fr;
+      }
+      .legal-toc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="site-header" data-partial="nav"></header>
+
+<section class="legal-hero">
+  <div class="container">
+    <div class="eyebrow">Legal</div>
+    <h1>Terms of Service</h1>
+    <p class="updated">Effective date: <span>April 23, 2026</span> &nbsp;&middot;&nbsp; Last updated: <span>April 23, 2026</span></p>
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="container">
+    <div class="legal-layout">
+
+      <!-- Sticky TOC -->
+      <aside class="legal-toc">
+        <p class="legal-toc-title">On this page</p>
+        <a href="#acceptance">1. Acceptance of Terms</a>
+        <a href="#services">2. Our Services</a>
+        <a href="#eligibility">3. Eligibility</a>
+        <a href="#accounts">4. Accounts & Access</a>
+        <a href="#academy">5. Junglee Academy</a>
+        <a href="#affiliate">6. Affiliate Program</a>
+        <a href="#content">7. Content Rules</a>
+        <a href="#samples">8. Product Samples</a>
+        <a href="#planner">9. Planner Add-On</a>
+        <a href="#fees">10. Fees & Payments</a>
+        <a href="#ip">11. Intellectual Property</a>
+        <a href="#termination">12. Termination</a>
+        <a href="#disclaimer">13. Disclaimers</a>
+        <a href="#liability">14. Limitation of Liability</a>
+        <a href="#disputes">15. Disputes</a>
+        <a href="#changes">16. Changes to Terms</a>
+        <a href="#contact">17. Contact</a>
+      </aside>
+
+      <!-- Main content -->
+      <div class="legal-content">
+
+        <div class="legal-callout">
+          <p><strong>Please read these Terms carefully.</strong> By accessing or using any Junglee Studios service -- including Junglee Academy, our affiliate program, or any associated tools -- you agree to be bound by these Terms of Service. If you do not agree, do not use our services.</p>
+        </div>
+
+        <h2 id="acceptance"><span class="num">1</span>Acceptance of Terms</h2>
+        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("Creator," "Client," "User," or "you") and Junglee Studios ("Junglee Studios," "we," "us," or "our"), governing your access to and use of our website at <a href="https://jungleestudios.com">jungleestudios.com</a>, the Junglee Academy platform at <a href="https://academy.jungleestudios.com">academy.jungleestudios.com</a>, and all related services, tools, and programs (collectively, the "Services").</p>
+        <p>By creating an account, completing an application, accessing training materials, participating in an affiliate program, or otherwise engaging with our Services, you confirm that you have read, understood, and agreed to these Terms, along with our <a href="/privacy">Privacy Policy</a>.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="services"><span class="num">2</span>Our Services</h2>
+        <p>Junglee Studios is a TikTok Shop partner agency offering the following services:</p>
+        <ul>
+          <li><strong>Junglee Academy</strong> -- A structured creator training platform covering TikTok Shop affiliate fundamentals, content strategy, and scaling.</li>
+          <li><strong>Affiliate Program Management</strong> -- Matching creators in our roster with brand campaigns on TikTok Shop, managing collaborations, and tracking affiliate performance.</li>
+          <li><strong>Brand Services</strong> -- Affiliate campaign strategy, creator recruitment, and performance analytics for brand clients.</li>
+          <li><strong>Junglee Planner</strong> -- An optional content planning tool (add-on service, separate subscription required).</li>
+          <li><strong>Consulting & Strategy</strong> -- TikTok Shop growth strategy for brands and creators.</li>
+        </ul>
+
+        <hr class="legal-divider" />
+
+        <h2 id="eligibility"><span class="num">3</span>Eligibility</h2>
+        <p>To use our Services you must:</p>
+        <ul>
+          <li>Be at least 18 years of age (or the age of majority in your jurisdiction).</li>
+          <li>Have a valid TikTok account and, where applicable, an active TikTok Shop creator account.</li>
+          <li>Be located in a region where TikTok Shop affiliate services are available.</li>
+          <li>Not be prohibited from using our Services under applicable law.</li>
+          <li>Have received prior approval via our application process (for Academy access).</li>
+        </ul>
+        <p>We reserve the right to decline or revoke access for any user who does not meet these eligibility requirements.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="accounts"><span class="num">4</span>Accounts & Access</h2>
+        <p>Academy access is granted only after successful completion of our application and approval process. You are responsible for:</p>
+        <ul>
+          <li>Maintaining the confidentiality of your login credentials.</li>
+          <li>All activity that occurs under your account.</li>
+          <li>Promptly notifying us of any unauthorized use at <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a>.</li>
+        </ul>
+        <p>Accounts are personal and non-transferable. Sharing your account credentials with others is prohibited and may result in immediate termination of access.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="academy"><span class="num">5</span>Junglee Academy</h2>
+        <p>Junglee Academy is a structured creator development program organized into stages. Access to each stage is granted upon meeting the requirements of the prior stage. Participation in the Academy is subject to the following:</p>
+        <ul>
+          <li>Access requires a prior application and approval -- you may not self-enroll.</li>
+          <li>Referral codes may be used during the application process to indicate who referred you. Providing false referral information is prohibited.</li>
+          <li>Curriculum content, module materials, and all Academy resources are proprietary and for your personal use only. You may not share, reproduce, or distribute Academy materials without our express written consent.</li>
+          <li>Progression through stages is determined by Junglee Studios at our sole discretion based on performance, content output, and compliance with program rules.</li>
+          <li>We reserve the right to modify, remove, or restructure Academy content at any time without notice.</li>
+        </ul>
+
+        <hr class="legal-divider" />
+
+        <h2 id="affiliate"><span class="num">6</span>Affiliate Program</h2>
+        <p>As a creator in our affiliate program, you agree to:</p>
+        <ul>
+          <li>Promote only products you have received, reviewed, or are authorized to promote.</li>
+          <li>Disclose affiliate relationships in your TikTok content in compliance with FTC guidelines and TikTok's policies.</li>
+          <li>Use only affiliate links and promotional materials provided through official Junglee Studios channels.</li>
+          <li>Not engage in click fraud, self-purchasing through affiliate links, or any manipulation of affiliate metrics.</li>
+          <li>Comply with all TikTok Shop affiliate program rules and community guidelines.</li>
+        </ul>
+        <p>Commission rates, campaign eligibility, and affiliate terms for specific brand campaigns will be communicated separately and are subject to change. Junglee Studios acts as an intermediary and is not responsible for commission payments made directly by TikTok Shop or brand clients.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="content"><span class="num">7</span>Content Rules</h2>
+        <p>All creators participating in our programs must adhere to the following content rules:</p>
+        <ul>
+          <li><strong>Rule #1: Never delete a video.</strong> Once posted, your affiliate content must remain live. Deleting videos breaks affiliate links and violates your campaign commitments.</li>
+          <li><strong>Rule #2: Always have fun.</strong> Authentic, energetic content performs best. We expect creators to approach content creation with genuine enthusiasm.</li>
+          <li><strong>Rule #3: Don't fixate on metrics.</strong> Views, likes, and follower counts are not the primary measure of success. Consistency and quality of affiliate conversions matter more.</li>
+        </ul>
+        <p>Additionally, all content must:</p>
+        <ul>
+          <li>Comply with TikTok's Community Guidelines and Terms of Service.</li>
+          <li>Not include false claims about products.</li>
+          <li>Not be defamatory, obscene, or harmful.</li>
+          <li>Not infringe on any third-party intellectual property rights.</li>
+        </ul>
+        <p>Violation of content rules may result in immediate removal from active campaigns and termination of Academy access.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="samples"><span class="num">8</span>Product Samples</h2>
+        <p>Creators who request product samples through our program agree to the following:</p>
+        <ul>
+          <li>Samples are provided for the purpose of creating affiliate content on TikTok -- not for personal use, resale, or gifting.</li>
+          <li>Upon delivery of requested samples, you have <strong>15 days</strong> to create and post your first video featuring those products. Failure to post within this window may result in removal from the campaign and ineligibility for future sample requests.</li>
+          <li>The number of samples you may request at any time is subject to campaign-specific limits communicated by Junglee Studios.</li>
+          <li>Samples remain the property of the brand until content obligations are fulfilled. We reserve the right to request the return of samples from creators who do not fulfill their posting commitments.</li>
+        </ul>
+
+        <div class="legal-callout">
+          <p><strong>15-Day Posting Rule:</strong> If you request 3 samples, you have 15 days from the date of delivery to create and post your first video. This is a firm program requirement.</p>
+        </div>
+
+        <hr class="legal-divider" />
+
+        <h2 id="planner"><span class="num">9</span>Junglee Planner Add-On</h2>
+        <p>The Junglee Planner is an optional content scheduling and analytics tool offered as a paid add-on service, powered by our white-label partnership with Metricool and accessible at <a href="https://planner.jungleestudios.com">planner.jungleestudios.com</a>. This service is not included in the base Academy program and requires a separate subscription:</p>
+        <ul>
+          <li><strong>Junglee Planner:</strong> $14.99/month -- content scheduling and planning.</li>
+          <li><strong>Junglee Planner + Analytics:</strong> $19.99/month -- content scheduling plus performance analytics.</li>
+        </ul>
+        <p>Subscriptions are billed monthly and may be cancelled at any time. Cancellation takes effect at the end of the current billing period. No refunds are issued for partial months.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="fees"><span class="num">10</span>Fees & Payments</h2>
+        <p>Base Academy access fees, if applicable, will be communicated at the time of your application and approval. For paid services:</p>
+        <ul>
+          <li>All fees are stated in USD unless otherwise noted.</li>
+          <li>Payments are due as specified in your service agreement or subscription.</li>
+          <li>We reserve the right to modify pricing with reasonable advance notice.</li>
+          <li>Chargebacks or payment disputes must be raised with us directly at <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a> before initiating a dispute with your payment provider.</li>
+        </ul>
+
+        <hr class="legal-divider" />
+
+        <h2 id="ip"><span class="num">11</span>Intellectual Property</h2>
+        <p>All content, curriculum, branding, logos, designs, and materials on Junglee Studios platforms are the intellectual property of Junglee Studios or our licensors. You are granted a limited, non-exclusive, non-transferable license to access and use these materials solely for your personal participation in our programs.</p>
+        <p>You retain ownership of the original content you create (your videos, captions, etc.). By participating in our programs, you grant Junglee Studios a non-exclusive, royalty-free license to share, repost, and promote your affiliate content on our owned channels and marketing materials, with reasonable attribution.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="termination"><span class="num">12</span>Termination</h2>
+        <p>We may suspend or terminate your access to any or all Services at any time, with or without notice, for reasons including but not limited to:</p>
+        <ul>
+          <li>Violation of these Terms or our content rules.</li>
+          <li>Failure to meet posting or campaign commitments.</li>
+          <li>Fraudulent activity or misrepresentation.</li>
+          <li>Conduct that harms Junglee Studios, its brand clients, or other creators.</li>
+          <li>Violation of TikTok's terms or community guidelines.</li>
+        </ul>
+        <p>You may terminate your account at any time by contacting us at <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a>. Termination does not relieve you of obligations incurred prior to termination, including outstanding content commitments related to samples received.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="disclaimer"><span class="num">13</span>Disclaimers</h2>
+        <p>Our Services are provided "as is" and "as available" without warranties of any kind, express or implied. Junglee Studios does not warrant that:</p>
+        <ul>
+          <li>The Services will be uninterrupted, error-free, or secure.</li>
+          <li>Any specific level of affiliate earnings, GMV, or follower growth will be achieved.</li>
+          <li>TikTok Shop platform availability or policies will remain unchanged.</li>
+        </ul>
+        <p>Results vary by creator and are influenced by factors outside our control, including TikTok algorithm changes, product availability, and market conditions. Nothing in our training materials constitutes a guarantee of income or results.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="liability"><span class="num">14</span>Limitation of Liability</h2>
+        <p>To the fullest extent permitted by applicable law, Junglee Studios and its officers, employees, agents, and partners shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of revenue, lost profits, or loss of data, arising out of or in connection with your use of the Services, even if we have been advised of the possibility of such damages.</p>
+        <p>Our total liability to you for any claims arising from these Terms or the Services shall not exceed the total amount paid by you to Junglee Studios in the 12 months preceding the claim.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="disputes"><span class="num">15</span>Disputes & Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles. Any disputes arising from these Terms or the Services shall be resolved through good-faith negotiation first. If a resolution cannot be reached, disputes shall be submitted to binding arbitration in accordance with the rules of the American Arbitration Association.</p>
+        <p>You waive any right to participate in a class-action lawsuit or class-wide arbitration against Junglee Studios.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="changes"><span class="num">16</span>Changes to Terms</h2>
+        <p>We may update these Terms from time to time. When we do, we will update the "Last updated" date at the top of this page. If changes are material, we will notify active users via email. Continued use of our Services after changes are posted constitutes your acceptance of the revised Terms.</p>
+
+        <div class="legal-cyan-callout">
+          <p>We recommend bookmarking this page and reviewing it periodically. The current version always governs your use of our Services.</p>
+        </div>
+
+        <hr class="legal-divider" />
+
+        <h2 id="contact"><span class="num">17</span>Contact Us</h2>
+        <p>Questions about these Terms? Reach out to us:</p>
+
+        <div class="contact-card">
+          <h3>Junglee Studios</h3>
+          <p>Email: <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a></p>
+          <p>Website: <a href="https://jungleestudios.com">jungleestudios.com</a></p>
+          <p>Academy: <a href="https://academy.jungleestudios.com">academy.jungleestudios.com</a></p>
+        </div>
+
+      </div><!-- /.legal-content -->
+    </div><!-- /.legal-layout -->
+  </div><!-- /.container -->
+</section>
+
+<footer id="site-footer" data-partial="footer"></footer>
+
+</body>
+</html>
