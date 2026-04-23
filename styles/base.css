@@ -835,3 +835,22 @@ html { scroll-behavior: smooth; }
   .heading-reveal { opacity: 1; transform: none; }
   .typewriter-word { border-right: none; animation: none; }
 }
+
+/* --- Footer legal links --- */
+.foot-legal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.foot-legal a {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.foot-legal a:hover { color: var(--color-cyan); }
+.foot-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+}
