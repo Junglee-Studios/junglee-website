@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Junglee Studios</title>
+  <meta name="description" content="Privacy Policy for Junglee Studios -- how we collect, use, and protect your data across the Academy, affiliate program, and all related services." />
+  <link rel="canonical" href="https://jungleestudios.com/privacy" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Junglee Studios" />
+  <meta property="og:title" content="Privacy Policy | Junglee Studios" />
+  <meta property="og:url" content="https://jungleestudios.com/privacy" />
+  <meta property="og:image" content="https://www.jungleestudios.com/assets/logos/assets/og-image.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/base.css" />
+  <script src="/partials/loader.js" defer></script>
+
+  <style>
+    .legal-hero {
+      background: #0a0a0a;
+      padding: clamp(56px, 8vw, 96px) 0 clamp(40px, 6vw, 72px);
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(0,242,234,0.12) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .legal-hero .container { position: relative; z-index: 2; }
+    .legal-hero .eyebrow {
+      display: inline-block;
+      background: rgba(0,242,234,0.12);
+      color: #00f2ea;
+      border: 1px solid rgba(0,242,234,0.25);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 12px;
+      line-height: 1.1;
+    }
+    .legal-hero .updated {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+    }
+    .legal-hero .updated span {
+      color: #00f2ea;
+      font-weight: 600;
+    }
+
+    .legal-body {
+      background: #ffffff;
+      padding: clamp(48px, 7vw, 88px) 0;
+    }
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .legal-toc {
+      position: sticky;
+      top: 80px;
+    }
+    .legal-toc-title {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(10,10,10,0.4);
+      margin: 0 0 12px;
+    }
+    .legal-toc a {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #444;
+      text-decoration: none;
+      padding: 6px 0;
+      border-left: 2px solid rgba(0,0,0,0.08);
+      padding-left: 12px;
+      transition: color 0.2s, border-color 0.2s;
+      line-height: 1.4;
+    }
+    .legal-toc a:hover {
+      color: #00f2ea;
+      border-left-color: #00f2ea;
+    }
+
+    .legal-content h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0a0a0a;
+      margin: 48px 0 12px;
+      padding-top: 8px;
+    }
+    .legal-content h2:first-child { margin-top: 0; }
+    .legal-content h2 .num {
+      display: inline-block;
+      background: #00f2ea;
+      color: #0a0a0a;
+      font-size: 0.7rem;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 2px 9px;
+      margin-right: 10px;
+      vertical-align: middle;
+      letter-spacing: 0.04em;
+    }
+    .legal-content p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #333;
+      margin: 0 0 14px;
+    }
+    .legal-content ul {
+      margin: 0 0 16px 0;
+      padding-left: 20px;
+    }
+    .legal-content ul li {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .legal-content a {
+      color: #00f2ea;
+      text-decoration: none;
+      font-weight: 500;
+      color: #0a7ea4;
+    }
+    .legal-content a:hover { text-decoration: underline; }
+
+    .legal-divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin: 36px 0;
+    }
+
+    .legal-callout {
+      background: #f8f8f8;
+      border-left: 3px solid #00f2ea;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .legal-callout p { margin: 0; font-size: 0.9rem; color: #444; }
+    .legal-callout strong { color: #0a0a0a; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.88rem;
+    }
+    .data-table th {
+      background: #0a0a0a;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+    }
+    .data-table th:first-child { border-radius: 8px 0 0 0; }
+    .data-table th:last-child  { border-radius: 0 8px 0 0; }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      color: #333;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .data-table tr:nth-child(even) td { background: #f8f8f8; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .contact-card {
+      background: #0a0a0a;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 48px;
+    }
+    .contact-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #00f2ea;
+      margin: 0 0 8px;
+    }
+    .contact-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      margin: 0 0 6px;
+    }
+    .contact-card a {
+      color: #ff2d9a !important;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .legal-layout { grid-template-columns: 1fr; }
+      .legal-toc { display: none; }
+      .data-table { font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="site-header" data-partial="nav"></header>
+
+<section class="legal-hero">
+  <div class="container">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective date: <span>April 23, 2026</span> &nbsp;&middot;&nbsp; Last updated: <span>April 23, 2026</span></p>
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="container">
+    <div class="legal-layout">
+
+      <aside class="legal-toc">
+        <p class="legal-toc-title">On this page</p>
+        <a href="#overview">1. Overview</a>
+        <a href="#collect">2. Data We Collect</a>
+        <a href="#how-collect">3. How We Collect It</a>
+        <a href="#use">4. How We Use Your Data</a>
+        <a href="#sharing">5. Data Sharing</a>
+        <a href="#tiktok">6. TikTok Data</a>
+        <a href="#storage">7. Data Storage & Security</a>
+        <a href="#retention">8. Retention</a>
+        <a href="#rights">9. Your Rights</a>
+        <a href="#cookies">10. Cookies</a>
+        <a href="#children">11. Children</a>
+        <a href="#changes">12. Policy Changes</a>
+        <a href="#contact">13. Contact</a>
+      </aside>
+
+      <div class="legal-content">
+
+        <div class="legal-callout">
+          <p><strong>Your privacy matters to us.</strong> This Policy explains what data we collect, why we collect it, how we protect it, and what rights you have over it. We collect only what we need to run our programs effectively.</p>
+        </div>
+
+        <h2 id="overview"><span class="num">1</span>Overview</h2>
+        <p>This Privacy Policy applies to Junglee Studios ("we," "us," or "our") and governs data collected through:</p>
+        <ul>
+          <li><strong>jungleestudios.com</strong> -- our main website</li>
+          <li><strong>academy.jungleestudios.com</strong> -- the Junglee Academy platform</li>
+          <li><strong>planner.jungleestudios.com</strong> -- the Junglee Planner add-on (where subscribed)</li>
+          <li>Any emails, forms, or communications exchanged with us</li>
+          <li>Any TikTok OAuth connection you authorize through our platform</li>
+        </ul>
+        <p>By using any of these services, you consent to the data practices described in this Policy.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="collect"><span class="num">2</span>Data We Collect</h2>
+        <p>The following table describes the categories of personal data we collect:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Data Points</th>
+              <th>Required?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Identity</strong></td>
+              <td>Full name, email address, phone number</td>
+              <td>Yes -- for account creation</td>
+            </tr>
+            <tr>
+              <td><strong>TikTok Profile</strong></td>
+              <td>TikTok handle, profile URL, follower count, niche/content categories</td>
+              <td>Yes -- for program eligibility</td>
+            </tr>
+            <tr>
+              <td><strong>Location</strong></td>
+              <td>Country, city/state</td>
+              <td>Yes -- for campaign matching</td>
+            </tr>
+            <tr>
+              <td><strong>Referral</strong></td>
+              <td>Referral source (agency or person), referral code used</td>
+              <td>Yes -- for onboarding attribution</td>
+            </tr>
+            <tr>
+              <td><strong>TikTok OAuth</strong></td>
+              <td>TikTok Open ID, video list, basic profile info, affiliate collaboration stats</td>
+              <td>Only if you authorize the TikTok connection</td>
+            </tr>
+            <tr>
+              <td><strong>Affiliate Activity</strong></td>
+              <td>Products promoted, affiliate orders, GMV, commission data, posting timestamps</td>
+              <td>Yes -- for performance tracking</td>
+            </tr>
+            <tr>
+              <td><strong>Sample History</strong></td>
+              <td>Products requested, sample delivery dates, posting compliance</td>
+              <td>Yes -- for campaign management</td>
+            </tr>
+            <tr>
+              <td><strong>Account Activity</strong></td>
+              <td>Login timestamps, modules completed, stage progression, achievements</td>
+              <td>Yes -- for Academy tracking</td>
+            </tr>
+            <tr>
+              <td><strong>Payment</strong></td>
+              <td>Billing details for paid add-on subscriptions (processed by third-party payment processors -- we do not store card numbers)</td>
+              <td>Only for paid services</td>
+            </tr>
+            <tr>
+              <td><strong>Usage Data</strong></td>
+              <td>Browser type, IP address, pages visited, device type</td>
+              <td>Automatically collected</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr class="legal-divider" />
+
+        <h2 id="how-collect"><span class="num">3</span>How We Collect Your Data</h2>
+        <ul>
+          <li><strong>Application forms</strong> -- when you apply to Junglee Academy.</li>
+          <li><strong>Account registration</strong> -- when you create your Academy account.</li>
+          <li><strong>TikTok OAuth</strong> -- when you choose to connect your TikTok account to our platform. This is optional but required for certain achievement features.</li>
+          <li><strong>TikTok webhooks</strong> -- if you authorize our app, TikTok may send us event notifications (e.g., when you post shoppable content) to power achievement tracking.</li>
+          <li><strong>Email communications</strong> -- when you correspond with us.</li>
+          <li><strong>Automatic collection</strong> -- usage data collected via standard web server logs and analytics tools when you visit our sites.</li>
+        </ul>
+
+        <hr class="legal-divider" />
+
+        <h2 id="use"><span class="num">4</span>How We Use Your Data</h2>
+        <p>We use the data we collect for the following purposes:</p>
+        <ul>
+          <li><strong>Program administration</strong> -- managing your Academy account, tracking stage progression, and delivering curriculum.</li>
+          <li><strong>Affiliate campaign management</strong> -- matching you with brand campaigns, generating promotion links, and tracking affiliate orders and GMV.</li>
+          <li><strong>Achievement tracking</strong> -- using TikTok activity data to automatically detect and award milestones (e.g., first video post, 15-day sample window compliance).</li>
+          <li><strong>Communication</strong> -- sending onboarding emails, Academy notifications, campaign updates, and program announcements. Onboarding emails are sent from affiliate-onboarding@jungleestudios.com; Academy emails from academy@jungleestudios.com.</li>
+          <li><strong>Performance reporting</strong> -- generating reports for brand clients showing aggregate and creator-level affiliate performance.</li>
+          <li><strong>Compliance</strong> -- verifying eligibility, detecting fraud, and enforcing program rules.</li>
+          <li><strong>Service improvement</strong> -- analyzing usage patterns to improve the Academy platform and affiliate tools.</li>
+        </ul>
+        <p>We do not use your data for advertising unrelated to Junglee Studios services, and we do not sell your personal data.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="sharing"><span class="num">5</span>Data Sharing</h2>
+        <p>We do not sell, rent, or trade your personal data. We may share data in the following limited circumstances:</p>
+        <ul>
+          <li><strong>Brand clients</strong> -- aggregate and creator-level affiliate performance data (GMV, orders, conversion rates) may be shared with brand clients for campaign reporting. We share only what is necessary for that reporting relationship.</li>
+          <li><strong>Service providers</strong> -- we use Cloudflare (infrastructure), Resend (email delivery), and Metricool (planner add-on). These providers process data on our behalf under appropriate data agreements.</li>
+          <li><strong>TikTok Shop</strong> -- as a registered TikTok Shop Partner, we interact with TikTok Shop APIs on behalf of authorized sellers and creators. Data shared with TikTok Shop is governed by TikTok's own Privacy Policy.</li>
+          <li><strong>Legal requirements</strong> -- we may disclose data if required by law, subpoena, or regulatory authority.</li>
+          <li><strong>Business transfers</strong> -- in the event of a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction, with notice provided to affected users.</li>
+        </ul>
+
+        <hr class="legal-divider" />
+
+        <h2 id="tiktok"><span class="num">6</span>TikTok Data & OAuth</h2>
+        <p>When you authorize Junglee Studios to connect to your TikTok account via OAuth, we access the following data through TikTok's official API:</p>
+        <ul>
+          <li>Basic profile information (display name, avatar, open ID)</li>
+          <li>Public video list and engagement metrics</li>
+          <li>Affiliate collaboration stats (where the Read Creator Affiliate Collaborations scope is authorized)</li>
+          <li>Shoppable content posting events (via webhook, when authorized)</li>
+        </ul>
+        <p>This data is used exclusively to:</p>
+        <ul>
+          <li>Link your TikTok account to your Academy profile</li>
+          <li>Verify your follower count and content activity for program eligibility</li>
+          <li>Automatically detect posting activity for achievement triggers</li>
+        </ul>
+        <p>You may revoke TikTok OAuth access at any time through your TikTok account settings under "Manage app permissions." Revoking access disables achievement tracking but does not delete your Academy account or previously recorded data.</p>
+
+        <div class="legal-callout">
+          <p><strong>We do not post on your behalf.</strong> Our TikTok app permissions are read-only. We never create, edit, or delete content on your TikTok account.</p>
+        </div>
+
+        <hr class="legal-divider" />
+
+        <h2 id="storage"><span class="num">7</span>Data Storage & Security</h2>
+        <p>Your data is stored on Cloudflare's infrastructure (Cloudflare D1 database, Cloudflare Workers), which is SOC 2 compliant and distributed globally for reliability and performance.</p>
+        <p>Security measures we implement:</p>
+        <ul>
+          <li>Passwords are hashed using industry-standard algorithms -- we never store plaintext passwords.</li>
+          <li>OAuth tokens are stored encrypted server-side and are never exposed to frontend clients.</li>
+          <li>All data transmission uses HTTPS/TLS encryption.</li>
+          <li>API access is restricted to authenticated, role-based sessions.</li>
+          <li>No sensitive data (passwords, tokens) is written to logs.</li>
+        </ul>
+        <p>Despite these measures, no system is 100% secure. In the event of a data breach affecting your personal information, we will notify affected users within 72 hours of discovery.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="retention"><span class="num">8</span>Data Retention</h2>
+        <ul>
+          <li><strong>Account data</strong> -- retained for the duration of your active account plus 12 months after termination or last activity.</li>
+          <li><strong>Affiliate order data</strong> -- retained for 24 months for reporting and compliance purposes.</li>
+          <li><strong>TikTok webhook event logs</strong> -- retained for 12 months, then purged.</li>
+          <li><strong>Email communications</strong> -- retained for 24 months.</li>
+          <li><strong>Usage/analytics data</strong> -- retained in aggregate, anonymized form indefinitely; identifiable usage data is purged after 12 months.</li>
+        </ul>
+        <p>You may request early deletion of your data at any time (see Your Rights below).</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="rights"><span class="num">9</span>Your Rights</h2>
+        <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Access</strong> -- request a copy of the personal data we hold about you.</li>
+          <li><strong>Correction</strong> -- request correction of inaccurate or incomplete data.</li>
+          <li><strong>Deletion</strong> -- request deletion of your personal data ("right to be forgotten"). Note: some data may be retained where required by law or legitimate business need (e.g., outstanding affiliate order records).</li>
+          <li><strong>Portability</strong> -- request your data in a machine-readable format.</li>
+          <li><strong>Objection</strong> -- object to processing of your data for certain purposes.</li>
+          <li><strong>Withdrawal of consent</strong> -- withdraw consent for data processing where consent is the legal basis (e.g., TikTok OAuth).</li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a> with the subject line "Privacy Request." We will respond within 30 days.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="cookies"><span class="num">10</span>Cookies & Tracking</h2>
+        <p>Our websites use minimal cookies necessary for functionality:</p>
+        <ul>
+          <li><strong>Session cookies</strong> -- to keep you logged into your Academy account.</li>
+          <li><strong>Preference cookies</strong> -- to remember interface settings.</li>
+        </ul>
+        <p>We do not use third-party advertising cookies or cross-site tracking cookies. You can disable cookies in your browser settings, but doing so may affect the functionality of the Academy platform.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="children"><span class="num">11</span>Children's Privacy</h2>
+        <p>Our Services are not directed to individuals under the age of 18. We do not knowingly collect personal data from anyone under 18. If you believe we have inadvertently collected data from a minor, please contact us immediately at <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a> and we will delete it promptly.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="changes"><span class="num">12</span>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Material changes will be communicated to active users via email. Continued use of our Services after an update constitutes acceptance of the revised Policy.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="contact"><span class="num">13</span>Contact Us</h2>
+        <p>For any privacy-related questions, requests, or concerns:</p>
+
+        <div class="contact-card">
+          <h3>Junglee Studios -- Privacy</h3>
+          <p>Email: <a href="mailto:info@jungleestudios.com">info@jungleestudios.com</a></p>
+          <p>Subject line for privacy requests: <a href="mailto:info@jungleestudios.com?subject=Privacy%20Request">"Privacy Request"</a></p>
+          <p>Website: <a href="https://jungleestudios.com">jungleestudios.com</a></p>
+          <p>We respond to all privacy requests within 30 days.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer" data-partial="footer"></footer>
+
+</body>
+</html>
