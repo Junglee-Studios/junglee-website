@@ -377,38 +377,204 @@ h3 {
 .hero .lead { color: rgba(255,255,255,0.74); margin-top: 22px; }
 .hero .kicker { color: var(--color-coral); }
 
-/* Hero grid: subtle command-center backdrop */
+/* Hero grid — tight commerce-infrastructure ruling, fades to edges */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at center, rgba(0,0,0,0.9) 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,0.9) 0%, transparent 75%);
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: 0 0;
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.9) 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.9) 80%, transparent 100%);
   pointer-events: none;
   z-index: 0;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  bottom: -40%;
-  right: -10%;
-  width: 60vw;
-  height: 60vw;
-  max-width: 800px;
-  max-height: 800px;
-  background: radial-gradient(circle, rgba(255,68,56,0.18) 0%, transparent 60%);
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 0;
+  opacity: 0.7;
 }
 .hero > .container { position: relative; z-index: 2; }
 
-.hero-grid { max-width: 920px; }
+.hero-grid { max-width: 920px; position: relative; }
 .hero h1 .accent { color: var(--color-coral); }
+
+/* ===========================================================
+   Home hero — asymmetric operator command panel (coral right block)
+   Used on body[data-page="home"] only. Other hero pages keep the
+   simple ruled backdrop above.
+   =========================================================== */
+
+body[data-page="home"] .hero {
+  padding-top: clamp(80px, 11vw, 150px);
+  padding-bottom: clamp(72px, 9vw, 120px);
+}
+
+/* Coral panel anchored to top-right; clipped diagonal so it reads as
+   an editorial operator panel, not a generic gradient. */
+body[data-page="home"] .hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(320px, 42%, 620px);
+  height: 100%;
+  background: var(--color-coral);
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+/* Faint operator ruling on top of the coral panel so it reads as a panel,
+   not flat color */
+body[data-page="home"] .hero .hero-coral-rules {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(320px, 42%, 620px);
+  height: 100%;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.4));
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.4));
+}
+
+/* Coral panel content overlay: floating operator chips + signal lines */
+body[data-page="home"] .hero-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(320px, 42%, 620px);
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+body[data-page="home"] .hero-panel-inner {
+  position: absolute;
+  inset: 0;
+  padding: clamp(80px, 12vw, 140px) clamp(20px, 3vw, 44px) clamp(40px, 6vw, 80px) clamp(70px, 9vw, 130px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Operator chips — small editorial labels stacked at varied offsets */
+.op-chips {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+.op-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(14,15,18,0.92);
+  color: var(--color-white);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(14,15,18,0.18);
+}
+.op-chip .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(30,164,164,0.22);
+  flex-shrink: 0;
+}
+.op-chip.is-live .dot { background: var(--color-coral); box-shadow: 0 0 0 3px rgba(255,255,255,0.3); }
+.op-chip.is-card { background: var(--color-white); color: var(--color-ink); border-color: rgba(14,15,18,0.10); }
+.op-chip.is-card .dot { background: var(--color-coral); box-shadow: 0 0 0 3px rgba(255,68,56,0.18); }
+.op-chip .num {
+  color: var(--color-coral);
+  font-weight: 700;
+}
+.op-chip.is-card .num { color: var(--color-coral); }
+
+/* Offset chips for layered hand-placed feel */
+.op-chip:nth-child(1) { transform: translateX(-8px); }
+.op-chip:nth-child(2) { transform: translateX(28px); }
+.op-chip:nth-child(3) { transform: translateX(-18px); }
+.op-chip:nth-child(4) { transform: translateX(14px); }
+.op-chip:nth-child(5) { transform: translateX(-4px); }
+
+/* Commerce signal lines — small SVG-like ticks at the bottom of the panel */
+.op-signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 36px;
+  margin-top: 18px;
+  align-self: flex-end;
+}
+.op-signal span {
+  width: 4px;
+  background: rgba(255,255,255,0.65);
+  border-radius: 2px;
+  display: block;
+}
+.op-signal span:nth-child(1) { height: 30%; }
+.op-signal span:nth-child(2) { height: 55%; }
+.op-signal span:nth-child(3) { height: 38%; }
+.op-signal span:nth-child(4) { height: 72%; }
+.op-signal span:nth-child(5) { height: 60%; }
+.op-signal span:nth-child(6) { height: 88%; }
+.op-signal span:nth-child(7) { height: 70%; }
+.op-signal span:nth-child(8) { height: 100%; background: var(--color-white); }
+
+/* Tag / label above signal */
+.op-signal-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-top: 18px;
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.op-signal-label::before {
+  content: "";
+  width: 18px; height: 1px;
+  background: rgba(255,255,255,0.7);
+  display: inline-block;
+}
+
+/* Constrain hero text width so it doesn't run under the coral panel */
+body[data-page="home"] .hero-grid {
+  max-width: min(620px, 58%);
+}
+
+/* On smaller screens the coral panel becomes a thin top stripe and chips
+   collapse so the page is single-column and readable. */
+@media (max-width: 980px) {
+  body[data-page="home"] .hero::after {
+    width: 100%;
+    height: 14px;
+    clip-path: none;
+    top: 0;
+    right: 0;
+  }
+  body[data-page="home"] .hero .hero-coral-rules { display: none; }
+  body[data-page="home"] .hero-panel { display: none; }
+  body[data-page="home"] .hero-grid { max-width: 100%; }
+  body[data-page="home"] .hero { padding-top: clamp(72px, 14vw, 110px); }
+}
 
 /* --- Grids --- */
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
@@ -1017,7 +1183,6 @@ footer#site-footer {
   .js-reveal-ready .reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .term-marquee-track,
   .logo-marquee-inner { animation: none !important; }
-  .hero::after { display: none; }
 }
 
 /* --- Utility --- */
