@@ -422,6 +422,9 @@ h3 {
 .hero-grid { max-width: 920px; position: relative; }
 .hero h1 .accent { color: var(--color-coral); }
 
+/* Home hero: rotating audience word is coral; "TikTok Shop" is teal. */
+body[data-page="home"] .hero h1 .accent { color: var(--color-teal); }
+
 /* Visually hidden for screen-reader-only fallback text */
 .visually-hidden {
   position: absolute;
@@ -435,29 +438,24 @@ h3 {
   border: 0;
 }
 
-/* Hero word rotator — CSS-only, no layout jump.
-   Reserves width via inline-grid stacking (both words occupy column 1, row 1),
-   and animates a vertical fade/slide between them. */
+/* Hero word rotator — CSS-only, natural reflow.
+   The inactive word collapses to font-size: 0 so it takes no inline space,
+   letting the surrounding sentence flow to the active word's width — no
+   reserved gap after the shorter word. */
 .rotator {
-  display: inline-grid;
+  display: inline;
   vertical-align: baseline;
   line-height: 1.1;
-  position: relative;
 }
 .rotator-track {
-  display: inline-grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
+  display: inline;
 }
 .rotator .rotator-word {
-  grid-column: 1;
-  grid-row: 1;
+  display: inline;
   white-space: nowrap;
   line-height: 1.1;
-  color: var(--color-teal);
+  color: var(--color-coral);
 }
-/* Both words stack in the same cell; animation toggles their visibility
-   so only one word is visible at a time and width tracks the active word. */
 .rotator-word:nth-child(1) {
   animation: rotator-word-1 6s steps(1, end) infinite;
 }
@@ -465,17 +463,17 @@ h3 {
   animation: rotator-word-2 6s steps(1, end) infinite;
 }
 @keyframes rotator-word-1 {
-  0%, 50%   { opacity: 1; visibility: visible; }
-  50.01%, 100% { opacity: 0; visibility: hidden; }
+  0%, 50%      { font-size: 1em; opacity: 1; }
+  50.01%, 100% { font-size: 0;   opacity: 0; }
 }
 @keyframes rotator-word-2 {
-  0%, 50%   { opacity: 0; visibility: hidden; }
-  50.01%, 100% { opacity: 1; visibility: visible; }
+  0%, 50%      { font-size: 0;   opacity: 0; }
+  50.01%, 100% { font-size: 1em; opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rotator-word { animation: none; }
-  .rotator-word:nth-child(1) { opacity: 1; visibility: visible; }
-  .rotator-word:nth-child(2) { opacity: 0; visibility: hidden; position: absolute; }
+  .rotator-word:nth-child(1) { font-size: 1em; opacity: 1; }
+  .rotator-word:nth-child(2) { font-size: 0; opacity: 0; }
 }
 
 /* ===========================================================
