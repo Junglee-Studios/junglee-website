@@ -116,10 +116,11 @@ header#site-header {
   color: var(--color-white);
 }
 .brand img.logo {
-  height: 34px;
+  height: 40px;
   width: auto;
-  max-width: 160px;
+  max-width: 220px;
   object-fit: contain;
+  display: block;
 }
 .brand .wm { display: none; }  /* simplify nav: logo speaks for itself */
 
@@ -1096,6 +1097,17 @@ footer#site-footer {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+.foot-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.foot-brand img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 .fine {
   color: rgba(255,255,255,0.55);
