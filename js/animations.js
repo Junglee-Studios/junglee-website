@@ -69,8 +69,14 @@
   function initMarquees() {
     document.querySelectorAll('[data-marquee]').forEach(function (track) {
       if (track.dataset.marqueeReady) return;
-      var html = track.innerHTML;
-      track.innerHTML = html + html;
+      var originals = Array.prototype.slice.call(track.children);
+      var frag = document.createDocumentFragment();
+      originals.forEach(function (node) {
+        var clone = node.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        frag.appendChild(clone);
+      });
+      track.appendChild(frag);
       track.dataset.marqueeReady = '1';
     });
   }
