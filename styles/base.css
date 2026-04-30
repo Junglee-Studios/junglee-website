@@ -1059,20 +1059,19 @@ footer#site-footer {
   background: transparent;
   border: 0;
   border-radius: 0;
-  transition: transform .2s ease;
+  color: var(--color-white);
+  transition: transform .2s ease, color .2s ease;
 }
 .social .icon:hover { transform: translateY(-1px); }
-.social .icon img {
+.social .icon svg {
   width: 22px;
   height: 22px;
-  opacity: 1;
-  filter: brightness(0) invert(1);
-  transition: filter .2s ease;
+  display: block;
+  fill: currentColor;
 }
-.social .icon:hover img,
-.social .icon:focus-visible img {
-  /* coral on hover/focus: brightness(0) makes it black, then sepia + hue-rotate tints toward coral */
-  filter: brightness(0) saturate(100%) invert(38%) sepia(94%) saturate(2960%) hue-rotate(346deg) brightness(101%) contrast(101%);
+.social .icon:hover,
+.social .icon:focus-visible {
+  color: var(--color-coral);
 }
 
 /* --- Reveal: CSS-only fade-up animation, runs once on first paint per element via IO. Content always renders even if JS fails. --- */
