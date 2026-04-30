@@ -582,7 +582,7 @@ a.card:hover,
 .proof-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-coral); }
 .proof-item .dot.teal { background: var(--color-teal); }
 
-/* --- Partner badges (TSP / CAP / MCN credentials) --- */
+/* --- Partner badges (Certified Full Service Management Partner credential) --- */
 .partner-badges {
   display: flex;
   flex-wrap: wrap;
