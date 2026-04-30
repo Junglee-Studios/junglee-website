@@ -69,16 +69,16 @@
 
 /* --- Reset --- */
 * { box-sizing: border-box; }
-html, body { height: 100%; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: var(--font-sans);
   background: var(--color-white);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-feature-settings: 'ss01' on, 'cv11' on;
 }
 a { color: inherit; text-decoration: none; }
@@ -436,39 +436,46 @@ h3 {
 }
 
 /* Hero word rotator — CSS-only, no layout jump.
-   Reserves width via the widest word using inline-grid stacking. */
+   Reserves width via inline-grid stacking (both words occupy column 1, row 1),
+   and animates a vertical fade/slide between them. */
 .rotator {
   display: inline-grid;
-  vertical-align: bottom;
-  overflow: hidden;
+  vertical-align: baseline;
   line-height: 1.1;
-  height: 1.1em;
   position: relative;
 }
 .rotator-track {
   display: inline-grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
 }
-.rotator-word {
+.rotator .rotator-word {
   grid-column: 1;
-  grid-row: 1 / span 1;
+  grid-row: 1;
   white-space: nowrap;
-  line-height: 1;
+  line-height: 1.1;
+  color: var(--color-teal);
 }
-.rotator-word + .rotator-word { grid-row: 2 / span 1; }
-.rotator-track {
-  animation: rotator-swap 5s steps(1, end) infinite;
-  will-change: transform;
+/* Both words stack in the same cell; animation toggles their visibility
+   so only one word is visible at a time and width tracks the active word. */
+.rotator-word:nth-child(1) {
+  animation: rotator-word-1 6s steps(1, end) infinite;
 }
-@keyframes rotator-swap {
-  0%, 45%   { transform: translateY(0); }
-  50%, 95%  { transform: translateY(-100%); }
-  100%      { transform: translateY(0); }
+.rotator-word:nth-child(2) {
+  animation: rotator-word-2 6s steps(1, end) infinite;
+}
+@keyframes rotator-word-1 {
+  0%, 50%   { opacity: 1; visibility: visible; }
+  50.01%, 100% { opacity: 0; visibility: hidden; }
+}
+@keyframes rotator-word-2 {
+  0%, 50%   { opacity: 0; visibility: hidden; }
+  50.01%, 100% { opacity: 1; visibility: visible; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rotator-track { animation: none; transform: none; }
-  .rotator { height: auto; overflow: visible; }
-  .rotator-word + .rotator-word { display: none; }
+  .rotator-word { animation: none; }
+  .rotator-word:nth-child(1) { opacity: 1; visibility: visible; }
+  .rotator-word:nth-child(2) { opacity: 0; visibility: hidden; position: absolute; }
 }
 
 /* ===========================================================
