@@ -126,6 +126,9 @@ header#site-header {
   object-fit: contain;
   display: block;
 }
+@media (max-width: 480px) {
+  .brand img.logo { height: 34px; }
+}
 .brand .wm { display: none; }  /* simplify nav: logo speaks for itself */
 
 .navlinks {
@@ -1018,8 +1021,9 @@ footer#site-footer {
   flex: 0 0 auto;
 }
 .foot-brand img {
-  height: 32px;
+  height: 34px;
   width: auto;
+  max-width: 180px;
   object-fit: contain;
   display: block;
 }
@@ -1044,26 +1048,32 @@ footer#site-footer {
 
 .social {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   align-items: center;
 }
-.icon {
+.social .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px; height: 40px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  width: 36px; height: 36px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  transition: transform .2s ease;
 }
-.icon:hover {
-  background: rgba(255,68,56,0.10);
-  border-color: var(--color-coral);
-  transform: translateY(-1px);
+.social .icon:hover { transform: translateY(-1px); }
+.social .icon img {
+  width: 22px;
+  height: 22px;
+  opacity: 1;
+  filter: brightness(0) invert(1);
+  transition: filter .2s ease;
 }
-.icon img { width: 18px; height: 18px; opacity: 0.75; }
-.icon:hover img { opacity: 1; }
+.social .icon:hover img,
+.social .icon:focus-visible img {
+  /* coral on hover/focus: brightness(0) makes it black, then sepia + hue-rotate tints toward coral */
+  filter: brightness(0) saturate(100%) invert(38%) sepia(94%) saturate(2960%) hue-rotate(346deg) brightness(101%) contrast(101%);
+}
 
 /* --- Reveal: CSS-only fade-up animation, runs once on first paint per element via IO. Content always renders even if JS fails. --- */
 .reveal { opacity: 1; transform: none; }
@@ -1094,7 +1104,7 @@ footer#site-footer {
 
 /* Touch targets */
 @media (max-width: 768px) {
-  .icon { min-width: 44px; min-height: 44px; }
+  .social .icon { min-width: 44px; min-height: 44px; }
 }
 
 /* --- Reduced motion --- */
