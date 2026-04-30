@@ -234,14 +234,20 @@ header#site-header {
 /* On the dark CTA block, secondary uses the teal accent so it's visible by default */
 .cta-block .btn.secondary,
 .cta-block .btn.teal,
-.cta-block .btn.cyan {
+.cta-block .btn.cyan,
+.hero .btn.secondary,
+.hero .btn.teal,
+.hero .btn.cyan {
   background: transparent;
   color: var(--color-teal) !important;
   border-color: var(--color-teal);
 }
 .cta-block .btn.secondary:hover,
 .cta-block .btn.teal:hover,
-.cta-block .btn.cyan:hover {
+.cta-block .btn.cyan:hover,
+.hero .btn.secondary:hover,
+.hero .btn.teal:hover,
+.hero .btn.cyan:hover {
   background: var(--color-teal);
   color: var(--color-white) !important;
   border-color: var(--color-teal);
@@ -415,6 +421,55 @@ h3 {
 
 .hero-grid { max-width: 920px; position: relative; }
 .hero h1 .accent { color: var(--color-coral); }
+
+/* Visually hidden for screen-reader-only fallback text */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hero word rotator — CSS-only, no layout jump.
+   Reserves width via the widest word using inline-grid stacking. */
+.rotator {
+  display: inline-grid;
+  vertical-align: bottom;
+  overflow: hidden;
+  line-height: 1.1;
+  height: 1.1em;
+  position: relative;
+}
+.rotator-track {
+  display: inline-grid;
+  grid-template-rows: 1fr 1fr;
+}
+.rotator-word {
+  grid-column: 1;
+  grid-row: 1 / span 1;
+  white-space: nowrap;
+  line-height: 1;
+}
+.rotator-word + .rotator-word { grid-row: 2 / span 1; }
+.rotator-track {
+  animation: rotator-swap 5s steps(1, end) infinite;
+  will-change: transform;
+}
+@keyframes rotator-swap {
+  0%, 45%   { transform: translateY(0); }
+  50%, 95%  { transform: translateY(-100%); }
+  100%      { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rotator-track { animation: none; transform: none; }
+  .rotator { height: auto; overflow: visible; }
+  .rotator-word + .rotator-word { display: none; }
+}
 
 /* ===========================================================
    Home hero — clean editorial treatment.
