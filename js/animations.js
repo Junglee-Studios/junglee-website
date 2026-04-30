@@ -65,6 +65,54 @@
     });
   }
 
+  /* ---------- Typewriter (homepage hero) ---------- */
+  function initTypewriter() {
+    var el = document.querySelector('.typewriter-word');
+    if (!el) return;
+
+    var words = ['Brands', 'Creators'];
+    var typingSpeed = 60;
+    var deletingSpeed = 40;
+    var holdTime = 2500;
+    var pauseTime = 400;
+
+    if (prefersReducedMotion) {
+      el.textContent = words[0];
+      return;
+    }
+
+    var wordIndex = 0;
+    var isDeleting = true;
+    var charIndex = words[0].length;
+    el.textContent = words[0];
+
+    function tick() {
+      var currentWord = words[wordIndex];
+      if (isDeleting) {
+        charIndex--;
+        el.textContent = currentWord.substring(0, charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(tick, pauseTime);
+          return;
+        }
+        setTimeout(tick, deletingSpeed);
+      } else {
+        charIndex++;
+        el.textContent = currentWord.substring(0, charIndex);
+        if (charIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(tick, holdTime);
+          return;
+        }
+        setTimeout(tick, typingSpeed);
+      }
+    }
+
+    setTimeout(tick, holdTime);
+  }
+
   /* ---------- Marquee: clone children for seamless loop ---------- */
   function initMarquees() {
     document.querySelectorAll('[data-marquee]').forEach(function (track) {
@@ -85,6 +133,7 @@
   function init() {
     initMarquees();
     initCounters();
+    initTypewriter();
   }
 
   if (document.readyState === 'loading') {

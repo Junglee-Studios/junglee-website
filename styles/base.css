@@ -438,42 +438,25 @@ body[data-page="home"] .hero h1 .accent { color: var(--color-teal); }
   border: 0;
 }
 
-/* Hero word rotator — CSS-only, natural reflow.
-   The inactive word collapses to font-size: 0 so it takes no inline space,
-   letting the surrounding sentence flow to the active word's width — no
-   reserved gap after the shorter word. */
-.rotator {
+/* Hero typewriter word — JS-driven letter-by-letter type/delete with a
+   blinking coral cursor. Word color matches coral; "TikTok Shop" stays teal. */
+.typewriter-word {
   display: inline;
-  vertical-align: baseline;
-  line-height: 1.1;
-}
-.rotator-track {
-  display: inline;
-}
-.rotator .rotator-word {
-  display: inline;
-  white-space: nowrap;
-  line-height: 1.1;
   color: var(--color-coral);
+  border-right: 2px solid var(--color-coral);
+  padding-right: 2px;
+  white-space: nowrap;
+  animation: typewriter-blink 0.7s step-end infinite;
 }
-.rotator-word:nth-child(1) {
-  animation: rotator-word-1 6s steps(1, end) infinite;
-}
-.rotator-word:nth-child(2) {
-  animation: rotator-word-2 6s steps(1, end) infinite;
-}
-@keyframes rotator-word-1 {
-  0%, 50%      { font-size: 1em; opacity: 1; }
-  50.01%, 100% { font-size: 0;   opacity: 0; }
-}
-@keyframes rotator-word-2 {
-  0%, 50%      { font-size: 0;   opacity: 0; }
-  50.01%, 100% { font-size: 1em; opacity: 1; }
+@keyframes typewriter-blink {
+  50% { border-color: transparent; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rotator-word { animation: none; }
-  .rotator-word:nth-child(1) { font-size: 1em; opacity: 1; }
-  .rotator-word:nth-child(2) { font-size: 0; opacity: 0; }
+  .typewriter-word {
+    border-right: none;
+    padding-right: 0;
+    animation: none;
+  }
 }
 
 /* ===========================================================
