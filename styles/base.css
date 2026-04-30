@@ -231,6 +231,23 @@ header#site-header {
   border-color: var(--color-white);
 }
 
+/* On the dark CTA block, secondary uses the teal accent so it's visible by default */
+.cta-block .btn.secondary,
+.cta-block .btn.teal,
+.cta-block .btn.cyan {
+  background: transparent;
+  color: var(--color-teal) !important;
+  border-color: var(--color-teal);
+}
+.cta-block .btn.secondary:hover,
+.cta-block .btn.teal:hover,
+.cta-block .btn.cyan:hover {
+  background: var(--color-teal);
+  color: var(--color-white) !important;
+  border-color: var(--color-teal);
+  box-shadow: 0 8px 24px rgba(30,164,164,0.30);
+}
+
 .btn.white {
   background: var(--color-white);
   color: var(--color-charcoal) !important;
