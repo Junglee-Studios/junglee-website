@@ -62,17 +62,28 @@
     }
     .tm-photo {
       width: 100%;
-      aspect-ratio: 4/5;
+      height: 320px;
       overflow: hidden;
       background: var(--color-smoke);
+      flex-shrink: 0;
     }
     .tm-photo img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform .5s ease;
     }
-    .tm-card:hover .tm-photo img { transform: scale(1.03); }
+    .tm-photo img.shift-down {
+      height: auto;
+      min-height: 100%;
+      width: 100%;
+      object-fit: unset;
+    }
+    @media (max-width: 980px) {
+      .tm-photo { height: 360px; }
+    }
+    @media (max-width: 640px) {
+      .tm-photo { height: 380px; }
+    }
     .tm-body {
       padding: 22px;
       display: flex;
@@ -293,7 +304,7 @@
       <div class="team-grid">
         <article class="tm-card">
           <div class="tm-photo">
-            <img src="assets/logos/assets/jt-patel-v4.jpg" alt="Jatin Patel (JT), Founder of Junglee Studios" loading="lazy">
+            <img src="assets/logos/assets/jt-patel-v4.jpg" alt="Jatin Patel (JT), Founder of Junglee Studios" class="shift-down" style="margin-top: -18%;" loading="lazy">
           </div>
           <div class="tm-body">
             <span class="tm-role">Founder</span>
@@ -311,7 +322,7 @@
 
         <article class="tm-card">
           <div class="tm-photo">
-            <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" loading="lazy">
+            <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" style="object-position: center top; transform: scale(1.25); transform-origin: center top;" loading="lazy">
           </div>
           <div class="tm-body">
             <span class="tm-role">Director of Client Media</span>
@@ -329,7 +340,7 @@
 
         <article class="tm-card">
           <div class="tm-photo">
-            <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" loading="lazy">
+            <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" style="object-position: center 20%; transform: scale(1.33); transform-origin: center 20%;" loading="lazy">
           </div>
           <div class="tm-body">
             <span class="tm-role">Live Commerce Strategist</span>
