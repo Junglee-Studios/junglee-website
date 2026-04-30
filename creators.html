@@ -72,12 +72,20 @@
     }
     .opp {
       padding: 24px;
-      border: 1px solid rgba(255,255,255,0.10);
+      border: 1px solid rgba(14,15,18,0.10);
+      border-top: 3px solid var(--color-ink);
       border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.03);
+      background: var(--color-white);
+      box-shadow: 0 12px 28px rgba(14,15,18,0.18), 0 2px 6px rgba(14,15,18,0.10);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .opp h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--color-white); }
-    .opp p { margin: 0; color: rgba(255,255,255,0.74); font-size: 0.94rem; line-height: 1.55; }
+    .opp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(14,15,18,0.22), 0 4px 10px rgba(14,15,18,0.12);
+      border-color: rgba(14,15,18,0.16);
+    }
+    .opp h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--color-ink); }
+    .opp p { margin: 0; color: var(--color-text-secondary); font-size: 0.94rem; line-height: 1.55; }
     @media (max-width: 760px) { .opp-band { grid-template-columns: 1fr; } }
 
     .support-list {
@@ -105,6 +113,38 @@
       flex-shrink: 0;
     }
     @media (max-width: 640px) { .support-list { grid-template-columns: 1fr; } }
+
+    .academy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .academy-cell {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-coral);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .academy-cell:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: rgba(14,15,18,0.18);
+    }
+    .academy-cell .ac-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-coral);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .academy-cell h3 { margin: 0 0 8px; font-size: 1.02rem; color: var(--color-ink); }
+    .academy-cell p { margin: 0; color: var(--color-text-secondary); font-size: 0.92rem; line-height: 1.55; }
   </style>
 </head>
 
@@ -157,18 +197,18 @@
     </div>
   </section>
 
-  <section class="section section-charcoal reveal" id="opportunity">
+  <section class="section section-coral reveal" id="opportunity">
     <div class="container">
       <div class="kicker"><i></i> The opportunity</div>
-      <h2>Creator-led commerce is the new shelf.</h2>
-      <p class="lead">Product discovery is happening on TikTok before it's happening anywhere else. Creators who learn how to operate inside the platform earn more — more often, more predictably.</p>
+      <h2 style="max-width: 26ch;">Shoppers find products through creators, content, and LIVE — not the search bar.</h2>
+      <p class="lead" style="max-width: 62ch;">Product discovery is shifting from static shelves and search to creator-driven feeds and LIVE shopping. The creators who learn how to operate inside that motion earn more — more often, more predictably.</p>
 
       <div class="opp-band">
-        <div class="opp">
-          <h3>Product discovery is shifting</h3>
-          <p>Shoppers find products through creators they trust before they ever search for them. That's where the affiliate income lives.</p>
+        <div class="opp stagger-item">
+          <h3>Discovery happens in the feed</h3>
+          <p>Shoppers find products through creators they trust and through LIVE shopping — long before they ever search. That's where the affiliate income lives.</p>
         </div>
-        <div class="opp">
+        <div class="opp stagger-item">
           <h3>Repeatable performance beats virality</h3>
           <p>The creators who earn consistently aren't the ones who go viral once — they're the ones with a system. We help build it.</p>
         </div>
@@ -182,27 +222,27 @@
       <h2>Five things every creator needs to earn consistently.</h2>
 
       <div class="what-grid">
-        <div class="what-card">
+        <div class="what-card stagger-item">
           <span class="num">01</span>
           <h3>Products + samples</h3>
           <p>Access to brand partners and product samples — matched to your audience and content style.</p>
         </div>
-        <div class="what-card">
+        <div class="what-card stagger-item">
           <span class="num">02</span>
           <h3>Content coaching</h3>
           <p>Frameworks for hooks, proof, and offers that convert on TikTok Shop's discovery feed.</p>
         </div>
-        <div class="what-card">
+        <div class="what-card stagger-item">
           <span class="num">03</span>
           <h3>Posting systems</h3>
           <p>A repeatable posting cadence so you ship enough content, in the right shapes, to earn consistently.</p>
         </div>
-        <div class="what-card">
+        <div class="what-card stagger-item">
           <span class="num">04</span>
           <h3>Platform guidance</h3>
           <p>Violation support, ticket handling, and platform navigation — so the operational stuff stops eating your time.</p>
         </div>
-        <div class="what-card">
+        <div class="what-card stagger-item">
           <span class="num">05</span>
           <h3>LIVE support</h3>
           <p>Coaching on going LIVE, building stream cadence, and unlocking LIVE GMV alongside your VOD income.</p>
@@ -210,6 +250,17 @@
       </div>
     </div>
   </section>
+
+  <div class="term-marquee reveal" aria-hidden="true">
+    <div class="term-marquee-track" data-marquee>
+      <span>Coaching</span><span class="dot"></span>
+      <span>Products &amp; samples</span><span class="dot"></span>
+      <span>Posting systems</span><span class="dot"></span>
+      <span>Platform guidance</span><span class="dot"></span>
+      <span>Affiliate strategy</span><span class="dot"></span>
+      <span>LIVE support</span><span class="dot"></span>
+    </div>
+  </div>
 
   <span id="creator-support" aria-hidden="true"></span>
   <section class="section section-smoke reveal" id="how-we-support">
@@ -219,15 +270,58 @@
       <p class="lead">We don't promise virality. We give creators the tools, briefs, and platform context that turn content into a real income stream — with the room to grow.</p>
 
       <ul class="support-list">
-        <li>Affiliate onboarding &amp; monetization</li>
-        <li>Commission strategy &amp; brand pairing</li>
-        <li>Exclusive creator campaign access</li>
-        <li>Brand partnership guidance</li>
-        <li>Affiliate coaching &amp; live reviews</li>
-        <li>Content strategy &amp; posting support</li>
-        <li>UGC &amp; lifestyle content development</li>
-        <li>Creator violation &amp; ticket support</li>
+        <li class="stagger-item">Affiliate onboarding &amp; monetization</li>
+        <li class="stagger-item">Commission strategy &amp; brand pairing</li>
+        <li class="stagger-item">Exclusive creator campaign access</li>
+        <li class="stagger-item">Brand partnership guidance</li>
+        <li class="stagger-item">Affiliate coaching &amp; live reviews</li>
+        <li class="stagger-item">Content strategy &amp; posting support</li>
+        <li class="stagger-item">UGC &amp; lifestyle content development</li>
+        <li class="stagger-item">Creator violation &amp; ticket support</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- JUNGLEE ACADEMY -->
+  <section class="section section-light reveal" id="academy">
+    <div class="container">
+      <div class="kicker"><i></i> Junglee Academy</div>
+      <h2 style="max-width: 26ch;">Grow inside Junglee Academy.</h2>
+      <p class="lead" style="max-width: 62ch;">A structured path for creators serious about TikTok Shop. Coaching, products and samples, posting systems, platform guidance, and affiliate strategy — designed to turn content into a real, repeatable income.</p>
+
+      <div class="academy-grid">
+        <div class="academy-cell stagger-item">
+          <span class="ac-label">Coaching</span>
+          <h3>Hands-on creator coaching</h3>
+          <p>Frameworks for hooks, proof, and offers — reviewed against your actual content, not generic templates.</p>
+        </div>
+        <div class="academy-cell stagger-item">
+          <span class="ac-label">Products &amp; samples</span>
+          <h3>Brand pairing &amp; samples</h3>
+          <p>Access to brand partners and product samples matched to your audience and content style.</p>
+        </div>
+        <div class="academy-cell stagger-item">
+          <span class="ac-label">Posting systems</span>
+          <h3>A repeatable posting cadence</h3>
+          <p>The shapes and rhythm that ship enough content for the feed to actually work for you.</p>
+        </div>
+        <div class="academy-cell stagger-item">
+          <span class="ac-label">Platform guidance</span>
+          <h3>Navigate TikTok Shop with support</h3>
+          <p>Violation help, ticket handling, and platform context — so the operational stuff stops eating your time.</p>
+        </div>
+        <div class="academy-cell stagger-item">
+          <span class="ac-label">Affiliate strategy</span>
+          <h3>Affiliate that actually converts</h3>
+          <p>Onboarding, commission strategy, and brand pairing — tuned for repeatable affiliate income, not one-off campaigns.</p>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top: 32px;">
+        <a class="btn primary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy</a>
+        <a class="btn secondary" href="#what-creators-get">See what creators get</a>
+      </div>
+      <p class="muted" style="margin-top: 14px; font-size: 0.88rem; max-width: 60ch;">No promises of virality. Junglee Academy gives creators the system, support, and platform context to grow consistently.</p>
     </div>
   </section>
 
