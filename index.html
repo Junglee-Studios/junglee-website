@@ -4,36 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Junglee Studios | TikTok Shop Agency & Creator Growth</title>
-    <meta name="description" content="The only TikTok Shop agency led by a former TikTok category leader. We help brands scale on TikTok Shop and creators build consistent affiliate income." />
+    <title>Junglee Studios | Built by Former TikTok Shop Leaders</title>
+    <meta name="description" content="Junglee Studios helps brands and creators win in social commerce — content that converts, shop optimization, creator commerce, and live selling. Built by former TikTok Shop leaders." />
     <link rel="canonical" href="https://jungleestudios.com/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Junglee Studios" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://jungleestudios.com/" />
-    <meta property="og:title" content="Junglee Studios | TikTok Shop Agency & Creator Growth" />
-    <meta
-      property="og:description"
-      content="We help brands launch and scale TikTok Shop, grow creator affiliate programs, and build social commerce that converts."
-    />
+    <meta property="og:title" content="Junglee Studios | Built by Former TikTok Shop Leaders" />
+    <meta property="og:description" content="Helping brands and creators win in social commerce — content that converts, shop optimization, creator commerce, and live selling." />
     <meta property="og:image" content="https://www.jungleestudios.com/assets/logos/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Junglee Studios social commerce and TikTok Shop consulting" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Junglee Studios | TikTok Shop Agency & Creator Growth" />
-    <meta
-      name="twitter:description"
-      content="Launch, run, and scale TikTok Shop with consulting, creator affiliate support, live selling, and content creation."
-    />
+    <meta name="twitter:title" content="Junglee Studios | Built by Former TikTok Shop Leaders" />
+    <meta name="twitter:description" content="Built by former TikTok Shop leaders. Helping brands and creators win in social commerce." />
     <meta name="twitter:image" content="https://www.jungleestudios.com/assets/logos/assets/og-image.png" />
-    <meta name="twitter:image:alt" content="Junglee Studios social commerce and TikTok Shop consulting" />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -41,294 +30,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Junglee Studios","url":"https://jungleestudios.com","description":"Social commerce consulting specializing in TikTok Shop management, creator/affiliate growth, and live selling.","foundingDate":"2024","sameAs":["https://www.instagram.com/jungleestudios/","https://www.tiktok.com/@jungleestudios","https://www.linkedin.com/in/jatinjtpatel"],"awardOrHonor":["Official TikTok Shop Partner (TSP)","TikTok Creator Agency Partner (CAP)","TikTok Multi-Channel Network (MCN)"]}
+    {"@context":"https://schema.org","@type":"Organization","name":"Junglee Studios","url":"https://jungleestudios.com","description":"Social commerce agency built by former TikTok Shop leaders. Specializing in shop optimization, creator commerce, content that converts, and live selling.","foundingDate":"2024","sameAs":["https://www.instagram.com/jungleestudios/","https://www.tiktok.com/@jungleestudios","https://www.linkedin.com/in/jatinjtpatel"],"awardOrHonor":["TikTok Shop Certified Full Service Management Partner","TikTok Creator Agency Partner","TikTok Multi-Channel Network"]}
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/base.css" />
     <script src="partials/loader.js" defer></script>
     <script src="js/animations.js" defer></script>
-
-    <style>
-      /* Page-specific: hero (light bg + color wash orbs), hero proof bar, mini stats */
-
-      /* --- Light hero with color wash orbs --- */
-      .hero {
-        background: #ffffff;
-        min-height: auto;
-        padding: clamp(56px, 8vw, 100px) 0;
-      }
-
-      /* Cyan orb — top-left, slow drift */
-      .hero::before {
-        inset: auto;
-        width: 600px;
-        height: 600px;
-        top: -10%;
-        left: -8%;
-        background: radial-gradient(circle, rgba(0,242,234,0.15) 0%, transparent 70%);
-        filter: blur(80px);
-        z-index: 0;
-        animation: drift-cyan 8s ease-in-out infinite alternate;
-      }
-
-      /* Magenta orb — bottom-right, slow drift opposite */
-      .hero::after {
-        inset: auto;
-        width: 600px;
-        height: 600px;
-        bottom: -10%;
-        right: -8%;
-        background: radial-gradient(circle, rgba(255,45,154,0.10) 0%, transparent 70%);
-        filter: blur(80px);
-        z-index: 0;
-        animation: drift-magenta 10s ease-in-out infinite alternate;
-      }
-
-      @keyframes drift-cyan {
-        from { transform: translate(0, 0); }
-        to   { transform: translate(20px, 20px); }
-      }
-      @keyframes drift-magenta {
-        from { transform: translate(0, 0); }
-        to   { transform: translate(-20px, -20px); }
-      }
-
-      /* Grid overlay on vignette div for subtle texture */
-      .hero .vignette {
-        opacity: 1;
-        background:
-          linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
-        background-size: 60px 60px;
-      }
-
-      .hero > .container { z-index: 1; }
-
-      .hero-grid { max-width: 820px; }
-
-      /* Bolder headline */
-      .hero h1 {
-        font-size: clamp(2.5rem, 5.2vw, 4.2rem);
-        color: var(--color-dark);
-        text-shadow: none;
-      }
-
-      .hero .lead {
-        color: var(--color-text-secondary);
-        text-shadow: none;
-      }
-
-      /* Stat numbers slightly larger for visual anchor */
-      .hero .stat-num {
-        font-size: clamp(1.6rem, 3.2vw, 2.25rem);
-      }
-
-      /* --- Stat strip (dark near-black background) --- */
-      .stat-strip {
-        margin-top: 32px;
-        display: flex;
-        gap: 0;
-        justify-content: center;
-        align-items: stretch;
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: #111111;
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .stat-item {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 18px 12px;
-        text-align: center;
-        gap: 4px;
-        border-right: 1px solid rgba(255,255,255,0.07);
-      }
-      .stat-item:last-child { border-right: none; }
-      .stat-num {
-        font-size: clamp(1.45rem, 2.8vw, 2rem);
-        font-weight: 950;
-        letter-spacing: -0.04em;
-        color: #ffffff;
-        line-height: 1;
-      }
-      .stat-num.cyan { color: var(--color-cyan); }
-      .stat-num.pink { color: var(--color-magenta); }
-      .stat-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.45);
-      }
-
-      /* --- Icon-led list items in cards --- */
-      .feat-list {
-        margin: var(--space-md) 0 var(--space-md);
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 10px;
-      }
-      .feat-list li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-weight: 650;
-        color: rgba(10,10,10,0.78);
-        line-height: 1.45;
-        font-size: 0.95rem;
-      }
-      .feat-list li::before {
-        content: '';
-        flex: 0 0 7px;
-        height: 7px;
-        border-radius: 50%;
-        margin-top: 6px;
-      }
-      .feat-list.cyan li::before { background: var(--color-cyan); }
-      .feat-list.pink li::before { background: var(--color-magenta); }
-
-      /* --- Trust logos strip (DARK — contrast anchor) --- */
-      .trust-strip {
-        background: var(--color-dark);
-        padding: clamp(28px, 4vw, 44px) 0 clamp(32px, 4vw, 52px);
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-      .trust-label {
-        text-align: center;
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #ffffff;
-        margin-bottom: 22px;
-      }
-      .trust-logos {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-      }
-      .trust-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 18px;
-        border-radius: var(--radius-pill);
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.06);
-        font-size: 0.875rem;
-        font-weight: 800;
-        color: rgba(255,255,255,0.72);
-        letter-spacing: -0.01em;
-        backdrop-filter: blur(8px);
-      }
-      .trust-badge svg {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-      }
-
-      /* --- Card labels (FOR BRANDS / FOR CREATORS) --- */
-      .card-label {
-        display: inline-block;
-        font-size: 0.72rem;
-        font-weight: 900;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-      }
-      .card-label.cyan { color: var(--color-dark); }
-      .card-label.pink { color: var(--color-magenta); }
-
-      /* --- Services split section --- */
-      .services-split .actions { justify-content: flex-start; }
-      .services-split .card { padding: clamp(24px, 3vw, 36px); }
-
-      /* --- Logo marquee --- */
-      .logo-marquee-track {
-        overflow: hidden;
-        width: 100%;
-      }
-      .logo-marquee-inner {
-        display: flex;
-        gap: 48px;
-        align-items: center;
-        width: max-content;
-        animation: marquee-scroll 30s linear infinite;
-      }
-      .logo-marquee-inner img {
-        height: 40px;
-        width: auto;
-        opacity: 0.7;
-        filter: grayscale(100%);
-        flex-shrink: 0;
-      }
-      .logo-marquee-inner:hover {
-        animation-play-state: paused;
-      }
-      @keyframes marquee-scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-
-      /* --- Testimonial (DARK section) --- */
-      .testimonial-dark {
-        background: var(--color-dark);
-      }
-
-      /* --- Closing CTA (cyan background) --- */
-      .cta-cyan {
-        background: var(--color-cyan);
-      }
-      .cta-cyan .kicker { color: rgba(10,10,10,0.65); }
-      .cta-cyan .kicker i { background: var(--color-dark); }
-      .cta-cyan h2 { color: var(--color-dark); }
-      .cta-cyan .lead { color: rgba(10,10,10,0.75); }
-      .cta-cyan .card {
-        background: rgba(255,255,255,0.85);
-        border: 1px solid rgba(0,0,0,0.08);
-      }
-
-      @media (max-width: 980px) {
-        .hero::before, .hero::after {
-          width: 350px;
-          height: 350px;
-          filter: blur(60px);
-        }
-        .stat-strip { flex-direction: column; border-radius: var(--radius-md); }
-        .stat-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 14px; }
-        .stat-item:last-child { border-bottom: none; }
-        .services-split .actions { justify-content: flex-start; }
-        .trust-logos { gap: 8px; }
-      }
-
-      /* Reduced motion: disable orb animations */
-      /* Force btn colors — prevent any cascade bleed */
-      a.btn.cyan, .card a.btn.cyan, .services-split a.btn.cyan,
-      .actions a.btn.cyan { color: #0a0a0a !important; }
-      a.btn.pink, .card a.btn.pink, .services-split a.btn.pink,
-      .actions a.btn.pink { color: #ffffff !important; }
-      a.btn.primary, .card a.btn.primary,
-      .actions a.btn.primary { color: #ffffff !important; }
-      @media (prefers-reduced-motion: reduce) {
-        .hero::before, .hero::after {
-          animation: none;
-        }
-      }
-    </style>
   </head>
 
   <body data-page="home">
@@ -336,273 +49,253 @@
 <div class="container">
   <nav class="nav" aria-label="Primary navigation">
     <a class="brand" href="/" aria-label="Junglee Studios home">
-      <img
-        src="/assets/logos/assets/Junglee Studios - without black shadow.png"
-        alt="Junglee Studios logo"
-        class="logo"
-      />
-      <div class="wm"><b>Studios</b></div>
+      <img src="/assets/logos/assets/Junglee Studios - without black shadow.png" alt="Junglee Studios" class="logo" />
     </a>
-
     <div class="navlinks" role="navigation">
-      <a href="/" data-page="home" aria-current="page">Home</a>
+      <a href="/" data-page="home">Home</a>
       <a href="/about-junglee.html" data-page="about">About</a>
-      <a href="/brands" data-page="brands">I'm a Brand</a>
-      <a href="/creators" data-page="creators">I'm a Creator</a>
-      <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      <a href="/brands" data-page="brands">Brands</a>
+      <a href="/creators" data-page="creators">Creators</a>
+      <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
     </div>
-
-    <button
-      class="menu"
-      id="menuBtn"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="mobilePanel"
-    >
-      <span></span>
-    </button>
+    <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><span></span></button>
   </nav>
-
   <div class="mobile-panel" id="mobilePanel">
     <a href="/" data-page="home">Home</a>
     <a href="/about-junglee.html" data-page="about">About</a>
-    <a href="/brands" data-page="brands">I'm a Brand</a>
-    <a href="/creators" data-page="creators">I'm a Creator</a>
+    <a href="/brands" data-page="brands">Brands</a>
+    <a href="/creators" data-page="creators">Creators</a>
     <div class="mobile-cta">
-      <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
     </div>
   </div>
 </div>
 </header>
 
-    <section class="hero" id="hero" style="padding-bottom:clamp(24px,3vw,40px);">
-      <div class="vignette" aria-hidden="true"></div>
+    <!-- 1. HERO -->
+    <section class="hero" id="hero">
       <div class="container">
         <div class="hero-grid">
-          <div class="kicker"><i></i>Social Commerce, Built the Junglee Way</div>
-          <h1>We help <span class="typewriter-word">brands</span> win on TikTok Shop.</h1>
-
+          <div class="kicker"><i></i> Social commerce, operated</div>
+          <h1>Built by Former <span class="accent">TikTok Shop</span> Leaders.</h1>
           <p class="lead">
-            Junglee Studios helps established brands scale on TikTok Shop and helps creators build consistent affiliate income — powered by a team that was on the ground floor of building TikTok Shop itself.
+            Junglee Studios helps brands and creators win in social commerce through content that converts, shop optimization, creator commerce, and live selling.
           </p>
-
           <div class="actions">
-            <a class="btn cyan" href="/brands">I'm a Brand</a>
-            <a class="btn pink" href="/creators">I'm a Creator</a>
+            <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">
+              Book a Strategy Call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn secondary" href="#what-we-unlock">Explore Services</a>
           </div>
 
-          <div class="stat-strip" aria-label="Performance stats">
-            <div class="stat-item">
-              <div class="stat-num cyan" data-count-to="1.3" data-count-prefix="$" data-count-suffix="B+" data-count-decimals="1">$1.3B+</div>
-              <div class="stat-label">D2C Sales</div>
+          <div class="stat-grid" aria-label="Operator credibility">
+            <div class="stat-cell">
+              <div class="stat-num coral" data-count-to="1.3" data-count-prefix="$" data-count-suffix="B+" data-count-decimals="1">$1.3B+</div>
+              <div class="stat-label">D2C Sales Operated</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-num" data-count-to="400" data-count-prefix="" data-count-suffix="+" data-count-decimals="0">400+</div>
+            <div class="stat-cell">
+              <div class="stat-num teal" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
+              <div class="stat-label">LIVE GMV</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-num" data-count-to="400" data-count-suffix="+" data-count-decimals="0">400+</div>
               <div class="stat-label">Brands Scaled</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-num" data-count-to="300" data-count-prefix="" data-count-suffix="+" data-count-decimals="0">300+</div>
+            <div class="stat-cell">
+              <div class="stat-num" data-count-to="300" data-count-suffix="+" data-count-decimals="0">300+</div>
               <div class="stat-label">Creators Supported</div>
             </div>
-            <div class="stat-item">
-              <div class="stat-num pink" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
-              <div class="stat-label">Live GMV</div>
-            </div>
           </div>
-          <p style="margin:12px auto 0;text-align:center;font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.40);">From our founder's tenure as TikTok Shop Category Leader</p>
+          <p class="source-note">Operator track record across our team's tenure at TikTok Shop, Amazon, and Junglee Studios.</p>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip section-dark reveal" style="padding-top:clamp(24px,3vw,40px);">
+    <!-- 2. PROOF STRIP -->
+    <section class="proof-strip" aria-label="Credentials">
       <div class="container">
-        <p class="trust-label">Trusted partners &amp; credentials</p>
-
-        <!-- Row 1 — Partner badges (official credentials) -->
-        <div class="trust-logos" style="margin-bottom: 12px;">
-          <span class="trust-badge" style="color: var(--color-cyan); border-color: rgba(0,242,234,0.25);">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#00f2ea" stroke="#00f2ea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Official TikTok Shop Partner (TSP)
-          </span>
-          <span class="trust-badge" style="color: var(--color-cyan); border-color: rgba(0,242,234,0.25);">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            TikTok Creator Agency Partner
-          </span>
-          <span class="trust-badge" style="color: var(--color-cyan); border-color: rgba(0,242,234,0.25);">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke="#00f2ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            TikTok MultiChannel Network
-          </span>
-        </div>
-
-        <!-- Divider -->
-        <div style="display: flex; align-items: center; gap: 12px; max-width: 480px; margin: 0 auto 14px;">
-          <span style="flex: 1; height: 1px; background: rgba(255,255,255,0.10);"></span>
-          <span style="font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff;">Services</span>
-          <span style="flex: 1; height: 1px; background: rgba(255,255,255,0.10);"></span>
-        </div>
-
-        <!-- Row 2 — Services -->
-        <div class="trust-logos">
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Full TikTok Shop Management</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">LIVE Selling Management</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Creator Campaigns</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Affiliate Outreach &amp; Marketing</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">TikTok Ads</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Creator Growth Consulting</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">Affiliate Coaching</span>
-          <span class="trust-badge" style="font-size: 0.82rem; font-weight: 700;">UGC Content Development</span>
+        <div class="proof-strip-inner">
+          <span class="proof-item"><span class="dot"></span> Certified Full Service Management Partner</span>
+          <span class="proof-item"><span class="dot teal"></span> Former TikTok Shop Leaders</span>
+          <span class="proof-item"><span class="dot teal"></span> Former TikTok Shop Talent</span>
+          <span class="proof-item"><span class="dot"></span> $1.3B+ D2C Sales · $500M+ LIVE GMV</span>
         </div>
       </div>
     </section>
 
-    <section class="section tight-bottom reveal" style="background:var(--color-magenta);">
+    <!-- 3. WHY NOW (TikTok official stats) -->
+    <section class="section section-charcoal reveal" id="why-now">
       <div class="container">
-        <div class="kicker" style="color:rgba(255,255,255,0.80);"><i style="background:rgba(255,255,255,0.90);"></i> Who we are</div>
-        <h2 style="color:#ffffff;">We didn't learn TikTok Shop from the outside.</h2>
-        <p class="lead" style="color:rgba(255,255,255,0.85);">
-          Our founder led category strategy at TikTok Shop and helped launch Countdown Bidding — the platform's live auction selling mechanic. We bring that firsthand, ground-floor experience to every brand and creator we work with. Not theory. Not guesswork. The real playbook.
+        <div class="kicker"><i></i> Why now</div>
+        <h2 style="max-width: 22ch;">Discovery commerce is growing fast.<br/><span style="color: rgba(255,255,255,0.55);">Expertise still matters.</span></h2>
+        <p class="lead" style="max-width: 60ch;">
+          TikTok Shop is powerful — but still confusing for many brands and creators to navigate alone. The platform's own data shows the surge.
+        </p>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="num" style="font-family: var(--font-mono); color: var(--color-coral); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 8px;">PLATFORM DATA</div>
+            <div style="font-family: var(--font-display); font-size: clamp(2.4rem, 4.8vw, 3.4rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; color: var(--color-white); margin: 4px 0 12px;" data-count-to="120" data-count-suffix="%" data-count-decimals="0">120%</div>
+            <h3>U.S. TikTok Shop sales</h3>
+            <p>Increased compared to the same period last year.</p>
+          </div>
+          <div class="card">
+            <div class="num" style="font-family: var(--font-mono); color: var(--color-teal); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 8px;">PLATFORM DATA</div>
+            <div style="font-family: var(--font-display); font-size: clamp(2.4rem, 4.8vw, 3.4rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; color: var(--color-white); margin: 4px 0 12px;" data-count-to="70" data-count-suffix="%" data-count-decimals="0">70%</div>
+            <h3>Sales to small U.S. businesses</h3>
+            <p>Year-over-year growth on TikTok Shop.</p>
+          </div>
+          <div class="card">
+            <div class="num" style="font-family: var(--font-mono); color: var(--color-coral); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 8px;">PLATFORM DATA</div>
+            <div style="font-family: var(--font-display); font-size: clamp(2.4rem, 4.8vw, 3.4rem); font-weight: 700; line-height: 1; letter-spacing: -0.04em; color: var(--color-white); margin: 4px 0 12px;" data-count-to="8" data-count-suffix="M+" data-count-decimals="0">8M+</div>
+            <h3>Hours of LIVE shopping</h3>
+            <p>Hosted by U.S. brands and creators on TikTok in 2024.</p>
+          </div>
+        </div>
+        <p class="source-note">
+          Source: <a href="https://newsroom.tiktok.com/tiktok-shop-is-where-shoppers-come-to-discover?lang=en" target="_blank" rel="noopener noreferrer">TikTok Newsroom — TikTok Shop is where shoppers come to discover</a>
         </p>
       </div>
     </section>
 
-    <section class="section light tight-top services-split section-light reveal">
+    <!-- Term marquee (restrained) -->
+    <div class="term-marquee reveal" aria-hidden="true">
+      <div class="term-marquee-track" data-marquee>
+        <span>Social commerce</span><span class="dot"></span>
+        <span>Discovery commerce</span><span class="dot"></span>
+        <span>Product discovery</span><span class="dot"></span>
+        <span>Live selling</span><span class="dot"></span>
+        <span>Content that converts</span><span class="dot"></span>
+        <span>Creator commerce</span><span class="dot"></span>
+      </div>
+    </div>
+
+    <!-- 4. WHAT JUNGLEE UNLOCKS -->
+    <section class="section section-light reveal" id="what-we-unlock">
       <div class="container">
-        <div class="kicker"><i></i> What we do</div>
-        <h2>Built for brands. Built for creators. One system.</h2>
-        <p class="lead">
-          Whether you're scaling a TikTok Shop or growing your creator income, we have a dedicated path for you.
+        <div class="kicker"><i></i> What Junglee unlocks</div>
+        <h2>Four levers. One growth engine.</h2>
+        <p class="lead">The Junglee System organizes the work brands and creators need to do on TikTok Shop into four operating capabilities.</p>
+
+        <div class="grid4">
+          <a class="card svcCard is-link" href="/brands#services">
+            <div class="icon-bar"></div>
+            <span class="num">01</span>
+            <h3>Content That Converts</h3>
+            <p>Hooks, proof, and offers engineered for TikTok Shop's discovery feed — not generic ads.</p>
+          </a>
+          <a class="card svcCard is-link" href="/brands#services">
+            <div class="icon-bar"></div>
+            <span class="num">02</span>
+            <h3>Shop Optimization</h3>
+            <p>Storefront architecture, catalog hygiene, and offer structure tuned for buy-flow performance.</p>
+          </a>
+          <a class="card svcCard is-link" href="/brands#services">
+            <div class="icon-bar"></div>
+            <span class="num">03</span>
+            <h3>Creator Commerce</h3>
+            <p>Affiliate strategy, creator recruitment, and campaign management run as a real channel.</p>
+          </a>
+          <a class="card svcCard is-link" href="/brands#services">
+            <div class="icon-bar"></div>
+            <span class="num">04</span>
+            <h3>Live Selling</h3>
+            <p>Host development, stream operations, and Mega Live event execution that drives real GMV.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CHOOSE YOUR PATH -->
+    <section class="section section-smoke reveal" id="paths">
+      <div class="container">
+        <div class="kicker"><i></i> Choose your path</div>
+        <h2>You're a brand. Or a creator.<br/>Either way, we have a system.</h2>
+
+        <div class="path-picker">
+          <a class="path-card brand" href="/brands">
+            <span class="path-label">For Brands</span>
+            <h3>Turn TikTok Shop into a real revenue channel.</h3>
+            <p>Shop optimization, creator commerce, content that converts, and live selling — built for growth.</p>
+            <span class="arrow">
+              Brand services
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a class="path-card creator" href="/creators">
+            <span class="path-label">For Creators</span>
+            <h3>Turn content into more consistent affiliate income.</h3>
+            <p>Products, coaching, posting systems, platform support, and affiliate strategies designed for repeatable performance.</p>
+            <span class="arrow" style="color: var(--color-teal);">
+              Creator services
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WHY JUNGLEE -->
+    <section class="section section-light reveal" id="why-junglee">
+      <div class="container" style="max-width: 880px;">
+        <div class="kicker"><i></i> Why Junglee</div>
+        <h2 style="font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.035em; line-height: 1.05;">
+          We didn't learn TikTok Shop from the outside.<br/>
+          <span style="color: var(--color-text-secondary);">We helped shape it from behind the scenes.</span>
+        </h2>
+        <p class="lead" style="font-size: 1.15rem;">
+          Now we help brands and creators navigate it with clarity. The Junglee System turns insider platform knowledge into a repeatable operating model — built so your team owns the growth, not just rents it.
         </p>
-        <p style="margin:0 0 24px;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-magenta);">Powered by The Junglee System — designed to build your independence, not extend ours</p>
+        <div class="actions" style="margin-top: 28px;">
+          <a class="btn secondary" href="/about-junglee.html">Meet the team</a>
+          <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+        </div>
+      </div>
+    </section>
 
-        <div class="grid2">
-          <div class="card">
-            <span class="card-label cyan">For Brands</span>
-            <h3>Scale your TikTok Shop — and own it.</h3>
-            <p>We partner with established brands to launch, grow, and hand off a fully operational TikTok Shop. Through The Brand Scaling Program, your team learns the system. The results stay. The dependency doesn't.</p>
-            <ul class="feat-list cyan">
-              <li>Full End-to-End TikTok Shop Management</li>
-              <li>TikTok Shop Consulting &amp; Strategy</li>
-              <li>LIVE Selling Management</li>
-              <li>Creator &amp; Affiliate Campaigns</li>
-              <li>Affiliate Outreach &amp; Marketing</li>
-              <li>TikTok Ads Management</li>
-              <li>UGC Content Development</li>
-              <li>Lifestyle Content Development</li>
-              <li>Flat-Fee Content Strategies</li>
-            </ul>
-            <div class="actions">
-              <a class="btn cyan" style="color:#0a0a0a !important;" href="/brands">Learn about the program</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <span class="card-label pink">For Creators</span>
-            <h3>Turn your content into a real income stream.</h3>
-            <p>Join an official TikTok Creator Agency Partner and Multi-Channel Network. We give creators the products, access, and coaching to earn consistently.</p>
-            <ul class="feat-list pink">
-              <li>Creator Growth Consulting</li>
-              <li>Affiliate Onboarding &amp; Monetization</li>
-              <li>Commission Strategies</li>
-              <li>Exclusive Creator Campaign Access</li>
-              <li>Brand Partnership Guidance</li>
-              <li>Affiliate Coaching</li>
-              <li>Content Strategy &amp; Posting Support</li>
-              <li>UGC &amp; Lifestyle Content Development</li>
-              <li>Creator Violation &amp; Ticket Support</li>
-            </ul>
-            <div class="actions">
-              <a class="btn pink" href="/creators">Explore Creator Services</a>
-            </div>
+    <!-- Trusted by (logo marquee) -->
+    <section class="section section-light reveal" style="padding-top: 0; padding-bottom: clamp(40px, 5vw, 64px);">
+      <div class="container">
+        <p style="text-align: center; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-secondary); margin: 0 0 24px;">Trusted by brands scaling on TikTok Shop</p>
+        <div class="logo-marquee">
+          <div class="logo-marquee-inner" data-marquee>
+            <img src="assets/logos/Disliz Logo.png" alt="Disliz" loading="lazy">
+            <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative" loading="lazy">
+            <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon" loading="lazy">
+            <img src="assets/logos/disneystore.png" alt="Disney Store" loading="lazy">
+            <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners" loading="lazy">
+            <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank" loading="lazy">
+            <img src="assets/logos/Goli.png" alt="Goli Nutrition" loading="lazy">
+            <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils" loading="lazy">
+            <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent" loading="lazy">
+            <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards" loading="lazy">
+            <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports" loading="lazy">
+            <img src="assets/logos/RipNHits.png" alt="Rip N Hits" loading="lazy">
+            <img src="assets/logos/xpcollect_logo.png" alt="XP Collect" loading="lazy">
+            <img src="assets/logos/Yucca.png" alt="Yucca" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section light section-light reveal" style="padding-bottom:64px;">
-      <div class="container" style="text-align:center;">
-        <div class="kicker"><i style="background:var(--color-magenta);"></i> Trusted by</div>
-        <div class="logo-marquee-track" style="margin-top:18px;">
-          <div class="logo-marquee-inner">
-            <img src="assets/logos/Disliz Logo.png" alt="Disliz Logo" loading="lazy">
-            <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo" loading="lazy">
-            <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo" loading="lazy">
-            <img src="assets/logos/disneystore.png" alt="Disney Store logo" loading="lazy">
-            <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners logo" loading="lazy">
-            <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo" loading="lazy">
-            <img src="assets/logos/Goli.png" alt="Goli Nutrition logo" loading="lazy">
-            <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils logo" loading="lazy">
-            <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo" loading="lazy">
-            <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards logo" loading="lazy">
-            <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports logo" loading="lazy">
-            <img src="assets/logos/RipNHits.png" alt="Rip N Hits logo" loading="lazy">
-            <img src="assets/logos/xpcollect_logo.png" alt="XP Collect logo" loading="lazy">
-            <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo" loading="lazy">
-            <img src="assets/logos/Yucca.png" alt="Yucca Logo" loading="lazy">
-            <!-- duplicate for seamless loop -->
-            <img src="assets/logos/Disliz Logo.png" alt="Disliz Logo" loading="lazy">
-            <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative logo" loading="lazy">
-            <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon logo" loading="lazy">
-            <img src="assets/logos/disneystore.png" alt="Disney Store logo" loading="lazy">
-            <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners logo" loading="lazy">
-            <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank logo" loading="lazy">
-            <img src="assets/logos/Goli.png" alt="Goli Nutrition logo" loading="lazy">
-            <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils logo" loading="lazy">
-            <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent logo" loading="lazy">
-            <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards logo" loading="lazy">
-            <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports logo" loading="lazy">
-            <img src="assets/logos/RipNHits.png" alt="Rip N Hits logo" loading="lazy">
-            <img src="assets/logos/xpcollect_logo.png" alt="XP Collect logo" loading="lazy">
-            <img src="assets/logos/idwve1N6IP_logos.png" alt="NineTales Trading Co logo" loading="lazy">
-            <img src="assets/logos/Yucca.png" alt="Yucca Logo" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark testimonial-dark reveal" style="padding:clamp(48px,6vw,80px) 0 clamp(24px,3vw,40px);">
-      <div class="container" style="max-width:800px; text-align:center;">
-        <div class="kicker" style="justify-content:center; color:rgba(255,255,255,0.78);"><i style="background:var(--color-cyan);"></i> What people say</div>
-        <p style="margin:24px 0 0; font-size:clamp(1.3rem,2.4vw,1.75rem); font-weight:700; font-style:italic; line-height:1.5; color:var(--color-white);">
-          &ldquo;Working with the Junglee team transformed our TikTok Shop strategy. Their system just works.&rdquo;
+    <!-- 7. FINAL CTA -->
+    <section class="cta-block reveal" id="contact">
+      <div class="container" style="max-width: 920px;">
+        <div class="kicker" style="color: var(--color-coral);"><i></i> Get started</div>
+        <h2 style="font-size: clamp(2.2rem, 5vw, 3.8rem); margin-top: 12px;">Ready to win in social commerce?</h2>
+        <p class="lead" style="font-size: 1.12rem;">
+          A 30-minute strategy call with our team. We'll map your TikTok Shop opportunity and what The Junglee System can unlock — no pitch deck required.
         </p>
-        <p style="margin:16px 0 0; color:rgba(255,255,255,0.5); font-weight:650;">— Brand Partner</p>
-      </div>
-    </section>
-
-    <section class="section cta-cyan section-light reveal" id="contact" style="padding:clamp(48px,6vw,80px) 0;">
-      <div class="container" style="max-width:900px;">
-        <div style="text-align:center; margin-bottom:clamp(28px,4vw,44px);">
-          <div class="kicker" style="justify-content:center; color:rgba(10,10,10,0.65);"><i style="background:var(--color-dark);"></i> Get Started</div>
-          <h2 style="color:var(--color-dark);">Ready to grow with Junglee?</h2>
-          <p class="lead" style="color:rgba(10,10,10,0.65); max-width:620px; margin-left:auto; margin-right:auto;">
-            Whether you're a brand looking for TikTok Shop growth or a creator ready to earn, we have a path for you.
-          </p>
+        <div class="actions" style="margin-top: 28px;">
+          <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">
+            Book a Strategy Call
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply as a Creator</a>
         </div>
-
-        <div class="grid2">
-          <div class="card">
-            <span class="card-label cyan">For Brands</span>
-            <p style="color:rgba(10,10,10,0.75); font-weight:500; line-height:1.6;">
-              Tell us where you are and where you want to go. We'll build a plan around your product, your category, and your TikTok Shop goals.
-            </p>
-            <div class="actions" style="margin-top:18px;">
-              <a class="btn cyan" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Request a Strategy Call</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <span class="card-label pink">For Creators</span>
-            <p style="color:rgba(10,10,10,0.75); font-weight:500; line-height:1.6;">
-              Apply to join our creator network. We'll match you with the right products, build your posting system, and help you earn consistently.
-            </p>
-            <div class="actions" style="margin-top:18px;">
-              <a class="btn pink" href="https://academy.jungleestudios.com/#/apply">Apply to Join</a>
-            </div>
-          </div>
-        </div>
-
-        <p style="text-align:center; margin-top:28px; color:rgba(10,10,10,0.45); font-size:0.88rem; font-weight:500;">
-          Or email us directly at <a href="mailto:info@jungleestudios.com" style="color:rgba(10,10,10,0.65); text-decoration:underline;">info@jungleestudios.com</a>
+        <p class="source-note" style="margin-top: 28px;">
+          Or email us at <a href="mailto:info@jungleestudios.com" style="color: var(--color-coral);">info@jungleestudios.com</a>
         </p>
       </div>
     </section>
@@ -611,19 +304,16 @@
 <div class="container">
   <div class="foot">
     <div class="fine">&copy; <span id="year"></span> Junglee Studios. All rights reserved.</div>
+    <div class="foot-legal">
+      <a href="/terms">Terms of Service</a>
+      <span class="foot-sep">&middot;</span>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
     <div class="social" aria-label="Social links">
-      <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
-        <img src="/IGIcon.png" alt="" width="25" height="25" />
-      </a>
-      <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook">
-        <img src="/FBIcon.png" alt="" width="25" height="25" />
-      </a>
-      <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok">
-        <img src="/TikTokIcon.png" alt="" width="25" height="25" />
-      </a>
-      <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-        <img src="/LinkedinIcon.png" alt="" width="25" height="25" />
-      </a>
+      <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram"><img src="/IGIcon.png" alt="" width="18" height="18" /></a>
+      <a class="icon" href="https://www.facebook.com/JungleeStudios/" target="_blank" rel="noreferrer" aria-label="Facebook"><img src="/FBIcon.png" alt="" width="18" height="18" /></a>
+      <a class="icon" href="https://www.tiktok.com/@jungleestudios" target="_blank" rel="noreferrer" aria-label="TikTok"><img src="/TikTokIcon.png" alt="" width="18" height="18" /></a>
+      <a class="icon" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer" aria-label="LinkedIn"><img src="/LinkedinIcon.png" alt="" width="18" height="18" /></a>
     </div>
   </div>
 </div>
