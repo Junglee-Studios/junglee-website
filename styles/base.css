@@ -899,6 +899,9 @@ a.card:hover,
 
 @media (max-width: 760px) {
   .path-picker { grid-template-columns: 1fr; }
+  .summit-strip { grid-template-columns: 1fr 1fr !important; row-gap: 14px !important; }
+  .summit-strip > div:first-child { grid-column: 1 / -1; }
+  .summit-strip > div:not(:first-child) { text-align: left !important; }
 }
 
 /* --- Source note --- */
