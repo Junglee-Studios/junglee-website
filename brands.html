@@ -142,12 +142,24 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .cap:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: rgba(14,15,18,0.18);
     }
     .cap::before {
       content: '';
-      width: 8px; height: 8px;
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      min-height: 10px;
+      flex: 0 0 10px;
+      flex-shrink: 0;
       background: var(--color-coral);
       border-radius: 50%;
+      display: block;
     }
   </style>
 </head>
@@ -204,7 +216,7 @@
   <section class="section section-light reveal" id="brand-proof" style="padding-top: clamp(48px,6vw,72px); padding-bottom: clamp(40px,5vw,64px);">
     <div class="container">
       <div class="kicker"><i></i> Brands we operate with</div>
-      <h2 style="max-width: 22ch;">Operators behind brands shipping on TikTok Shop.</h2>
+      <h2 style="max-width: 26ch;">Operators who know what it takes to launch and scale on TikTok Shop.</h2>
 
       <div class="proof-bento">
         <div class="pb-cell span-2">
@@ -253,23 +265,23 @@
       <p class="lead">Affiliate strategy, product discovery, content velocity, LIVE, and shop operations all run on different rhythms. Most brands feel it before they understand it.</p>
 
       <div class="challenge-list">
-        <div class="challenge-item">
+        <div class="challenge-item stagger-item">
           <div class="label">Affiliate</div>
           <p>Recruit, structure, and manage creators as a real channel — not a one-off campaign.</p>
         </div>
-        <div class="challenge-item">
+        <div class="challenge-item stagger-item">
           <div class="label">Product discovery</div>
           <p>Win the feed by tuning hooks, proof, and offers to how shoppers actually browse.</p>
         </div>
-        <div class="challenge-item">
+        <div class="challenge-item stagger-item">
           <div class="label">Content</div>
-          <p>Ship enough volume, fast enough, with the right narrative arcs for the platform.</p>
+          <p>Volume, hooks, formats, and product storytelling built for TikTok Shop conversion — not generic social posting.</p>
         </div>
-        <div class="challenge-item">
+        <div class="challenge-item stagger-item">
           <div class="label">LIVE</div>
           <p>Build a stream cadence and host pipeline that actually converts to GMV.</p>
         </div>
-        <div class="challenge-item">
+        <div class="challenge-item stagger-item">
           <div class="label">Shop operations</div>
           <p>Catalog, promotions, fulfillment, and policy details — the work behind the conversion rate.</p>
         </div>
@@ -298,16 +310,16 @@
     <div class="container">
       <div class="kicker"><i></i> What Junglee helps brands do</div>
       <h2>The Junglee System for brands.</h2>
-      <p class="lead">Four operating capabilities, organized so your team can run them. Engage one, or run the full system end-to-end.</p>
+      <p class="lead">Four operating capabilities, organized so your team can run them. Use a focused service, or let Junglee operate the full TikTok Shop system end-to-end.</p>
 
       <div class="service-block" id="services">
-        <div class="svc">
+        <div class="svc stagger-item">
           <div class="svc-head">
             <span class="num">01 / Shop</span>
             <span class="badge">Foundational</span>
           </div>
           <h3>Shop Optimization</h3>
-          <p>Turn your TikTok Shop into a buy-flow that's actually built to convert.</p>
+          <p>Tune product detail pages, catalog, content path, affiliate &amp; LIVE traffic, and checkout readiness so shoppers can discover and buy with less friction.</p>
           <ul>
             <li>Storefront architecture &amp; collection structure</li>
             <li>Catalog hygiene, listings &amp; offer sequencing</li>
@@ -316,7 +328,7 @@
           </ul>
         </div>
 
-        <div class="svc">
+        <div class="svc stagger-item">
           <div class="svc-head">
             <span class="num">02 / Creator</span>
             <span class="badge">Channel</span>
@@ -331,7 +343,7 @@
           </ul>
         </div>
 
-        <div class="svc">
+        <div class="svc stagger-item">
           <div class="svc-head">
             <span class="num">03 / Content</span>
             <span class="badge">Velocity</span>
@@ -346,7 +358,7 @@
           </ul>
         </div>
 
-        <div class="svc">
+        <div class="svc stagger-item">
           <div class="svc-head">
             <span class="num">04 / LIVE</span>
             <span class="badge">High GMV</span>
@@ -371,19 +383,30 @@
       <p class="lead">Engage The Junglee System as a full program, or pull individual capabilities into your existing operation.</p>
 
       <div class="capabilities">
-        <div class="cap">Full TikTok Shop Management</div>
-        <div class="cap">UGC Content Development</div>
-        <div class="cap">Lifestyle Content Production</div>
-        <div class="cap">Product PDP Photography</div>
-        <div class="cap">Expert LIVE Selling / Strategy</div>
-        <div class="cap">Content Planner / Scheduler</div>
-        <div class="cap">TikTok Ads</div>
+        <div class="cap stagger-item">Full TikTok Shop Management</div>
+        <div class="cap stagger-item">UGC Content Development</div>
+        <div class="cap stagger-item">Lifestyle Content Production</div>
+        <div class="cap stagger-item">Product PDP Photography</div>
+        <div class="cap stagger-item">Expert LIVE Selling / Strategy</div>
+        <div class="cap stagger-item">Content Planner / Scheduler</div>
+        <div class="cap stagger-item">TikTok Ads</div>
       </div>
       <p class="muted" style="margin-top: 18px; font-size: 0.9rem; max-width: 60ch;">
         Creator campaigns, affiliate outreach, creator growth consulting, affiliate coaching, and content strategy are bundled inside Full TikTok Shop Management — not piecemeal services.
       </p>
     </div>
   </section>
+
+  <div class="term-marquee reveal" aria-hidden="true">
+    <div class="term-marquee-track" data-marquee>
+      <span>Shop Optimization</span><span class="dot"></span>
+      <span>Creator Commerce</span><span class="dot"></span>
+      <span>Content That Converts</span><span class="dot"></span>
+      <span>Live Selling</span><span class="dot"></span>
+      <span>Mega Live</span><span class="dot"></span>
+      <span>Affiliate at scale</span><span class="dot"></span>
+    </div>
+  </div>
 
   <section class="section section-coral reveal" id="why-junglee">
     <div class="container" style="max-width: 880px;">

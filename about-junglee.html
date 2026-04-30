@@ -174,6 +174,8 @@
       color: var(--color-white);
     }
     .cred-cell p { color: rgba(255,255,255,0.62); font-size: 0.9rem; margin: 0; }
+    .cred-cell { transition: background .25s ease, transform .25s ease; }
+    .cred-cell:hover { background: rgba(255,255,255,0.04); transform: translateY(-2px); }
     @media (max-width: 980px) { .cred-band { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 540px) { .cred-band { grid-template-columns: 1fr; } }
 
@@ -259,7 +261,7 @@
       <div class="kicker"><i></i> Why Junglee exists</div>
       <h2>A conduit between TikTok Shop complexity and real-world execution.</h2>
       <p class="lead" style="font-size: 1.12rem;">
-        We're operators, not theorists. Our team helped shape TikTok Shop from inside &mdash; launching categories, developing seller playbooks, and building the LIVE auction mechanic. Junglee Studios turns that inside experience into a repeatable playbook brands and creators can run.
+        We're operators, not theorists. Junglee's founder was on the early TikTok Shop U.S. team &mdash; helped launch the Collectibles category, helped develop seller playbooks, and helped launch Countdown Bidding, TikTok's auction mechanism. Junglee Studios turns that inside experience into a repeatable playbook brands and creators can run.
       </p>
     </div>
   </section>
@@ -276,17 +278,17 @@
       </div>
 
       <div class="cred-band">
-        <div class="cred-cell">
+        <div class="cred-cell stagger-item">
           <span class="check">&#10003;</span>
           <h3>Former TikTok Shop Leaders</h3>
           <p>Team led category strategy and helped shape platform mechanics from the inside.</p>
         </div>
-        <div class="cred-cell">
+        <div class="cred-cell stagger-item">
           <span class="check">&#10003;</span>
           <h3>Former TikTok Shop Talent</h3>
           <p>Hands-on platform experience across LIVE account management and seller success.</p>
         </div>
-        <div class="cred-cell">
+        <div class="cred-cell stagger-item">
           <span class="check">&#10003;</span>
           <h3>Operator Experience</h3>
           <p>Operator track record across TikTok Shop US and Junglee Studios.</p>
@@ -302,7 +304,7 @@
       <h2>Specialists who've operated inside the platforms they now help you win on.</h2>
 
       <div class="team-grid">
-        <article class="tm-card">
+        <article class="tm-card stagger-item">
           <div class="tm-photo">
             <img src="assets/logos/assets/jt-patel-v4.jpg" alt="Jatin Patel (JT), Founder of Junglee Studios" class="shift-down" style="margin-top: -18%;" loading="lazy">
           </div>
@@ -320,7 +322,7 @@
           </div>
         </article>
 
-        <article class="tm-card">
+        <article class="tm-card stagger-item">
           <div class="tm-photo">
             <img src="assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" style="object-position: center top; transform: scale(1.25); transform-origin: center top;" loading="lazy">
           </div>
@@ -338,7 +340,7 @@
           </div>
         </article>
 
-        <article class="tm-card">
+        <article class="tm-card stagger-item">
           <div class="tm-photo">
             <img src="assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" style="object-position: center 20%; transform: scale(1.33); transform-origin: center 20%;" loading="lazy">
           </div>
@@ -359,6 +361,17 @@
     </div>
   </section>
 
+  <div class="term-marquee reveal" aria-hidden="true">
+    <div class="term-marquee-track" data-marquee>
+      <span>Operators, not theorists</span><span class="dot"></span>
+      <span>Inside TikTok Shop</span><span class="dot"></span>
+      <span>LIVE selling</span><span class="dot"></span>
+      <span>Creator commerce</span><span class="dot"></span>
+      <span>Discovery commerce</span><span class="dot"></span>
+      <span>Real-world growth</span><span class="dot"></span>
+    </div>
+  </div>
+
   <!-- WHAT MAKES JUNGLEE DIFFERENT -->
   <section class="section section-light reveal" id="different">
     <div class="container">
@@ -366,28 +379,28 @@
       <h2>Four operating principles.</h2>
 
       <div class="diff-list">
-        <div class="diff-item">
+        <div class="diff-item stagger-item">
           <span class="diff-num">01</span>
           <div>
             <h3>Platform-native strategy</h3>
             <p>Built around how TikTok Shop's discovery, ranking, and conversion mechanics actually work — not generic ecommerce best practices.</p>
           </div>
         </div>
-        <div class="diff-item">
+        <div class="diff-item stagger-item">
           <span class="diff-num">02</span>
           <div>
             <h3>Practical systems, not generic advice</h3>
             <p>The Junglee System is a set of repeatable plays your team can run — not a slide deck that lives in a shared drive.</p>
           </div>
         </div>
-        <div class="diff-item">
+        <div class="diff-item stagger-item">
           <span class="diff-num">03</span>
           <div>
             <h3>Brand and creator fluency</h3>
             <p>We speak both sides. Brands get creator-channel programs that actually perform; creators get product partners that respect their craft.</p>
           </div>
         </div>
-        <div class="diff-item">
+        <div class="diff-item stagger-item">
           <span class="diff-num">04</span>
           <div>
             <h3>Clarity, confidence, conversion</h3>

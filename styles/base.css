@@ -1087,6 +1087,25 @@ footer#site-footer {
   transition: opacity .7s ease-out, transform .7s ease-out;
 }
 
+/* Staggered children — paired with .reveal on the parent. Each child fades up with a small delay cascade. */
+.js-reveal-ready .reveal:not(.visible) .stagger-item {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.reveal.visible .stagger-item {
+  opacity: 1;
+  transform: none;
+  transition: opacity .6s ease-out, transform .6s ease-out;
+}
+.reveal.visible .stagger-item:nth-child(1) { transition-delay: 0.05s; }
+.reveal.visible .stagger-item:nth-child(2) { transition-delay: 0.12s; }
+.reveal.visible .stagger-item:nth-child(3) { transition-delay: 0.19s; }
+.reveal.visible .stagger-item:nth-child(4) { transition-delay: 0.26s; }
+.reveal.visible .stagger-item:nth-child(5) { transition-delay: 0.33s; }
+.reveal.visible .stagger-item:nth-child(6) { transition-delay: 0.40s; }
+.reveal.visible .stagger-item:nth-child(7) { transition-delay: 0.47s; }
+.reveal.visible .stagger-item:nth-child(8) { transition-delay: 0.54s; }
+
 /* --- Focus visible --- */
 :focus-visible {
   outline: 2px solid var(--color-coral);
@@ -1116,6 +1135,9 @@ footer#site-footer {
   }
   .reveal,
   .js-reveal-ready .reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .stagger-item,
+  .reveal.visible .stagger-item,
+  .js-reveal-ready .reveal:not(.visible) .stagger-item { opacity: 1 !important; transform: none !important; transition: none !important; }
   .term-marquee-track,
   .logo-marquee-inner { animation: none !important; }
 }
