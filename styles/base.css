@@ -130,6 +130,26 @@ header#site-header {
   .brand img.logo { height: 34px; }
 }
 .brand .wm { display: none; }  /* simplify nav: logo speaks for itself */
+.brand-suffix {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  padding-left: 10px;
+  margin-left: 2px;
+  border-left: 1px solid rgba(255,255,255,0.18);
+  line-height: 1;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .brand-suffix {
+    font-size: 0.7rem;
+    padding-left: 8px;
+    letter-spacing: 0.12em;
+  }
+}
 
 .navlinks {
   display: flex;
