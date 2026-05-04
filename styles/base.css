@@ -7,8 +7,8 @@
   /* Core palette */
   --color-charcoal: #0e0f12;
   --color-ink: #18191d;        /* near-black surfaces */
-  --color-smoke: #f4f3ef;      /* warm light surface */
-  --color-smoke-2: #ecebe6;
+  --color-smoke: #f1f2f4;      /* cool light grey surface (brand palette) */
+  --color-smoke-2: #e7e9ed;
   --color-white: #ffffff;
   --color-coral: #ff4438;      /* primary action / vivid coral-red */
   --color-coral-700: #e23629;
@@ -934,7 +934,7 @@ a.card:hover,
   opacity: 1;
   filter: grayscale(0%) contrast(1);
 }
-.logo-marquee:hover .logo-marquee-inner { animation-play-state: paused; }
+/* Logo ticker keeps scrolling on hover — no pause, page feels alive */
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1236,22 +1236,35 @@ footer#site-footer {
 }
 .section-coral .inside-cell {
   background: var(--color-white);
-  border: 1px solid rgba(14,15,18,0.14);
-  border-top: 3px solid var(--color-ink);
-  box-shadow: 0 18px 38px rgba(14,15,18,0.28), 0 4px 10px rgba(14,15,18,0.14);
+  border: 1px solid rgba(14,15,18,0.06);
+  box-shadow: 0 14px 30px rgba(14,15,18,0.18), 0 2px 6px rgba(14,15,18,0.10);
 }
 .section-coral .inside-cell:hover {
-  border-color: rgba(14,15,18,0.22);
-  box-shadow: 0 24px 48px rgba(14,15,18,0.34), 0 6px 14px rgba(14,15,18,0.18);
+  border-color: rgba(14,15,18,0.10);
+  box-shadow: 0 22px 44px rgba(14,15,18,0.26), 0 6px 12px rgba(14,15,18,0.14);
   transform: translateY(-3px);
 }
 .section-coral .inside-cell .ic-label {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 5px 11px;
+  margin-bottom: 4px;
+  border-radius: 999px;
+  background: rgba(255,68,56,0.10);
+  color: var(--color-coral-700);
+  border: 1px solid rgba(255,68,56,0.22);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--color-coral-700);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+.section-coral .inside-cell:hover .ic-label {
+  background: var(--color-coral);
+  border-color: var(--color-coral);
+  color: #fff;
+  transform: translateY(-2px);
 }
 .section-coral .inside-cell h3 {
   font-size: 1rem;
@@ -1363,3 +1376,1238 @@ footer#site-footer {
 .cta-block .container { position: relative; z-index: 2; }
 .cta-block h2 { color: var(--color-white); max-width: 18ch; }
 .cta-block .lead { color: rgba(255,255,255,0.74); }
+
+/* ===========================================================
+   HOMEPAGE VISUALS (additive — no existing rules altered)
+   - Hero: 2-column on desktop with phone-frame mock
+   - Section figures: editorial image bands above content
+   - Service cards: image header above number/title
+   =========================================================== */
+
+/* --- Hero 2-column with phone visual ---------------------- */
+@media (min-width: 981px) {
+  body[data-page="home"] .hero-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  body[data-page="home"] .hero-content { max-width: 620px; }
+}
+
+/* Hero visual: visible at all widths. On desktop sits beside the
+   text column; below 981px it stacks below the text content with
+   proper centering and breathing room. */
+.hero-visual {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 40px auto 0;
+  max-width: 480px;             /* prevents over-stretch on tablet */
+}
+
+@media (min-width: 981px) {
+  .hero-visual {
+    margin: 0;
+    justify-self: end;
+    max-width: 360px;
+    aspect-ratio: 9 / 16;
+  }
+}
+
+/* Force single-column hero stack below 981px so text and composite
+   don't fight for the same horizontal space. Also keep the stat grid
+   tidy at 2x2 across all small widths. */
+@media (max-width: 980px) {
+  body[data-page="home"] .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  /* Don't widen the content past the readable container; let the
+     parent container's normal horizontal padding hold the inset. */
+  body[data-page="home"] .hero-content {
+    max-width: 100%;
+  }
+  body[data-page="home"] .hero .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Composite stays inside the readable container too, no negative spill */
+  .hero-visual--composite {
+    width: 100%;
+  }
+}
+
+.hero-phone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.55),
+    0 8px 18px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+.hero-phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-phone::after {
+  /* Subtle bottom gradient so the LIVE chip stays legible */
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+.hero-phone-live {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+.hero-phone-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes hero-live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone-live-dot { animation: none; }
+}
+
+/* --- Section figure (image band above section content) --- */
+.section-figure {
+  margin: 28px 0 8px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 21 / 9;
+  background: #0e0f12;
+}
+.section-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.section-figure--coral {
+  border: 1px solid rgba(14,15,18,0.14);
+  box-shadow: 0 18px 38px rgba(14,15,18,0.22), 0 4px 10px rgba(14,15,18,0.10);
+}
+.section-figure--charcoal {
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 22px 44px rgba(0,0,0,0.45);
+}
+@media (max-width: 700px) {
+  .section-figure { aspect-ratio: 16 / 10; }
+}
+
+/* --- Service card image header (svcCard) ------------------ */
+.svcCard .card-image {
+  margin: -24px -24px 14px;   /* bleed to card edge — .card padding is 24px */
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f3f3f4;
+}
+.svcCard .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.svcCard:hover .card-image img {
+  transform: scale(1.04);
+}
+
+/* Hero stat grid in the narrower left column: force tidy 2x2 on desktop */
+@media (min-width: 981px) {
+  body[data-page="home"] .hero .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================================================
+   PARTNER BADGE — hero trust signal
+   =========================================================== */
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px 8px 8px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+  color: var(--color-white);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+  max-width: 100%;
+}
+.partner-badge:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.partner-badge__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  color: #001a18;
+  flex-shrink: 0;
+}
+.partner-badge__check svg { width: 14px; height: 14px; }
+.partner-badge__text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.partner-badge__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-coral);
+}
+.partner-badge__title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: rgba(255,255,255,0.92);
+  margin-top: 2px;
+}
+@media (max-width: 540px) {
+  .partner-badge__title { font-size: 0.74rem; }
+}
+
+/* ===========================================================
+   HERO + CARD VIDEO MEDIA
+   =========================================================== */
+.hero-phone .hero-phone-media,
+.hero-phone video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #111;
+}
+.card-image--video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #111;
+  transition: transform 0.5s ease;
+}
+.svcCard:hover .card-image--video video { transform: scale(1.04); }
+
+/* Badge sits on its own line above the kicker. Use a flex wrapper
+   so the badge hugs its content but sits on a new line. */
+.partner-badge-row {
+  display: flex;
+  margin-bottom: 22px;
+}
+.partner-badge-row .partner-badge { margin-bottom: 0; }
+
+/* ===========================================================
+   PATH CARDS — image header + supporting bullets
+   =========================================================== */
+.path-card { padding: 0; overflow: hidden; }   /* image bleeds to edge */
+.path-card-image {
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+.path-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.path-card:hover .path-card-image img { transform: scale(1.04); }
+.path-card-body {
+  padding: clamp(28px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.path-card-body .path-label,
+.path-card-body h3,
+.path-card-body p,
+.path-card-body .arrow { margin: 0; }
+.path-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.path-bullets li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+/* Brand card has coral background — light text + light dot */
+.path-card.brand .path-bullets li { color: rgba(255,255,255,0.96); }
+.path-card.brand .path-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.22);
+}
+/* Creator card has charcoal background — light text + teal dot */
+.path-card.creator .path-bullets li { color: rgba(255,255,255,0.96); }
+.path-card.creator .path-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(33,168,156,0.28);
+}
+
+/* ===========================================================
+   CAPABILITY PILLS — operating model section
+   =========================================================== */
+.capability-pills {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.capability-pills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.005em;
+}
+.capability-pills li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  display: inline-block;
+}
+.capability-pills li:nth-child(odd)::before { background: var(--color-coral); }
+
+/* ===========================================================
+   HERO FORMAT STRIP — 3 small format examples below the stat grid,
+   inside the hero-content column. Communicates "we operate across
+   every TikTok Shop format."
+   =========================================================== */
+.format-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 480px;
+}
+.format-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.format-card__media {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.format-card__media video,
+.format-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.format-card__chip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.format-card__chip-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+.format-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  text-align: center;
+}
+@media (max-width: 980px) {
+  .format-strip { max-width: 420px; }
+}
+@media (max-width: 540px) {
+  .format-strip { gap: 8px; }
+  .format-card__label { font-size: 0.6rem; letter-spacing: 0.12em; }
+}
+
+/* ===========================================================
+   TRUSTED STRIP — white background, centered eyebrow, full bleed
+   =========================================================== */
+.trusted-strip {
+  padding-top: 36px;
+  padding-bottom: 36px;
+  border-top: 1px solid rgba(14,15,18,0.06);
+  border-bottom: 1px solid rgba(14,15,18,0.06);
+  overflow: hidden;
+}
+.trusted-eyebrow {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0 0 22px;
+}
+
+/* ===========================================================
+   CTA BLOCK — teal variant
+   =========================================================== */
+.cta-block--teal {
+  background: var(--color-teal);
+  color: var(--color-white);
+  border-top: 4px solid var(--color-coral);
+}
+.cta-block--teal h2 { color: var(--color-white); }
+.cta-block--teal .lead { color: rgba(255,255,255,0.88); }
+.cta-block--teal .kicker { color: var(--color-white) !important; }
+.cta-block--teal .kicker i { background: var(--color-white); }
+.cta-block--teal .source-note { color: rgba(255,255,255,0.78); }
+.cta-block--teal .source-note a { color: #fff !important; text-decoration: underline; }
+/* Higher specificity + !important to override the global .cta-block .btn rules */
+.cta-block--teal.cta-block .btn.primary {
+  background: var(--color-white) !important;
+  color: var(--color-teal) !important;
+  border-color: var(--color-white) !important;
+}
+.cta-block--teal.cta-block .btn.primary:hover {
+  background: rgba(255,255,255,0.92) !important;
+}
+.cta-block--teal.cta-block .btn.secondary,
+.cta-block--teal.cta-block .btn.teal,
+.cta-block--teal.cta-block .btn.cyan {
+  background: transparent !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255,255,255,0.6) !important;
+}
+.cta-block--teal.cta-block .btn.secondary:hover,
+.cta-block--teal.cta-block .btn.teal:hover,
+.cta-block--teal.cta-block .btn.cyan:hover {
+  background: rgba(255,255,255,0.14) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+  color: var(--color-white) !important;
+}
+
+/* ===========================================================
+   HERO COMPOSITE — playful, asymmetric, slightly overlapping.
+   Horizontal feature video tilted left; two verticals overlap
+   diagonally across it for a content-collage feel.
+   =========================================================== */
+/* Composite: shown at every width with the same aspect ratio so the
+   absolute-positioned tiles stay proportional. */
+.hero-visual--composite {
+  max-width: none;
+  width: 100%;
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1.1;
+}
+@media (min-width: 981px) {
+  .hero-visual--composite {
+    width: 110%;                /* spill slightly past the column right edge */
+    justify-self: end;
+  }
+  /* Pull right column slightly less so composite can grow. */
+  body[data-page="home"] .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    gap: clamp(32px, 4vw, 56px);
+  }
+}
+@media (max-width: 980px) {
+  /* On tablet/mobile: composite stacks below text. Tighter aspect ratio
+     so the absolute-positioned tiles don't get stretched. */
+  .hero-visual--composite {
+    max-width: 540px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1.1;       /* matches desktop ratio so tiles stay proportional */
+  }
+  .hero-tile { position: absolute; }
+  /* Sticker scales down a touch */
+  .partner-sticker--on-tile { top: -10px; right: -6px; }
+}
+@media (max-width: 540px) {
+  .partner-sticker--on-tile { transform: rotate(4deg); }
+  /* Sticker text gets smaller on phone so it doesn't dominate the tile */
+  .partner-sticker--on-tile .partner-sticker__title { font-size: 0.68rem; }
+  .partner-sticker--on-tile .partner-sticker__eyebrow { font-size: 0.50rem; }
+  .partner-sticker--on-tile .partner-sticker__icon { width: 18px; height: 18px; }
+  .partner-sticker--on-tile .partner-sticker__check { width: 16px; height: 16px; }
+}
+
+.hero-tile {
+  margin: 0;
+  border-radius: 18px;
+  background: #111;
+  border: 2px solid #18191d;            /* solid charcoal frame */
+  box-shadow:
+    0 24px 50px rgba(0,0,0,0.55),
+    0 6px 16px rgba(0,0,0,0.35);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;                   /* needed for the sticker absolute positioning */
+}
+/* Inner mask: overflow:hidden moves to a child wrapper so the sticker
+   can escape the tile boundary without exposing video corners. */
+.hero-tile > video,
+.hero-tile > img {
+  border-radius: 16px;                  /* slightly less than parent for clean corners */
+}
+.hero-tile { overflow: visible; }
+.hero-tile video,
+.hero-tile img { overflow: hidden; }
+/* Use clip-path on the media to keep video clipped while sticker can escape */
+.hero-tile--main video,
+.hero-tile--vert video,
+.hero-tile--vert img {
+  clip-path: inset(0 round 16px);
+}
+/* Restore overflow:hidden ONLY on tiles without escaping content */
+.hero-tile--vert { overflow: hidden; }
+.hero-tile video,
+.hero-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-tile:hover { transform: translateY(-4px) rotate(0deg) !important; }
+
+/* Asymmetric playful layout (desktop only) */
+@media (min-width: 981px) {
+  .hero-tile {
+    position: absolute;
+  }
+}
+
+/* Tile geometry (works at all widths since composite aspect-ratio matches) */
+.hero-tile--main {
+  position: absolute;
+  top: -2%;
+  right: -3%;
+  width: 88%;
+  aspect-ratio: 16 / 10;
+  transform: rotate(-2.5deg);
+  z-index: 1;
+}
+.hero-tile--vert-1 {
+  position: absolute;
+  bottom: -2%;
+  left: 18%;
+  width: 42%;
+  aspect-ratio: 9 / 16;
+  transform: rotate(-7deg);
+  z-index: 3;
+}
+.hero-tile--vert-2 {
+  position: absolute;
+  bottom: 2%;
+  right: 0;
+  width: 34%;
+  aspect-ratio: 9 / 16;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+@media (max-width: 980px) {
+  /* Composite hides on mobile via parent .hero-visual rule. */
+}
+
+/* Chips */
+.hero-tile__chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.30);
+}
+.hero-tile__chip-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+
+/* Labels removed per user request — keep .hero-tile__chip only */
+
+/* ===========================================================
+   PARTNER STICKER — die-cut style in TikTok colors
+   (Sticker is the only TikTok-palette element on the page —
+   functions as a credential, not part of brand system.)
+   =========================================================== */
+.partner-sticker {
+  display: inline-block;
+  text-decoration: none;
+  transform: rotate(-3deg);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+}
+.partner-sticker:hover {
+  transform: rotate(0deg) translateY(-2px) scale(1.03);
+}
+.partner-sticker__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 12px;
+  background: #000;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 14px;
+  position: relative;
+}
+/* Subtle outer "die-cut" ring */
+.partner-sticker__inner::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1px dashed rgba(255,255,255,0.18);
+  border-radius: 16px;
+  pointer-events: none;
+}
+.partner-sticker__icon {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+}
+.partner-sticker__icon svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* TikTok glitch-effect note layers — cyan (back), pink (mid), white (front) */
+.partner-sticker__icon .ts-cyan  { fill: #25F4EE; }
+.partner-sticker__icon .ts-pink  { fill: #FE2C55; }
+.partner-sticker__icon .ts-white { fill: #FFFFFF; }
+
+.partner-sticker__text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.partner-sticker__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #25F4EE;             /* TikTok cyan */
+}
+.partner-sticker__title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: #fff;
+  margin-top: 3px;
+}
+.partner-sticker__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FE2C55;        /* TikTok pink */
+  color: #fff;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.partner-sticker__check svg { width: 12px; height: 12px; }
+
+@media (max-width: 540px) {
+  .partner-sticker { transform: rotate(-2deg); }
+  .partner-sticker__title { font-size: 0.84rem; }
+  .partner-sticker__inner { padding: 7px 13px 7px 10px; }
+}
+
+/* Hide the old partner-badge styles' effects when class isn't present */
+.partner-badge-row { line-height: 0; /* prevent extra leading from inline */ }
+.partner-badge-row > * { line-height: normal; }
+
+/* ===========================================================
+   INSIDE PLATFORM KNOWLEDGE — replace card top borders with
+   hover pills; image gets a different framing
+   =========================================================== */
+/* Drop the colored top stripe used inside .inside-cell ::before / icon-bar */
+.inside-cell .icon-bar,
+.inside-cell::before { display: none !important; }
+/* Replace with a hover pill on each cell (the .ic-label becomes a real pill) */
+.inside-cell {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.inside-cell .ic-label {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.30);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+.inside-cell:hover .ic-label {
+  background: #fff;
+  color: var(--color-coral);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.inside-cell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+}
+
+/* ===========================================================
+   WHY NOW — looser image crop so subjects aren't cut off
+   =========================================================== */
+.section-figure--charcoal {
+  aspect-ratio: 21 / 11;          /* taller than 21/9 — more headroom */
+}
+.section-figure--charcoal img {
+  object-position: center 30%;    /* shift focal point slightly down so the man's face is in frame */
+}
+
+/* ===========================================================
+   TRUSTED-BY TICKER — full-bleed scroll, shorter section
+   =========================================================== */
+.trusted-strip {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+/* Force the container to actual full width, overriding the global
+   .container { width: min(var(--container), calc(100% - 2*pad)) } rule. */
+.trusted-strip .container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+}
+.trusted-strip .trusted-eyebrow {
+  margin: 0 auto 22px;
+  max-width: var(--container-width, 1240px);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.trusted-strip .logo-marquee {
+  width: 100%;
+}
+
+/* ===========================================================
+   GET STARTED CTA — coral primary button instead of white
+   =========================================================== */
+.cta-block--teal.cta-block .btn.primary {
+  background: var(--color-coral) !important;
+  color: #fff !important;
+  border-color: var(--color-coral) !important;
+  box-shadow: 0 8px 22px rgba(255,68,56,0.40);
+}
+.cta-block--teal.cta-block .btn.primary:hover {
+  background: var(--color-coral-700) !important;
+  border-color: var(--color-coral-700) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(255,68,56,0.50);
+}
+.cta-block--teal.cta-block .btn.secondary,
+.cta-block--teal.cta-block .btn.teal,
+.cta-block--teal.cta-block .btn.cyan {
+  background: #fff !important;
+  color: var(--color-coral) !important;
+  border: 1.5px solid #fff !important;
+  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+.cta-block--teal.cta-block .btn.secondary:hover,
+.cta-block--teal.cta-block .btn.teal:hover,
+.cta-block--teal.cta-block .btn.cyan:hover {
+  background: rgba(255,255,255,0.92) !important;
+  color: var(--color-coral-700) !important;
+  border-color: rgba(255,255,255,0.92) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+}
+
+/* ===========================================================
+   PARTNER STICKER ON HERO TILE — overlaps top-right of the
+   horizontal video. Smaller variant.
+   =========================================================== */
+.partner-sticker--on-tile {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+  z-index: 10;
+  transform: rotate(6deg);  /* tilts opposite of the main video for visual contrast */
+}
+.partner-sticker--on-tile:hover {
+  transform: rotate(0deg) translateY(-2px) scale(1.04);
+}
+.partner-sticker--on-tile .partner-sticker__inner {
+  padding: 6px 12px 6px 9px;
+  border-width: 2px;
+}
+.partner-sticker--on-tile .partner-sticker__icon {
+  width: 22px;
+  height: 22px;
+}
+.partner-sticker--on-tile .partner-sticker__title {
+  font-size: 0.78rem;
+}
+.partner-sticker--on-tile .partner-sticker__eyebrow {
+  font-size: 0.54rem;
+}
+.partner-sticker--on-tile .partner-sticker__check {
+  width: 18px;
+  height: 18px;
+}
+.partner-sticker--on-tile .partner-sticker__check svg { width: 10px; height: 10px; }
+
+/* LIVE chip stays at top-left of the main video; the sticker is at
+   top-right, so they sit at opposite corners and don't collide. */
+.hero-tile--main .hero-tile__chip {
+  top: 12px;
+  left: 12px;
+  bottom: auto;
+}
+
+/* ===========================================================
+   TERM MARQUEE — coral variant (sits between two black sections)
+   =========================================================== */
+.term-marquee--coral {
+  background: var(--color-coral);
+  border-top: 1px solid rgba(255,255,255,0.20);
+  border-bottom: 1px solid rgba(255,255,255,0.20);
+}
+.term-marquee--coral .term-marquee-track span {
+  color: #fff;
+  font-weight: 700;
+}
+.term-marquee--coral .term-marquee-track .dot {
+  background: #fff;
+}
+
+/* ===========================================================
+   VIDEO REEL — full-bleed auto-scrolling vertical-video carousel.
+   Scrolls right-to-left, opposite of the coral term-marquee above it,
+   so the two motions cancel perceptually instead of stacking.
+   =========================================================== */
+.video-reel {
+  width: 100%;
+  overflow: hidden;
+  margin: 24px 0 28px;
+  padding: 8px 0;
+  position: relative;
+}
+/* Edge fades so tiles don't hard-cut at viewport edges */
+.video-reel::before,
+.video-reel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.video-reel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-charcoal), transparent);
+}
+.video-reel::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--color-charcoal), transparent);
+}
+
+.video-reel-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  /* RIGHT-TO-LEFT direction — opposite of the coral ticker above. */
+  animation: video-reel-scroll 60s linear infinite;
+  animation-direction: reverse;
+  align-items: center;
+}
+/* No hover pause — keeps moving so the page feels continuously alive */
+
+.video-reel-tile {
+  margin: 0;
+  flex-shrink: 0;
+  /* Smaller tiles — reduces section height meaningfully */
+  width: clamp(130px, 11vw, 170px);
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.40);
+  transition: transform 0.3s ease;
+}
+.video-reel-tile:hover { transform: translateY(-3px) scale(1.02); }
+.video-reel-tile video,
+.video-reel-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes video-reel-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-reel-track { animation: none; }
+}
+@media (max-width: 700px) {
+  .video-reel-tile { width: 110px; }
+  .video-reel { margin: 18px 0 22px; }
+}
+
+/* ===========================================================
+   TIKTOK EMBEDS — global tone-down (smaller default)
+   The TikTok embed.js script renders an iframe ~750px tall by
+   default. We constrain max widths but let height be auto so
+   the iframe sizes itself. Containers control the visual frame.
+   =========================================================== */
+.tiktok-embed {
+  margin: 0 auto !important;
+  background: transparent !important;
+}
+
+/* ===========================================================
+   JUNGLEE UNLOCKS — convert to vertical-card layout w/ embed
+   on top, body content below. Cards re-flow to fit comfortably.
+   =========================================================== */
+.grid4 {
+  /* 4-up on wide desktop, 2-up on tablet, 1-up on mobile. */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+@media (max-width: 1100px) { .grid4 { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+@media (max-width: 600px)  { .grid4 { grid-template-columns: 1fr; } }
+
+/* Cards become flex column, embed takes natural height */
+.svcCard.is-link {
+  display: flex;
+  flex-direction: column;
+  padding: 0;                 /* embed bleeds to edge */
+  overflow: hidden;
+  height: 100%;
+}
+/* === EXACT bdc7865 baseline for Unlocks cards — v5 layout user confirmed was right === */
+/* Cards become flex column, embed (video) bleeds edge-to-edge at top, body below */
+.svcCard:has(.card-image--embed) {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  cursor: default;             /* not clickable — they're <div>s now */
+  text-decoration: none;
+}
+.svcCard .card-image--embed,
+.card-image--embed {
+  margin: 0;
+  background: #000;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16 !important;   /* full vertical video, no crop */
+  border-bottom: 1px solid rgba(14,15,18,0.06);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+.card-image--embed .tt-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  background: #000;
+  pointer-events: none;        /* video itself not clickable */
+}
+/* Body text content under the embed gets normal padding */
+.svcCard:has(.card-image--embed) > .icon-bar,
+.svcCard:has(.card-image--embed) > .num,
+.svcCard:has(.card-image--embed) > h3,
+.svcCard:has(.card-image--embed) > p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.svcCard:has(.card-image--embed) > .icon-bar { margin-top: 16px; }
+.svcCard:has(.card-image--embed) > p { padding-bottom: 20px; }
+
+/* SMALLER cards in Unlocks section so videos shrink proportionally with the cards.
+   Cards are LEFT-aligned as a group so card 1 lines up with the heading's left edge. */
+@media (min-width: 901px) {
+  #what-we-unlock .grid4 {
+    grid-template-columns: repeat(4, 200px);
+    justify-content: start;     /* left-align cards as a group */
+    gap: 20px;
+  }
+}
+/* Tighter body content in each card — reduces card height */
+.svcCard:has(.card-image--embed) > h3 {
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.svcCard:has(.card-image--embed) > p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.svcCard:has(.card-image--embed) > .num {
+  font-size: 0.7rem;
+}
+/* Body content below embed */
+.svcCard.is-link > .icon-bar,
+.svcCard.is-link > .num,
+.svcCard.is-link > h3,
+.svcCard.is-link > p {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.svcCard.is-link > .icon-bar { margin-top: 18px; }
+.svcCard.is-link > p { padding-bottom: 24px; }
+
+/* ===========================================================
+   INSIDE PLATFORM KNOWLEDGE — 2-column header with embed on right
+   =========================================================== */
+/* Three-column layout matching the user's reference screenshot:
+     col 1 = text takes its natural width (h2 max 40ch + lead max 62ch)
+     col 2 = empty gap, video centered horizontally inside it
+     col 3 = invisible spacer matching the last card's width so col-2 centering
+             actually centers between text-end and last-card-LEFT.
+   Cards below use .inside-row with gap 16px → each card = (container - 3*16)/4. */
+/* Match the live production layout: text takes its NATURAL width (no grid
+   column constraining it), so h2 with max-width:26ch renders at its true
+   832px / 3-line wrap. Video is absolutely positioned as an overlay on the
+   right side, centered between the message right-edge and the Live Auctions
+   card area below. */
+.inside-header-row {
+  display: block;
+  position: relative;
+  margin-bottom: 36px;
+}
+.inside-header-text {
+  /* No constraint — the inline max-width on h2 (26ch) and lead (62ch) handle it */
+}
+.inside-header-embed {
+  position: absolute;
+  top: 50%;
+  /* Center the video horizontally in the empty space between the heading's
+     right edge (≈832px from row left) and the row's right edge (100%).
+     This gives equal padding on both sides of the video.
+     Center-x = (832px + 100%) / 2 within the row. */
+  left: calc((832px + 100%) / 2);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+.inside-header-embed .tt-player {
+  display: block;
+  width: 175px;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 14px;
+  background: #000;
+  object-fit: cover;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  pointer-events: none;
+}
+@media (max-width: 1100px) {
+  /* On narrower viewports, video drops below the text instead of beside it */
+  .inside-header-embed {
+    position: static;
+    transform: none;
+    margin-top: 24px;
+  }
+  .inside-header-embed .tt-player { width: 200px; }
+}
+
+/* ===========================================================
+   CHOOSE YOUR PATH — convert to horizontal cards (embed on
+   one side, text on the other). Brand: embed left, text right.
+   Creator: embed right, text left (mirrored).
+   =========================================================== */
+/* Card height = video height. Tighter video column → tighter card. */
+@media (min-width: 901px) {
+  .path-card {
+    display: grid;
+    gap: 0;
+    align-items: stretch;     /* video and body share equal height */
+    padding: 0;
+    overflow: hidden;
+    height: 427px;            /* lock card to video height (240px wide × 16/9) */
+  }
+  /* Brand: video LEFT (240px), body RIGHT (fills) */
+  .path-card.brand {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+  .path-card.brand .path-card-image  { order: 1; }
+  .path-card.brand .path-card-body   { order: 2; }
+  /* Creator: body LEFT (fills), video RIGHT (240px) */
+  .path-card.creator {
+    grid-template-columns: minmax(0, 1fr) 240px;
+  }
+  .path-card.creator .path-card-image  { order: 2; }
+  .path-card.creator .path-card-body   { order: 1; }
+  /* Body content vertically centered within the locked card height */
+  .path-card-body {
+    height: 100%;
+    padding: 24px 28px;       /* tighter than default to fit */
+    gap: 10px;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .path-card-body h3 {
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    line-height: 1.2;
+  }
+  .path-card-body p {
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
+  .path-card-body .path-bullets li {
+    font-size: 0.86rem;
+    line-height: 1.35;
+  }
+}
+
+/* Image column IS the video — fills the column edge-to-edge, no padding */
+.path-card-image--embed {
+  aspect-ratio: auto !important;     /* override .path-card-image 16/9 */
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0;
+}
+.path-card-image--embed .tt-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  background: #000;
+  /* Not clickable — the parent card is the click target */
+  pointer-events: none;
+}
+
+/* Mobile: stack — video on top as a 9:16 block, body below */
+@media (max-width: 900px) {
+  .path-card-image--embed {
+    aspect-ratio: 9 / 16 !important;
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: var(--radius-md);
+  }
+}
