@@ -2497,13 +2497,13 @@ footer#site-footer {
 }
 .inside-header-embed {
   position: absolute;
-  /* Align vertically to the row's center */
   top: 50%;
-  /* Anchor video to the right edge of the section (right-aligned with the
-     Live Auctions card's right edge), so it sits in the empty area to the
-     right of the heading without overlapping it. */
-  right: 0;
-  transform: translateY(-50%);
+  /* Center the video horizontally in the empty space between the heading's
+     right edge (≈832px from row left) and the row's right edge (100%).
+     This gives equal padding on both sides of the video.
+     Center-x = (832px + 100%) / 2 within the row. */
+  left: calc((832px + 100%) / 2);
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
 }
