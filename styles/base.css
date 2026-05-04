@@ -7,8 +7,8 @@
   /* Core palette */
   --color-charcoal: #0e0f12;
   --color-ink: #18191d;        /* near-black surfaces */
-  --color-smoke: #f4f3ef;      /* warm light surface */
-  --color-smoke-2: #ecebe6;
+  --color-smoke: #f1f2f4;      /* cool light grey surface (brand palette) */
+  --color-smoke-2: #e7e9ed;
   --color-white: #ffffff;
   --color-coral: #ff4438;      /* primary action / vivid coral-red */
   --color-coral-700: #e23629;
@@ -1703,3 +1703,132 @@ footer#site-footer {
   display: inline-block;
 }
 .capability-pills li:nth-child(odd)::before { background: var(--color-coral); }
+
+/* ===========================================================
+   HERO FORMAT STRIP — 3 small format examples below the stat grid,
+   inside the hero-content column. Communicates "we operate across
+   every TikTok Shop format."
+   =========================================================== */
+.format-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 480px;
+}
+.format-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.format-card__media {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.format-card__media video,
+.format-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.format-card__chip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.format-card__chip-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+.format-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  text-align: center;
+}
+@media (max-width: 980px) {
+  .format-strip { max-width: 420px; }
+}
+@media (max-width: 540px) {
+  .format-strip { gap: 8px; }
+  .format-card__label { font-size: 0.6rem; letter-spacing: 0.12em; }
+}
+
+/* ===========================================================
+   TRUSTED STRIP — centered eyebrow, real visual break
+   =========================================================== */
+.trusted-strip {
+  padding-top: clamp(56px, 6vw, 84px);
+  padding-bottom: clamp(56px, 6vw, 84px);
+  border-top: 1px solid rgba(14,15,18,0.08);
+  border-bottom: 1px solid rgba(14,15,18,0.08);
+}
+.trusted-eyebrow {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0 0 32px;
+}
+
+/* ===========================================================
+   CTA BLOCK — teal variant
+   =========================================================== */
+.cta-block--teal {
+  background: var(--color-teal);
+  color: var(--color-white);
+  border-top: 4px solid var(--color-coral);
+}
+.cta-block--teal h2 { color: var(--color-white); }
+.cta-block--teal .lead { color: rgba(255,255,255,0.88); }
+.cta-block--teal .kicker { color: var(--color-white) !important; }
+.cta-block--teal .kicker i { background: var(--color-white); }
+.cta-block--teal .source-note { color: rgba(255,255,255,0.78); }
+.cta-block--teal .source-note a { color: #fff !important; text-decoration: underline; }
+/* Higher specificity + !important to override the global .cta-block .btn rules */
+.cta-block--teal.cta-block .btn.primary {
+  background: var(--color-white) !important;
+  color: var(--color-teal) !important;
+  border-color: var(--color-white) !important;
+}
+.cta-block--teal.cta-block .btn.primary:hover {
+  background: rgba(255,255,255,0.92) !important;
+}
+.cta-block--teal.cta-block .btn.secondary,
+.cta-block--teal.cta-block .btn.teal,
+.cta-block--teal.cta-block .btn.cyan {
+  background: transparent !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255,255,255,0.6) !important;
+}
+.cta-block--teal.cta-block .btn.secondary:hover,
+.cta-block--teal.cta-block .btn.teal:hover,
+.cta-block--teal.cta-block .btn.cyan:hover {
+  background: rgba(255,255,255,0.14) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+  color: var(--color-white) !important;
+}
