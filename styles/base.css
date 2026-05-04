@@ -1790,13 +1790,14 @@ footer#site-footer {
 }
 
 /* ===========================================================
-   TRUSTED STRIP — centered eyebrow, real visual break
+   TRUSTED STRIP — white background, centered eyebrow, full bleed
    =========================================================== */
 .trusted-strip {
-  padding-top: clamp(56px, 6vw, 84px);
-  padding-bottom: clamp(56px, 6vw, 84px);
-  border-top: 1px solid rgba(14,15,18,0.08);
-  border-bottom: 1px solid rgba(14,15,18,0.08);
+  padding-top: 36px;
+  padding-bottom: 36px;
+  border-top: 1px solid rgba(14,15,18,0.06);
+  border-bottom: 1px solid rgba(14,15,18,0.06);
+  overflow: hidden;
 }
 .trusted-eyebrow {
   text-align: center;
@@ -1805,7 +1806,7 @@ footer#site-footer {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
-  margin: 0 0 32px;
+  margin: 0 0 22px;
 }
 
 /* ===========================================================
@@ -1870,14 +1871,31 @@ footer#site-footer {
 .hero-tile {
   margin: 0;
   border-radius: 18px;
-  overflow: hidden;
   background: #111;
   border: 2px solid #18191d;            /* solid charcoal frame */
   box-shadow:
     0 24px 50px rgba(0,0,0,0.55),
     0 6px 16px rgba(0,0,0,0.35);
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;                   /* needed for the sticker absolute positioning */
 }
+/* Inner mask: overflow:hidden moves to a child wrapper so the sticker
+   can escape the tile boundary without exposing video corners. */
+.hero-tile > video,
+.hero-tile > img {
+  border-radius: 16px;                  /* slightly less than parent for clean corners */
+}
+.hero-tile { overflow: visible; }
+.hero-tile video,
+.hero-tile img { overflow: hidden; }
+/* Use clip-path on the media to keep video clipped while sticker can escape */
+.hero-tile--main video,
+.hero-tile--vert video,
+.hero-tile--vert img {
+  clip-path: inset(0 round 16px);
+}
+/* Restore overflow:hidden ONLY on tiles without escaping content */
+.hero-tile--vert { overflow: hidden; }
 .hero-tile video,
 .hero-tile img {
   width: 100%;
@@ -1901,22 +1919,22 @@ footer#site-footer {
     transform: rotate(-2.5deg);
     z-index: 1;
   }
-  /* Vertical 1 (LIVE selling): bottom-left, tilted slightly right */
+  /* Vertical 1 (LIVE selling - green sweater): nudged right, tilted LEFT */
   .hero-tile--vert-1 {
     bottom: 0;
-    left: 0;
+    left: 14%;          /* was 0 — nudged right to feel more centered */
     width: 38%;
     aspect-ratio: 9 / 16;
-    transform: rotate(3deg);
+    transform: rotate(-3deg);   /* was +3deg — flipped */
     z-index: 3;
   }
-  /* Vertical 2 (shoppable video): bottom-right, slight tilt left, overlaps the main */
+  /* Vertical 2 (shoppable creator): nudged right, tilted RIGHT */
   .hero-tile--vert-2 {
     bottom: 4%;
-    right: 12%;
+    right: -2%;          /* was 12% — nudged right to mirror vert-1 */
     width: 30%;
     aspect-ratio: 9 / 16;
-    transform: rotate(-4deg);
+    transform: rotate(4deg);     /* was -4deg — flipped */
     z-index: 2;
   }
 }
@@ -2138,15 +2156,76 @@ footer#site-footer {
 .cta-block--teal.cta-block .btn.secondary,
 .cta-block--teal.cta-block .btn.teal,
 .cta-block--teal.cta-block .btn.cyan {
-  background: rgba(255,255,255,0.10) !important;
-  color: #fff !important;
+  background: #fff !important;
+  color: var(--color-coral) !important;
   border: 1.5px solid #fff !important;
-  font-weight: 700;
+  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
 }
 .cta-block--teal.cta-block .btn.secondary:hover,
 .cta-block--teal.cta-block .btn.teal:hover,
 .cta-block--teal.cta-block .btn.cyan:hover {
-  background: #fff !important;
-  color: var(--color-teal) !important;
-  border-color: #fff !important;
+  background: rgba(255,255,255,0.92) !important;
+  color: var(--color-coral-700) !important;
+  border-color: rgba(255,255,255,0.92) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+}
+
+/* ===========================================================
+   PARTNER STICKER ON HERO TILE — overlaps top-right of the
+   horizontal video. Smaller variant.
+   =========================================================== */
+.partner-sticker--on-tile {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+  z-index: 10;
+  transform: rotate(6deg);  /* tilts opposite of the main video for visual contrast */
+}
+.partner-sticker--on-tile:hover {
+  transform: rotate(0deg) translateY(-2px) scale(1.04);
+}
+.partner-sticker--on-tile .partner-sticker__inner {
+  padding: 6px 12px 6px 9px;
+  border-width: 2px;
+}
+.partner-sticker--on-tile .partner-sticker__icon {
+  width: 22px;
+  height: 22px;
+}
+.partner-sticker--on-tile .partner-sticker__title {
+  font-size: 0.78rem;
+}
+.partner-sticker--on-tile .partner-sticker__eyebrow {
+  font-size: 0.54rem;
+}
+.partner-sticker--on-tile .partner-sticker__check {
+  width: 18px;
+  height: 18px;
+}
+.partner-sticker--on-tile .partner-sticker__check svg { width: 10px; height: 10px; }
+
+/* When the sticker is on a tile, move the LIVE chip to bottom-left
+   so they don't collide visually */
+.hero-tile--main .hero-tile__chip {
+  top: auto;
+  bottom: 12px;
+  left: 12px;
+}
+
+/* ===========================================================
+   TERM MARQUEE — coral variant (sits between two black sections)
+   =========================================================== */
+.term-marquee--coral {
+  background: var(--color-coral);
+  border-top: 1px solid rgba(255,255,255,0.20);
+  border-bottom: 1px solid rgba(255,255,255,0.20);
+}
+.term-marquee--coral .term-marquee-track span {
+  color: #fff;
+  font-weight: 700;
+}
+.term-marquee--coral .term-marquee-track .dot {
+  background: #fff;
 }
