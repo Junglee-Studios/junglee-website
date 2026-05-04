@@ -2403,15 +2403,20 @@ footer#site-footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 18px 16px;
   border-bottom: 1px solid rgba(14,15,18,0.06);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
 }
-.card-image--embed .tiktok-embed {
-  width: 100% !important;
-  max-width: 280px !important;
-  min-width: 0 !important;
+/* TikTok Player iframe — pure 9:16 video, scales to container */
+.card-image--embed .tt-player {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
 }
 /* Body content below embed */
 .svcCard.is-link > .icon-bar,
@@ -2441,9 +2446,15 @@ footer#site-footer {
   display: flex;
   justify-content: center;
 }
-.inside-header-embed .tiktok-embed {
-  width: 100% !important;
-  max-width: 320px !important;
+.inside-header-embed .tt-player {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 14px;
+  background: #000;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
 }
 @media (max-width: 900px) {
   .inside-header-row {
@@ -2480,19 +2491,20 @@ footer#site-footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  background: transparent;
+  padding: 28px 24px;
+  background: #0e0f12;
   overflow: hidden;
-  /* Constrain height so embed bottom-meta-strip is masked */
-  max-height: 540px;
   position: relative;
 }
-.path-card-image--embed .tiktok-embed {
-  width: 100% !important;
-  max-width: 280px !important;
-  min-width: 0 !important;
-  border-radius: 12px;
-  overflow: hidden;
+.path-card-image--embed .tt-player {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 14px;
+  background: #000;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
 }
 
 /* On mobile path cards stack vertically with embed on top */
@@ -2500,5 +2512,8 @@ footer#site-footer {
   .path-card-image--embed {
     aspect-ratio: auto;
     padding: 24px 20px;
+  }
+  .path-card-image--embed .tt-player {
+    max-width: 260px;
   }
 }
