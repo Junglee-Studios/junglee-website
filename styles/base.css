@@ -2403,19 +2403,22 @@ footer#site-footer {
   background: #000;
   display: block;
   width: 100%;
-  aspect-ratio: 9 / 16 !important;   /* override .card-image's 4/3 */
+  /* Compact 4:5 tile — slight crop top/bottom of video, much shorter section */
+  aspect-ratio: 4 / 5 !important;
   border-bottom: 1px solid rgba(14,15,18,0.06);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
 }
-/* Self-hosted video fills the wrapper edge-to-edge */
 .card-image--embed .tt-player {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border: 0;
   background: #000;
+  /* Disable user click/play interaction on these preview tiles */
+  pointer-events: none;
 }
 /* Body content below embed */
 .svcCard.is-link > .icon-bar,
@@ -2433,16 +2436,20 @@ footer#site-footer {
    =========================================================== */
 .inside-header-row {
   display: grid;
-  /* Constrain text width — video sits in the leftover space, centered */
-  grid-template-columns: minmax(0, 56ch) minmax(0, 1fr);
-  gap: clamp(24px, 4vw, 56px);
+  /* Three columns: lead text width | video centered in remaining gap | spacer matching last card width.
+     Last card width = (container - 3*gap) / 4. inside-cell grid uses gap 16px.
+     We approximate: text ≈ lead width, spacer ≈ 1 card width, video sits centered between. */
+  grid-template-columns: minmax(0, 62ch) minmax(0, 1fr) minmax(0, calc((100% - 48px) / 4));
+  gap: 0;
   align-items: center;
   margin-bottom: 36px;
 }
+.inside-header-text { min-width: 0; }
 .inside-header-embed {
   display: flex;
-  justify-content: center;     /* center video in the empty space */
+  justify-content: center;
   align-items: center;
+  /* Video lives in the middle column (the gap between text and the last-card spacer) */
 }
 .inside-header-embed .tt-player {
   display: block;
@@ -2453,13 +2460,14 @@ footer#site-footer {
   background: #000;
   object-fit: cover;
   box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  pointer-events: none;
 }
 @media (max-width: 900px) {
   .inside-header-row {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .inside-header-embed { justify-content: flex-start; }
+  .inside-header-embed { justify-content: flex-start; width: auto; }
   .inside-header-embed .tt-player { width: 200px; }
 }
 
@@ -2531,6 +2539,8 @@ footer#site-footer {
   object-fit: cover;
   border: 0;
   background: #000;
+  /* Not clickable — the parent card is the click target */
+  pointer-events: none;
 }
 
 /* Mobile: stack — video on top as a 9:16 block, body below */
