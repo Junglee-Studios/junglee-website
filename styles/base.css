@@ -2397,40 +2397,56 @@ footer#site-footer {
   overflow: hidden;
   height: 100%;
 }
-/* Outer wrapper is a centered band on the card (with surrounding padding) so
-   the video reads as a smaller compact tile inside each card. */
+/* === EXACT bdc7865 baseline for Unlocks cards — v5 layout user confirmed was right === */
+/* Cards become flex column, embed (video) bleeds edge-to-edge at top, body below */
+.svcCard:has(.card-image--embed) {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  cursor: default;             /* not clickable — they're <div>s now */
+  text-decoration: none;
+}
 .svcCard .card-image--embed,
 .card-image--embed {
   margin: 0;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #000;
+  display: block;
   width: 100%;
-  aspect-ratio: auto !important;   /* free the wrapper — video itself defines size */
+  aspect-ratio: 9 / 16 !important;   /* full vertical video, no crop */
   border-bottom: 1px solid rgba(14,15,18,0.06);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
-  padding: 18px 0 0;               /* small breathing room above the smaller video */
 }
-/* Smaller video tile, full 9:16 visible (no crop), centered horizontally */
 .card-image--embed .tt-player {
   display: block;
-  width: 170px;                    /* small — tile feels like a phone preview */
-  aspect-ratio: 9 / 16;            /* full vertical video, nothing cut */
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
   border: 0;
   background: #000;
-  border-radius: 12px;
-  /* Not clickable */
-  pointer-events: none;
+  pointer-events: none;        /* video itself not clickable */
 }
-/* Cards are no longer links — remove pointer cursor */
-.svcCard {
-  cursor: default;
-  text-decoration: none;
+/* Body text content under the embed gets normal padding */
+.svcCard:has(.card-image--embed) > .icon-bar,
+.svcCard:has(.card-image--embed) > .num,
+.svcCard:has(.card-image--embed) > h3,
+.svcCard:has(.card-image--embed) > p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.svcCard:has(.card-image--embed) > .icon-bar { margin-top: 16px; }
+.svcCard:has(.card-image--embed) > p { padding-bottom: 20px; }
+
+/* SMALLER cards in Unlocks section so videos shrink proportionally with the cards.
+   Override .grid4's repeat(4, 1fr) to fixed-width centered columns. */
+@media (min-width: 901px) {
+  #what-we-unlock .grid4 {
+    grid-template-columns: repeat(4, 200px);
+    justify-content: center;
+    gap: 20px;
+  }
 }
 /* Body content below embed */
 .svcCard.is-link > .icon-bar,
@@ -2446,24 +2462,17 @@ footer#site-footer {
 /* ===========================================================
    INSIDE PLATFORM KNOWLEDGE — 2-column header with embed on right
    =========================================================== */
+/* === EXACT bdc7865 baseline — the version the user confirmed had the right messaging width === */
 .inside-header-row {
   display: grid;
-  /* Three columns:
-       1) text — width matches the lead paragraph (~62ch), heading wraps inside
-       2) gap — video lives here, centered horizontally
-       3) spacer — invisible, matches the last card's width so col-2 centering
-          actually centers between text-end and last-card-left.
-     The .inside-cell grid below uses gap 16px between 4 cards, so each card =
-     (container - 3*gap) / 4 = (100% - 48px) / 4. */
-  grid-template-columns: minmax(0, 62ch) minmax(0, 1fr) minmax(0, calc((100% - 48px) / 4));
-  gap: 0;
+  grid-template-columns: minmax(0, 56ch) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
   align-items: center;
   margin-bottom: 36px;
 }
-.inside-header-text { min-width: 0; }
 .inside-header-embed {
   display: flex;
-  justify-content: center;     /* center video in col 2 (the gap) */
+  justify-content: center;     /* center video in the empty space */
   align-items: center;
 }
 .inside-header-embed .tt-player {
@@ -2482,7 +2491,7 @@ footer#site-footer {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .inside-header-embed { justify-content: flex-start; width: auto; }
+  .inside-header-embed { justify-content: flex-start; }
   .inside-header-embed .tt-player { width: 200px; }
 }
 
