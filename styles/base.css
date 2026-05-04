@@ -1363,3 +1363,152 @@ footer#site-footer {
 .cta-block .container { position: relative; z-index: 2; }
 .cta-block h2 { color: var(--color-white); max-width: 18ch; }
 .cta-block .lead { color: rgba(255,255,255,0.74); }
+
+/* ===========================================================
+   HOMEPAGE VISUALS (additive — no existing rules altered)
+   - Hero: 2-column on desktop with phone-frame mock
+   - Section figures: editorial image bands above content
+   - Service cards: image header above number/title
+   =========================================================== */
+
+/* --- Hero 2-column with phone visual ---------------------- */
+@media (min-width: 981px) {
+  body[data-page="home"] .hero-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  body[data-page="home"] .hero-content { max-width: 620px; }
+}
+
+.hero-visual {
+  display: none;
+  position: relative;
+}
+
+@media (min-width: 981px) {
+  .hero-visual {
+    display: block;
+    justify-self: end;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 9 / 16;
+  }
+}
+
+.hero-phone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.55),
+    0 8px 18px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+.hero-phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-phone::after {
+  /* Subtle bottom gradient so the LIVE chip stays legible */
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+.hero-phone-live {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+.hero-phone-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes hero-live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone-live-dot { animation: none; }
+}
+
+/* --- Section figure (image band above section content) --- */
+.section-figure {
+  margin: 28px 0 8px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 21 / 9;
+  background: #0e0f12;
+}
+.section-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.section-figure--coral {
+  border: 1px solid rgba(14,15,18,0.14);
+  box-shadow: 0 18px 38px rgba(14,15,18,0.22), 0 4px 10px rgba(14,15,18,0.10);
+}
+.section-figure--charcoal {
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 22px 44px rgba(0,0,0,0.45);
+}
+@media (max-width: 700px) {
+  .section-figure { aspect-ratio: 16 / 10; }
+}
+
+/* --- Service card image header (svcCard) ------------------ */
+.svcCard .card-image {
+  margin: -24px -24px 14px;   /* bleed to card edge — .card padding is 24px */
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f3f3f4;
+}
+.svcCard .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.svcCard:hover .card-image img {
+  transform: scale(1.04);
+}
+
+/* Hero stat grid in the narrower left column: force tidy 2x2 on desktop */
+@media (min-width: 981px) {
+  body[data-page="home"] .hero .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
