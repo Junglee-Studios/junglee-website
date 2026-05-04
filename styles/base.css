@@ -2397,28 +2397,40 @@ footer#site-footer {
   overflow: hidden;
   height: 100%;
 }
+/* Outer wrapper is a centered band on the card (with surrounding padding) so
+   the video reads as a smaller compact tile inside each card. */
 .svcCard .card-image--embed,
 .card-image--embed {
   margin: 0;
-  background: #000;
-  display: block;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  /* Compact 4:5 tile — slight crop top/bottom of video, much shorter section */
-  aspect-ratio: 4 / 5 !important;
+  aspect-ratio: auto !important;   /* free the wrapper — video itself defines size */
   border-bottom: 1px solid rgba(14,15,18,0.06);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
+  padding: 18px 0 0;               /* small breathing room above the smaller video */
 }
+/* Smaller video tile, full 9:16 visible (no crop), centered horizontally */
 .card-image--embed .tt-player {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 170px;                    /* small — tile feels like a phone preview */
+  aspect-ratio: 9 / 16;            /* full vertical video, nothing cut */
+  height: auto;
   object-fit: cover;
   object-position: center;
   border: 0;
   background: #000;
-  /* Disable user click/play interaction on these preview tiles */
+  border-radius: 12px;
+  /* Not clickable */
   pointer-events: none;
+}
+/* Cards are no longer links — remove pointer cursor */
+.svcCard {
+  cursor: default;
+  text-decoration: none;
 }
 /* Body content below embed */
 .svcCard.is-link > .icon-bar,
@@ -2436,9 +2448,13 @@ footer#site-footer {
    =========================================================== */
 .inside-header-row {
   display: grid;
-  /* Three columns: lead text width | video centered in remaining gap | spacer matching last card width.
-     Last card width = (container - 3*gap) / 4. inside-cell grid uses gap 16px.
-     We approximate: text ≈ lead width, spacer ≈ 1 card width, video sits centered between. */
+  /* Three columns:
+       1) text — width matches the lead paragraph (~62ch), heading wraps inside
+       2) gap — video lives here, centered horizontally
+       3) spacer — invisible, matches the last card's width so col-2 centering
+          actually centers between text-end and last-card-left.
+     The .inside-cell grid below uses gap 16px between 4 cards, so each card =
+     (container - 3*gap) / 4 = (100% - 48px) / 4. */
   grid-template-columns: minmax(0, 62ch) minmax(0, 1fr) minmax(0, calc((100% - 48px) / 4));
   gap: 0;
   align-items: center;
@@ -2447,9 +2463,8 @@ footer#site-footer {
 .inside-header-text { min-width: 0; }
 .inside-header-embed {
   display: flex;
-  justify-content: center;
+  justify-content: center;     /* center video in col 2 (the gap) */
   align-items: center;
-  /* Video lives in the middle column (the gap between text and the last-card spacer) */
 }
 .inside-header-embed .tt-player {
   display: block;

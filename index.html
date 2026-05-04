@@ -339,7 +339,7 @@
         </p>
           </div>
           <div class="inside-header-embed">
-            <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-05-inside-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-05-inside.mp4" type="video/mp4"></video>
+            <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-05-inside-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-05-inside.mp4" type="video/mp4"></video>
           </div>
         </div>
 
@@ -376,42 +376,42 @@
         <p class="lead">The Junglee System organizes the work brands and creators need to do on TikTok Shop into four operating capabilities.</p>
 
         <div class="grid4">
-          <a class="card svcCard is-link" href="/brands#services">
+          <div class="card svcCard">
             <figure class="card-image card-image--embed">
-              <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-01-content-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-01-content.mp4" type="video/mp4"></video>
+              <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-01-content-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-01-content.mp4" type="video/mp4"></video>
             </figure>
             <div class="icon-bar"></div>
             <span class="num">01</span>
             <h3>Content That Converts</h3>
             <p>Hooks, proof, and offers engineered for TikTok Shop's discovery feed — not generic ads.</p>
-          </a>
-          <a class="card svcCard is-link" href="/brands#services">
+          </div>
+          <div class="card svcCard">
             <figure class="card-image card-image--embed">
-              <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-02-shop-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-02-shop.mp4" type="video/mp4"></video>
+              <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-02-shop-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-02-shop.mp4" type="video/mp4"></video>
             </figure>
             <div class="icon-bar"></div>
             <span class="num">02</span>
             <h3>Shop Optimization</h3>
             <p>Storefront architecture, catalog hygiene, and offer structure tuned for buy-flow performance.</p>
-          </a>
-          <a class="card svcCard is-link" href="/brands#services">
+          </div>
+          <div class="card svcCard">
             <figure class="card-image card-image--embed">
-              <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-03-creator-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-03-creator.mp4" type="video/mp4"></video>
+              <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-03-creator-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-03-creator.mp4" type="video/mp4"></video>
             </figure>
             <div class="icon-bar"></div>
             <span class="num">03</span>
             <h3>Creator Commerce</h3>
             <p>Affiliate strategy, creator recruitment, and campaign management run as a real channel.</p>
-          </a>
-          <a class="card svcCard is-link" href="/brands#services">
+          </div>
+          <div class="card svcCard">
             <figure class="card-image card-image--embed">
-              <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-04-live-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-04-live.mp4" type="video/mp4"></video>
+              <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-04-live-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-04-live.mp4" type="video/mp4"></video>
             </figure>
             <div class="icon-bar"></div>
             <span class="num">04</span>
             <h3>Live Selling</h3>
             <p>Host development, stream operations, and Mega Live event execution that drives real GMV.</p>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -425,7 +425,7 @@
         <div class="path-picker">
           <a class="path-card brand" href="/brands">
             <figure class="path-card-image path-card-image--embed">
-              <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-06-path-brand-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-06-path-brand.mp4" type="video/mp4"></video>
+              <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-06-path-brand-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-06-path-brand.mp4" type="video/mp4"></video>
             </figure>
             <div class="path-card-body">
               <span class="path-label">For Brands</span>
@@ -444,7 +444,7 @@
           </a>
           <a class="path-card creator" href="/creators">
             <figure class="path-card-image path-card-image--embed">
-              <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-07-path-creator-poster.jpg" aria-label="TikTok video preview"><source src="assets/video/embeds/embed-07-path-creator.mp4" type="video/mp4"></video>
+              <video class="tt-player" autoplay muted loop playsinline preload="none" poster="assets/video/embeds/embed-07-path-creator-poster.jpg" aria-label="TikTok video preview"><source data-src="assets/video/embeds/embed-07-path-creator.mp4" type="video/mp4"></video>
             </figure>
             <div class="path-card-body">
               <span class="path-label">For Creators</span>
@@ -565,5 +565,33 @@
   </div>
 </div>
 </footer>
+
+    <!-- Lazy-load TikTok preview videos: only fetch MP4 bytes when the
+         video tile is about to enter the viewport. Saves ~16MB of upfront load. -->
+    <script>
+    (function () {
+      var videos = document.querySelectorAll('video.tt-player');
+      if (!videos.length) return;
+      var loadVideo = function (v) {
+        var srcEl = v.querySelector('source[data-src]');
+        if (!srcEl) return;
+        srcEl.setAttribute('src', srcEl.getAttribute('data-src'));
+        srcEl.removeAttribute('data-src');
+        v.load();
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      };
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { loadVideo(e.target); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '300px 0px' });   // start ~300px before entering viewport
+        videos.forEach(function (v) { io.observe(v); });
+      } else {
+        videos.forEach(loadVideo);   // fallback: load immediately
+      }
+    })();
+    </script>
   </body>
 </html>
