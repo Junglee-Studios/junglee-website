@@ -1832,3 +1832,107 @@ footer#site-footer {
   border-color: rgba(255,255,255,0.85) !important;
   color: var(--color-white) !important;
 }
+
+/* ===========================================================
+   HERO COMPOSITE — horizontal feature video on top, two
+   verticals beneath. Replaces single hero-phone treatment.
+   =========================================================== */
+@media (min-width: 981px) {
+  .hero-visual--composite {
+    /* Override the earlier .hero-visual width cap (360px) and
+       aspect-ratio because we're using a different composition. */
+    max-width: 460px;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-self: end;
+  }
+}
+@media (max-width: 980px) {
+  /* On mobile, hero-visual already hides via the existing rule.
+     If we ever want to surface it on mobile, we'd lift that here. */
+}
+
+.hero-tile {
+  position: relative;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.50),
+    0 4px 14px rgba(0,0,0,0.30);
+}
+.hero-tile video,
+.hero-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Main horizontal video (16:9) */
+.hero-tile--main {
+  aspect-ratio: 16 / 9;
+}
+
+/* Two verticals row (each 9:16) */
+.hero-tile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.hero-tile--vert {
+  aspect-ratio: 9 / 16;
+}
+
+/* Chips */
+.hero-tile__chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.30);
+}
+.hero-tile__chip-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+
+/* Format label (mono caps) inside each tile */
+.hero-tile__label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 3;
+  border: 1px solid rgba(255,255,255,0.12);
+  white-space: nowrap;
+}
