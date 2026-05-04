@@ -137,74 +137,7 @@
     @media (max-width: 980px) { .team-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
 
-    /* Credentials band */
-    .cred-band {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-top: 32px;
-    }
-    .cred-cell {
-      background: var(--color-charcoal);
-      padding: 26px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .cred-cell .check {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: rgba(255,68,56,0.14);
-      color: var(--color-coral);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .cred-cell h3 {
-      font-size: 1.05rem;
-      margin: 6px 0 0;
-      color: var(--color-white);
-    }
-    .cred-cell p { color: rgba(255,255,255,0.62); font-size: 0.9rem; margin: 0; }
-    .cred-cell { transition: background .25s ease, transform .25s ease; }
-    .cred-cell:hover { background: rgba(255,255,255,0.04); transform: translateY(-2px); }
-    @media (max-width: 980px) { .cred-band { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 540px) { .cred-band { grid-template-columns: 1fr; } }
-
-    /* Why-different list */
-    .diff-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 32px;
-    }
-    .diff-item {
-      padding: 24px;
-      border-radius: var(--radius-md);
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
-    .diff-num {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--color-coral);
-      letter-spacing: 0.1em;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .diff-item h3 { margin: 0 0 6px; }
-    .diff-item p { margin: 0; color: var(--color-text-secondary); line-height: 1.55; }
-    @media (max-width: 760px) { .diff-list { grid-template-columns: 1fr; } }
+    /* (Legacy .cred-band and .diff-list styles removed — replaced by .tt-cred-card and .diff-compare in the page-scoped block below.) */
   </style>
 </head>
 
@@ -237,14 +170,29 @@
 </div>
 </header>
 
-  <!-- 1. HERO — text + 3-photo tilted composite (matching homepage hero energy) -->
+  <!-- 1. HERO — true two-column layout matching the homepage hero pattern.
+       Text on the left (constrained width), photo composite on the right with
+       the TikTok Shop Partner sticker floating on the main tile. -->
   <section class="hero hero--about">
     <div class="container">
       <div class="about-hero-grid">
-        <div class="about-hero-text">
-          <!-- Partner sticker -->
-          <div class="partner-badge-row">
-            <a class="partner-sticker" href="#why-exists" aria-label="TikTok Shop Certified Full-Service Management Partner">
+        <div class="about-hero-content">
+          <div class="kicker"><i></i> About Junglee</div>
+          <h1>Built to Bridge the Gap Between Platform Knowledge and <span class="accent">Real-World Growth.</span></h1>
+          <p class="lead">
+            Junglee Studios was created to help brands and creators understand what works in social commerce — from people who have seen it from the inside.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+            <a class="btn secondary" href="#team">Meet the team</a>
+          </div>
+        </div>
+
+        <!-- Photo composite: 3 tilted tiles + Partner sticker on the main tile -->
+        <aside class="about-hero-visual" aria-hidden="true">
+          <figure class="about-tile about-tile--main">
+            <img src="assets/photos/about/jt-tiktok-shop-booth.jpg" alt="JT at the TikTok Shop event booth" loading="eager">
+            <a class="partner-sticker partner-sticker--on-tile" href="#credentials" aria-label="TikTok Shop Certified Full-Service Management Partner — read more">
               <span class="partner-sticker__inner">
                 <span class="partner-sticker__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none">
@@ -262,23 +210,6 @@
                 </span>
               </span>
             </a>
-          </div>
-          <div class="kicker"><i></i> About Junglee</div>
-          <h1>Built to Bridge the Gap Between Platform Knowledge and <span class="accent">Real-World Growth.</span></h1>
-          <p class="lead">
-            Junglee Studios was created to help brands and creators understand what works in social commerce — from people who have seen it from the inside.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
-            <a class="btn secondary" href="#team">Meet the team</a>
-          </div>
-        </div>
-
-        <!-- 3-photo tilted composite occupying the hero's right empty space.
-             Absolutely positioned so the text column on the left is unaffected. -->
-        <div class="about-hero-photos" aria-hidden="true">
-          <figure class="about-tile about-tile--main">
-            <img src="assets/photos/about/jt-tiktok-shop-booth.jpg" alt="JT at the TikTok Shop event booth" loading="eager">
           </figure>
           <figure class="about-tile about-tile--vert-1">
             <img src="assets/photos/about/jt-summit-speaking.jpg" alt="JT speaking at TikTok Shop Summit on Countdown Bid Auctions" loading="eager">
@@ -286,13 +217,13 @@
           <figure class="about-tile about-tile--vert-2">
             <img src="assets/photos/about/jt-tiktok-wall.jpg" alt="JT at the TikTok Inspiration Studio" loading="eager">
           </figure>
-        </div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <!-- 2. STAT BAND — teal break between dark hero and light trusted-by ticker -->
-  <section class="section section-teal reveal" id="about-stats" style="padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7vw, 88px);">
+  <!-- 2. STAT BAND — thin teal strip; padding tightened, font sizes preserved -->
+  <section class="section section-teal stat-strip reveal" id="about-stats">
     <div class="container">
       <div class="stat-grid" aria-label="Operator credibility">
         <div class="stat-cell">
@@ -312,7 +243,6 @@
           <div class="stat-label">Creators Supported</div>
         </div>
       </div>
-      <p class="source-note" style="text-align: center; margin-top: 18px;">Operator track record across our team's tenure at TikTok Shop and Junglee Studios.</p>
     </div>
   </section>
 
@@ -341,15 +271,18 @@
     </div>
   </section>
 
-  <!-- 4. WHY JUNGLEE EXISTS — with TikTok video tile on the right -->
+  <!-- 4. WHY JUNGLEE EXISTS — origin story; video closer to the text column -->
   <section class="section section-coral reveal" id="why-exists">
     <div class="container">
       <div class="why-exists-row">
         <div class="why-exists-text">
           <div class="kicker"><i></i> Why Junglee exists</div>
-          <h2 style="max-width: 26ch;">A conduit between TikTok Shop complexity and real-world execution.</h2>
-          <p class="lead" style="max-width: 62ch; font-size: 1.12rem;">
-            We're operators, not theorists. Junglee's founder was on the early TikTok Shop U.S. team &mdash; helped launch the Collectibles category, helped develop seller playbooks, and helped launch Countdown Bidding, TikTok's auction mechanism. Junglee Studios turns that inside experience into a repeatable playbook brands and creators can run.
+          <h2 style="max-width: 26ch;">Inside knowledge, brought out into the open.</h2>
+          <p class="lead" style="max-width: 62ch; font-size: 1.08rem;">
+            JT was on the early TikTok Shop U.S. team — helped launch the Collectibles category, helped develop the seller playbooks operators still use today, and helped launch Countdown Bidding, TikTok Shop's auction mechanism.
+          </p>
+          <p style="max-width: 62ch; font-size: 1.02rem; color: rgba(255,255,255,0.92); line-height: 1.6;">
+            From the inside, the gap was clear: capable brands and capable partners working hard, but without the platform context to know which signals actually drive discovery, ranking, and conversion on TikTok Shop. The platform moves differently. Junglee Studios was built to bring that context out — turning years of platform-side experience into playbooks, systems, and operating expertise that brands and creators can run.
           </p>
         </div>
         <div class="why-exists-embed">
@@ -363,32 +296,122 @@
     </div>
   </section>
 
-  <!-- 5. CREDENTIALS — enlarged partner badge as the credential hero -->
-  <section class="section section-charcoal reveal" id="credentials">
+  <!-- 4b. HOW WE WORK — the 12-month optionality story (the differentiator) -->
+  <section class="section section-light reveal" id="how-we-work">
+    <div class="container">
+      <div class="hww-head">
+        <div class="kicker"><i></i> How we work</div>
+        <h2 style="max-width: 22ch;">Build your team. Or keep us. <span style="color: var(--color-coral);">Your call.</span></h2>
+        <p class="lead" style="max-width: 64ch;">
+          Most TikTok Shop engagements are designed around staying. We design ours around making your team self-sufficient — so renewing with us is a choice, not a dependency.
+        </p>
+      </div>
+
+      <ol class="hww-steps">
+        <li class="hww-step">
+          <div class="hww-step__num">01</div>
+          <h3 class="hww-step__title">We run your shop from day one.</h3>
+          <p class="hww-step__body">Full-service TikTok Shop operations — setup, listing optimization, content strategy, affiliate program build, LIVE selling, ad management. Same daily work most agencies do, just operated by people who built the playbooks.</p>
+        </li>
+        <li class="hww-step">
+          <div class="hww-step__num">02</div>
+          <h3 class="hww-step__title">We train your team in parallel.</h3>
+          <p class="hww-step__body">Your in-house operators sit alongside ours. We share the playbooks, the tools, the affiliate vetting frameworks, the LIVE scripts, the violation playbooks — the full operating system we use internally, adapted to your brand.</p>
+        </li>
+        <li class="hww-step">
+          <div class="hww-step__num">03</div>
+          <h3 class="hww-step__title">Clean handoff at month 12.</h3>
+          <p class="hww-step__body">By the end of the engagement, your team owns the program. Documented systems, trained operators, established creator network, working LIVE cadence. Self-sufficient.</p>
+        </li>
+        <li class="hww-step hww-step--choice">
+          <div class="hww-step__num">04</div>
+          <h3 class="hww-step__title">Then you choose.</h3>
+          <p class="hww-step__body">Run it internally with your trained team — you own the playbooks, the tools, the relationships. Or keep us as your operator on a renewal that's earned, not locked in. Same caliber of work either way.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4c. WHY NOW — the urgency case for both brands and creators -->
+  <section class="section section-charcoal reveal" id="why-now-about">
+    <div class="container">
+      <div class="kicker"><i></i> Why now</div>
+      <h2 style="max-width: 22ch;">TikTok Shop is still early. The window to build is open.</h2>
+      <p class="lead" style="max-width: 64ch;">
+        TikTok Shop launched in the U.S. in September 2023. Two years in, it's a $15.8 billion market growing 108% year over year — and platform-wide data shows it's still scaling. Brands and creators who build their position now compound; those who wait pay more for less ground later.
+      </p>
+
+      <div class="whynow-grid">
+        <article class="whynow-card">
+          <div class="whynow-card__num">+108<span class="whynow-card__sym">%</span></div>
+          <div class="whynow-card__label">U.S. TikTok Shop GMV growth</div>
+          <div class="whynow-card__sub">2025 vs. 2024 (eMarketer). Platform reached $15.82B in U.S. GMV in 2025.</div>
+        </article>
+        <article class="whynow-card">
+          <div class="whynow-card__num">$20<span class="whynow-card__sym">B+</span></div>
+          <div class="whynow-card__label">2026 U.S. GMV projection</div>
+          <div class="whynow-card__sub">eMarketer forecast — climbing past $30B by 2028.</div>
+        </article>
+        <article class="whynow-card">
+          <div class="whynow-card__num">53<span class="whynow-card__sym">M</span></div>
+          <div class="whynow-card__label">U.S. TikTok shoppers in 2025</div>
+          <div class="whynow-card__sub">Up 13.6% year over year; 1 in 2 U.S. social shoppers will buy on TikTok in 2026.</div>
+        </article>
+        <article class="whynow-card whynow-card--accent">
+          <div class="whynow-card__num">$500<span class="whynow-card__sym">M+</span></div>
+          <div class="whynow-card__label">BFCM 2025 sales in 4 days</div>
+          <div class="whynow-card__sub">Black Friday – Cyber Monday on TikTok Shop, with ~50% more U.S. shoppers vs. 2024.</div>
+        </article>
+      </div>
+
+      <div class="whynow-takeaways">
+        <div class="whynow-take">
+          <span class="whynow-take__chip">For brands</span>
+          <p>Affiliate networks take months to build. Creator relationships compound with time on platform. The brands that anchor in 2026 will be the category defaults by 2028.</p>
+        </div>
+        <div class="whynow-take">
+          <span class="whynow-take__chip">For creators</span>
+          <p>Creator-affiliate is the new ad channel. LIVE shopping converts where static ads stall. Creators who build a posting cadence and a brand stack now will keep earning when the field gets crowded.</p>
+        </div>
+      </div>
+
+      <p class="source-note whynow-source">Sources: <a href="https://www.emarketer.com/press-releases/tiktok-shop-makes-up-nearly-20-of-social-commerce-in-2025/" target="_blank" rel="noreferrer">eMarketer</a>, TikTok Shop Summit 2025, Forbes / industry reporting on BFCM 2025.</p>
+    </div>
+  </section>
+
+  <!-- 5. CREDENTIALS — TikTok-styled partner card + award graphic -->
+  <section class="section section-light reveal" id="credentials">
     <div class="container">
       <div class="kicker"><i></i> Credentials</div>
       <h2>Official partnership. Operator credibility.</h2>
       <p class="lead" style="max-width: 62ch;">The receipts behind the work — partner status verified, recognized by TikTok Shop itself.</p>
 
-      <div class="cred-hero">
-        <div class="cred-hero__badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" width="56" height="56">
-            <path class="ts-cyan"  d="M16.5 5.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.3 20.4 3.3 16.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V2h3.8z"/>
-            <path class="ts-pink"  d="M17.6 4.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S4.4 19.4 4.4 15.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1h3.8z"/>
-            <path class="ts-white" d="M17 4.7c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.8 19.9 3.8 16.3s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1.5h3.8z"/>
-          </svg>
-        </div>
-        <div class="cred-hero__copy">
-          <span class="cred-hero__eyebrow">Official partner status</span>
-          <h3 class="cred-hero__title">TikTok Shop Certified Full-Service Management Partner</h3>
-          <p class="cred-hero__sub">One of a select group of agencies authorized by TikTok Shop to operate end-to-end for brands on the platform — from shop setup and creator commerce to LIVE selling and ad management.</p>
-        </div>
-        <div class="cred-hero__check" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" width="36" height="36"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M9 16.5l4.5 4.5L23 12" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <!-- TikTok-styled partner card -->
+      <div class="tt-cred-card">
+        <div class="tt-cred-card__rule" aria-hidden="true"></div>
+        <div class="tt-cred-card__inner">
+          <div class="tt-cred-card__badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" width="56" height="56">
+              <path class="ts-cyan"  d="M16.5 5.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.3 20.4 3.3 16.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V2h3.8z"/>
+              <path class="ts-pink"  d="M17.6 4.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S4.4 19.4 4.4 15.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1h3.8z"/>
+              <path class="ts-white" d="M17 4.7c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.8 19.9 3.8 16.3s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1.5h3.8z"/>
+            </svg>
+          </div>
+          <div class="tt-cred-card__copy">
+            <span class="tt-cred-card__eyebrow">Official Partner Status</span>
+            <h3 class="tt-cred-card__title">TikTok Shop Certified Full-Service Management Partner</h3>
+            <p class="tt-cred-card__sub">One of a select group of agencies authorized by TikTok Shop to operate end-to-end for brands on the platform — from shop setup and creator commerce to LIVE selling and ad management.</p>
+          </div>
+          <div class="tt-cred-card__seal" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32">
+              <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+              <path d="M9 16.5l4.5 4.5L23 12" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
       </div>
 
-      <!-- Countdown Bidding award graphic — visual proof JT was on the official team -->
+      <!-- Countdown Bidding Team Award — image fully visible (object-fit: contain) -->
       <div class="cred-award">
         <div class="cred-award__copy">
           <span class="cred-award__eyebrow">Recognized contribution</span>
@@ -402,14 +425,9 @@
     </div>
   </section>
 
-  <!-- TEAM — with full-bleed feature image of JT + team at the TikTok studio -->
+  <!-- TEAM — cards lead, candid studio moment image follows below -->
   <section class="section section-smoke reveal" id="team">
     <div class="container">
-      <!-- Feature image: JT (back row) + extended TikTok Shop team in studio -->
-      <figure class="team-feature">
-        <img src="assets/photos/about/jt-team-studio.jpg" alt="JT (back row) with the TikTok Shop team in studio" loading="lazy">
-        <figcaption class="team-feature__cap">JT (back row, 2nd from left) with the TikTok Shop team — in the TikTok studio.</figcaption>
-      </figure>
       <div class="kicker"><i></i> The team</div>
       <h2>Specialists who've operated inside the platforms they now help you win on.</h2>
 
@@ -468,6 +486,12 @@
           </div>
         </article>
       </div>
+
+      <!-- Candid moment image — lives below the team cards as a behind-the-scenes glimpse -->
+      <figure class="team-feature team-feature--below">
+        <img src="assets/photos/about/jt-team-studio.jpg" alt="Inside the TikTok Shop studio with the Junglee team, partners, and special guest Taz Skylar" loading="lazy">
+        <figcaption class="team-feature__cap">Inside the TikTok Shop studio — with team, partners, and special guest Taz Skylar (front, black jacket), known for playing Sanji in Netflix's live-action <em>One Piece</em>.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -482,51 +506,64 @@
     </div>
   </div>
 
-  <!-- 7. HOW WE'RE DIFFERENT — confident two-column positioning strip -->
+  <!-- 7. SAME / DIFFERENT — honest, professional positioning strip -->
   <section class="section section-light reveal" id="different">
     <div class="container">
-      <div class="kicker"><i></i> How we're different</div>
-      <h2 style="max-width: 26ch;">We're not for every brand. By design.</h2>
-      <p class="lead" style="max-width: 62ch;">A short list so the right partners self-select — and we can do our best work for them.</p>
+      <div class="kicker"><i></i> How we work alongside the field</div>
+      <h2 style="max-width: 28ch;">Some of what we do is industry-standard. The rest is the difference.</h2>
+      <p class="lead" style="max-width: 64ch;">
+        We share the table with great agencies in this space. Here's where the work overlaps — and where Junglee is built around a different model.
+      </p>
 
       <div class="diff-compare">
-        <div class="diff-col diff-col--are stagger-item">
+        <div class="diff-col diff-col--same stagger-item">
           <div class="diff-col__head">
-            <span class="diff-col__chip diff-col__chip--are">What we are</span>
+            <span class="diff-col__chip diff-col__chip--same">Same as the rest of the field</span>
           </div>
           <ul class="diff-col__list">
-            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>Operators, not theorists.</strong> Junglee was built by former TikTok Shop team members who shaped the platform from the inside.</span></li>
-            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>A long-term partner, not a vendor.</strong> We embed with your team and treat your channel like our own.</span></li>
-            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>Platform-native by default.</strong> Built around how TikTok Shop's discovery, ranking, and LIVE mechanics actually work — not generic ecommerce playbooks.</span></li>
-            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>Fluent on both sides.</strong> Brands get creator-channel programs that perform; creators get brand partners that respect their craft.</span></li>
+            <li><span class="diff-mark diff-mark--dot" aria-hidden="true">•</span><span>Full TikTok Shop management — setup, listings, content strategy, ad management.</span></li>
+            <li><span class="diff-mark diff-mark--dot" aria-hidden="true">•</span><span>Affiliate program build, creator recruitment, and campaign management.</span></li>
+            <li><span class="diff-mark diff-mark--dot" aria-hidden="true">•</span><span>LIVE selling production, host development, and event execution.</span></li>
+            <li><span class="diff-mark diff-mark--dot" aria-hidden="true">•</span><span>Creator partnerships, brand-creator matching, and commission strategy.</span></li>
           </ul>
         </div>
-        <div class="diff-col diff-col--not stagger-item">
+        <div class="diff-col diff-col--diff stagger-item">
           <div class="diff-col__head">
-            <span class="diff-col__chip diff-col__chip--not">What we're not</span>
+            <span class="diff-col__chip diff-col__chip--diff">Where Junglee is built differently</span>
           </div>
           <ul class="diff-col__list">
-            <li><span class="diff-mark diff-mark--x" aria-hidden="true">×</span><span>A consulting firm that hands you a deck and disappears.</span></li>
-            <li><span class="diff-mark diff-mark--x" aria-hidden="true">×</span><span>A generic social agency repurposing Instagram tactics for TikTok Shop.</span></li>
-            <li><span class="diff-mark diff-mark--x" aria-hidden="true">×</span><span>A creator network that just spams brand drops at affiliates.</span></li>
-            <li><span class="diff-mark diff-mark--x" aria-hidden="true">×</span><span>A roster of every brand that asks. We pick partners we can win with.</span></li>
+            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>Inside-the-platform operators.</strong> Our founder helped launch Collectibles, write seller playbooks still used today, and ship Countdown Bidding while at TikTok Shop.</span></li>
+            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>Designed around a 12-month handoff.</strong> Train your team, share the playbooks, document the systems — then you choose to keep us or run it internally.</span></li>
+            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>Both sides of the marketplace, one operator.</strong> We run brand programs and creator programs under one roof, so each side gets a partner who actually understands the other.</span></li>
+            <li><span class="diff-mark diff-mark--check" aria-hidden="true">&#10003;</span><span><strong>For creators specifically:</strong> structured coaching on the future of affiliate, content frameworks built for product video, and access to brand campaigns vetted to fit your audience.</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA — split paths for brands and creators -->
   <section class="cta-block reveal" id="contact">
-    <div class="container" style="max-width: 920px;">
+    <div class="container" style="max-width: 980px;">
       <div class="kicker" style="color: var(--color-coral);"><i></i> Get started</div>
       <h2 style="font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 12px;">Talk to operators who've been on the inside.</h2>
-      <p class="lead">
-        A 30-minute strategy call. We'll map your TikTok Shop opportunity and what The Junglee System can unlock.
+      <p class="lead" style="margin-bottom: 28px;">
+        Pick the side you're on — we'll meet you there.
       </p>
-      <div class="actions" style="margin-top: 28px;">
-        <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
-        <a class="btn secondary" href="/brands">Brand services</a>
+
+      <div class="cta-paths">
+        <article class="cta-path cta-path--brand">
+          <span class="cta-path__chip">Brands</span>
+          <h3 class="cta-path__title">Scale your TikTok Shop with operators who built the playbooks.</h3>
+          <p class="cta-path__sub">A 30-minute strategy call. We'll map your TikTok Shop opportunity and the program that fits.</p>
+          <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+        </article>
+        <article class="cta-path cta-path--creator">
+          <span class="cta-path__chip">Creators</span>
+          <h3 class="cta-path__title">Turn content into a real, repeatable income stream.</h3>
+          <p class="cta-path__sub">Brand collaborations, content coaching, posting systems, and platform support — built for the affiliate creator economy.</p>
+          <a class="btn secondary" href="/creators">Explore the Creator program</a>
+        </article>
       </div>
     </div>
   </section>
@@ -565,138 +602,396 @@
        About v2 page-scoped styles
        =========================================================== -->
   <style>
-    /* SECTION 1 — HERO with photo composite
-       The text column is unchanged. Photos sit absolutely positioned in
-       the hero's right empty area. On narrow viewports they drop below. */
+    /* SECTION 1 — HERO: true two-column layout matching homepage hero pattern.
+       Text occupies the left column at constrained width; photo composite
+       takes the right column with the Partner sticker floating on the main tile. */
     .hero--about { position: relative; overflow: hidden; }
-    .hero .partner-badge-row { display: flex; margin-bottom: 18px; }
+    .hero--about .container { position: relative; }
     .about-hero-grid {
-      position: relative;
-      min-height: 600px;        /* leaves room for the corner photo composite */
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: clamp(40px, 6vw, 88px);
+      align-items: center;
+      min-height: 540px;
     }
-    .about-hero-text {
-      /* No width constraint — keeps headline at its natural production width */
+    .about-hero-content {
       position: relative;
       z-index: 2;
+      max-width: 580px;
     }
-    /* Photo composite — absolutely placed on the right side of the hero */
-    .about-hero-photos {
-      display: none;        /* hidden by default; revealed at >=1100px */
+    .about-hero-content h1 {
+      /* Match the constrained, punchy hero treatment of the live About page */
+      font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin: 18px 0 24px;
     }
-    @media (min-width: 1300px) {
-      /* Photo composite tucked into the lower-right corner of the hero,
-         BELOW the headline (text has z-index 2). Photos won't overlap the
-         heading because they sit beneath it visually — only after the
-         headline ends do the tiles become visible in the corner. */
-      .about-hero-photos {
-        display: block;
-        position: absolute;
-        right: 0;
-        bottom: -40px;        /* anchor to bottom-right corner of hero */
-        width: 360px;
-        height: 320px;
-        pointer-events: none;
-        z-index: 1;
-      }
-      .about-tile {
-        position: absolute;
-        margin: 0;
-        overflow: hidden;
-        border-radius: 12px;
-        background: #1a1b20;
-        box-shadow: 0 18px 44px rgba(0,0,0,0.45);
-        border: 3px solid rgba(255,255,255,0.08);
-      }
-      .about-tile img {
-        width: 100%; height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      /* Main tile — JT at TikTok Shop booth, anchored bottom-right */
-      .about-tile--main {
-        bottom: 60px;
-        right: 20px;
-        width: 170px;
-        height: 230px;
-        transform: rotate(-3deg);
-        z-index: 2;
-      }
-      /* JT speaking at Summit — sits to the left of main, slight tilt */
-      .about-tile--vert-1 {
-        bottom: 30px;
-        right: 170px;
-        width: 150px;
-        height: 210px;
-        transform: rotate(4deg);
-        z-index: 3;
-      }
-      /* JT at TikTok studio — small, peeks behind main */
-      .about-tile--vert-2 {
-        bottom: 130px;
-        right: 100px;
-        width: 130px;
-        height: 180px;
-        transform: rotate(-6deg);
-        z-index: 1;
-        opacity: 0.94;
-      }
+    .about-hero-content .lead { max-width: 56ch; margin-bottom: 26px; }
+
+    /* Photo composite — mirrors homepage .hero-visual--composite layout */
+    .about-hero-visual {
+      position: relative;
+      width: 100%;
+      height: clamp(440px, 56vw, 600px);
+      display: none;          /* hidden under 980px; replaced by mobile strip below */
     }
-    /* Show photos as a compact strip below the text on tablets */
-    @media (min-width: 760px) and (max-width: 1299px) {
-      .about-hero-photos {
+    @media (min-width: 980px) {
+      .about-hero-visual { display: block; }
+    }
+    .about-tile {
+      position: absolute;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #1a1b20;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+      border: 3px solid rgba(255,255,255,0.06);
+    }
+    .about-tile img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Main tile — JT at the TikTok Shop event booth, dominant phone-tile size */
+    .about-tile--main {
+      top: 0;
+      right: 6%;
+      width: 56%;
+      height: 78%;
+      transform: rotate(-2deg);
+      z-index: 3;
+      aspect-ratio: 9/14;
+    }
+    /* Summit speaking tile — lower-left of composite */
+    .about-tile--vert-1 {
+      bottom: 0;
+      left: 0;
+      width: 42%;
+      height: 60%;
+      transform: rotate(4deg);
+      z-index: 2;
+      aspect-ratio: 9/14;
+    }
+    /* TikTok inspiration studio tile — lower-right small accent */
+    .about-tile--vert-2 {
+      bottom: 4%;
+      right: 0;
+      width: 36%;
+      height: 50%;
+      transform: rotate(-5deg);
+      z-index: 1;
+      aspect-ratio: 9/14;
+      opacity: 0.95;
+    }
+
+    /* Mobile fallback (under 980px) — stack: text first, then a compact photo strip */
+    @media (max-width: 979px) {
+      .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        min-height: 0;
+      }
+      .about-hero-content { max-width: 100%; }
+      .about-hero-visual {
         display: flex;
+        position: static;
+        height: auto;
         gap: 12px;
-        margin-top: 32px;
         max-width: 540px;
       }
       .about-tile {
-        margin: 0;
+        position: static;
         flex: 1 1 0;
         aspect-ratio: 3/4;
-        overflow: hidden;
-        border-radius: 12px;
-        background: #1a1b20;
+        height: auto;
+        width: auto;
+        border-radius: 14px;
         border: 2px solid rgba(255,255,255,0.06);
-        box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.35);
       }
-      .about-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
       .about-tile--main { transform: rotate(-2deg); }
       .about-tile--vert-1 { transform: rotate(2deg); }
-      .about-tile--vert-2 { transform: rotate(-1deg); }
+      .about-tile--vert-2 { transform: rotate(-1deg); display: none; } /* hide third tile on mobile to keep clean */
     }
 
-    /* SECTION 2 — Teal stat band styling overrides for the .section-teal class */
+    /* Partner sticker tucked top-right of the main tile, exactly like homepage */
+    .about-tile--main .partner-sticker--on-tile {
+      position: absolute;
+      top: -12px;
+      right: -8px;
+      transform: rotate(4deg);
+      z-index: 5;
+    }
+    @media (max-width: 979px) {
+      .about-tile--main .partner-sticker--on-tile {
+        top: -8px;
+        right: -4px;
+        transform: rotate(3deg);
+      }
+    }
+
+    /* SECTION 2 — thin teal stat band */
     .section-teal {
       background: var(--color-teal);
       color: var(--color-white);
     }
-    .section-teal .stat-num {
-      color: var(--color-white) !important;
+    .stat-strip {
+      padding-top: clamp(20px, 2.4vw, 32px);
+      padding-bottom: clamp(20px, 2.4vw, 32px);
     }
-    .section-teal .stat-num.coral {
-      color: #ffe4e0 !important;        /* warm tint stays on-brand on teal */
+    .section-teal .stat-num { color: var(--color-white) !important; }
+    .section-teal .stat-num.coral { color: #ffe4e0 !important; }
+    .section-teal .stat-num.teal { color: #d1fffb !important; }
+    .section-teal .stat-label { color: rgba(255,255,255,0.85); }
+    .stat-strip .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 3vw, 40px);
+      align-items: center;
     }
-    .section-teal .stat-num.teal {
-      color: #d1fffb !important;        /* lighter teal cell-accent on teal bg */
+    .stat-strip .stat-cell {
+      padding: 0;
+      border: none;
+      background: transparent;
+      text-align: center;
     }
-    .section-teal .stat-label {
-      color: rgba(255,255,255,0.85);
-    }
-    .section-teal .source-note {
-      color: rgba(255,255,255,0.72);
+    @media (max-width: 720px) {
+      .stat-strip .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     }
 
-    /* SECTION 5 — Award graphic that follows the credential card */
+    /* SECTION 4b — HOW WE WORK (12-month optionality) */
+    .hww-head { max-width: 920px; margin: 0 auto 44px; text-align: center; }
+    .hww-head .kicker { justify-content: center; }
+    .hww-head h2 { margin: 0 auto 18px; }
+    .hww-head .lead { margin-left: auto; margin-right: auto; }
+    .hww-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 2vw, 28px);
+      counter-reset: hww;
+    }
+    .hww-step {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(22px, 2.4vw, 32px);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .hww-step:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .hww-step__num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: var(--color-coral);
+      font-weight: 700;
+    }
+    .hww-step__title {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: -0.012em;
+      color: var(--color-ink);
+      margin: 0;
+      line-height: 1.25;
+    }
+    .hww-step__body {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .hww-step--choice {
+      background: linear-gradient(140deg, #fff 0%, #fff7f5 100%);
+      border: 1px solid rgba(255, 92, 76, 0.30);
+    }
+    .hww-step--choice .hww-step__title { color: var(--color-coral); }
+    @media (max-width: 1100px) {
+      .hww-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .hww-steps { grid-template-columns: 1fr; }
+    }
+
+    /* SECTION 4c — WHY NOW (urgency stats on dark) */
+    .whynow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(14px, 1.6vw, 20px);
+      margin-top: 36px;
+    }
+    .whynow-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-md);
+      padding: clamp(20px, 2vw, 26px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .whynow-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+    .whynow-card--accent { background: linear-gradient(140deg, rgba(255,92,76,0.14), rgba(255,92,76,0.04)); border-color: rgba(255,92,76,0.32); }
+    .whynow-card__num {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--color-white);
+      line-height: 1;
+    }
+    .whynow-card--accent .whynow-card__num { color: #ffd0c8; }
+    .whynow-card__sym {
+      font-size: 0.62em;
+      font-weight: 700;
+      margin-left: 2px;
+      color: rgba(255,255,255,0.78);
+    }
+    .whynow-card--accent .whynow-card__sym { color: #ffd0c8; }
+    .whynow-card__label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      margin-top: 6px;
+    }
+    .whynow-card__sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.5;
+    }
+    .whynow-takeaways {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(14px, 2vw, 22px);
+      margin-top: 32px;
+    }
+    .whynow-take {
+      padding: clamp(18px, 2vw, 24px);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid var(--color-coral);
+    }
+    .whynow-take + .whynow-take { border-left-color: var(--color-teal); }
+    .whynow-take__chip {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,92,76,0.16);
+      color: var(--color-coral);
+      margin-bottom: 10px;
+    }
+    .whynow-take + .whynow-take .whynow-take__chip {
+      background: rgba(30,164,164,0.18);
+      color: #6df0e2;
+    }
+    .whynow-take p { color: rgba(255,255,255,0.84); font-size: 0.96rem; line-height: 1.55; margin: 0; }
+    .whynow-source {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.56);
+      text-align: center;
+    }
+    .whynow-source a { color: rgba(255,255,255,0.78); text-decoration: underline; }
+    @media (max-width: 980px) {
+      .whynow-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .whynow-grid { grid-template-columns: 1fr; }
+      .whynow-takeaways { grid-template-columns: 1fr; }
+    }
+
+    /* SECTION 5 — TikTok-styled credentials card on light background */
+    .tt-cred-card {
+      margin-top: 32px;
+      position: relative;
+      background: #0f0f12;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(14,15,18,0.25);
+    }
+    /* Cyan + magenta TikTok accent rule across the top of the card */
+    .tt-cred-card__rule {
+      height: 4px;
+      background: linear-gradient(90deg, #25F4EE 0%, #25F4EE 38%, #FE2C55 62%, #FE2C55 100%);
+    }
+    .tt-cred-card__inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: clamp(20px, 3vw, 36px);
+      align-items: center;
+      padding: clamp(28px, 3.5vw, 44px);
+    }
+    .tt-cred-card__badge {
+      width: 96px; height: 96px;
+      display: flex; align-items: center; justify-content: center;
+      background: #000;
+      border-radius: 18px;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .tt-cred-card__badge svg { width: 56px; height: 56px; }
+    .tt-cred-card__copy { min-width: 0; }
+    .tt-cred-card__eyebrow {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #25F4EE;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .tt-cred-card__title {
+      font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+    .tt-cred-card__sub {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.96rem;
+      line-height: 1.55;
+      margin: 0;
+      max-width: 60ch;
+    }
+    .tt-cred-card__seal {
+      color: #25F4EE;
+      flex-shrink: 0;
+      opacity: 0.92;
+    }
+    @media (max-width: 760px) {
+      .tt-cred-card__inner { grid-template-columns: auto 1fr; }
+      .tt-cred-card__seal { grid-column: 1 / -1; justify-self: flex-start; }
+    }
+
+    /* SECTION 5 — Award graphic block (now on light background, dark accent card) */
     .cred-award {
       margin-top: 28px;
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: 1fr 1.1fr;
       gap: clamp(24px, 3vw, 40px);
       align-items: center;
       padding: clamp(28px, 3.5vw, 44px);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
     }
     .cred-award__copy { min-width: 0; }
     .cred-award__eyebrow {
@@ -710,44 +1005,51 @@
       margin-bottom: 6px;
     }
     .cred-award__title {
-      font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+      font-size: clamp(1.1rem, 1.6vw, 1.4rem);
       font-weight: 700;
       letter-spacing: -0.005em;
-      color: #fff;
+      color: var(--color-ink);
       margin: 0 0 10px;
       line-height: 1.3;
     }
     .cred-award__sub {
-      color: rgba(255,255,255,0.78);
+      color: var(--color-text-secondary);
       font-size: 0.96rem;
-      line-height: 1.5;
+      line-height: 1.55;
       margin: 0;
     }
     .cred-award__image {
       margin: 0;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      background: #000;
-      aspect-ratio: 14 / 9;
+      background: #0f0f12;        /* black backdrop so the contained award graphic feels framed */
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 16 / 10;
     }
     .cred-award__image img {
       width: 100%; height: 100%;
-      object-fit: cover;
+      object-fit: contain;       /* show the full graphic, no cropping */
       display: block;
     }
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .cred-award { grid-template-columns: 1fr; }
+      .cred-award__image { order: -1; }    /* image on top on narrow screens */
     }
 
-    /* TEAM section — wide feature image of JT + team in TikTok studio */
+    /* TEAM section — candid moment image lives BELOW the cards */
     .team-feature {
-      margin: 0 0 48px;
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: 0 20px 50px rgba(14,15,18,0.18);
       position: relative;
-      aspect-ratio: 16 / 7;          /* wide cinematic feel */
+      aspect-ratio: 16 / 7;
       background: #1a1b20;
+    }
+    .team-feature--below {
+      margin: 56px 0 0;     /* sits below the cards */
     }
     .team-feature img {
       width: 100%; height: 100%;
@@ -757,38 +1059,43 @@
     .team-feature__cap {
       position: absolute;
       bottom: 14px; left: 16px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(14, 15, 18, 0.72);
-      backdrop-filter: blur(6px);
+      max-width: calc(100% - 32px);
+      padding: 10px 16px;
+      border-radius: 14px;
+      background: rgba(14, 15, 18, 0.78);
+      backdrop-filter: blur(8px);
       color: rgba(255,255,255,0.95);
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 500;
       letter-spacing: 0.005em;
+      line-height: 1.45;
     }
+    .team-feature__cap em { font-style: italic; opacity: 0.92; }
     @media (max-width: 760px) {
-      .team-feature { aspect-ratio: 4 / 3; margin-bottom: 32px; }
-      .team-feature__cap { font-size: 0.72rem; bottom: 10px; left: 10px; padding: 6px 12px; }
+      .team-feature { aspect-ratio: 4 / 3; }
+      .team-feature--below { margin-top: 40px; }
+      .team-feature__cap { font-size: 0.74rem; bottom: 10px; left: 10px; padding: 8px 12px; }
     }
 
-    /* SECTION 4 — Why Junglee Exists with video tile on right */
+    /* SECTION 4 — Why Junglee Exists, video closer to text (smaller gap) */
     .why-exists-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(32px, 5vw, 64px);
+      gap: clamp(20px, 2.4vw, 36px);   /* tighter gap brings video closer to message */
       align-items: center;
     }
     .why-exists-text { min-width: 0; }
-    .why-exists-embed { display: flex; justify-content: center; align-items: center; }
+    .why-exists-text p + p { margin-top: 14px; }
+    .why-exists-embed { display: flex; justify-content: flex-start; align-items: center; }
     .why-exists-embed .tt-player {
       display: block;
-      width: 220px;
+      width: 240px;
       aspect-ratio: 9 / 16;
       border: 0;
-      border-radius: 14px;
+      border-radius: 16px;
       background: #000;
       object-fit: cover;
-      box-shadow: 0 14px 36px rgba(0,0,0,0.22);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.28);
       pointer-events: none;
     }
     @media (max-width: 900px) {
@@ -800,63 +1107,11 @@
       .why-exists-embed .tt-player { width: 240px; }
     }
 
-    /* SECTION 5 — Credentials hero card */
-    .cred-hero {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: clamp(20px, 3vw, 36px);
-      align-items: center;
-      padding: clamp(28px, 3.5vw, 44px) clamp(28px, 3.5vw, 44px);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: var(--radius-lg);
-    }
-    .cred-hero__badge {
-      width: 88px; height: 88px;
-      display: flex; align-items: center; justify-content: center;
-      background: #000;
-      border-radius: 16px;
-      flex-shrink: 0;
-    }
-    .cred-hero__badge svg { width: 56px; height: 56px; }
-    .cred-hero__copy { min-width: 0; }
-    .cred-hero__eyebrow {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-coral);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .cred-hero__title {
-      font-size: clamp(1.15rem, 1.7vw, 1.5rem);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #fff;
-      margin: 0 0 8px;
-      line-height: 1.25;
-    }
-    .cred-hero__sub {
-      color: rgba(255,255,255,0.78);
-      font-size: 0.96rem;
-      line-height: 1.5;
-      margin: 0;
-      max-width: 60ch;
-    }
-    .cred-hero__check { color: var(--color-teal); flex-shrink: 0; }
-    @media (max-width: 760px) {
-      .cred-hero { grid-template-columns: auto 1fr; }
-      .cred-hero__check { grid-column: 1 / -1; justify-self: flex-start; }
-    }
-
-    /* SECTION 7 — What we are / What we're not (How We're Different) */
+    /* SECTION 7 — Same / Different compare (honest, no agency-bashing) */
     .diff-compare {
       margin-top: 32px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.05fr;
       gap: clamp(16px, 2vw, 24px);
     }
     .diff-col {
@@ -866,8 +1121,11 @@
       padding: clamp(24px, 3vw, 36px);
       box-shadow: var(--shadow-card);
     }
-    .diff-col--not {
-      background: #fafafb;
+    .diff-col--same { background: #fafafb; }
+    .diff-col--diff {
+      background: var(--color-white);
+      border-color: rgba(30, 164, 164, 0.30);
+      box-shadow: 0 12px 32px rgba(30, 164, 164, 0.10), var(--shadow-card);
     }
     .diff-col__head { margin-bottom: 18px; }
     .diff-col__chip {
@@ -880,15 +1138,15 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-    .diff-col__chip--are {
-      background: rgba(30, 164, 164, 0.10);
-      color: var(--color-teal);
-      border: 1px solid rgba(30, 164, 164, 0.30);
-    }
-    .diff-col__chip--not {
+    .diff-col__chip--same {
       background: rgba(14, 15, 18, 0.06);
       color: var(--color-text-secondary);
       border: 1px solid rgba(14, 15, 18, 0.10);
+    }
+    .diff-col__chip--diff {
+      background: rgba(30, 164, 164, 0.10);
+      color: var(--color-teal);
+      border: 1px solid rgba(30, 164, 164, 0.30);
     }
     .diff-col__list {
       list-style: none;
@@ -904,10 +1162,10 @@
       gap: 12px;
       align-items: start;
       font-size: 0.96rem;
-      line-height: 1.5;
+      line-height: 1.55;
       color: var(--color-ink);
     }
-    .diff-col--not .diff-col__list li { color: var(--color-text-secondary); }
+    .diff-col--same .diff-col__list li { color: var(--color-text-secondary); }
     .diff-col__list strong { color: var(--color-ink); font-weight: 700; }
     .diff-mark {
       display: inline-flex;
@@ -920,12 +1178,80 @@
       margin-top: 2px;
     }
     .diff-mark--check { background: var(--color-teal); color: #001a18; }
-    .diff-mark--x { background: rgba(14, 15, 18, 0.10); color: var(--color-text-secondary); font-size: 1rem; line-height: 1; }
+    .diff-mark--dot {
+      background: rgba(14, 15, 18, 0.08);
+      color: var(--color-text-secondary);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
     @media (max-width: 760px) {
       .diff-compare { grid-template-columns: 1fr; }
     }
 
-    /* TikTok logo color tokens for the SVG (already on homepage but include here for safety) */
+    /* CTA — split brand / creator paths */
+    .cta-paths {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(16px, 2vw, 24px);
+      margin-top: 28px;
+      text-align: left;
+    }
+    .cta-path {
+      padding: clamp(24px, 3vw, 36px);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: background .25s ease, transform .25s ease, border-color .25s ease;
+    }
+    .cta-path:hover {
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-3px);
+    }
+    .cta-path--brand:hover { border-color: rgba(255, 92, 76, 0.40); }
+    .cta-path--creator:hover { border-color: rgba(30, 164, 164, 0.50); }
+    .cta-path__chip {
+      display: inline-block;
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .cta-path--brand .cta-path__chip {
+      background: rgba(255,92,76,0.18);
+      color: #ffb5ac;
+    }
+    .cta-path--creator .cta-path__chip {
+      background: rgba(30,164,164,0.20);
+      color: #6df0e2;
+    }
+    .cta-path__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--color-white);
+      margin: 0;
+      line-height: 1.25;
+    }
+    .cta-path__sub {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 0 0 4px;
+    }
+    .cta-path .btn { align-self: flex-start; margin-top: auto; }
+    @media (max-width: 760px) {
+      .cta-paths { grid-template-columns: 1fr; }
+    }
+
+    /* TikTok logo color tokens (used in inline SVGs) */
     .ts-cyan  { fill: #25F4EE; }
     .ts-pink  { fill: #FE2C55; }
     .ts-white { fill: #fff; }
