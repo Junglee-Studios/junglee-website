@@ -7,8 +7,8 @@
   /* Core palette */
   --color-charcoal: #0e0f12;
   --color-ink: #18191d;        /* near-black surfaces */
-  --color-smoke: #f4f3ef;      /* warm light surface */
-  --color-smoke-2: #ecebe6;
+  --color-smoke: #f1f2f4;      /* cool light grey surface (brand palette) */
+  --color-smoke-2: #e7e9ed;
   --color-white: #ffffff;
   --color-coral: #ff4438;      /* primary action / vivid coral-red */
   --color-coral-700: #e23629;
@@ -1363,3 +1363,576 @@ footer#site-footer {
 .cta-block .container { position: relative; z-index: 2; }
 .cta-block h2 { color: var(--color-white); max-width: 18ch; }
 .cta-block .lead { color: rgba(255,255,255,0.74); }
+
+/* ===========================================================
+   HOMEPAGE VISUALS (additive — no existing rules altered)
+   - Hero: 2-column on desktop with phone-frame mock
+   - Section figures: editorial image bands above content
+   - Service cards: image header above number/title
+   =========================================================== */
+
+/* --- Hero 2-column with phone visual ---------------------- */
+@media (min-width: 981px) {
+  body[data-page="home"] .hero-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  body[data-page="home"] .hero-content { max-width: 620px; }
+}
+
+.hero-visual {
+  display: none;
+  position: relative;
+}
+
+@media (min-width: 981px) {
+  .hero-visual {
+    display: block;
+    justify-self: end;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 9 / 16;
+  }
+}
+
+.hero-phone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.55),
+    0 8px 18px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+.hero-phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-phone::after {
+  /* Subtle bottom gradient so the LIVE chip stays legible */
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+.hero-phone-live {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+.hero-phone-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes hero-live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone-live-dot { animation: none; }
+}
+
+/* --- Section figure (image band above section content) --- */
+.section-figure {
+  margin: 28px 0 8px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 21 / 9;
+  background: #0e0f12;
+}
+.section-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.section-figure--coral {
+  border: 1px solid rgba(14,15,18,0.14);
+  box-shadow: 0 18px 38px rgba(14,15,18,0.22), 0 4px 10px rgba(14,15,18,0.10);
+}
+.section-figure--charcoal {
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 22px 44px rgba(0,0,0,0.45);
+}
+@media (max-width: 700px) {
+  .section-figure { aspect-ratio: 16 / 10; }
+}
+
+/* --- Service card image header (svcCard) ------------------ */
+.svcCard .card-image {
+  margin: -24px -24px 14px;   /* bleed to card edge — .card padding is 24px */
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f3f3f4;
+}
+.svcCard .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.svcCard:hover .card-image img {
+  transform: scale(1.04);
+}
+
+/* Hero stat grid in the narrower left column: force tidy 2x2 on desktop */
+@media (min-width: 981px) {
+  body[data-page="home"] .hero .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================================================
+   PARTNER BADGE — hero trust signal
+   =========================================================== */
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px 8px 8px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+  color: var(--color-white);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+  max-width: 100%;
+}
+.partner-badge:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.partner-badge__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  color: #001a18;
+  flex-shrink: 0;
+}
+.partner-badge__check svg { width: 14px; height: 14px; }
+.partner-badge__text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.partner-badge__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-coral);
+}
+.partner-badge__title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: rgba(255,255,255,0.92);
+  margin-top: 2px;
+}
+@media (max-width: 540px) {
+  .partner-badge__title { font-size: 0.74rem; }
+}
+
+/* ===========================================================
+   HERO + CARD VIDEO MEDIA
+   =========================================================== */
+.hero-phone .hero-phone-media,
+.hero-phone video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #111;
+}
+.card-image--video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #111;
+  transition: transform 0.5s ease;
+}
+.svcCard:hover .card-image--video video { transform: scale(1.04); }
+
+/* Badge sits on its own line above the kicker. Use a flex wrapper
+   so the badge hugs its content but sits on a new line. */
+.partner-badge-row {
+  display: flex;
+  margin-bottom: 22px;
+}
+.partner-badge-row .partner-badge { margin-bottom: 0; }
+
+/* ===========================================================
+   PATH CARDS — image header + supporting bullets
+   =========================================================== */
+.path-card { padding: 0; overflow: hidden; }   /* image bleeds to edge */
+.path-card-image {
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+.path-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.path-card:hover .path-card-image img { transform: scale(1.04); }
+.path-card-body {
+  padding: clamp(28px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.path-card-body .path-label,
+.path-card-body h3,
+.path-card-body p,
+.path-card-body .arrow { margin: 0; }
+.path-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.path-bullets li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+/* Brand card has coral background — light text + light dot */
+.path-card.brand .path-bullets li { color: rgba(255,255,255,0.96); }
+.path-card.brand .path-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.22);
+}
+/* Creator card has charcoal background — light text + teal dot */
+.path-card.creator .path-bullets li { color: rgba(255,255,255,0.96); }
+.path-card.creator .path-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(33,168,156,0.28);
+}
+
+/* ===========================================================
+   CAPABILITY PILLS — operating model section
+   =========================================================== */
+.capability-pills {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.capability-pills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.005em;
+}
+.capability-pills li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  display: inline-block;
+}
+.capability-pills li:nth-child(odd)::before { background: var(--color-coral); }
+
+/* ===========================================================
+   HERO FORMAT STRIP — 3 small format examples below the stat grid,
+   inside the hero-content column. Communicates "we operate across
+   every TikTok Shop format."
+   =========================================================== */
+.format-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 480px;
+}
+.format-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.format-card__media {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.format-card__media video,
+.format-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.format-card__chip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.format-card__chip-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+.format-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  text-align: center;
+}
+@media (max-width: 980px) {
+  .format-strip { max-width: 420px; }
+}
+@media (max-width: 540px) {
+  .format-strip { gap: 8px; }
+  .format-card__label { font-size: 0.6rem; letter-spacing: 0.12em; }
+}
+
+/* ===========================================================
+   TRUSTED STRIP — centered eyebrow, real visual break
+   =========================================================== */
+.trusted-strip {
+  padding-top: clamp(56px, 6vw, 84px);
+  padding-bottom: clamp(56px, 6vw, 84px);
+  border-top: 1px solid rgba(14,15,18,0.08);
+  border-bottom: 1px solid rgba(14,15,18,0.08);
+}
+.trusted-eyebrow {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0 0 32px;
+}
+
+/* ===========================================================
+   CTA BLOCK — teal variant
+   =========================================================== */
+.cta-block--teal {
+  background: var(--color-teal);
+  color: var(--color-white);
+  border-top: 4px solid var(--color-coral);
+}
+.cta-block--teal h2 { color: var(--color-white); }
+.cta-block--teal .lead { color: rgba(255,255,255,0.88); }
+.cta-block--teal .kicker { color: var(--color-white) !important; }
+.cta-block--teal .kicker i { background: var(--color-white); }
+.cta-block--teal .source-note { color: rgba(255,255,255,0.78); }
+.cta-block--teal .source-note a { color: #fff !important; text-decoration: underline; }
+/* Higher specificity + !important to override the global .cta-block .btn rules */
+.cta-block--teal.cta-block .btn.primary {
+  background: var(--color-white) !important;
+  color: var(--color-teal) !important;
+  border-color: var(--color-white) !important;
+}
+.cta-block--teal.cta-block .btn.primary:hover {
+  background: rgba(255,255,255,0.92) !important;
+}
+.cta-block--teal.cta-block .btn.secondary,
+.cta-block--teal.cta-block .btn.teal,
+.cta-block--teal.cta-block .btn.cyan {
+  background: transparent !important;
+  color: var(--color-white) !important;
+  border: 1px solid rgba(255,255,255,0.6) !important;
+}
+.cta-block--teal.cta-block .btn.secondary:hover,
+.cta-block--teal.cta-block .btn.teal:hover,
+.cta-block--teal.cta-block .btn.cyan:hover {
+  background: rgba(255,255,255,0.14) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+  color: var(--color-white) !important;
+}
+
+/* ===========================================================
+   HERO COMPOSITE — horizontal feature video on top, two
+   verticals beneath. Replaces single hero-phone treatment.
+   =========================================================== */
+@media (min-width: 981px) {
+  .hero-visual--composite {
+    /* Override the earlier .hero-visual width cap (360px) and
+       aspect-ratio because we're using a different composition. */
+    max-width: 460px;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-self: end;
+  }
+}
+@media (max-width: 980px) {
+  /* On mobile, hero-visual already hides via the existing rule.
+     If we ever want to surface it on mobile, we'd lift that here. */
+}
+
+.hero-tile {
+  position: relative;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.50),
+    0 4px 14px rgba(0,0,0,0.30);
+}
+.hero-tile video,
+.hero-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Main horizontal video (16:9) */
+.hero-tile--main {
+  aspect-ratio: 16 / 9;
+}
+
+/* Two verticals row (each 9:16) */
+.hero-tile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.hero-tile--vert {
+  aspect-ratio: 9 / 16;
+}
+
+/* Chips */
+.hero-tile__chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.30);
+}
+.hero-tile__chip-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: hero-live-pulse 1.6s ease-in-out infinite;
+}
+
+/* Format label (mono caps) inside each tile */
+.hero-tile__label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 3;
+  border: 1px solid rgba(255,255,255,0.12);
+  white-space: nowrap;
+}
