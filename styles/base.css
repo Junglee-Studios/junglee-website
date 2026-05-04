@@ -2440,13 +2440,27 @@ footer#site-footer {
 .svcCard:has(.card-image--embed) > p { padding-bottom: 20px; }
 
 /* SMALLER cards in Unlocks section so videos shrink proportionally with the cards.
-   Override .grid4's repeat(4, 1fr) to fixed-width centered columns. */
+   Cards are LEFT-aligned as a group so card 1 lines up with the heading's left edge. */
 @media (min-width: 901px) {
   #what-we-unlock .grid4 {
     grid-template-columns: repeat(4, 200px);
-    justify-content: center;
+    justify-content: start;     /* left-align cards as a group */
     gap: 20px;
   }
+}
+/* Tighter body content in each card — reduces card height */
+.svcCard:has(.card-image--embed) > h3 {
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.svcCard:has(.card-image--embed) > p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.svcCard:has(.card-image--embed) > .num {
+  font-size: 0.7rem;
 }
 /* Body content below embed */
 .svcCard.is-link > .icon-bar,
@@ -2462,17 +2476,35 @@ footer#site-footer {
 /* ===========================================================
    INSIDE PLATFORM KNOWLEDGE — 2-column header with embed on right
    =========================================================== */
-/* === EXACT bdc7865 baseline — the version the user confirmed had the right messaging width === */
+/* Three-column layout matching the user's reference screenshot:
+     col 1 = text takes its natural width (h2 max 40ch + lead max 62ch)
+     col 2 = empty gap, video centered horizontally inside it
+     col 3 = invisible spacer matching the last card's width so col-2 centering
+             actually centers between text-end and last-card-LEFT.
+   Cards below use .inside-row with gap 16px → each card = (container - 3*16)/4. */
+/* Match the live production layout: text takes its NATURAL width (no grid
+   column constraining it), so h2 with max-width:26ch renders at its true
+   832px / 3-line wrap. Video is absolutely positioned as an overlay on the
+   right side, centered between the message right-edge and the Live Auctions
+   card area below. */
 .inside-header-row {
-  display: grid;
-  grid-template-columns: minmax(0, 56ch) minmax(0, 1fr);
-  gap: clamp(24px, 4vw, 56px);
-  align-items: center;
+  display: block;
+  position: relative;
   margin-bottom: 36px;
 }
+.inside-header-text {
+  /* No constraint — the inline max-width on h2 (26ch) and lead (62ch) handle it */
+}
 .inside-header-embed {
+  position: absolute;
+  /* Align vertically to the row's center */
+  top: 50%;
+  /* Anchor video to the right edge of the section (right-aligned with the
+     Live Auctions card's right edge), so it sits in the empty area to the
+     right of the heading without overlapping it. */
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;     /* center video in the empty space */
   align-items: center;
 }
 .inside-header-embed .tt-player {
@@ -2486,12 +2518,13 @@ footer#site-footer {
   box-shadow: 0 10px 28px rgba(0,0,0,0.18);
   pointer-events: none;
 }
-@media (max-width: 900px) {
-  .inside-header-row {
-    grid-template-columns: 1fr;
-    gap: 24px;
+@media (max-width: 1100px) {
+  /* On narrower viewports, video drops below the text instead of beside it */
+  .inside-header-embed {
+    position: static;
+    transform: none;
+    margin-top: 24px;
   }
-  .inside-header-embed { justify-content: flex-start; }
   .inside-header-embed .tt-player { width: 200px; }
 }
 
