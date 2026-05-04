@@ -2364,3 +2364,141 @@ footer#site-footer {
   .video-reel-tile { width: 110px; }
   .video-reel { margin: 18px 0 22px; }
 }
+
+/* ===========================================================
+   TIKTOK EMBEDS — global tone-down (smaller default)
+   The TikTok embed.js script renders an iframe ~750px tall by
+   default. We constrain max widths but let height be auto so
+   the iframe sizes itself. Containers control the visual frame.
+   =========================================================== */
+.tiktok-embed {
+  margin: 0 auto !important;
+  background: transparent !important;
+}
+
+/* ===========================================================
+   JUNGLEE UNLOCKS — convert to vertical-card layout w/ embed
+   on top, body content below. Cards re-flow to fit comfortably.
+   =========================================================== */
+.grid4 {
+  /* 4-up on wide desktop, 2-up on tablet, 1-up on mobile. */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+@media (max-width: 1100px) { .grid4 { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+@media (max-width: 600px)  { .grid4 { grid-template-columns: 1fr; } }
+
+/* Cards become flex column, embed takes natural height */
+.svcCard.is-link {
+  display: flex;
+  flex-direction: column;
+  padding: 0;                 /* embed bleeds to edge */
+  overflow: hidden;
+  height: 100%;
+}
+.card-image--embed {
+  margin: 0;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-bottom: 1px solid rgba(14,15,18,0.06);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+.card-image--embed .tiktok-embed {
+  width: 100% !important;
+  max-width: 280px !important;
+  min-width: 0 !important;
+}
+/* Body content below embed */
+.svcCard.is-link > .icon-bar,
+.svcCard.is-link > .num,
+.svcCard.is-link > h3,
+.svcCard.is-link > p {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.svcCard.is-link > .icon-bar { margin-top: 18px; }
+.svcCard.is-link > p { padding-bottom: 24px; }
+
+/* ===========================================================
+   INSIDE PLATFORM KNOWLEDGE — 2-column header with embed on right
+   =========================================================== */
+.inside-header-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  margin-bottom: 36px;
+}
+.inside-header-text {
+  /* Existing kicker, h2, lead p flow naturally inside */
+}
+.inside-header-embed {
+  display: flex;
+  justify-content: center;
+}
+.inside-header-embed .tiktok-embed {
+  width: 100% !important;
+  max-width: 320px !important;
+}
+@media (max-width: 900px) {
+  .inside-header-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .inside-header-embed { justify-content: flex-start; }
+}
+
+/* ===========================================================
+   CHOOSE YOUR PATH — convert to horizontal cards (embed on
+   one side, text on the other). Brand: embed left, text right.
+   Creator: embed right, text left (mirrored).
+   =========================================================== */
+@media (min-width: 901px) {
+  .path-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: 0;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+  /* Brand: image left, body right (default) */
+  .path-card.brand .path-card-image  { order: 1; }
+  .path-card.brand .path-card-body   { order: 2; }
+  /* Creator: image right, body left (mirrored) */
+  .path-card.creator .path-card-image  { order: 2; }
+  .path-card.creator .path-card-body   { order: 1; }
+}
+
+.path-card-image--embed {
+  aspect-ratio: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: transparent;
+  overflow: hidden;
+  /* Constrain height so embed bottom-meta-strip is masked */
+  max-height: 540px;
+  position: relative;
+}
+.path-card-image--embed .tiktok-embed {
+  width: 100% !important;
+  max-width: 280px !important;
+  min-width: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* On mobile path cards stack vertically with embed on top */
+@media (max-width: 900px) {
+  .path-card-image--embed {
+    aspect-ratio: auto;
+    padding: 24px 20px;
+  }
+}
