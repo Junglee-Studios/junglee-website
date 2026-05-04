@@ -1236,22 +1236,35 @@ footer#site-footer {
 }
 .section-coral .inside-cell {
   background: var(--color-white);
-  border: 1px solid rgba(14,15,18,0.14);
-  border-top: 3px solid var(--color-ink);
-  box-shadow: 0 18px 38px rgba(14,15,18,0.28), 0 4px 10px rgba(14,15,18,0.14);
+  border: 1px solid rgba(14,15,18,0.06);
+  box-shadow: 0 14px 30px rgba(14,15,18,0.18), 0 2px 6px rgba(14,15,18,0.10);
 }
 .section-coral .inside-cell:hover {
-  border-color: rgba(14,15,18,0.22);
-  box-shadow: 0 24px 48px rgba(14,15,18,0.34), 0 6px 14px rgba(14,15,18,0.18);
+  border-color: rgba(14,15,18,0.10);
+  box-shadow: 0 22px 44px rgba(14,15,18,0.26), 0 6px 12px rgba(14,15,18,0.14);
   transform: translateY(-3px);
 }
 .section-coral .inside-cell .ic-label {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 5px 11px;
+  margin-bottom: 4px;
+  border-radius: 999px;
+  background: rgba(255,68,56,0.10);
+  color: var(--color-coral-700);
+  border: 1px solid rgba(255,68,56,0.22);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--color-coral-700);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+.section-coral .inside-cell:hover .ic-label {
+  background: var(--color-coral);
+  border-color: var(--color-coral);
+  color: #fff;
+  transform: translateY(-2px);
 }
 .section-coral .inside-cell h3 {
   font-size: 1rem;
@@ -1834,18 +1847,18 @@ footer#site-footer {
 }
 
 /* ===========================================================
-   HERO COMPOSITE — horizontal feature video on top, two
-   verticals beneath. Replaces single hero-phone treatment.
+   HERO COMPOSITE — playful, asymmetric, slightly overlapping.
+   Horizontal feature video tilted left; two verticals overlap
+   diagonally across it for a content-collage feel.
    =========================================================== */
 @media (min-width: 981px) {
   .hero-visual--composite {
-    /* Override the earlier .hero-visual width cap (360px) and
-       aspect-ratio because we're using a different composition. */
-    max-width: 460px;
-    aspect-ratio: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    /* Override the earlier .hero-visual width cap and aspect-ratio. */
+    max-width: none;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: block;
     justify-self: end;
   }
 }
@@ -1855,15 +1868,15 @@ footer#site-footer {
 }
 
 .hero-tile {
-  position: relative;
   margin: 0;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   background: #111;
-  border: 1px solid rgba(255,255,255,0.10);
+  border: 2px solid #18191d;            /* solid charcoal frame */
   box-shadow:
-    0 18px 40px rgba(0,0,0,0.50),
-    0 4px 14px rgba(0,0,0,0.30);
+    0 24px 50px rgba(0,0,0,0.55),
+    0 6px 16px rgba(0,0,0,0.35);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .hero-tile video,
 .hero-tile img {
@@ -1872,20 +1885,43 @@ footer#site-footer {
   object-fit: cover;
   display: block;
 }
+.hero-tile:hover { transform: translateY(-4px) rotate(0deg) !important; }
 
-/* Main horizontal video (16:9) */
-.hero-tile--main {
-  aspect-ratio: 16 / 9;
+/* Asymmetric playful layout (desktop only) */
+@media (min-width: 981px) {
+  .hero-tile {
+    position: absolute;
+  }
+  /* Main horizontal: top-right, slight left tilt */
+  .hero-tile--main {
+    top: 0;
+    right: 0;
+    width: 78%;
+    aspect-ratio: 16 / 10;
+    transform: rotate(-2.5deg);
+    z-index: 1;
+  }
+  /* Vertical 1 (LIVE selling): bottom-left, tilted slightly right */
+  .hero-tile--vert-1 {
+    bottom: 0;
+    left: 0;
+    width: 38%;
+    aspect-ratio: 9 / 16;
+    transform: rotate(3deg);
+    z-index: 3;
+  }
+  /* Vertical 2 (shoppable video): bottom-right, slight tilt left, overlaps the main */
+  .hero-tile--vert-2 {
+    bottom: 4%;
+    right: 12%;
+    width: 30%;
+    aspect-ratio: 9 / 16;
+    transform: rotate(-4deg);
+    z-index: 2;
+  }
 }
-
-/* Two verticals row (each 9:16) */
-.hero-tile-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.hero-tile--vert {
-  aspect-ratio: 9 / 16;
+@media (max-width: 980px) {
+  /* Composite hides on mobile via parent .hero-visual rule. */
 }
 
 /* Chips */
@@ -1915,24 +1951,202 @@ footer#site-footer {
   animation: hero-live-pulse 1.6s ease-in-out infinite;
 }
 
-/* Format label (mono caps) inside each tile */
-.hero-tile__label {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.72);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+/* Labels removed per user request — keep .hero-tile__chip only */
+
+/* ===========================================================
+   PARTNER STICKER — die-cut style in TikTok colors
+   (Sticker is the only TikTok-palette element on the page —
+   functions as a credential, not part of brand system.)
+   =========================================================== */
+.partner-sticker {
+  display: inline-block;
+  text-decoration: none;
+  transform: rotate(-3deg);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+}
+.partner-sticker:hover {
+  transform: rotate(0deg) translateY(-2px) scale(1.03);
+}
+.partner-sticker__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 12px;
+  background: #000;
   color: #fff;
+  border: 3px solid #fff;
+  border-radius: 14px;
+  position: relative;
+}
+/* Subtle outer "die-cut" ring */
+.partner-sticker__inner::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1px dashed rgba(255,255,255,0.18);
+  border-radius: 16px;
+  pointer-events: none;
+}
+.partner-sticker__icon {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+}
+.partner-sticker__icon svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* TikTok glitch-effect note layers — cyan (back), pink (mid), white (front) */
+.partner-sticker__icon .ts-cyan  { fill: #25F4EE; }
+.partner-sticker__icon .ts-pink  { fill: #FE2C55; }
+.partner-sticker__icon .ts-white { fill: #FFFFFF; }
+
+.partner-sticker__text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.partner-sticker__eyebrow {
   font-family: var(--font-mono);
   font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  z-index: 3;
-  border: 1px solid rgba(255,255,255,0.12);
-  white-space: nowrap;
+  font-weight: 700;
+  color: #25F4EE;             /* TikTok cyan */
+}
+.partner-sticker__title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: #fff;
+  margin-top: 3px;
+}
+.partner-sticker__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FE2C55;        /* TikTok pink */
+  color: #fff;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.partner-sticker__check svg { width: 12px; height: 12px; }
+
+@media (max-width: 540px) {
+  .partner-sticker { transform: rotate(-2deg); }
+  .partner-sticker__title { font-size: 0.84rem; }
+  .partner-sticker__inner { padding: 7px 13px 7px 10px; }
+}
+
+/* Hide the old partner-badge styles' effects when class isn't present */
+.partner-badge-row { line-height: 0; /* prevent extra leading from inline */ }
+.partner-badge-row > * { line-height: normal; }
+
+/* ===========================================================
+   INSIDE PLATFORM KNOWLEDGE — replace card top borders with
+   hover pills; image gets a different framing
+   =========================================================== */
+/* Drop the colored top stripe used inside .inside-cell ::before / icon-bar */
+.inside-cell .icon-bar,
+.inside-cell::before { display: none !important; }
+/* Replace with a hover pill on each cell (the .ic-label becomes a real pill) */
+.inside-cell {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.inside-cell .ic-label {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.30);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+.inside-cell:hover .ic-label {
+  background: #fff;
+  color: var(--color-coral);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.inside-cell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+}
+
+/* ===========================================================
+   WHY NOW — looser image crop so subjects aren't cut off
+   =========================================================== */
+.section-figure--charcoal {
+  aspect-ratio: 21 / 11;          /* taller than 21/9 — more headroom */
+}
+.section-figure--charcoal img {
+  object-position: center 30%;    /* shift focal point slightly down so the man's face is in frame */
+}
+
+/* ===========================================================
+   TRUSTED-BY TICKER — full-bleed scroll, shorter section
+   =========================================================== */
+.trusted-strip {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+.trusted-strip .container {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.trusted-strip .trusted-eyebrow {
+  margin: 0 auto 22px;
+  max-width: var(--container-width, 1240px);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.trusted-strip .logo-marquee {
+  width: 100%;
+}
+
+/* ===========================================================
+   GET STARTED CTA — coral primary button instead of white
+   =========================================================== */
+.cta-block--teal.cta-block .btn.primary {
+  background: var(--color-coral) !important;
+  color: #fff !important;
+  border-color: var(--color-coral) !important;
+  box-shadow: 0 8px 22px rgba(255,68,56,0.40);
+}
+.cta-block--teal.cta-block .btn.primary:hover {
+  background: var(--color-coral-700) !important;
+  border-color: var(--color-coral-700) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(255,68,56,0.50);
+}
+.cta-block--teal.cta-block .btn.secondary,
+.cta-block--teal.cta-block .btn.teal,
+.cta-block--teal.cta-block .btn.cyan {
+  background: rgba(255,255,255,0.10) !important;
+  color: #fff !important;
+  border: 1.5px solid #fff !important;
+  font-weight: 700;
+}
+.cta-block--teal.cta-block .btn.secondary:hover,
+.cta-block--teal.cta-block .btn.teal:hover,
+.cta-block--teal.cta-block .btn.cyan:hover {
+  background: #fff !important;
+  color: var(--color-teal) !important;
+  border-color: #fff !important;
 }
