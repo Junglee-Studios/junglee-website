@@ -2746,37 +2746,66 @@ footer#site-footer {
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: clamp(22px, 2.4vw, 32px);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+  padding: 0;                  /* image is full-bleed at the top */
+  overflow: hidden;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .hww-step:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-card-hover);
 }
+/* Image at the top of each card — fits the card width, fixed short height
+   so it stays small and doesn't dominate the card. */
+.hww-step__image {
+  display: block;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 1px solid var(--color-border);
+}
+/* Per-image crop tuning — stays on object-fit: cover (fills the frame edge
+   to edge, no background showing) but shifts the crop so the most important
+   subject of each photo is in view at 120px tall. */
+.hww-step:nth-child(1) .hww-step__image {
+  object-position: center 15%;
+}
+.hww-step:nth-child(4) .hww-step__image {
+  object-position: center 25%;
+}
+/* Inner padding wrapper so num/title/body still have breathing room
+   while the image sits flush to the card edges. */
+.hww-step__body-wrap {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
 .hww-step__num {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
   color: var(--color-coral);
   font-weight: 700;
 }
 .hww-step__title {
   font-family: var(--font-display);
-  font-size: 1.18rem;
+  font-size: 1.02rem;          /* down from 1.18rem */
   font-weight: 700;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
   margin: 0;
   line-height: 1.25;
 }
 .hww-step__body {
   color: var(--color-text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.86rem;          /* down from 0.95rem */
+  line-height: 1.5;
   margin: 0;
 }
 .hww-step--choice {
@@ -2790,3 +2819,18 @@ footer#site-footer {
 @media (max-width: 600px) {
   .hww-steps { grid-template-columns: 1fr; }
 }
+
+/* ===========================================================
+   TERM-MARQUEE SLIM — same compact height/font as the coral
+   variant, but preserves the original .term-marquee background.
+   Used on the Brands page where we want the slim sizing without
+   the coral color change. =================================== */
+.term-marquee--slim { padding: 14px 0; }
+.term-marquee--slim .term-marquee-track { gap: 40px; }
+.term-marquee--slim .term-marquee-track span {
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+.term-marquee--slim .term-marquee-track .dot { width: 6px; height: 6px; }
+

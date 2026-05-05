@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brands | Junglee Studios — TikTok Shop Growth System</title>
+  <title>Brands (Demo v2) | Junglee Studios — TikTok Shop Growth System</title>
   <meta name="description" content="Turn TikTok Shop into a real revenue channel. Junglee Studios helps brands simplify social commerce — shop optimization, creator commerce, content that converts, and live selling." />
   <link rel="canonical" href="https://jungleestudios.com/brands" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content="noindex, nofollow" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Junglee Studios" />
@@ -123,6 +123,51 @@
       background: var(--color-teal);
     }
     @media (max-width: 760px) { .service-block { grid-template-columns: 1fr; } }
+
+    /* Service cards with a TikTok video on the LEFT. Same .svc card frame,
+       same headline + description + bullets — just adds a video tile on the
+       left edge that fills the full card height. ============================ */
+    .svc--with-video {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      padding: 0;
+      overflow: hidden;
+      align-items: stretch;
+    }
+    .svc__video {
+      margin: 0;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      overflow: hidden;
+      border-right: 1px solid var(--color-border);
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+      display: block;
+    }
+    .svc__video .tt-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .svc--with-video .svc__body { padding: 28px; }
+
+    @media (max-width: 760px) {
+      .svc--with-video {
+        grid-template-columns: 1fr;
+      }
+      .svc__video {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+      .svc__video .tt-player { height: auto; aspect-ratio: 16 / 9; }
+    }
     .capabilities {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -159,6 +204,292 @@
       border-radius: 50%;
       display: block;
     }
+
+    /* ===== BRANDS HERO COMPOSITE =====================================
+       2-phone video composite. Different rhythm from About (3 photo tiles)
+       so each page has its own visual signature. Foreground = Yucca Fins
+       (larger, leads); background = Kaleidos Creative (smaller, supports).
+       Both videos autoplay muted on loop, full-clip playthrough. Composite
+       is hidden below 1300px and drops to a horizontal grid on tablet/mobile
+       so the headline column is never compressed. ============================ */
+    .hero--brands { position: relative; overflow: visible; padding-bottom: clamp(32px, 5vw, 60px); }
+    .hero--brands .container { position: relative; }
+
+    .brands-hero-visual { display: none; }
+
+    @media (min-width: 1300px) {
+      .brands-hero-visual {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -40px;
+        transform: translateY(-50%);
+        width: 380px;
+        height: 460px;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .brands-hero-visual__sticker { pointer-events: auto; }
+    }
+    @media (min-width: 1500px) {
+      .brands-hero-visual {
+        right: -80px;
+        width: 440px;
+        height: 500px;
+      }
+    }
+
+    .brands-hero-visual__sticker {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      z-index: 6;
+      white-space: nowrap;
+    }
+
+    .brands-tile {
+      position: absolute;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #1a1b20;
+      box-shadow: 0 24px 56px rgba(0,0,0,0.48);
+      border: 3px solid rgba(255,255,255,0.08);
+    }
+    .brands-tile .tt-player {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Phone 1 — Yucca, larger, leans LEFT, sits BEHIND (so Kaleidos can layer on top) */
+    .brands-tile--phone-1 {
+      top: 10%;
+      left: 6%;
+      width: 58%;
+      height: 80%;
+      aspect-ratio: 9/16;
+      transform: rotate(-4deg);
+      z-index: 3;
+    }
+    /* Phone 2 — Kaleidos, smaller, leans RIGHT, sits IN FRONT so it isn't covered */
+    .brands-tile--phone-2 {
+      top: 4%;
+      right: 0;
+      width: 42%;
+      height: 60%;
+      aspect-ratio: 9/16;
+      transform: rotate(5deg);
+      z-index: 4;
+    }
+
+    /* ===== STAT STRIP — By the Numbers band ============================
+       Tightened to read as a thin colored connecting band, not a full
+       hero-scale section. Mirrors the About stat-strip pattern. ============ */
+    .stat-strip {
+      padding-top: clamp(20px, 2.4vw, 32px);
+      padding-bottom: clamp(24px, 2.8vw, 36px);
+    }
+    .stat-strip__head { margin-bottom: clamp(14px, 1.6vw, 22px); }
+    .stat-strip__heading {
+      color: var(--color-white);
+      font-size: clamp(1.35rem, 1.9vw, 1.65rem);
+      letter-spacing: -0.012em;
+      line-height: 1.2;
+      margin: 6px 0 0;
+      max-width: 100%;
+      white-space: normal;
+    }
+    .stat-strip .stat-num { color: var(--color-white); }
+    .stat-strip .stat-num.coral { color: #fff !important; }
+    .stat-strip .stat-num.teal  { color: #d1fffb !important; }
+    .stat-strip .stat-label { color: rgba(255,255,255,0.85); }
+    .stat-strip .kicker { color: rgba(255,255,255,0.92); }
+    .stat-strip .kicker i { background: rgba(255,255,255,0.92); }
+    .stat-strip .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(20px, 3vw, 44px);
+      align-items: center;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      margin-top: 0;
+    }
+    .stat-strip .stat-cell {
+      padding: 0;
+      border: none;
+      background: transparent;
+      text-align: left;
+      min-width: 0;
+      gap: 8px;
+    }
+    .stat-strip .stat-num { white-space: nowrap; }
+    @media (max-width: 720px) {
+      .stat-strip .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+
+    /* ===== SECTION-TEAL — Why brands work with Junglee ====================
+       Mirrors the .section-coral pattern: white headings, slightly
+       translucent body copy for hierarchy. ================================== */
+    .section-teal {
+      background: var(--color-teal);
+      color: var(--color-white);
+      position: relative;
+    }
+    .section-teal h1, .section-teal h2, .section-teal h3 { color: var(--color-white); }
+    .section-teal .lead, .section-teal p { color: rgba(255,255,255,0.92); }
+    .section-teal .kicker, .section-teal .eyebrow { color: rgba(255,255,255,0.95); }
+    .section-teal .kicker i, .section-teal .eyebrow i { background: var(--color-white); }
+    .section-teal .btn.white { background: var(--color-white); color: var(--color-teal) !important; }
+    .section-teal .btn.white:hover { background: rgba(255,255,255,0.92); }
+
+    /* ===== WHY JUNGLEE — inside-expertise grid ============================
+       2-col: text on left, supporting video card on right. Stacks on mobile.
+       Three numbered sub-points carry the bona fides cleanly. =============== */
+    .why-junglee-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: clamp(32px, 4vw, 64px);
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 980px) {
+      .why-junglee-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .why-junglee-text { min-width: 0; }
+    .inside-points {
+      list-style: none;
+      margin: 28px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 16px;
+    }
+    .inside-points li {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.55;
+      font-size: 0.96rem;
+    }
+    .inside-points strong { color: var(--color-white); font-weight: 700; }
+    .inside-points__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      color: var(--color-white);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .why-junglee-visual {
+      position: relative;
+      margin: 0;
+      aspect-ratio: 9 / 16;
+      max-height: 560px;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 24px 56px rgba(0,0,0,0.30);
+      border: 4px solid rgba(255,255,255,0.18);
+    }
+    .why-junglee-visual .tt-player {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .why-junglee-visual__cap {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(0,0,0,0.62);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ===== CTA BLOCK CENTERED — brand-only Get Started block ==============
+       Wraps everything in a centered max-width column so the headline
+       (.cta-block h2 has max-width:18ch globally) is properly centered
+       inside the page rather than left-anchored. =========================== */
+    .cta-block--center .container { text-align: center; }
+    .cta-block--center .cta-block__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta-block--center .kicker {
+      justify-content: center;
+      color: var(--color-coral);
+    }
+    .cta-block--center h2 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      margin: 12px auto 0;
+      max-width: 22ch;          /* override the global 18ch — enough room for full headline */
+      text-align: center;
+    }
+    .cta-block--center .lead {
+      max-width: 56ch;
+      margin: 14px auto 28px;
+      text-align: center;
+    }
+    .cta-block--center .actions {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Tablet/mobile fallback — composite drops below text in a horizontal strip */
+    @media (max-width: 1299px) {
+      .brands-hero-visual {
+        display: grid;
+        position: relative;
+        margin: 36px 0 0;
+        max-width: 560px;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 12px;
+      }
+      .brands-hero-visual__sticker {
+        position: relative;
+        top: 0; left: 0;
+        transform: none;
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-bottom: 6px;
+      }
+      .brands-tile {
+        position: static;
+        width: auto; height: auto;
+        transform: none;
+        aspect-ratio: 9/16;
+      }
+    }
   </style>
 </head>
 
@@ -191,7 +522,7 @@
 </div>
 </header>
 
-  <section class="hero">
+  <section class="hero hero--brands">
     <div class="container">
       <div class="hero-grid">
         <div class="kicker"><i></i> For Brands</div>
@@ -201,57 +532,141 @@
         </p>
         <div class="actions">
           <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
-          <a class="btn secondary" href="#what-we-do">See what we do</a>
+          <a class="btn secondary" href="#how-we-work">See how we work</a>
         </div>
 
         <div class="partner-badges" style="margin-top: 28px; justify-content: flex-start;">
           <span class="partner-badge"><span class="check">&#10003;</span> TikTok Shop Certified Full Service Management Partner</span>
         </div>
       </div>
+
+      <!-- 2-phone video composite for Brands hero. Intentionally different
+           rhythm from About (which uses 3 photo tiles): Brands leads with the
+           work itself — a Junglee-operated brand LIVE moment foreground, a
+           second brand product moment behind. Hierarchy of sizes (Yucca large
+           foreground, Kaleidos smaller behind) keeps the composition dynamic
+           and balances the file payload (longer Kaleidos clip rendered
+           smaller). Composite floats outside .hero-grid so it never affects
+           the headline width. -->
+      <aside class="brands-hero-visual" aria-hidden="true">
+        <a class="partner-sticker brands-hero-visual__sticker" href="#contact" aria-label="TikTok Shop Certified Full-Service Management Partner">
+          <span class="partner-sticker__inner">
+            <span class="partner-sticker__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path class="ts-cyan"  d="M16.5 5.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.3 20.4 3.3 16.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V2h3.8z"/>
+                <path class="ts-pink"  d="M17.6 4.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S4.4 19.4 4.4 15.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1h3.8z"/>
+                <path class="ts-white" d="M17 4.7c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.8 19.9 3.8 16.3s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1.5h3.8z"/>
+              </svg>
+            </span>
+            <span class="partner-sticker__text">
+              <span class="partner-sticker__eyebrow">TikTok Shop</span>
+              <span class="partner-sticker__title">Certified Partner</span>
+            </span>
+            <span class="partner-sticker__check" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.4l3 3 6-6.4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+
+        <!-- Phone 1 — Yucca Fins (larger, behind). Junglee-operated brand. -->
+        <figure class="brands-tile brands-tile--phone-1">
+          <video class="tt-player" autoplay muted loop playsinline preload="metadata"
+                 poster="assets/video/brand/brand-yucca-poster.jpg"
+                 aria-label="Yucca Fins lifestyle video — a Junglee-operated brand on TikTok Shop">
+            <source src="assets/video/brand/brand-yucca.webm" type="video/webm">
+            <source src="assets/video/brand/brand-yucca.mp4" type="video/mp4">
+          </video>
+        </figure>
+
+        <!-- Phone 2 — Kaleidos Creative (smaller, in front). Junglee-operated brand. -->
+        <figure class="brands-tile brands-tile--phone-2">
+          <video class="tt-player" autoplay muted loop playsinline preload="metadata"
+                 poster="assets/video/brand/brand-kaleidos-poster.jpg"
+                 aria-label="Kaleidos Creative LIVE unboxing video — a Junglee-operated brand on TikTok Shop">
+            <source src="assets/video/brand/brand-kaleidos.webm" type="video/webm">
+            <source src="assets/video/brand/brand-kaleidos.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <!-- STAT STRIP — mirror About: thin coral band, one-line heading. -->
+  <section class="section section-coral stat-strip reveal" id="brands-stats">
+    <div class="container">
+      <div class="stat-strip__head">
+        <div class="kicker"><i></i> By the numbers</div>
+        <h2 class="stat-strip__heading">Built to operate at TikTok Shop scale.</h2>
+      </div>
+      <div class="stat-grid" aria-label="Junglee Studios brand track record">
+        <div class="stat-cell">
+          <div class="stat-num coral" data-count-to="1.3" data-count-prefix="$" data-count-suffix="B+" data-count-decimals="1">$1.3B+</div>
+          <div class="stat-label">D2C Sales Operated</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num teal" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
+          <div class="stat-label">LIVE GMV</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" data-count-to="400" data-count-suffix="+" data-count-decimals="0">400+</div>
+          <div class="stat-label">Brands Scaled</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num" data-count-to="300" data-count-suffix="+" data-count-decimals="0">300+</div>
+          <div class="stat-label">Creators Supported</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM-SOURCED PROOF — promoted Summit data so it isn't buried inside
+       a Challenge subsection. Competitive analysis shows this is the only
+       platform-published, third-party proof point in the Brands competitive
+       set; it deserves a moment of its own. -->
+  <section class="section section-charcoal reveal" id="summit-proof" style="padding-top: clamp(40px,5vw,64px); padding-bottom: clamp(40px,5vw,64px);">
+    <div class="container">
+      <div class="summit-strip" style="padding: 24px 26px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); background: rgba(255,255,255,0.03); display: grid; grid-template-columns: minmax(260px, 1fr) auto auto; gap: 28px; align-items: center;">
+        <div>
+          <div style="font-family: var(--font-mono); color: var(--color-teal); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 6px;">TikTok Shop Summit 2025 · Platform-published</div>
+          <h2 style="margin: 0 0 8px; font-size: clamp(1.4rem, 2.2vw, 1.85rem); line-height: 1.25; color: var(--color-white); max-width: 36ch;">Partner-enabled brands significantly outperformed DIY in 2025.</h2>
+          <p style="margin: 0; color: rgba(255,255,255,0.72); font-size: 0.95rem; line-height: 1.5; max-width: 50ch;">Across both overall sales and LIVE — reported by TikTok Shop at their 2025 partner summit.</p>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-display); font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 700; color: var(--color-white); line-height: 1; letter-spacing: -0.03em;">197%</div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 6px;">Sales growth</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-display); font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 700; color: var(--color-white); line-height: 1; letter-spacing: -0.03em;">500%</div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 6px;">LIVE sales growth</div>
+        </div>
+      </div>
+      <p class="source-note" style="margin-top: 12px;">TikTok Shop Summit 2025 data — partner-enabled sellers, 2025. Platform-wide figures shared at the summit; not Junglee-generated.</p>
     </div>
   </section>
 
   <!-- BRAND PROOF BENTO — early credibility -->
-  <section class="section section-light reveal" id="brand-proof" style="padding-top: clamp(48px,6vw,72px); padding-bottom: clamp(40px,5vw,64px);">
+  <!-- Brands we operate with — ticker style (mirrors About + Home patterns).
+       Tighter vertical footprint, motion gives the strip life without making
+       it taller. ==================================================== -->
+  <section class="section section-light reveal trusted-strip" id="brand-proof" style="padding-top: clamp(36px,4vw,52px); padding-bottom: clamp(28px,3.4vw,44px);">
     <div class="container">
-      <div class="kicker"><i></i> Brands we operate with</div>
-      <h2 style="max-width: 26ch;">The team that knows what it takes to launch and scale on TikTok Shop.</h2>
-
-      <div class="proof-bento">
-        <div class="pb-cell span-2">
-          <span class="pb-label">D2C sales operated</span>
-          <div class="pb-num" data-count-to="1.3" data-count-prefix="$" data-count-suffix="B+" data-count-decimals="1">$1.3B+</div>
-          <p class="pb-text">Across our team's tenure at TikTok Shop and Junglee Studios.</p>
-        </div>
-        <div class="pb-cell span-2">
-          <span class="pb-label">LIVE GMV</span>
-          <div class="pb-num" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
-          <p class="pb-text">LIVE selling GMV operated end-to-end.</p>
-        </div>
-        <div class="pb-cell span-2">
-          <span class="pb-label">Brands scaled</span>
-          <div class="pb-num" data-count-to="400" data-count-suffix="+" data-count-decimals="0">400+</div>
-          <p class="pb-text">From emerging D2C to category-leading retail.</p>
-        </div>
-
-        <div class="pb-cell span-6">
-          <span class="pb-label">A few brands we've operated with</span>
-          <div class="pb-logos" style="margin-top: 12px;">
-            <img src="assets/logos/Goli.png" alt="Goli Nutrition" loading="lazy">
-            <img src="assets/logos/disneystore.png" alt="Disney Store" loading="lazy">
-            <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent" loading="lazy">
-            <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon" loading="lazy">
-            <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners" loading="lazy">
-            <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank" loading="lazy">
-            <img src="assets/logos/Disliz Logo.png" alt="Disliz" loading="lazy">
-            <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative" loading="lazy">
-            <img src="assets/logos/Yucca.png" alt="Yucca" loading="lazy">
-            <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils" loading="lazy">
-            <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards" loading="lazy">
-            <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports" loading="lazy">
-            <img src="assets/logos/RipNHits.png" alt="Rip N Hits" loading="lazy">
-            <img src="assets/logos/xpcollect_logo.png" alt="XP Collect" loading="lazy">
-          </div>
+      <p class="trusted-eyebrow">Brands we operate with on TikTok Shop</p>
+      <div class="logo-marquee">
+        <div class="logo-marquee-inner" data-marquee>
+          <img src="assets/logos/Goli.png" alt="Goli Nutrition" loading="lazy">
+          <img src="assets/logos/disneystore.png" alt="Disney Store" loading="lazy">
+          <img src="assets/logos/Sabrent_idzxzVSldz_1.png" alt="Sabrent" loading="lazy">
+          <img src="assets/logos/DCONvectorlogo_Landscape.png" alt="DesignerCon" loading="lazy">
+          <img src="assets/logos/College Flags & Banners logo.png" alt="College Flags & Banners" loading="lazy">
+          <img src="assets/logos/The Ballers Bank_id0Dekq4BP_2.jpeg" alt="The Ballers Bank" loading="lazy">
+          <img src="assets/logos/Disliz Logo.png" alt="Disliz" loading="lazy">
+          <img src="assets/logos/idQCOPFSp1_logos.png" alt="Kaleidos Creative" loading="lazy">
+          <img src="assets/logos/Yucca.png" alt="Yucca" loading="lazy">
+          <img src="assets/logos/Woo Oils.png" alt="Woo World of Oils" loading="lazy">
+          <img src="assets/logos/941 Sports Cards.png" alt="941 Sports Cards" loading="lazy">
+          <img src="assets/logos/Dappz-logo.png" alt="Dappz Sports" loading="lazy">
+          <img src="assets/logos/RipNHits.png" alt="Rip N Hits" loading="lazy">
+          <img src="assets/logos/xpcollect_logo.png" alt="XP Collect" loading="lazy">
         </div>
       </div>
     </div>
@@ -273,130 +688,195 @@
           <p>Win the feed by tuning hooks, proof, and offers to how shoppers actually browse.</p>
         </div>
         <div class="challenge-item stagger-item">
-          <div class="label">Content</div>
-          <p>Volume, hooks, formats, and product storytelling built for TikTok Shop conversion — not generic social posting.</p>
-        </div>
-        <div class="challenge-item stagger-item">
           <div class="label">LIVE</div>
           <p>Build a stream cadence and host pipeline that actually converts to GMV.</p>
         </div>
         <div class="challenge-item stagger-item">
           <div class="label">Shop operations</div>
-          <p>Catalog, promotions, fulfillment, and policy details — the work behind the conversion rate.</p>
+          <p>Catalog, content velocity, promotions, fulfillment, and policy — the work behind the conversion rate.</p>
         </div>
       </div>
 
-      <div class="summit-strip" style="margin-top: 36px; padding: 22px 24px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); background: rgba(255,255,255,0.03); display: grid; grid-template-columns: minmax(220px, 1fr) auto auto; gap: 22px; align-items: center;">
-        <div>
-          <div style="font-family: var(--font-mono); color: var(--color-teal); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 6px;">TikTok Shop Summit 2025</div>
-          <p style="margin: 0; color: rgba(255,255,255,0.82); font-size: 0.98rem; line-height: 1.5; max-width: 46ch;">Partner-enabled sellers significantly outperformed DIY sellers in 2025 — across both overall sales and LIVE.</p>
-        </div>
-        <div style="text-align: right;">
-          <div style="font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; color: var(--color-white); line-height: 1; letter-spacing: -0.03em;">197%</div>
-          <div style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 4px;">Sales growth</div>
-        </div>
-        <div style="text-align: right;">
-          <div style="font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; color: var(--color-white); line-height: 1; letter-spacing: -0.03em;">500%</div>
-          <div style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 4px;">LIVE sales growth</div>
-        </div>
-      </div>
-      <p class="source-note" style="margin-top: 12px;">TikTok Shop Summit 2025 data — partner-enabled sellers, 2025. Platform-wide figures shared at the summit; not Junglee-generated.</p>
     </div>
   </section>
 
   <span id="what-we-offer" aria-hidden="true"></span>
   <section class="section section-light reveal" id="what-we-do">
     <div class="container">
-      <div class="kicker"><i></i> What Junglee helps brands do</div>
+      <div class="kicker"><i></i> Full-service TikTok Shop management</div>
       <h2>The Junglee System for brands.</h2>
-      <p class="lead">Four operating capabilities, organized so your team can run them. Use a focused service, or let Junglee operate the full TikTok Shop system end-to-end.</p>
+      <p class="lead">Our full-service program covers four operating capabilities end-to-end — shop, creator, content, and LIVE — with TikTok Ads bundled in. Designed so your team can eventually run it themselves.</p>
 
-      <div class="service-block" id="services">
-        <div class="svc stagger-item">
-          <div class="svc-head">
-            <span class="num">01 / Shop</span>
-            <span class="badge">Foundational</span>
+      <!-- Four service cards restored to their original .svc structure with
+           full descriptions and bullet lists. Adds a vertical TikTok video on
+           the LEFT of each card (.svc--with-video). All info preserved. ====== -->
+      <div class="service-block service-block--with-video" id="services">
+        <div class="svc svc--with-video stagger-item">
+          <figure class="svc__video">
+            <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-brand-shop-poster.jpg" aria-label="Shop optimization preview">
+              <source src="assets/video/embeds/embed-brand-shop.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <div class="svc__body">
+            <div class="svc-head">
+              <span class="num">01 / Shop</span>
+              <span class="badge">Foundational</span>
+            </div>
+            <h3>Shop Optimization</h3>
+            <p>Tune product detail pages, catalog, content path, affiliate &amp; LIVE traffic, and checkout readiness so shoppers can discover and buy with less friction.</p>
+            <ul>
+              <li>Storefront architecture &amp; collection structure</li>
+              <li>Catalog hygiene, listings &amp; offer sequencing</li>
+              <li>Promotion calendar &amp; merchandising rhythm</li>
+              <li>Operational support across policy &amp; performance</li>
+            </ul>
           </div>
-          <h3>Shop Optimization</h3>
-          <p>Tune product detail pages, catalog, content path, affiliate &amp; LIVE traffic, and checkout readiness so shoppers can discover and buy with less friction.</p>
-          <ul>
-            <li>Storefront architecture &amp; collection structure</li>
-            <li>Catalog hygiene, listings &amp; offer sequencing</li>
-            <li>Promotion calendar &amp; merchandising rhythm</li>
-            <li>Operational support across policy &amp; performance</li>
-          </ul>
         </div>
 
-        <div class="svc stagger-item">
-          <div class="svc-head">
-            <span class="num">02 / Creator</span>
-            <span class="badge">Channel</span>
+        <div class="svc svc--with-video stagger-item">
+          <figure class="svc__video">
+            <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-brand-creator-poster.jpg" aria-label="Creator commerce preview">
+              <source src="assets/video/embeds/embed-brand-creator.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <div class="svc__body">
+            <div class="svc-head">
+              <span class="num">02 / Creator</span>
+              <span class="badge">Channel</span>
+            </div>
+            <h3>Creator Commerce</h3>
+            <p>Run affiliate as a real channel — recruited, briefed, seeded, and managed for performance.</p>
+            <ul>
+              <li>Affiliate program design &amp; commission strategy</li>
+              <li>Creator recruitment &amp; vetting at scale</li>
+              <li>Product seeding, briefs, and sample logistics</li>
+              <li>Campaign management end-to-end</li>
+            </ul>
           </div>
-          <h3>Creator Commerce</h3>
-          <p>Run affiliate as a real channel — recruited, briefed, and managed for performance.</p>
-          <ul>
-            <li>Affiliate program design &amp; commission strategy</li>
-            <li>Creator recruitment &amp; vetting at scale</li>
-            <li>Briefs, sample logistics, performance tracking</li>
-            <li>Campaign management end-to-end</li>
-          </ul>
         </div>
 
-        <div class="svc stagger-item">
-          <div class="svc-head">
-            <span class="num">03 / Content</span>
-            <span class="badge">Velocity</span>
+        <div class="svc svc--with-video stagger-item">
+          <figure class="svc__video">
+            <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-brand-content-poster.jpg" aria-label="Content that converts preview">
+              <source src="assets/video/embeds/embed-brand-content.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <div class="svc__body">
+            <div class="svc-head">
+              <span class="num">03 / Content</span>
+              <span class="badge">Velocity</span>
+            </div>
+            <h3>Content That Converts</h3>
+            <p>Hooks, proof, and offers built for the discovery feed — with hands-on coaching so your team ships at the volume the platform demands.</p>
+            <ul>
+              <li>Platform-native creative direction</li>
+              <li>UGC &amp; lifestyle content coaching</li>
+              <li>Hook frameworks &amp; proof patterns</li>
+              <li>Posting cadence &amp; iteration loops</li>
+            </ul>
           </div>
-          <h3>Content That Converts</h3>
-          <p>Hooks, proof, and offers built for the discovery feed — at the volume the platform demands.</p>
-          <ul>
-            <li>Platform-native creative direction</li>
-            <li>UGC &amp; lifestyle content production</li>
-            <li>Hook frameworks &amp; proof patterns</li>
-            <li>Posting cadence &amp; iteration loops</li>
-          </ul>
         </div>
 
-        <div class="svc stagger-item">
-          <div class="svc-head">
-            <span class="num">04 / LIVE</span>
-            <span class="badge">High GMV</span>
+        <div class="svc svc--with-video stagger-item">
+          <figure class="svc__video">
+            <video class="tt-player" autoplay muted loop playsinline preload="metadata" poster="assets/video/embeds/embed-brand-live-poster.jpg" aria-label="Live selling preview">
+              <source src="assets/video/embeds/embed-brand-live.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <div class="svc__body">
+            <div class="svc-head">
+              <span class="num">04 / LIVE</span>
+              <span class="badge">High GMV</span>
+            </div>
+            <h3>Live Selling</h3>
+            <p>Operate LIVE the right way — stream cadence, host onboarding, and event ops to start generating real GMV.</p>
+            <ul>
+              <li>Host onboarding &amp; basic on-air coaching</li>
+              <li>Stream cadence &amp; LIVE operations</li>
+              <li>Event scripting &amp; show structure</li>
+              <li>Real-time analytics &amp; conversion tuning</li>
+            </ul>
           </div>
-          <h3>Live Selling</h3>
-          <p>Operate LIVE like a channel: hosts, scripts, stream ops, and Mega Live event execution.</p>
-          <ul>
-            <li>Host development &amp; on-air coaching</li>
-            <li>Stream operations &amp; event scripting</li>
-            <li>Mega Live planning &amp; execution</li>
-            <li>Real-time analytics &amp; conversion tuning</li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Standalone Services — individual add-ons that plug into an existing
+       operation. Full TikTok Shop Management is NOT here (it lives in the
+       Full-service section above). TikTok-only Ads IS here (it's separate
+       from the bundled-in ads inside the full-service program). ============ -->
   <section class="section section-smoke reveal" id="capabilities">
     <div class="container">
-      <div class="kicker"><i></i> Key capabilities</div>
-      <h2>Standalone services — plug in anywhere.</h2>
-      <p class="lead">Engage The Junglee System as a full program, or pull individual capabilities into your existing operation.</p>
+      <div class="kicker"><i></i> Standalone services</div>
+      <h2>Plug in just what you need.</h2>
+      <p class="lead">Pull individual services into your existing operation. Six standalone capabilities you can engage without the full-service program.</p>
 
       <div class="capabilities">
-        <div class="cap stagger-item">Full TikTok Shop Management</div>
+        <div class="cap stagger-item">Expert LIVE Selling Coaching &amp; Strategy</div>
         <div class="cap stagger-item">UGC Content Development</div>
         <div class="cap stagger-item">Lifestyle Content Production</div>
         <div class="cap stagger-item">Product PDP Photography</div>
-        <div class="cap stagger-item">Expert LIVE Selling / Strategy</div>
         <div class="cap stagger-item">Content Planner / Scheduler</div>
         <div class="cap stagger-item">TikTok Ads</div>
       </div>
       <p class="muted" style="margin-top: 18px; font-size: 0.9rem; max-width: 60ch;">
-        Creator campaigns, affiliate outreach, creator growth consulting, affiliate coaching, and content strategy are bundled inside Full TikTok Shop Management — not piecemeal services.
+        LIVE coaching includes host coaching, liveroom setup, and stream operations. TikTok Ads here means platform ads as a standalone engagement — ads are also bundled inside our full-service program.
       </p>
     </div>
   </section>
 
-  <div class="term-marquee reveal" aria-hidden="true">
+  <!-- HOW WE WORK — brand-tuned engagement model, moved from About v8 -->
+  <section class="section section-light reveal" id="how-we-work">
+    <div class="container">
+      <div class="hww-head">
+        <div class="kicker hww-head__kicker"><i></i> How we work</div>
+        <h2 class="hww-head__title">Built to make your team <span style="color: var(--color-coral);">self-sufficient.</span></h2>
+        <p class="lead hww-head__lead">
+          Most TikTok Shop agencies are designed around staying. We design ours around growing your team into ownership — so by month 12, the program belongs to your brand because you've been running it with us all along.
+        </p>
+      </div>
+
+      <ol class="hww-steps">
+        <li class="hww-step">
+          <img class="hww-step__image" src="assets/photos/how-we-work/hww-01-embed.jpg" alt="Embedded with your shop" loading="lazy">
+          <div class="hww-step__body-wrap">
+            <div class="hww-step__num">01</div>
+            <h3 class="hww-step__title">We embed with your shop from day one.</h3>
+            <p class="hww-step__body">Full-service TikTok Shop support — setup, listing optimization, content strategy, affiliate program build, LIVE selling, ad management. We run the parts your brand needs us to run, and pick up the workload your in-house team can't yet handle. Same scope as a traditional agency, structured around partnership instead of takeover.</p>
+          </div>
+        </li>
+        <li class="hww-step">
+          <img class="hww-step__image" src="assets/photos/how-we-work/hww-02-team.jpg" alt="Your team alongside ours" loading="lazy">
+          <div class="hww-step__body-wrap">
+            <div class="hww-step__num">02</div>
+            <h3 class="hww-step__title">Your team operates with us, not after us.</h3>
+            <p class="hww-step__body">Your in-house brand team sits alongside ours from day one. We build playbooks tailored to your brand — affiliate vetting frameworks, LIVE scripts, violation handling, the full operating system we use internally — and your team learns the work by doing the work, side by side with ours.</p>
+          </div>
+        </li>
+        <li class="hww-step">
+          <img class="hww-step__image" src="assets/photos/how-we-work/hww-03-ownership.jpg" alt="Ownership transfers continuously" loading="lazy">
+          <div class="hww-step__body-wrap">
+            <div class="hww-step__num">03</div>
+            <h3 class="hww-step__title">Ownership transfers continuously.</h3>
+            <p class="hww-step__body">No handoff event, no gap. As your team builds confidence, more of the program moves to them. By month 12, they're already running it — documented systems, trained internal team, established creator network, working LIVE cadence — because they've been running it with us the whole time.</p>
+          </div>
+        </li>
+        <li class="hww-step hww-step--choice">
+          <img class="hww-step__image" src="assets/photos/how-we-work/hww-04-choose.jpg" alt="Then you choose" loading="lazy">
+          <div class="hww-step__body-wrap">
+            <div class="hww-step__num">04</div>
+            <h3 class="hww-step__title">Then you choose.</h3>
+            <p class="hww-step__body">Run TikTok Shop fully internally with your trained team — you own the playbooks, the tools, the relationships. Or keep us as your partner on a renewal that's earned, not locked in. Either way, your brand is never in the position of inheriting a program you've never run.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Slim ticker — matches home page sizing (height + font). Background
+       color stays as default (charcoal). =================================== -->
+  <div class="term-marquee term-marquee--slim reveal" aria-hidden="true">
     <div class="term-marquee-track" data-marquee>
       <span>Shop Optimization</span><span class="dot"></span>
       <span>Creator Commerce</span><span class="dot"></span>
@@ -407,12 +887,13 @@
     </div>
   </div>
 
-  <section class="section section-coral reveal" id="why-junglee">
+  <!-- Why brands work with Junglee — TEAL background. =================== -->
+  <section class="section section-teal reveal" id="why-junglee">
     <div class="container" style="max-width: 880px;">
       <div class="kicker"><i></i> Why brands work with Junglee</div>
       <h2>Insider expertise. Clarity. Confidence.</h2>
       <p class="lead" style="font-size: 1.12rem;">
-        Built by former TikTok Shop leaders. We know the platform from the inside — what discovery rewards, how LIVE actually performs, where affiliate breaks down. Brands work with Junglee because we replace guesswork with a clear operating model their team can run.
+        Junglee Studios was founded by Jatin “JT” Patel — on the founding team at TikTok Shop's U.S. launch, where he co-led the Collectibles category build and led Countdown Bidding from concept to live launch. Brands work with Junglee because we replace platform guesswork with a clear operating model their team can run — backed by people who shaped the playbooks the platform still runs on.
       </p>
       <div class="actions" style="margin-top: 28px;">
         <a class="btn white" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
@@ -421,16 +902,20 @@
     </div>
   </section>
 
-  <section class="cta-block reveal" id="contact">
-    <div class="container" style="max-width: 920px;">
-      <div class="kicker" style="color: var(--color-coral);"><i></i> Get started</div>
-      <h2 style="font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 12px;">Make TikTok Shop a real channel.</h2>
-      <p class="lead">
-        A 30-minute strategy call. We'll map your TikTok Shop opportunity and what The Junglee System can unlock.
-      </p>
-      <div class="actions" style="margin-top: 28px;">
-        <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
-        <a class="btn secondary" href="/creators">For creators</a>
+  <!-- Single-CTA Get Started — brand-only since this is the brand page.
+       Wraps everything in a max-width column then centers the column itself,
+       so the headline (.cta-block h2 has max-width:18ch) is properly centered
+       on the page rather than left-anchored inside an outer text-align. ===== -->
+  <section class="cta-block cta-block--center reveal" id="contact">
+    <div class="container">
+      <div class="cta-block__inner">
+        <div class="kicker"><i></i> Get started</div>
+        <h2>Make TikTok Shop a real channel for your brand.</h2>
+        <p class="lead">A 30-minute strategy call. We'll map your TikTok Shop opportunity and the program that fits.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+          <a class="btn secondary" href="/about-junglee.html">Meet the team</a>
+        </div>
       </div>
     </div>
   </section>
