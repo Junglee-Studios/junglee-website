@@ -2611,3 +2611,91 @@ footer#site-footer {
     border-radius: var(--radius-md);
   }
 }
+
+/* ===========================================================
+   HOMEPAGE TICKER — slimmer treatment for the coral term-marquee
+   that sits right below the hero. Reduces vertical weight so
+   the eye glides past it instead of stopping. The same .term-marquee
+   on dark surfaces (e.g., About page) keeps its standard size.
+   =========================================================== */
+.term-marquee--coral {
+  padding: 14px 0;                                  /* down from 24px */
+}
+.term-marquee--coral .term-marquee-track {
+  gap: 40px;                                        /* down from 56px */
+}
+.term-marquee--coral .term-marquee-track span {
+  font-size: clamp(1rem, 1.7vw, 1.25rem);           /* down from 1.4–2rem */
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+.term-marquee--coral .term-marquee-track .dot {
+  width: 6px; height: 6px;                          /* down from 10px */
+}
+
+/* ===========================================================
+   CTA PATHS — split Brand/Creator card pattern used in final CTAs.
+   Originally page-scoped to About v2; promoted to base.css so the
+   homepage and any future page can use the same pattern.
+   =========================================================== */
+.cta-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 24px);
+  margin-top: 28px;
+  text-align: left;
+}
+.cta-path {
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background .25s ease, transform .25s ease, border-color .25s ease;
+}
+.cta-path:hover {
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-3px);
+}
+.cta-path--brand:hover { border-color: rgba(255, 92, 76, 0.55); }
+.cta-path--creator:hover { border-color: rgba(255, 255, 255, 0.50); }
+.cta-path__chip {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.cta-path--brand .cta-path__chip {
+  background: rgba(255,92,76,0.22);
+  color: #ffd0c8;
+}
+.cta-path--creator .cta-path__chip {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+.cta-path__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  margin: 0;
+  line-height: 1.25;
+}
+.cta-path__sub {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 4px;
+}
+.cta-path .btn { align-self: flex-start; margin-top: auto; }
+@media (max-width: 760px) {
+  .cta-paths { grid-template-columns: 1fr; }
+}
