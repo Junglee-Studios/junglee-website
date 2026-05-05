@@ -2710,3 +2710,83 @@ footer#site-footer {
 @media (max-width: 760px) {
   .cta-paths { grid-template-columns: 1fr; }
 }
+
+/* HOW WE WORK pattern — engagement model 4-step grid.
+   Originally page-scoped on About; promoted to base.css so Brands (and any
+   future page) can render the same section consistently without duplication. */
+.hww-head {
+  margin: 0 0 44px;
+  max-width: 100%;
+  text-align: center;
+}
+.hww-head__kicker {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.hww-head__title {
+  text-align: center;
+  max-width: 22ch;
+  margin: 0 auto 18px;
+}
+.hww-head__lead {
+  text-align: center;
+  max-width: 64ch;
+  margin: 0 auto;
+}
+.hww-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  counter-reset: hww;
+}
+.hww-step {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(22px, 2.4vw, 32px);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.hww-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+.hww-step__num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--color-coral);
+  font-weight: 700;
+}
+.hww-step__title {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.25;
+}
+.hww-step__body {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+.hww-step--choice {
+  background: linear-gradient(140deg, #fff 0%, #fff7f5 100%);
+  border: 1px solid rgba(255, 92, 76, 0.30);
+}
+.hww-step--choice .hww-step__title { color: var(--color-coral); }
+@media (max-width: 1100px) {
+  .hww-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .hww-steps { grid-template-columns: 1fr; }
+}
