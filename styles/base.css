@@ -2649,36 +2649,47 @@ footer#site-footer {
   padding: clamp(24px, 3vw, 36px);
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
   display: flex;
   flex-direction: column;
   gap: 14px;
-  transition: background .25s ease, transform .25s ease, border-color .25s ease;
+  transition: background .25s ease, transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+/* Distinct outlines per audience so each card stands out clearly. */
+.cta-path--brand {
+  border: 2px solid var(--color-coral);
+}
+.cta-path--creator {
+  border: 2px solid #fff;
 }
 .cta-path:hover {
   background: rgba(255,255,255,0.10);
   transform: translateY(-3px);
 }
-.cta-path--brand:hover { border-color: rgba(255, 92, 76, 0.55); }
-.cta-path--creator:hover { border-color: rgba(255, 255, 255, 0.50); }
+.cta-path--brand:hover {
+  box-shadow: 0 12px 32px rgba(255, 92, 76, 0.30);
+}
+.cta-path--creator:hover {
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.18);
+}
 .cta-path__chip {
   display: inline-block;
   align-self: flex-start;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   letter-spacing: 0.20em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
 }
+/* Solid chip backgrounds so labels read crisply on teal. */
 .cta-path--brand .cta-path__chip {
-  background: rgba(255,92,76,0.22);
-  color: #ffd0c8;
+  background: var(--color-coral);
+  color: #fff;
 }
 .cta-path--creator .cta-path__chip {
-  background: rgba(255,255,255,0.18);
-  color: #fff;
+  background: #fff;
+  color: var(--color-charcoal);
 }
 .cta-path__title {
   font-family: var(--font-display);

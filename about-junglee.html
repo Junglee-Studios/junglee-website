@@ -231,7 +231,7 @@
     <div class="container">
       <div class="stat-strip__head">
         <div class="kicker"><i></i> By the numbers</div>
-        <h2 class="stat-strip__heading">Track record built at TikTok Shop and Junglee Studios.</h2>
+        <h2 class="stat-strip__heading">A track record built from the inside.</h2>
       </div>
       <div class="stat-grid" aria-label="Junglee Studios track record">
         <div class="stat-cell">
@@ -772,20 +772,22 @@
     /* SECTION 2 — thin stat strip on coral.
        Visual punctuation between the dark hero and the light trusted-by ticker.
        Padding tightened, font sizes preserved. */
+    /* Tightened to read as a thin colored band, not a full hero section. */
     .stat-strip {
-      padding-top: clamp(28px, 3.4vw, 48px);
-      padding-bottom: clamp(36px, 4vw, 56px);
+      padding-top: clamp(20px, 2.4vw, 32px);
+      padding-bottom: clamp(24px, 2.8vw, 36px);
     }
     .stat-strip__head {
-      margin-bottom: clamp(22px, 2.4vw, 36px);
+      margin-bottom: clamp(14px, 1.6vw, 22px);
     }
     .stat-strip__heading {
       color: var(--color-white);
-      font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+      font-size: clamp(1.35rem, 1.9vw, 1.65rem);
       letter-spacing: -0.012em;
-      line-height: 1.25;
-      margin: 8px 0 0;
-      max-width: 30ch;
+      line-height: 1.2;
+      margin: 6px 0 0;
+      max-width: 100%;       /* let it sit on one line at typical desktop widths */
+      white-space: normal;
     }
     /* On coral, the brand-color stat-num swatches need warm/cool tints to read. */
     .stat-strip .stat-num { color: var(--color-white); }
@@ -1369,68 +1371,8 @@
       .diff-compare { grid-template-columns: 1fr; }
     }
 
-    /* CTA — split brand / creator paths */
-    .cta-paths {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(16px, 2vw, 24px);
-      margin-top: 28px;
-      text-align: left;
-    }
-    .cta-path {
-      padding: clamp(24px, 3vw, 36px);
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.12);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      transition: background .25s ease, transform .25s ease, border-color .25s ease;
-    }
-    .cta-path:hover {
-      background: rgba(255,255,255,0.06);
-      transform: translateY(-3px);
-    }
-    .cta-path--brand:hover { border-color: rgba(255, 92, 76, 0.40); }
-    .cta-path--creator:hover { border-color: rgba(30, 164, 164, 0.50); }
-    .cta-path__chip {
-      display: inline-block;
-      align-self: flex-start;
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 999px;
-    }
-    .cta-path--brand .cta-path__chip {
-      background: rgba(255,92,76,0.18);
-      color: #ffb5ac;
-    }
-    .cta-path--creator .cta-path__chip {
-      background: rgba(30,164,164,0.20);
-      color: #6df0e2;
-    }
-    .cta-path__title {
-      font-family: var(--font-display);
-      font-size: clamp(1.15rem, 1.7vw, 1.45rem);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: var(--color-white);
-      margin: 0;
-      line-height: 1.25;
-    }
-    .cta-path__sub {
-      color: rgba(255,255,255,0.78);
-      font-size: 0.95rem;
-      line-height: 1.55;
-      margin: 0 0 4px;
-    }
-    .cta-path .btn { align-self: flex-start; margin-top: auto; }
-    @media (max-width: 760px) {
-      .cta-paths { grid-template-columns: 1fr; }
-    }
+    /* CTA split-card pattern lives in base.css — .cta-paths, .cta-path,
+       .cta-path__chip, .cta-path__title, .cta-path__sub. */
 
     /* TikTok logo color tokens (used in inline SVGs) */
     .ts-cyan  { fill: #25F4EE; }
