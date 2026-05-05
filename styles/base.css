@@ -2242,9 +2242,7 @@ footer#site-footer {
   z-index: 10;
   transform: rotate(6deg);  /* tilts opposite of the main video for visual contrast */
 }
-.partner-sticker--on-tile:hover {
-  transform: rotate(0deg) translateY(-2px) scale(1.04);
-}
+/* Hover intentionally does nothing — sticker stays static. */
 .partner-sticker--on-tile .partner-sticker__inner {
   padding: 6px 12px 6px 9px;
   border-width: 2px;
