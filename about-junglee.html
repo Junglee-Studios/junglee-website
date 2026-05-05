@@ -815,16 +815,15 @@
     .section-teal .kicker i, .section-teal .eyebrow i { background: var(--color-white); }
 
     /* SECTION 4b — HOW WE WORK (12-month optionality)
-       Kicker stays LEFT-aligned for page rhythm consistency.
-       Headline + lead sub center to give the differentiator block a
-       "manifesto moment" weight that distinguishes it from regular sections. */
+       Whole header (kicker + headline + lead) is centered as a single
+       "manifesto moment" block. */
     .hww-head {
       margin: 0 0 44px;
       max-width: 100%;
+      text-align: center;     /* centers the inline-flex .kicker too */
     }
     .hww-head__kicker {
-      justify-content: flex-start;
-      text-align: left;
+      justify-content: center;
       margin-bottom: 16px;
     }
     .hww-head__title {
