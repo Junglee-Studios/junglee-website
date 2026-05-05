@@ -103,6 +103,17 @@ header#site-header {
   -webkit-backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+/* Site-wide coral hairline below the nav header — one decisive brand stroke. */
+header#site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 4px;
+  background: var(--color-coral);
+  pointer-events: none;
+}
 
 .nav {
   display: flex;
@@ -489,16 +500,10 @@ body[data-page="home"] .hero {
   padding-bottom: clamp(72px, 9vw, 120px);
 }
 
-/* Thin coral rule at the top — one decisive brand stroke, no orbs/blocks. */
+/* DEPRECATED — coral rule now lives on header#site-header::after for all pages.
+   Keeping rule but hidden so legacy markup (.hero-edge div) doesn't render a 2nd line. */
 body[data-page="home"] .hero-edge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--color-coral);
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 
 body[data-page="home"] .hero-grid {
@@ -2034,13 +2039,9 @@ footer#site-footer {
   display: inline-block;
   text-decoration: none;
   transform: rotate(-3deg);
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform;
   filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45));
 }
-.partner-sticker:hover {
-  transform: rotate(0deg) translateY(-2px) scale(1.03);
-}
+/* Hover intentionally does nothing — sticker stays static. */
 .partner-sticker__inner {
   display: inline-flex;
   align-items: center;
