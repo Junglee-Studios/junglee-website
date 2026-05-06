@@ -2833,3 +2833,77 @@ footer#site-footer {
 }
 .term-marquee--slim .term-marquee-track .dot { width: 6px; height: 6px; }
 
+
+/* ============ FAQ accordions ============================================
+   Native <details>/<summary> styled to match the site rhythm.
+   Light section background, charcoal type, coral accent on open state.
+   No JavaScript required. ============================================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  border: 1px solid rgba(20,22,26,0.10);
+  border-radius: 14px;
+  background: var(--color-white);
+  transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+  overflow: hidden;
+}
+.faq-item:hover {
+  border-color: rgba(20,22,26,0.20);
+}
+.faq-item[open] {
+  border-color: var(--color-coral);
+  background: var(--color-bg-alt, #f6f6f4);
+  box-shadow: 0 4px 18px rgba(20,22,26,0.06);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 48px 16px 22px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+  line-height: 1.45;
+  color: var(--color-ink);
+  position: relative;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%2314161a' stroke-width='2' stroke-linecap='round'><path d='M7 2v10M2 7h10'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform .25s ease;
+}
+.faq-item[open] summary::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%23ff5f50' stroke-width='2' stroke-linecap='round'><path d='M2 7h10'/></svg>");
+  transform: rotate(180deg);
+}
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: -2px;
+  border-radius: 14px;
+}
+.faq-item__body {
+  padding: 2px 22px 20px;
+  color: var(--color-ink-soft, #4a4d54);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+.faq-item__body p { margin: 0; }
+.faq-item__body p + p { margin-top: 12px; }
+
+@media (max-width: 600px) {
+  .faq-item summary { padding: 14px 42px 14px 18px; font-size: 0.94rem; }
+  .faq-item summary::after { right: 16px; }
+  .faq-item__body { padding: 2px 18px 18px; font-size: 0.92rem; }
+}
