@@ -230,6 +230,9 @@
         z-index: 1;
       }
       .brands-hero-visual__sticker { pointer-events: auto; }
+      /* Tiles need pointer-events to trigger the hover-lift effect. The aside
+         stays pointer-events:none so it doesn't trap clicks on text behind. */
+      .brands-hero-visual .brands-tile { pointer-events: auto; }
     }
     @media (min-width: 1500px) {
       .brands-hero-visual {
