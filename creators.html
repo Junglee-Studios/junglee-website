@@ -256,6 +256,18 @@
       background: #1a1b20;
       box-shadow: 0 24px 56px rgba(0,0,0,0.48);
       border: 3px solid rgba(255,255,255,0.08);
+      /* Match home/academy hero-tile hover — lift + level the tilt. */
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform;
+    }
+    .brands-tile:hover {
+      transform: translateY(-6px) rotate(0deg) !important;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.6);
+      z-index: 10;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .brands-tile { transition: none; }
+      .brands-tile:hover { transform: none !important; }
     }
     .brands-tile .tt-player {
       width: 100%; height: 100%;
