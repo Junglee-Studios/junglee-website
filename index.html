@@ -171,13 +171,30 @@
 
     <!-- 2. WHY NOW (TikTok official stats) -->
     <section class="section section-charcoal reveal" id="why-now">
-      <div class="container">
+      <div class="container why-now-container">
         <div class="kicker"><i></i> Why now</div>
         <h2 style="max-width: 24ch;">Discovery commerce is growing fast.<br/><span style="color: rgba(255,255,255,0.55); letter-spacing: -0.005em; font-weight: 700;">Expertise still matters.</span></h2>
         <p class="lead" style="max-width: 62ch;">
           TikTok Shop launched in the U.S. in September 2023. Two years in, it's a $15.8 billion market growing 108% year over year — and the platform's own data shows it's still scaling.
         </p>
 
+        <!--
+          TikTok Shop Certified Agency badge — official medallion from TikTok.
+          Absolutely positioned into the empty right-side space of the heading
+          area so it adds NO height to the section and doesn't shift any of the
+          existing 'Why now' content. Desktop-only (>=960px); below that the
+          heading/lead fill the container so there's nowhere to put it without
+          adding vertical height.
+        -->
+        <img
+          class="why-now-badge"
+          src="assets/badges/tiktok-shop-certified-agency-2025.png"
+          alt="TikTok Shop Certified Agency — Since 2025"
+          width="200"
+          height="200"
+          loading="lazy"
+          decoding="async"
+        />
       </div><!-- /.container -->
 
       <!-- Full-bleed video reel — 10 affiliate creator clips, shuffled so adjacent tiles
