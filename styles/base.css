@@ -1437,9 +1437,15 @@ footer#site-footer {
   body[data-page="home"] .hero .stat-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  /* Composite stays inside the readable container too, no negative spill */
-  .hero-visual--composite {
-    width: 100%;
+  /* Hide the hero video composite + partner sticker on mobile, matching
+     the pattern used on brands.html / creators.html where
+     .brands-hero-visual is display:none below their desktop breakpoint.
+     The text + stat grid + 'Track record...' caption stack cleanly on
+     phones with no overlap. The official TikTok Shop Certified medallion
+     still appears below in the #why-now section, so the credentialing
+     signal is preserved. */
+  body[data-page="home"] .hero-visual--composite {
+    display: none !important;
   }
 }
 
