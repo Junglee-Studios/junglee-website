@@ -2955,3 +2955,18 @@ footer#site-footer {
     height: 170px;
   }
 }
+
+/* Mobile + small-tablet: no right-side gap exists because the heading/lead
+   fill the container width. Drop the absolute positioning and stack the
+   badge below the lead paragraph, centered horizontally. */
+@media (max-width: 959px) {
+  .why-now-badge {
+    display: block;
+    position: static;
+    transform: none;
+    margin: 24px auto 0;
+    width: 140px;
+    height: 140px;
+  }
+}
+

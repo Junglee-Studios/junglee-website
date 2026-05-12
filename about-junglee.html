@@ -1156,6 +1156,23 @@
       .tt-cred-card__seal { grid-column: 1 / -1; justify-self: flex-start; }
     }
 
+    /* When the official medallion is used, stack vertically on mobile so the
+       160px badge doesn't squeeze the title text to one-word-per-line. */
+    @media (max-width: 760px) {
+      .tt-cred-card__inner:has(.tt-cred-card__badge--official) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+      .tt-cred-card__badge--official {
+        width: 140px;
+        height: 140px;
+      }
+      .tt-cred-card__inner:has(.tt-cred-card__badge--official) .tt-cred-card__copy {
+        text-align: left;
+      }
+    }
+
     /* SECTION 5 — Award graphic block (now on light background, dark accent card) */
     .cred-award {
       margin-top: 28px;
