@@ -1917,8 +1917,9 @@ footer#site-footer {
   .partner-sticker--on-tile { top: -10px; right: -6px; }
 }
 @media (max-width: 540px) {
-  .partner-sticker--on-tile { transform: rotate(4deg); }
-  /* Sticker text gets smaller on phone so it doesn't dominate the tile */
+  /* Mobile sticker sizing only — the position override lives later in the
+     stylesheet (after the unconditional .partner-sticker--on-tile rule)
+     so it actually wins the cascade. */
   .partner-sticker--on-tile .partner-sticker__title { font-size: 0.68rem; }
   .partner-sticker--on-tile .partner-sticker__eyebrow { font-size: 0.50rem; }
   .partner-sticker--on-tile .partner-sticker__icon { width: 18px; height: 18px; }
@@ -2263,6 +2264,18 @@ footer#site-footer {
 }
 .partner-sticker--on-tile .partner-sticker__check svg { width: 10px; height: 10px; }
 
+/* Mobile override — placed AFTER the unconditional rule above so it wins
+   the cascade. Pulls the sticker INSIDE the tile's top-right corner on
+   phones so it stops hanging over the 'Track record...' caption that
+   sits just above the hero-visual when the layout stacks vertically. */
+@media (max-width: 540px) {
+  .partner-sticker--on-tile {
+    top: 12px;
+    right: 12px;
+    transform: rotate(-2deg);
+  }
+}
+
 /* LIVE chip stays at top-left of the main video; the sticker is at
    top-right, so they sit at opposite corners and don't collide. */
 .hero-tile--main .hero-tile__chip {
@@ -2599,15 +2612,16 @@ footer#site-footer {
   pointer-events: none;
 }
 
-/* Mobile: stack — video on top as a 9:16 block, body below */
+/* Mobile: stack — video on top as a 9:16 block, body below. Fills the
+   card edge-to-edge (the old max-width: 280px cap left a visible empty
+   strip on either side of the video when the card was wider than 280px). */
 @media (max-width: 900px) {
   .path-card-image--embed {
     aspect-ratio: 9 / 16 !important;
     width: 100%;
     height: auto;
-    max-width: 280px;
-    margin: 0 auto;
-    border-radius: var(--radius-md);
+    margin: 0;
+    border-radius: 0;
   }
 }
 
