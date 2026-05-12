@@ -2934,9 +2934,8 @@ footer#site-footer {
   max-width: 200px;
   display: none; /* hidden below the desktop breakpoint */
   /* The PNG has transparent corners so the scalloped edge sits directly on
-     the charcoal background. A soft outer glow lifts it off the hero without
-     fighting the neon rings already baked into the artwork. */
-  filter: drop-shadow(0 6px 18px rgba(255, 95, 80, 0.18)) drop-shadow(0 4px 14px rgba(30, 164, 164, 0.18));
+     the charcoal background. The badge artwork already carries its own
+     neon-ring border so no additional glow / drop-shadow is needed. */
   pointer-events: none; /* decorative — no link/hover */
   user-select: none;
 }

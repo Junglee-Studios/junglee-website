@@ -385,12 +385,15 @@
       <div class="tt-cred-card">
         <div class="tt-cred-card__rule" aria-hidden="true"></div>
         <div class="tt-cred-card__inner">
-          <div class="tt-cred-card__badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" width="56" height="56">
-              <path class="ts-cyan"  d="M16.5 5.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.3 20.4 3.3 16.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V2h3.8z"/>
-              <path class="ts-pink"  d="M17.6 4.2c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S4.4 19.4 4.4 15.8s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1h3.8z"/>
-              <path class="ts-white" d="M17 4.7c.6 1.7 2 3 3.7 3.4v3.6c-1.4 0-2.7-.4-3.9-1.1v5.7c0 3.6-2.9 6.5-6.5 6.5S3.8 19.9 3.8 16.3s2.9-6.5 6.5-6.5c.4 0 .8 0 1.1.1v3.7c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V1.5h3.8z"/>
-            </svg>
+          <div class="tt-cred-card__badge tt-cred-card__badge--official" aria-hidden="true">
+            <img
+              src="assets/badges/Junglee%20Studios-TikTok-Shop-Certified-Agency-2025.png"
+              alt=""
+              width="160"
+              height="160"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div class="tt-cred-card__copy">
             <span class="tt-cred-card__eyebrow">Official Partner Status — Brands &amp; Creators</span>
@@ -1102,6 +1105,21 @@
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
     .tt-cred-card__badge svg { width: 56px; height: 56px; }
+    /* Override for the official TikTok Shop Certified Agency medallion:
+       drops the black rounded-square frame so the scalloped medallion sits
+       on the white card surface as its own visual unit. */
+    .tt-cred-card__badge--official {
+      width: 160px;
+      height: 160px;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .tt-cred-card__badge--official img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
     .tt-cred-card__copy { min-width: 0; }
     .tt-cred-card__eyebrow {
       display: block;
