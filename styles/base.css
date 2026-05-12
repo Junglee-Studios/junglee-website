@@ -2920,8 +2920,15 @@ footer#site-footer {
 .why-now-badge {
   position: absolute;
   top: 50%;
-  right: 32px;
-  transform: translateY(-50%);
+  /* Centered horizontally inside the empty right-side gap between the end
+     of the lead paragraph (max-width 62ch, plus the ~24px container left
+     padding) and the container's right edge. We compute the midpoint of
+     (lead-end → container-right) and translate the badge so its CENTER
+     lands there. The +24px lead-end offset accounts for container padding
+     so the badge visually sits in the middle of the gap rather than biased
+     toward the text. */
+  left: calc((62ch + 62px + 100%) / 2);
+  transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
   max-width: 200px;
@@ -2941,11 +2948,11 @@ footer#site-footer {
 }
 
 /* Tighten the badge a touch on 960-1200px viewports so it doesn't crowd
-   the heading on smaller laptops. */
+   the heading on smaller laptops. Center stays computed off the lead's
+   62ch end-of-text so it adapts to whatever container width applies. */
 @media (min-width: 960px) and (max-width: 1200px) {
   .why-now-badge {
     width: 170px;
     height: 170px;
-    right: 24px;
   }
 }
