@@ -1437,28 +1437,81 @@ footer#site-footer {
   body[data-page="home"] .hero .stat-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  /* Mobile hero composite: show the same 3-tile arrangement that runs
-     on desktop (live card with TikTok Shop Certified Partner badge,
-     vertical live video, vertical content still). The parent rule on
-     .hero-visual--composite already gives this a 1/1.1 aspect-ratio
-     and max-width: 540px so the absolutely-positioned tiles scale
-     proportionally on phones without breaking the stack. */
+  /* Mobile hero composite: switch from the desktop absolute-positioned
+     asymmetric collage to a balanced, centered grid layout that matches
+     the brands / creators / about pages' hero-visual pattern.
+     Structure:
+       row 1 : partner sticker (centered above the tiles)
+       row 2 : main horizontal live card (full width)
+       row 3 : 2 vertical tiles side-by-side
+     All three tiles drop their rotations and absolute positioning so
+     the whole block reads as a clean, intentional product shot rather
+     than a collapsed desktop collage. */
   body[data-page="home"] .hero-visual--composite {
-    display: block;
-    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    aspect-ratio: auto;            /* container is shaped by its children, not a fixed ratio */
+    max-width: 480px;
+    margin: 16px auto 0;
+    position: relative;
+  }
+  /* Sticker stays absolutely positioned on the main tile (it's a child
+     of .hero-tile--main, not a sibling, so it cannot use the parent grid).
+     On mobile we center it on the top edge of the live card so the
+     visual reads as 'this card is certified' rather than the desktop
+     off-to-the-corner placement. width: max-content + nowrap text
+     prevents the title and eyebrow from wrapping to a second line. */
+  body[data-page="home"] .hero-visual--composite .partner-sticker--on-tile {
+    top: -10px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    z-index: 4;                    /* above the LIVE chip + tile frame */
+  }
+  body[data-page="home"] .hero-visual--composite .partner-sticker__title,
+  body[data-page="home"] .hero-visual--composite .partner-sticker__eyebrow {
+    white-space: nowrap;
+  }
+  /* Tiles use position: relative (not static) so absolutely-positioned
+     descendants like the partner sticker and LIVE chip still resolve
+     against the tile, not the parent composite. */
+  body[data-page="home"] .hero-tile--main {
+    position: relative;
+    grid-column: 1 / -1;          /* full row */
+    top: auto; right: auto; bottom: auto; left: auto;
+    width: 100%;
+    transform: none;               /* no rotation */
+    aspect-ratio: 16 / 10;
+    margin-top: 14px;              /* leave room for the centered sticker poking above */
+  }
+  body[data-page="home"] .hero-tile--vert-1,
+  body[data-page="home"] .hero-tile--vert-2 {
+    position: relative;
+    top: auto; right: auto; bottom: auto; left: auto;
+    width: 100%;
+    transform: none;               /* no rotation */
+    aspect-ratio: 9 / 16;
   }
 }
 
-/* Below ~540px (typical phone), pull the composite in a touch and
-   nudge the partner sticker so it sits cleanly on the live card
-   rather than escaping the screen edge. */
+/* Smallest phones (iPhone SE etc): leave a touch more breathing room.
+   Also explicitly override the unrelated < 540px .partner-sticker--on-tile
+   rule (which puts the sticker in the top-right corner of the live card)
+   so on the homepage hero composite the sticker stays centered above the
+   live card the way we set up above. */
 @media (max-width: 540px) {
   body[data-page="home"] .hero-visual--composite {
     max-width: 92vw;
+    gap: 10px;
   }
-  .partner-sticker--on-tile {
-    top: -8px;
-    right: -4px;
+  body[data-page="home"] .hero-visual--composite .partner-sticker--on-tile {
+    top: -10px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
   }
 }
 
