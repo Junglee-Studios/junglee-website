@@ -112,14 +112,16 @@
         margin-top: 30px;
       }
       .planner-hero__ctas .btn { font-size: 0.92rem; padding: 13px 26px; }
-      .planner-hero__ctas .btn.secondary {
-        background: rgba(255, 255, 255, 0.10);
-        border-color: rgba(255, 255, 255, 0.20);
-        color: var(--color-white);
+      /* Higher specificity to defeat base.css's hero-scoped teal default */
+      .planner-hero .planner-hero__ctas .btn.secondary {
+        background: rgba(255, 255, 255, 0.10) !important;
+        border: 1px solid rgba(255, 255, 255, 0.20) !important;
+        color: var(--color-white) !important;
       }
-      .planner-hero__ctas .btn.secondary:hover {
-        background: rgba(255, 255, 255, 0.18);
-        border-color: rgba(255, 255, 255, 0.32);
+      .planner-hero .planner-hero__ctas .btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.18) !important;
+        border-color: rgba(255, 255, 255, 0.32) !important;
+        color: var(--color-white) !important;
       }
       .planner-hero__fine {
         margin-top: 18px;
@@ -132,42 +134,42 @@
 
       /* ============================================================
          PLATFORMS + WORKFLOWS TICKERS
+         Light theme on white surface (matches academy planner).
          ============================================================ */
       .planner-tickers {
-        background: var(--color-charcoal);
-        color: var(--color-white);
-        padding: 18px 0 24px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        background: var(--color-white);
+        color: var(--color-charcoal);
+        padding: 32px 0 40px;
+        border-bottom: 1px solid rgba(14, 15, 18, 0.06);
       }
       .planner-tickers__label {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 8px;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(14, 15, 18, 0.55);
         font-size: 0.7rem;
         font-weight: 600;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        margin-bottom: 12px;
-        padding: 0 24px;
+        margin-bottom: 16px;
+        text-align: center;
       }
       .planner-tickers__label svg { width: 14px; height: 14px; flex-shrink: 0; }
       .planner-ticker {
         overflow: hidden;
         mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        margin-bottom: 14px;
       }
       .planner-ticker__track {
         display: flex;
-        gap: 18px;
+        gap: 14px;
         width: max-content;
         animation: planner-ticker-scroll 60s linear infinite;
       }
       .planner-ticker__track--reverse { animation-direction: reverse; }
       .planner-ticker__track--workflows {
         animation-duration: 90s;
-        gap: 14px;
       }
       @keyframes planner-ticker-scroll {
         from { transform: translateX(0); }
@@ -178,27 +180,39 @@
         align-items: center;
         gap: 8px;
         padding: 8px 16px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(14, 15, 18, 0.12);
+        background: var(--color-white);
         border-radius: var(--radius-pill);
-        color: var(--color-white);
-        font-size: 0.78rem;
+        color: var(--color-charcoal);
+        font-size: 0.82rem;
         font-weight: 600;
         white-space: nowrap;
         flex-shrink: 0;
+        box-shadow: 0 1px 0 rgba(14, 15, 18, 0.03);
       }
       .planner-ticker__chip svg { width: 16px; height: 16px; flex-shrink: 0; }
-      .planner-ticker__chip--workflow {
-        background: rgba(255, 95, 80, 0.06);
-        border-color: rgba(255, 95, 80, 0.22);
+
+      /* Workflows ticker — placed below the coral stat strip on a smoke
+         surface for visual rhythm. Chips use a subtle charcoal dot prefix
+         (not coral) to match the academy planner. */
+      .planner-workflows {
+        background: #f4f4f2;
+        padding: 28px 0 32px;
+        border-bottom: 1px solid rgba(14, 15, 18, 0.06);
       }
-      .planner-ticker__chip--workflow::before {
+      .planner-workflows .planner-tickers__label { color: rgba(14, 15, 18, 0.55); }
+      .planner-workflows .planner-ticker__chip {
+        background: var(--color-white);
+        border-color: rgba(14, 15, 18, 0.12);
+        color: var(--color-charcoal);
+      }
+      .planner-workflows .planner-ticker__chip::before {
         content: "";
         display: inline-block;
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: var(--color-coral);
+        background: var(--color-charcoal);
         flex-shrink: 0;
       }
 
@@ -215,6 +229,7 @@
         font-size: clamp(1.6rem, 3vw, 2.2rem);
         font-weight: 900;
         margin: 0 0 10px;
+        color: var(--color-white);
       }
       .planner-stat-strip__lead {
         color: rgba(255, 255, 255, 0.92);
@@ -251,6 +266,23 @@
          ============================================================ */
       .planner-tour { background: #f4f4f2; padding: clamp(56px, 7vw, 88px) 0; }
       .planner-tour__head { text-align: center; max-width: 620px; margin: 0 auto clamp(36px, 4vw, 56px); }
+      /* Academy-style pill eyebrow with eye icon. Used on 'Take a tour'. */
+      .planner-tour__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        padding: 6px 14px;
+        border: 1px solid rgba(14, 15, 18, 0.15);
+        background: var(--color-white);
+        border-radius: var(--radius-pill);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(14, 15, 18, 0.7);
+      }
+      .planner-tour__eyebrow svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--color-coral); }
       .planner-tour__head h2 {
         font-size: clamp(1.7rem, 3vw, 2.2rem);
         font-weight: 900;
@@ -321,6 +353,11 @@
       .planner-pill svg { width: 12px; height: 12px; flex-shrink: 0; }
       .planner-pill--coral { background: rgba(255, 95, 80, 0.10); border: 1px solid rgba(255, 95, 80, 0.30); color: var(--color-coral); }
       .planner-pill--teal { background: var(--color-teal-100); border: 1px solid rgba(30, 164, 164, 0.30); color: var(--color-teal); }
+
+      /* Showcase bullet checkmarks pick up the section's accent color. */
+      .planner-showcase--calendar .planner-showcase__copy ul li svg { color: var(--color-coral); }
+      .planner-showcase--composer .planner-showcase__copy ul li svg { color: var(--color-coral); }
+      .planner-showcase--analytics .planner-showcase__copy ul li svg { color: var(--color-teal); }
       @media (max-width: 880px) {
         .planner-showcase { grid-template-columns: 1fr; }
         .planner-showcase--reverse .planner-showcase__copy { order: 1; }
@@ -917,10 +954,11 @@
       .planner-plans__grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 22px;
-        max-width: 900px;
+        gap: 28px;
+        max-width: 1100px;
         margin: 0 auto;
       }
+      .planner-plan { padding: 36px; }
       .planner-plan {
         background: var(--color-white);
         border: 1px solid rgba(14, 15, 18, 0.10);
@@ -1030,6 +1068,20 @@
       }
       @media (max-width: 720px) {
         .planner-plans__grid { grid-template-columns: 1fr; }
+      }
+
+
+      /* Final-CTA secondary action — filled teal pill, white text. Used
+         on the 'Subscribe to Pro' button beside the coral primary. */
+      .cta-block .btn.planner-cta-teal {
+        background: var(--color-teal) !important;
+        color: var(--color-white) !important;
+        border: 1px solid var(--color-teal) !important;
+        box-shadow: 0 8px 24px rgba(30, 164, 164, 0.30);
+      }
+      .cta-block .btn.planner-cta-teal:hover {
+        background: #16887f !important;
+        border-color: #16887f !important;
       }
 
       /* ============================================================
@@ -1145,7 +1197,9 @@
     </section>
 
     <!-- =====================================================
-         PLATFORMS + WORKFLOWS TICKERS
+         PLATFORMS TICKER — white surface, brand-color icons.
+         Workflows ticker moved below the coral stat strip so the
+         two tickers don't stack visually.
          ===================================================== -->
     <section class="planner-tickers">
       <div class="container">
@@ -1154,70 +1208,38 @@
           Plan and schedule across 14 social networks
         </div>
       </div>
-      <!-- Platforms ticker (forward direction, fast) -->
       <div class="planner-ticker">
         <div class="planner-ticker__track">
-          <!-- duplicated set for seamless loop -->
           <!-- Set A -->
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#e1306c" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.26.07 1.64.07 4.84s0 3.58-.07 4.84c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.26.06-1.64.07-4.84.07s-3.58 0-4.84-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.58.07-4.84c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.95c-3.15 0-3.52 0-4.76.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.04C2.65 9.93 2.65 10.3 2.65 12c0 1.7 0 2.07.07 3.31.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.04.38 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.04.06-1.24.07-1.61.07-3.31s0-2.07-.07-3.31c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.04-.38C15.52 4.15 15.15 4.15 12 4.15zm0 3.32a4.53 4.53 0 1 1 0 9.06 4.53 4.53 0 0 1 0-9.06zm0 1.95a2.58 2.58 0 1 0 0 5.16 2.58 2.58 0 0 0 0-5.16zm5.78-2.16a1.06 1.06 0 1 1-2.12 0 1.06 1.06 0 0 1 2.12 0z"/></svg>Instagram</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#ff0000" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg>LinkedIn</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M13.5 21.95v-8.7h2.92l.44-3.4h-3.36V7.68c0-.98.27-1.65 1.68-1.65h1.8V2.99c-.31-.04-1.38-.13-2.62-.13-2.6 0-4.38 1.59-4.38 4.5v2.5H6.92v3.4h3.06v8.7h3.52z"/></svg>Facebook</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg>LinkedIn</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#bd081c" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.43.04-3.47.22-.94 1.4-5.95 1.4-5.95s-.36-.72-.36-1.78c0-1.66.96-2.9 2.16-2.9 1.02 0 1.51.77 1.51 1.68 0 1.03-.65 2.57-.99 4-.28 1.2.6 2.18 1.78 2.18 2.14 0 3.79-2.26 3.79-5.51 0-2.88-2.07-4.9-5.03-4.9-3.43 0-5.45 2.57-5.45 5.23 0 1.04.4 2.15.9 2.76.1.12.11.22.08.34l-.33 1.33c-.05.22-.17.27-.4.16-1.48-.69-2.4-2.85-2.4-4.58 0-3.73 2.71-7.16 7.81-7.16 4.1 0 7.29 2.93 7.29 6.83 0 4.07-2.57 7.35-6.13 7.35-1.2 0-2.32-.62-2.7-1.36l-.74 2.8c-.27 1.04-1 2.34-1.49 3.13A12 12 0 1 0 12 0z"/></svg>Pinterest</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.18 23.99h-.01c-3.32-.02-5.87-1.12-7.59-3.26C3.05 18.84 2.26 16.18 2.23 13c.03-3.18.82-5.84 2.35-7.74C6.3 3.13 8.85 2.03 12.17 2h.01c2.55.02 4.68.66 6.34 1.91 1.56 1.18 2.66 2.86 3.26 4.98l-2.16.6c-1.02-3.6-3.58-5.45-7.45-5.47-2.55.02-4.49.83-5.75 2.39C5.19 7.86 4.6 10 4.57 13c.03 3 .61 5.13 1.84 6.6 1.26 1.55 3.18 2.36 5.73 2.38 2.31-.02 3.83-.55 5.1-1.78 1.45-1.41 1.42-3.13 1-4.21-.27-.65-.7-1.18-1.27-1.59-.13 1.07-.45 1.94-.97 2.6-.7.87-1.66 1.34-2.83 1.4-.88.05-1.74-.16-2.4-.6-.78-.51-1.24-1.3-1.29-2.21-.1-1.8 1.32-3.1 3.55-3.22.79-.04 1.54-.01 2.21.09-.09-.55-.27-.98-.55-1.29-.38-.43-.95-.66-1.71-.66h-.02c-.6 0-1.41.16-1.92.93l-1.83-1.21c.7-1.04 1.83-1.62 3.75-1.62h.04c3.21.02 5.13 1.99 5.32 5.41.11.05.21.09.31.13C20.06 14.78 21 16.74 21 19c0 1.94-.97 3.62-2.74 4.78-1.61 1.05-3.65 1.21-6.08 1.21z"/></svg>Threads</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#4285f4" aria-hidden="true"><path d="M12 11v2.4h6.94c-.28 1.78-2.08 5.22-6.94 5.22-4.18 0-7.6-3.46-7.6-7.72S7.82 3.18 12 3.18c2.38 0 3.98.99 4.9 1.87l3.34-3.22C18.05.85 15.32 0 12 0 5.37 0 0 5.37 0 12s5.37 12 12 12c6.92 0 11.5-4.86 11.5-11.7 0-.79-.08-1.4-.2-2.3H12z"/></svg>Google</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.35 1.32 4.81L2.05 22l5.39-1.41c1.41.77 3 1.18 4.6 1.18 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>Messenger</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0085ff" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.952 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>Bluesky</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok Ads</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M13.5 21.95v-8.7h2.92l.44-3.4h-3.36V7.68c0-.98.27-1.65 1.68-1.65h1.8V2.99c-.31-.04-1.38-.13-2.62-.13-2.6 0-4.38 1.59-4.38 4.5v2.5H6.92v3.4h3.06v8.7h3.52z"/></svg>Meta Ads</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M3 21h18l-9-15z"/></svg>Google Business</span>
-          <!-- Set B (duplicate for loop) -->
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M12.18 23.99h-.01c-3.32-.02-5.87-1.12-7.59-3.26C3.05 18.84 2.26 16.18 2.23 13c.03-3.18.82-5.84 2.35-7.74C6.3 3.13 8.85 2.03 12.17 2h.01c2.55.02 4.68.66 6.34 1.91 1.56 1.18 2.66 2.86 3.26 4.98l-2.16.6c-1.02-3.6-3.58-5.45-7.45-5.47-2.55.02-4.49.83-5.75 2.39C5.19 7.86 4.6 10 4.57 13c.03 3 .61 5.13 1.84 6.6 1.26 1.55 3.18 2.36 5.73 2.38 2.31-.02 3.83-.55 5.1-1.78 1.45-1.41 1.42-3.13 1-4.21-.27-.65-.7-1.18-1.27-1.59-.13 1.07-.45 1.94-.97 2.6-.7.87-1.66 1.34-2.83 1.4-.88.05-1.74-.16-2.4-.6-.78-.51-1.24-1.3-1.29-2.21-.1-1.8 1.32-3.1 3.55-3.22.79-.04 1.54-.01 2.21.09-.09-.55-.27-.98-.55-1.29-.38-.43-.95-.66-1.71-.66h-.02c-.6 0-1.41.16-1.92.93l-1.83-1.21c.7-1.04 1.83-1.62 3.75-1.62h.04c3.21.02 5.13 1.99 5.32 5.41.11.05.21.09.31.13C20.06 14.78 21 16.74 21 19c0 1.94-.97 3.62-2.74 4.78-1.61 1.05-3.65 1.21-6.08 1.21z"/></svg>Threads</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1185fe" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.952 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>Bluesky</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#9146ff" aria-hidden="true"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>Twitch</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#4285f4" aria-hidden="true"><path d="M12 11v2.4h6.94c-.28 1.78-2.08 5.22-6.94 5.22-4.18 0-7.6-3.46-7.6-7.72S7.82 3.18 12 3.18c2.38 0 3.98.99 4.9 1.87l3.34-3.22C18.05.85 15.32 0 12 0 5.37 0 0 5.37 0 12s5.37 12 12 12c6.92 0 11.5-4.86 11.5-11.7 0-.79-.08-1.4-.2-2.3H12z"/></svg>Google Business</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok Ads</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M6.46 5.5c-1.83 0-3.42 1.46-3.42 3.78 0 2.6 1.95 5.32 4.34 5.32 1.06 0 1.83-.51 3.14-2.32-1.04-1.6-1.84-3.85-1.84-5.5 0-.65.12-1.28.43-1.86C8.5 5.04 7.99 5.5 6.46 5.5zM12 7.69c1.46 0 3.16 1.66 4.62 4.34-1.07 1.97-2.42 3.37-3.85 3.37-.78 0-1.42-.36-1.95-1.06.74-1.18 1.66-3.07 1.66-4.62 0-1.04-.26-1.69-.48-2.03zm5.54-2.19c-2.27 0-4.46 3.41-5.85 6.42-.73 1.59-1.83 4.6-3.69 4.6-2.86 0-5.49-3.18-5.49-7.05 0-3.85 2.39-6.27 5.07-6.27 2.36 0 4.16 1.41 5.85 4.42 1.26-2.66 2.99-4.42 5.5-4.42 2.93 0 4.91 2.4 4.91 5.61 0 4.04-2.81 7.71-5.95 7.71-2 0-3.36-1.55-3.36-1.55"/></svg>Meta Ads</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M3.464 18.07L9.62 7.382l3.464 2-6.158 10.687zm6.156-10.688L13.085 1.43c.553-.957 1.776-1.286 2.732-.733s1.286 1.776.732 2.732L13.085 9.382zm-.073 12.5c-.553.957-1.776 1.286-2.732.732-.955-.553-1.286-1.776-.732-2.731l.073-.127 3.464-2zM17.273 24c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-.69-3.85l-3.508-2.025 6.158-10.688c.553-.957 1.776-1.285 2.732-.732s1.286 1.776.732 2.732z"/></svg>Google Ads</span>
+          <!-- Set B (duplicate for seamless loop) -->
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#e1306c" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.26.07 1.64.07 4.84s0 3.58-.07 4.84c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.26.06-1.64.07-4.84.07s-3.58 0-4.84-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.58.07-4.84c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.95c-3.15 0-3.52 0-4.76.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.04C2.65 9.93 2.65 10.3 2.65 12c0 1.7 0 2.07.07 3.31.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.04.38 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.04.06-1.24.07-1.61.07-3.31s0-2.07-.07-3.31c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.04-.38C15.52 4.15 15.15 4.15 12 4.15zm0 3.32a4.53 4.53 0 1 1 0 9.06 4.53 4.53 0 0 1 0-9.06zm0 1.95a2.58 2.58 0 1 0 0 5.16 2.58 2.58 0 0 0 0-5.16zm5.78-2.16a1.06 1.06 0 1 1-2.12 0 1.06 1.06 0 0 1 2.12 0z"/></svg>Instagram</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#ff0000" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg>LinkedIn</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M13.5 21.95v-8.7h2.92l.44-3.4h-3.36V7.68c0-.98.27-1.65 1.68-1.65h1.8V2.99c-.31-.04-1.38-.13-2.62-.13-2.6 0-4.38 1.59-4.38 4.5v2.5H6.92v3.4h3.06v8.7h3.52z"/></svg>Facebook</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg>LinkedIn</span>
           <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#bd081c" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.43.04-3.47.22-.94 1.4-5.95 1.4-5.95s-.36-.72-.36-1.78c0-1.66.96-2.9 2.16-2.9 1.02 0 1.51.77 1.51 1.68 0 1.03-.65 2.57-.99 4-.28 1.2.6 2.18 1.78 2.18 2.14 0 3.79-2.26 3.79-5.51 0-2.88-2.07-4.9-5.03-4.9-3.43 0-5.45 2.57-5.45 5.23 0 1.04.4 2.15.9 2.76.1.12.11.22.08.34l-.33 1.33c-.05.22-.17.27-.4.16-1.48-.69-2.4-2.85-2.4-4.58 0-3.73 2.71-7.16 7.81-7.16 4.1 0 7.29 2.93 7.29 6.83 0 4.07-2.57 7.35-6.13 7.35-1.2 0-2.32-.62-2.7-1.36l-.74 2.8c-.27 1.04-1 2.34-1.49 3.13A12 12 0 1 0 12 0z"/></svg>Pinterest</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.18 23.99h-.01c-3.32-.02-5.87-1.12-7.59-3.26C3.05 18.84 2.26 16.18 2.23 13c.03-3.18.82-5.84 2.35-7.74C6.3 3.13 8.85 2.03 12.17 2h.01c2.55.02 4.68.66 6.34 1.91 1.56 1.18 2.66 2.86 3.26 4.98l-2.16.6c-1.02-3.6-3.58-5.45-7.45-5.47-2.55.02-4.49.83-5.75 2.39C5.19 7.86 4.6 10 4.57 13c.03 3 .61 5.13 1.84 6.6 1.26 1.55 3.18 2.36 5.73 2.38 2.31-.02 3.83-.55 5.1-1.78 1.45-1.41 1.42-3.13 1-4.21-.27-.65-.7-1.18-1.27-1.59-.13 1.07-.45 1.94-.97 2.6-.7.87-1.66 1.34-2.83 1.4-.88.05-1.74-.16-2.4-.6-.78-.51-1.24-1.3-1.29-2.21-.1-1.8 1.32-3.1 3.55-3.22.79-.04 1.54-.01 2.21.09-.09-.55-.27-.98-.55-1.29-.38-.43-.95-.66-1.71-.66h-.02c-.6 0-1.41.16-1.92.93l-1.83-1.21c.7-1.04 1.83-1.62 3.75-1.62h.04c3.21.02 5.13 1.99 5.32 5.41.11.05.21.09.31.13C20.06 14.78 21 16.74 21 19c0 1.94-.97 3.62-2.74 4.78-1.61 1.05-3.65 1.21-6.08 1.21z"/></svg>Threads</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#4285f4" aria-hidden="true"><path d="M12 11v2.4h6.94c-.28 1.78-2.08 5.22-6.94 5.22-4.18 0-7.6-3.46-7.6-7.72S7.82 3.18 12 3.18c2.38 0 3.98.99 4.9 1.87l3.34-3.22C18.05.85 15.32 0 12 0 5.37 0 0 5.37 0 12s5.37 12 12 12c6.92 0 11.5-4.86 11.5-11.7 0-.79-.08-1.4-.2-2.3H12z"/></svg>Google</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.35 1.32 4.81L2.05 22l5.39-1.41c1.41.77 3 1.18 4.6 1.18 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>Messenger</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0085ff" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.952 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>Bluesky</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok Ads</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M13.5 21.95v-8.7h2.92l.44-3.4h-3.36V7.68c0-.98.27-1.65 1.68-1.65h1.8V2.99c-.31-.04-1.38-.13-2.62-.13-2.6 0-4.38 1.59-4.38 4.5v2.5H6.92v3.4h3.06v8.7h3.52z"/></svg>Meta Ads</span>
-          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M3 21h18l-9-15z"/></svg>Google Business</span>
-        </div>
-      </div>
-
-      <!-- Workflows ticker (reverse direction, slower) -->
-      <div class="container">
-        <div class="planner-tickers__label" style="margin-top: 8px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6l-4.9 3.6 1.9-5.8L4 8.8h6.1z"/></svg>
-          Brands and creators use Junglee Planner to…
-        </div>
-      </div>
-      <div class="planner-ticker">
-        <div class="planner-ticker__track planner-ticker__track--workflows planner-ticker__track--reverse">
-          <!-- Set A -->
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Queue affiliate launches at peak slots</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Drop the product link in after the post goes live</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Repurpose a TikTok to Reels, Shorts and Pinterest</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Pull from drafts when a trending sound hits</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Plan a 7-day giveaway across every network</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Stack a week of posts in 10 minutes on Sunday</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Tag products in TikTok Shop drops automatically</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Get a peak-time slot suggestion before posting</span>
-          <!-- Set B (duplicate for loop) -->
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Queue affiliate launches at peak slots</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Drop the product link in after the post goes live</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Repurpose a TikTok to Reels, Shorts and Pinterest</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Pull from drafts when a trending sound hits</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Plan a 7-day giveaway across every network</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Stack a week of posts in 10 minutes on Sunday</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Tag products in TikTok Shop drops automatically</span>
-          <span class="planner-ticker__chip planner-ticker__chip--workflow">Get a peak-time slot suggestion before posting</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M12.18 23.99h-.01c-3.32-.02-5.87-1.12-7.59-3.26C3.05 18.84 2.26 16.18 2.23 13c.03-3.18.82-5.84 2.35-7.74C6.3 3.13 8.85 2.03 12.17 2h.01c2.55.02 4.68.66 6.34 1.91 1.56 1.18 2.66 2.86 3.26 4.98l-2.16.6c-1.02-3.6-3.58-5.45-7.45-5.47-2.55.02-4.49.83-5.75 2.39C5.19 7.86 4.6 10 4.57 13c.03 3 .61 5.13 1.84 6.6 1.26 1.55 3.18 2.36 5.73 2.38 2.31-.02 3.83-.55 5.1-1.78 1.45-1.41 1.42-3.13 1-4.21-.27-.65-.7-1.18-1.27-1.59-.13 1.07-.45 1.94-.97 2.6-.7.87-1.66 1.34-2.83 1.4-.88.05-1.74-.16-2.4-.6-.78-.51-1.24-1.3-1.29-2.21-.1-1.8 1.32-3.1 3.55-3.22.79-.04 1.54-.01 2.21.09-.09-.55-.27-.98-.55-1.29-.38-.43-.95-.66-1.71-.66h-.02c-.6 0-1.41.16-1.92.93l-1.83-1.21c.7-1.04 1.83-1.62 3.75-1.62h.04c3.21.02 5.13 1.99 5.32 5.41.11.05.21.09.31.13C20.06 14.78 21 16.74 21 19c0 1.94-.97 3.62-2.74 4.78-1.61 1.05-3.65 1.21-6.08 1.21z"/></svg>Threads</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1185fe" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.952 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>Bluesky</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#9146ff" aria-hidden="true"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>Twitch</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#4285f4" aria-hidden="true"><path d="M12 11v2.4h6.94c-.28 1.78-2.08 5.22-6.94 5.22-4.18 0-7.6-3.46-7.6-7.72S7.82 3.18 12 3.18c2.38 0 3.98.99 4.9 1.87l3.34-3.22C18.05.85 15.32 0 12 0 5.37 0 0 5.37 0 12s5.37 12 12 12c6.92 0 11.5-4.86 11.5-11.7 0-.79-.08-1.4-.2-2.3H12z"/></svg>Google Business</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1.84-.07z"/></svg>TikTok Ads</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M6.46 5.5c-1.83 0-3.42 1.46-3.42 3.78 0 2.6 1.95 5.32 4.34 5.32 1.06 0 1.83-.51 3.14-2.32-1.04-1.6-1.84-3.85-1.84-5.5 0-.65.12-1.28.43-1.86C8.5 5.04 7.99 5.5 6.46 5.5zM12 7.69c1.46 0 3.16 1.66 4.62 4.34-1.07 1.97-2.42 3.37-3.85 3.37-.78 0-1.42-.36-1.95-1.06.74-1.18 1.66-3.07 1.66-4.62 0-1.04-.26-1.69-.48-2.03zm5.54-2.19c-2.27 0-4.46 3.41-5.85 6.42-.73 1.59-1.83 4.6-3.69 4.6-2.86 0-5.49-3.18-5.49-7.05 0-3.85 2.39-6.27 5.07-6.27 2.36 0 4.16 1.41 5.85 4.42 1.26-2.66 2.99-4.42 5.5-4.42 2.93 0 4.91 2.4 4.91 5.61 0 4.04-2.81 7.71-5.95 7.71-2 0-3.36-1.55-3.36-1.55"/></svg>Meta Ads</span>
+          <span class="planner-ticker__chip"><svg viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M3.464 18.07L9.62 7.382l3.464 2-6.158 10.687zm6.156-10.688L13.085 1.43c.553-.957 1.776-1.286 2.732-.733s1.286 1.776.732 2.732L13.085 9.382zm-.073 12.5c-.553.957-1.776 1.286-2.732.732-.955-.553-1.286-1.776-.732-2.731l.073-.127 3.464-2zM17.273 24c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-.69-3.85l-3.508-2.025 6.158-10.688c.553-.957 1.776-1.285 2.732-.732s1.286 1.776.732 2.732z"/></svg>Google Ads</span>
         </div>
       </div>
     </section>
@@ -1251,18 +1273,56 @@
     </section>
 
     <!-- =====================================================
+         WORKFLOWS TICKER — placed below the coral stat strip so the
+         two tickers don't stack. Charcoal/grey chips on smoke surface.
+         ===================================================== -->
+    <section class="planner-workflows">
+      <div class="container">
+        <div class="planner-tickers__label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6l-4.9 3.6 1.9-5.8L4 8.8h6.1z"/></svg>
+          Brands and creators use Junglee Planner to…
+        </div>
+      </div>
+      <div class="planner-ticker">
+        <div class="planner-ticker__track planner-ticker__track--workflows planner-ticker__track--reverse">
+          <!-- Set A -->
+          <span class="planner-ticker__chip">Queue affiliate launches at peak slots</span>
+          <span class="planner-ticker__chip">Drop the product link in after the post goes live</span>
+          <span class="planner-ticker__chip">Repurpose a TikTok to Reels, Shorts and Pinterest</span>
+          <span class="planner-ticker__chip">Pull from drafts when a trending sound hits</span>
+          <span class="planner-ticker__chip">Plan a 7-day giveaway across every network</span>
+          <span class="planner-ticker__chip">Stack a week of posts in 10 minutes on Sunday</span>
+          <span class="planner-ticker__chip">Tag products in TikTok Shop drops automatically</span>
+          <span class="planner-ticker__chip">Get a peak-time slot suggestion before posting</span>
+          <!-- Set B (duplicate for seamless loop) -->
+          <span class="planner-ticker__chip">Queue affiliate launches at peak slots</span>
+          <span class="planner-ticker__chip">Drop the product link in after the post goes live</span>
+          <span class="planner-ticker__chip">Repurpose a TikTok to Reels, Shorts and Pinterest</span>
+          <span class="planner-ticker__chip">Pull from drafts when a trending sound hits</span>
+          <span class="planner-ticker__chip">Plan a 7-day giveaway across every network</span>
+          <span class="planner-ticker__chip">Stack a week of posts in 10 minutes on Sunday</span>
+          <span class="planner-ticker__chip">Tag products in TikTok Shop drops automatically</span>
+          <span class="planner-ticker__chip">Get a peak-time slot suggestion before posting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
          TAKE A TOUR — Calendar / Composer / Analytics replicas
          ===================================================== -->
     <section class="planner-tour" id="tour">
       <div class="container">
         <div class="planner-tour__head">
-          <div class="kicker"><i></i> Take a tour</div>
+          <span class="planner-tour__eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            Take a tour
+          </span>
           <h2>The view from inside the planner.</h2>
           <p>Three views you'll live in — plan the week on one calendar, write once and post everywhere, then read what's working without opening a spreadsheet.</p>
         </div>
 
         <!-- ===== Showcase 1: Calendar (mock left, copy right) ===== -->
-        <div class="planner-showcase">
+        <div class="planner-showcase planner-showcase--calendar">
           <div class="planner-showcase__mock">
             <div class="mock">
               <div class="mock__chrome">
@@ -1416,7 +1476,7 @@
         </div>
 
         <!-- ===== Showcase 2: Composer (copy left, mock right) ===== -->
-        <div class="planner-showcase">
+        <div class="planner-showcase planner-showcase--composer">
           <div class="planner-showcase__copy">
             <span class="planner-pill planner-pill--coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6l-4.9 3.6 1.9-5.8L4 8.8h6.1z"/></svg>
@@ -1450,11 +1510,11 @@
                 <div class="mock-comp__row">
                   <div class="mock-comp__platforms">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    <svg viewBox="0 0 24 24" fill="currentColor" style="color:#0e0f12;"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33s1.7.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#1185fe" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.952 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
                     <svg viewBox="0 0 24 24" fill="#1877f2"><path d="M13.5 21.95v-8.7h2.92l.44-3.4h-3.36V7.68c0-.98.27-1.65 1.68-1.65h1.8V2.99c-.31-.04-1.38-.13-2.62-.13-2.6 0-4.38 1.59-4.38 4.5v2.5H6.92v3.4h3.06v8.7h3.52z"/></svg>
                     <svg viewBox="0 0 24 24" fill="#e1306c"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.26.07 1.64.07 4.84s0 3.58-.07 4.84c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.26.06-1.64.07-4.84.07s-3.58 0-4.84-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.58.07-4.84c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.95c-3.15 0-3.52 0-4.76.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.04C2.65 9.93 2.65 10.3 2.65 12c0 1.7 0 2.07.07 3.31.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.04.38 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.04.06-1.24.07-1.61.07-3.31s0-2.07-.07-3.31c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.04-.38C15.52 4.15 15.15 4.15 12 4.15zm0 3.32a4.53 4.53 0 1 1 0 9.06 4.53 4.53 0 0 1 0-9.06zm0 1.95a2.58 2.58 0 1 0 0 5.16 2.58 2.58 0 0 0 0-5.16zm5.78-2.16a1.06 1.06 0 1 1-2.12 0 1.06 1.06 0 0 1 2.12 0z"/></svg>
                     <span class="mock-comp__sel">REEL <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="16" text-anchor="middle" font-size="13" fill="currentColor" font-weight="bold">@</text></svg>
+                    <svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M12.18 23.99h-.01c-3.32-.02-5.87-1.12-7.59-3.26C3.05 18.84 2.26 16.18 2.23 13c.03-3.18.82-5.84 2.35-7.74C6.3 3.13 8.85 2.03 12.17 2h.01c2.55.02 4.68.66 6.34 1.91 1.56 1.18 2.66 2.86 3.26 4.98l-2.16.6c-1.02-3.6-3.58-5.45-7.45-5.47-2.55.02-4.49.83-5.75 2.39C5.19 7.86 4.6 10 4.57 13c.03 3 .61 5.13 1.84 6.6 1.26 1.55 3.18 2.36 5.73 2.38 2.31-.02 3.83-.55 5.1-1.78 1.45-1.41 1.42-3.13 1-4.21-.27-.65-.7-1.18-1.27-1.59-.13 1.07-.45 1.94-.97 2.6-.7.87-1.66 1.34-2.83 1.4-.88.05-1.74-.16-2.4-.6-.78-.51-1.24-1.3-1.29-2.21-.1-1.8 1.32-3.1 3.55-3.22.79-.04 1.54-.01 2.21.09-.09-.55-.27-.98-.55-1.29-.38-.43-.95-.66-1.71-.66h-.02c-.6 0-1.41.16-1.92.93l-1.83-1.21c.7-1.04 1.83-1.62 3.75-1.62h.04c3.21.02 5.13 1.99 5.32 5.41.11.05.21.09.31.13C20.06 14.78 21 16.74 21 19c0 1.94-.97 3.62-2.74 4.78-1.61 1.05-3.65 1.21-6.08 1.21z"/></svg>
                     <svg viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
                     <svg viewBox="0 0 24 24" fill="#4285f4"><path d="M12 11v2.4h6.94c-.28 1.78-2.08 5.22-6.94 5.22-4.18 0-7.6-3.46-7.6-7.72S7.82 3.18 12 3.18c2.38 0 3.98.99 4.9 1.87l3.34-3.22C18.05.85 15.32 0 12 0 5.37 0 0 5.37 0 12s5.37 12 12 12c6.92 0 11.5-4.86 11.5-11.7 0-.79-.08-1.4-.2-2.3H12z"/></svg>
                     <svg viewBox="0 0 24 24" fill="#bd081c"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.43.04-3.47.22-.94 1.4-5.95 1.4-5.95s-.36-.72-.36-1.78c0-1.66.96-2.9 2.16-2.9 1.02 0 1.51.77 1.51 1.68 0 1.03-.65 2.57-.99 4-.28 1.2.6 2.18 1.78 2.18 2.14 0 3.79-2.26 3.79-5.51 0-2.88-2.07-4.9-5.03-4.9-3.43 0-5.45 2.57-5.45 5.23 0 1.04.4 2.15.9 2.76.1.12.11.22.08.34l-.33 1.33c-.05.22-.17.27-.4.16-1.48-.69-2.4-2.85-2.4-4.58 0-3.73 2.71-7.16 7.81-7.16 4.1 0 7.29 2.93 7.29 6.83 0 4.07-2.57 7.35-6.13 7.35-1.2 0-2.32-.62-2.7-1.36l-.74 2.8c-.27 1.04-1 2.34-1.49 3.13A12 12 0 1 0 12 0z"/></svg>
@@ -1528,7 +1588,7 @@
                     LinkedIn presets
                   </div>
                   <div class="mock-comp__preset">
-                    <svg viewBox="0 0 24 24" fill="#0e0f12"><path d="M12.186 8.672c-2.92 0-4.844 1.612-4.844 4.026 0 2.275 1.665 3.86 4.046 3.86 1.94 0 3.187-.91 3.86-1.85l-.9-.55c-.5.745-1.404 1.39-2.96 1.39-1.85 0-3.05-1.04-3.05-2.85h7.32v-.42c0-2.4-1.5-3.606-3.47-3.606zM9.34 12.07c.118-1.488 1.226-2.42 2.846-2.42 1.62 0 2.62.96 2.682 2.42H9.34zM17.5 4.5v15M19 4.5v15M22.5 12c0-5.8-4.7-10.5-10.5-10.5S1.5 6.2 1.5 12 6.2 22.5 12 22.5 22.5 17.8 22.5 12z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#0e0f12" aria-hidden="true"><path d="M12.18 23.99h-.01c-3.32-.02-5.87-1.12-7.59-3.26C3.05 18.84 2.26 16.18 2.23 13c.03-3.18.82-5.84 2.35-7.74C6.3 3.13 8.85 2.03 12.17 2h.01c2.55.02 4.68.66 6.34 1.91 1.56 1.18 2.66 2.86 3.26 4.98l-2.16.6c-1.02-3.6-3.58-5.45-7.45-5.47-2.55.02-4.49.83-5.75 2.39C5.19 7.86 4.6 10 4.57 13c.03 3 .61 5.13 1.84 6.6 1.26 1.55 3.18 2.36 5.73 2.38 2.31-.02 3.83-.55 5.1-1.78 1.45-1.41 1.42-3.13 1-4.21-.27-.65-.7-1.18-1.27-1.59-.13 1.07-.45 1.94-.97 2.6-.7.87-1.66 1.34-2.83 1.4-.88.05-1.74-.16-2.4-.6-.78-.51-1.24-1.3-1.29-2.21-.1-1.8 1.32-3.1 3.55-3.22.79-.04 1.54-.01 2.21.09-.09-.55-.27-.98-.55-1.29-.38-.43-.95-.66-1.71-.66h-.02c-.6 0-1.41.16-1.92.93l-1.83-1.21c.7-1.04 1.83-1.62 3.75-1.62h.04c3.21.02 5.13 1.99 5.32 5.41.11.05.21.09.31.13C20.06 14.78 21 16.74 21 19c0 1.94-.97 3.62-2.74 4.78-1.61 1.05-3.65 1.21-6.08 1.21z"/></svg>
                     Threads presets
                   </div>
                   <div class="mock-comp__preset">
@@ -1546,7 +1606,7 @@
         </div>
 
         <!-- ===== Showcase 3: Analytics (mock left, copy right) ===== -->
-        <div class="planner-showcase planner-showcase--reverse">
+        <div class="planner-showcase planner-showcase--reverse planner-showcase--analytics">
           <div class="planner-showcase__mock">
             <div class="mock">
               <div class="mock__chrome">
@@ -1698,14 +1758,26 @@
           <!-- Create faster -->
           <div class="planner-pillar planner-pillar--coral">
             <div class="planner-pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 11.8L19 13M15 9h0M17.8 6.2L19 5M3 21l9-9M12.2 6.2L11 5"/></svg>
+              <!-- Magic wand: diagonal wand with a 4-point sparkle at the tip -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <!-- wand stem from bottom-left to upper-right -->
+                <path d="M4 20 L14 10"/>
+                <!-- wand handle bevel (small line near base) -->
+                <path d="M5 19 L7 17"/>
+                <!-- sparkle at tip: 4-point star -->
+                <path d="M17 5 L17 9 M15 7 L19 7"/>
+                <!-- secondary sparkle, smaller -->
+                <path d="M20 12 L20 14 M19 13 L21 13"/>
+                <!-- tertiary sparkle -->
+                <path d="M11 4 L11 6 M10 5 L12 5"/>
+              </svg>
             </div>
             <div class="planner-pillar__eyebrow">Create faster</div>
             <h3 class="planner-pillar__title">Post the work, not the prep.</h3>
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6l-4.9 3.6 1.9-5.8L4 8.8h6.1z"/></svg>AI assistant for caption + idea drafts</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>Hashtag finder built for TikTok + Instagram</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2A10 10 0 0 0 2 12c0 5.5 4.5 10 10 10s10-4.5 10-10c0-1.4-.3-2.7-.8-3.9"/></svg>Adobe Express + Canva editors inside the app</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><!-- Paint brush + paint stroke --><path d="M9.06 11.9 7 14l3 3 2.1-2.06"/><path d="M16 3a3 3 0 0 1 3 3l-4 4-2-2 3-5"/><path d="m13 7 4 4-7 7-4-4 7-7z"/><path d="M21 21H10"/></svg>Adobe Express + Canva editors inside the app</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Feed preview before posting</li>
             </ul>
           </div>
@@ -1819,8 +1891,7 @@
       <div class="container" style="max-width: 880px;">
         <div class="planner-faq__head">
           <div class="kicker"><i></i> FAQ</div>
-          <h2>Frequently asked</h2>
-          <p>Short answers — for everything else, email us.</p>
+          <p>Everything we get asked first. If yours isn't here, it's a good first question to ask through email.</p>
         </div>
 
         <div class="faq-list">
@@ -1877,10 +1948,10 @@
         <div class="cta-block__inner" style="max-width: 720px; margin: 0 auto; text-align: center;">
           <div class="kicker" style="justify-content: center; display: inline-flex;"><i></i> Get started</div>
           <h2 style="margin-left: auto; margin-right: auto;">Take posting off your plate.</h2>
-          <p class="lead">Two plans, one calendar, every network. Subscribe and your account is provisioned within 1 business day.</p>
+          <p class="lead">Subscribe, connect your networks, and post your first week of content tomorrow.</p>
           <div class="actions" style="justify-content: center; flex-wrap: wrap; gap: 12px;">
             <a class="btn primary" href="https://buy.stripe.com/9B64gB0llfhh5c01um8bS00" target="_blank" rel="noopener">Start with Planner — $14.99</a>
-            <a class="btn secondary" href="https://buy.stripe.com/8x214pc43eddcEs7SK8bS01" target="_blank" rel="noopener">Go Pro — $19.99</a>
+            <a class="btn planner-cta-teal" href="https://buy.stripe.com/8x214pc43eddcEs7SK8bS01" target="_blank" rel="noopener">Subscribe to Pro — $19.99/mo</a>
           </div>
           <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 18px;">Cancel anytime · No Academy login required</p>
         </div>
