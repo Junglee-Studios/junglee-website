@@ -10,11 +10,11 @@
   --color-smoke: #f1f2f4;      /* cool light grey surface (brand palette) */
   --color-smoke-2: #e7e9ed;
   --color-white: #ffffff;
-  --color-coral: #ff4438;      /* primary action / vivid coral-red */
-  --color-coral-700: #e23629;
+  --color-coral: #ff5f50;      /* primary action / coral matched to academy + planner brand */
+  --color-coral-700: #e24b3b;  /* darker variant for hover/press states */
   --color-teal: #1ea4a4;       /* secondary / supporting accents */
   --color-teal-100: rgba(30,164,164,0.10);
-  --color-coral-100: rgba(255,68,56,0.10);
+  --color-coral-100: rgba(255,95,80,0.10);
 
   /* Backwards-compat aliases (existing inline styles ref these) */
   --color-magenta: var(--color-coral);
