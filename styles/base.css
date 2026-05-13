@@ -1437,15 +1437,28 @@ footer#site-footer {
   body[data-page="home"] .hero .stat-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  /* Hide the hero video composite + partner sticker on mobile, matching
-     the pattern used on brands.html / creators.html where
-     .brands-hero-visual is display:none below their desktop breakpoint.
-     The text + stat grid + 'Track record...' caption stack cleanly on
-     phones with no overlap. The official TikTok Shop Certified medallion
-     still appears below in the #why-now section, so the credentialing
-     signal is preserved. */
+  /* Mobile hero composite: show the same 3-tile arrangement that runs
+     on desktop (live card with TikTok Shop Certified Partner badge,
+     vertical live video, vertical content still). The parent rule on
+     .hero-visual--composite already gives this a 1/1.1 aspect-ratio
+     and max-width: 540px so the absolutely-positioned tiles scale
+     proportionally on phones without breaking the stack. */
   body[data-page="home"] .hero-visual--composite {
-    display: none !important;
+    display: block;
+    margin-top: 12px;
+  }
+}
+
+/* Below ~540px (typical phone), pull the composite in a touch and
+   nudge the partner sticker so it sits cleanly on the live card
+   rather than escaping the screen edge. */
+@media (max-width: 540px) {
+  body[data-page="home"] .hero-visual--composite {
+    max-width: 92vw;
+  }
+  .partner-sticker--on-tile {
+    top: -8px;
+    right: -4px;
   }
 }
 
