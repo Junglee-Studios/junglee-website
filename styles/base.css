@@ -3013,7 +3013,7 @@ footer#site-footer {
      lands there. The +24px lead-end offset accounts for container padding
      so the badge visually sits in the middle of the gap rather than biased
      toward the text. */
-  left: calc((62ch + 62px + 100%) / 2);
+  left: calc((72ch + 72px + 100%) / 2);
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
