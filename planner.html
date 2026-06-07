@@ -851,9 +851,18 @@
         .mock-ana__grid--zero { grid-template-columns: repeat(2, 1fr); margin-left: 0; }
       }
       @media (max-width: 880px) {
-        .mock { font-size: 0.78rem; }
+        .planner-showcase__mock {
+          overflow: hidden;
+          border-radius: var(--radius-lg);
+        }
+        .mock {
+          zoom: 0.72;
+          width: calc(100% / 0.72);
+        }
         .mock-cal__callout, .mock-composer__ai-panel, .mock-cal__callout-card { display: none; }
-        .mock-cal__grid { grid-template-columns: 32px repeat(7, minmax(0, 1fr)); }
+      }
+      @media (max-width: 480px) {
+        .mock { zoom: 0.52; width: calc(100% / 0.52); }
       }
 
       /* ============================================================
