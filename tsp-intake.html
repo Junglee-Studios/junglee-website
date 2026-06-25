@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSP Program — Junglee Studios</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-J.png">
+  <style>
+    :root {
+      --coral: #ff5f50;
+      --teal: #1ea4a4;
+      --charcoal: #0e0f12;
+      --ink: #1a1c20;
+      --smoke: #f1f2f4;
+      --border: rgba(0,0,0,0.09);
+      --font: 'Inter', system-ui, sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--smoke); color: var(--ink); min-height: 100vh; }
+
+    /* ── Gate ── */
+    #gate { position: fixed; inset: 0; background: var(--charcoal); display: flex; align-items: center; justify-content: center; z-index: 1000; flex-direction: column; gap: 20px; }
+    #gate.hidden { display: none; }
+    .gate-logo { display: flex; align-items: center; gap: 10px; }
+    .gate-logo img { height: 42px; }
+    .gate-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
+    .gate-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; width: 100%; max-width: 380px; text-align: center; }
+    .gate-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .gate-sub { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+    .gate-input { width: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 1rem; font-family: var(--font); text-align: center; letter-spacing: 0.08em; outline: none; margin-bottom: 12px; }
+    .gate-input::placeholder { color: rgba(255,255,255,0.25); }
+    .gate-btn { width: 100%; padding: 14px; background: var(--coral); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: var(--font); transition: opacity .2s; }
+    .gate-btn:hover { opacity: .88; }
+    .gate-error { color: var(--coral); font-size: 0.82rem; margin-top: 10px; display: none; }
+
+    /* ── Header ── */
+    .portal-header { background: var(--charcoal); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .header-logo img { height: 34px; }
+    .header-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
+    .header-badge { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 5px 13px; }
+
+    /* ── Body ── */
+    .portal-body { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; }
+
+    .section-title { font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+    .section-sub { font-size: 0.92rem; color: rgba(0,0,0,0.5); margin-bottom: 32px; line-height: 1.6; max-width: 640px; }
+
+    /* ── Cards ── */
+    .form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 18px; box-shadow: var(--shadow); }
+    .card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .card-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,95,80,0.12); }
+
+    /* ── Fields ── */
+    .row { display: grid; gap: 14px; margin-bottom: 14px; }
+    .row-2 { grid-template-columns: 1fr 1fr; }
+    .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .row-1 { grid-template-columns: 1fr; }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 0.78rem; font-weight: 600; color: rgba(0,0,0,0.55); }
+    .req { color: var(--coral); }
+    .field input, .field select, .field textarea { padding: 10px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.92rem; font-family: var(--font); color: var(--ink); outline: none; transition: border-color .15s; background: #fff; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--coral); }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .hint { font-size: 0.74rem; color: rgba(0,0,0,0.38); }
+
+    /* ── Buttons ── */
+    .btn { padding: 12px 26px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: var(--font); border: none; transition: opacity .15s; }
+    .btn-coral { background: var(--coral); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+    .btn:hover { opacity: .85; }
+    .form-actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+
+    /* ── Instructions ── */
+    .instructions { background: var(--smoke); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+    .instructions h4 { font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .instructions ol { padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .instructions ol li { font-size: 0.86rem; color: rgba(0,0,0,0.6); line-height: 1.55; }
+    .instructions ol li strong { color: var(--ink); }
+
+    /* ── Program cards ── */
+    .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .prog-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 22px; cursor: pointer; transition: all .2s; position: relative; }
+    .prog-card:hover { border-color: rgba(255,95,80,0.35); }
+    .prog-card.selected { border-color: var(--coral); background: rgba(255,95,80,0.03); }
+    .prog-card input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+    .prog-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; }
+    .prog-name { font-size: 1rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+    .prog-price { font-size: 1.5rem; font-weight: 900; color: var(--coral); margin-bottom: 14px; letter-spacing: -0.03em; }
+    .prog-price span { font-size: 0.82rem; font-weight: 500; color: rgba(0,0,0,0.45); }
+    .prog-features { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .prog-features li { font-size: 0.83rem; color: rgba(0,0,0,0.6); padding-left: 16px; position: relative; }
+    .prog-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+    /* ── Success ── */
+    .success { background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); border-radius: 8px; padding: 13px 18px; color: #15803d; font-size: 0.88rem; font-weight: 600; display: none; margin-top: 14px; }
+    .success.show { display: block; }
+
+    @media (max-width: 680px) {
+      .row-2, .row-3 { grid-template-columns: 1fr; }
+      .program-grid { grid-template-columns: 1fr; }
+      .portal-header { padding: 14px 16px; }
+      .portal-body { padding: 24px 14px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PASSWORD GATE ── -->
+<div id="gate">
+  <div class="gate-logo">
+    <img src="/assets/logos/Untitled%20(14).png" alt="Junglee">
+    <span>Studios</span>
+  </div>
+  <div class="gate-card">
+    <div class="gate-title">TSP Program</div>
+    <div class="gate-sub">Enter your access code to continue.</div>
+    <input type="password" class="gate-input" id="pwInput" placeholder="Access code" autocomplete="off">
+    <button class="gate-btn" onclick="checkPw()">Enter</button>
+    <div class="gate-error" id="gateErr">Incorrect code — please try again.</div>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="portal-header">
+  <a class="header-logo" href="/">
+    <img src="/assets/logos/Untitled%20(14).png" alt="Junglee">
+    <span>Studios</span>
+  </a>
+  <div class="header-badge">TSP Program</div>
+</header>
+
+<div class="portal-body">
+  <div class="section-title">Select Your TSP Program</div>
+  <div class="section-sub">Choose your program, complete your budget allocation, and submit. We'll send the official partner approval request through TikTok's Partner Center and you'll receive an approval notification in Seller Center.</div>
+
+  <form id="program-form" onsubmit="submitForm(event)">
+    <input type="hidden" name="_subject" value="New TSP Program Enrollment — Junglee Studios">
+    <input type="hidden" name="form_type" value="TSP Program">
+
+    <div class="form-card">
+      <div class="card-label">Brand</div>
+      <div class="row row-2">
+        <div class="field"><label>Brand Name <span class="req">*</span></label><input type="text" name="brand_name" required></div>
+        <div class="field"><label>Contact Email <span class="req">*</span></label><input type="email" name="contact_email" required></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="card-label">Choose Your Program</div>
+      <div class="program-grid">
+        <label class="prog-card" id="prog-growth" onclick="selectProg(this)">
+          <input type="radio" name="program" value="Junglee TSP Growth Program — $5,000/mo" required>
+          <div class="prog-badge">Growth</div>
+          <div class="prog-name">Junglee TSP Growth Program</div>
+          <div class="prog-price">$5,000 <span>/ month</span></div>
+          <ul class="prog-features">
+            <li>Full TikTok Shop management</li>
+            <li>Affiliate program management</li>
+            <li>Content & conversion strategy</li>
+            <li>LIVE selling strategy</li>
+            <li>Campaigns & GMV Max ads</li>
+            <li>Weekly performance reporting</li>
+          </ul>
+        </label>
+        <label class="prog-card" id="prog-scale" onclick="selectProg(this)">
+          <input type="radio" name="program" value="Junglee TSP Scale Program — $7,500/mo" required>
+          <div class="prog-badge">Scale</div>
+          <div class="prog-name">Junglee TSP Scale Program</div>
+          <div class="prog-price">$7,500 <span>/ month</span></div>
+          <ul class="prog-features">
+            <li>Everything in Growth, plus:</li>
+            <li>Dedicated account strategist</li>
+            <li>Advanced affiliate network access</li>
+            <li>In-house LIVE host sessions</li>
+            <li>Team training & playbook build</li>
+            <li>Priority support</li>
+          </ul>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="card-label">Approve Us in Seller Center</div>
+      <div class="instructions">
+        <h4>How to approve Junglee Studios as your TikTok Shop Service Partner</h4>
+        <ol>
+          <li>Log in to <strong>TikTok Shop Seller Center</strong> at seller-us.tiktok.com</li>
+          <li>Go to <strong>My Account → Service Providers</strong> (or search "Service Providers" in the top bar)</li>
+          <li>You'll see a pending approval request from <strong>Junglee Studios</strong> — we submit this from our Partner Center once you enroll</li>
+          <li>Click <strong>Approve</strong> on the Junglee Studios request</li>
+          <li>Select the permissions requested (shop management, affiliate access, ads access as applicable to your program)</li>
+          <li>Click <strong>Confirm</strong> — you'll receive a confirmation email and we'll be notified immediately</li>
+        </ol>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Seller Center Login Email <span class="req">*</span></label><input type="email" name="seller_email" required placeholder="Email used to log in"></div>
+        <div class="field"><label>Store Name in Seller Center <span class="req">*</span></label><input type="text" name="store_name" required></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="card-label">Monthly Budget Allocation</div>
+      <p style="font-size:0.86rem;color:rgba(0,0,0,0.5);margin-bottom:18px;">Tell us how you'd like to allocate your budget across the key levers. These can be adjusted as we scale together.</p>
+      <div class="row row-2">
+        <div class="field"><label>Product Seeding Budget / month <span class="req">*</span></label><input type="text" name="seeding_budget" placeholder="e.g. $2,000" required></div>
+        <div class="field"><label>Affiliate Commission Rate <span class="req">*</span></label><input type="text" name="affiliate_commission" placeholder="e.g. 10%" required></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Ads Budget / month <span class="req">*</span></label><input type="text" name="ads_budget" placeholder="e.g. $1,500" required></div>
+        <div class="field"><label>Campaign / Coupon Budget / month</label><input type="text" name="campaign_budget" placeholder="$ or %"></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Monthly GMV Target</label><input type="text" name="gmv_target" placeholder="e.g. $50,000"></div>
+        <div class="field"><label>Add-ons interested in</label>
+          <select name="addons" multiple style="height:82px;">
+            <option>Live Shopping & Real-Time Commerce</option>
+            <option>Content Production</option>
+            <option>Live Host Services</option>
+          </select>
+          <span class="hint">Hold Ctrl / Cmd to select multiple</span>
+        </div>
+      </div>
+      <div class="row row-1">
+        <div class="field"><label>Notes or questions</label><textarea name="notes"></textarea></div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-coral">Submit Program Enrollment</button>
+      <button type="reset" class="btn btn-outline" onclick="document.querySelectorAll('.prog-card').forEach(c=>c.classList.remove('selected'))">Clear</button>
+    </div>
+    <div class="success" id="program-success">Enrollment submitted! We'll send the partner approval request within 1 business day — watch for the notification in your TikTok Seller Center.</div>
+  </form>
+</div>
+
+<script>
+const PW = 'BeJungleeProgram';
+function checkPw() {
+  if (document.getElementById('pwInput').value === PW) {
+    document.getElementById('gate').classList.add('hidden');
+    sessionStorage.setItem('js_tsp_auth','1');
+  } else {
+    document.getElementById('gateErr').style.display = 'block';
+    document.getElementById('pwInput').value = '';
+  }
+}
+document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
+if (sessionStorage.getItem('js_tsp_auth') === '1') document.getElementById('gate').classList.add('hidden');
+
+function selectProg(card) {
+  document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+}
+
+const FORMSPREE_URL = 'https://formspree.io/f/xeebapww';
+
+function submitForm(e) {
+  e.preventDefault();
+  const form = document.getElementById('program-form');
+  fetch(FORMSPREE_URL, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { Accept: 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      const el = document.getElementById('program-success');
+      el.classList.add('show');
+      form.reset();
+      document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
+      setTimeout(() => el.classList.remove('show'), 9000);
+    } else { alert('Submission failed. Please email info@jungleestudios.com directly.'); }
+  }).catch(() => alert('Submission failed. Please email info@jungleestudios.com directly.'));
+}
+</script>
+</body>
+</html>

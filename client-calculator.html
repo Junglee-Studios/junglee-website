@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Margin Calculator — Junglee Studios</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-J.png">
+  <style>
+    :root {
+      --coral: #ff5f50;
+      --teal: #1ea4a4;
+      --charcoal: #0e0f12;
+      --ink: #1a1c20;
+      --smoke: #f1f2f4;
+      --border: rgba(0,0,0,0.09);
+      --font: 'Inter', system-ui, sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--smoke); color: var(--ink); min-height: 100vh; }
+
+    /* ── Gate ── */
+    #gate { position: fixed; inset: 0; background: var(--charcoal); display: flex; align-items: center; justify-content: center; z-index: 1000; flex-direction: column; gap: 20px; }
+    #gate.hidden { display: none; }
+    .gate-logo { display: flex; align-items: center; gap: 10px; }
+    .gate-logo img { height: 42px; }
+    .gate-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
+    .gate-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; width: 100%; max-width: 380px; text-align: center; }
+    .gate-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .gate-sub { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+    .gate-input { width: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 1rem; font-family: var(--font); text-align: center; letter-spacing: 0.08em; outline: none; margin-bottom: 12px; }
+    .gate-input::placeholder { color: rgba(255,255,255,0.25); }
+    .gate-btn { width: 100%; padding: 14px; background: var(--coral); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: var(--font); transition: opacity .2s; }
+    .gate-btn:hover { opacity: .88; }
+    .gate-error { color: var(--coral); font-size: 0.82rem; margin-top: 10px; display: none; }
+
+    /* ── Header ── */
+    .portal-header { background: var(--charcoal); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .header-logo img { height: 34px; }
+    .header-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
+    .header-badge { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 5px 13px; }
+
+    /* ── Body ── */
+    .portal-body { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; }
+
+    .section-title { font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+    .section-sub { font-size: 0.92rem; color: rgba(0,0,0,0.5); margin-bottom: 32px; line-height: 1.6; max-width: 640px; }
+
+    /* ── Cards ── */
+    .form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 18px; box-shadow: var(--shadow); }
+    .card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .card-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,95,80,0.12); }
+    .card-label.teal { color: var(--teal); }
+    .card-label.teal::after { background: rgba(30,164,164,0.15); }
+
+    /* ── Fields ── */
+    .row { display: grid; gap: 14px; margin-bottom: 14px; }
+    .row-2 { grid-template-columns: 1fr 1fr; }
+    .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .row-1 { grid-template-columns: 1fr; }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 0.78rem; font-weight: 600; color: rgba(0,0,0,0.55); }
+    .field input, .field select { padding: 10px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.92rem; font-family: var(--font); color: var(--ink); outline: none; transition: border-color .15s; background: #fff; }
+    .field input:focus, .field select:focus { border-color: var(--coral); }
+    .field input[readonly] { background: var(--smoke); color: rgba(0,0,0,0.45); cursor: default; }
+    .hint { font-size: 0.74rem; color: rgba(0,0,0,0.38); }
+
+    .pfx { position: relative; }
+    .pfx::before { content: attr(data-p); position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 0.88rem; color: rgba(0,0,0,0.38); pointer-events: none; z-index: 1; }
+    .pfx input { padding-left: 24px; }
+    .pfx.dollar::before { content: '$'; }
+    .pfx.pct::before { content: '%'; left: auto; right: 11px; }
+    .pfx.pct input { padding-left: 13px; padding-right: 26px; }
+
+    /* ── Buttons ── */
+    .btn { padding: 12px 26px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: var(--font); border: none; transition: opacity .15s; }
+    .btn-teal { background: var(--teal); color: #fff; }
+    .btn-outline-light { background: transparent; color: rgba(255,255,255,0.65); border: 1.5px solid rgba(255,255,255,0.18); }
+    .btn:hover { opacity: .85; }
+
+    /* ── Calculator results ── */
+    .results-box { background: var(--charcoal); border-radius: var(--radius); padding: 28px; margin-top: 8px; }
+    .results-box h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+    .res-stat { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 16px 18px; }
+    .res-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.38); margin-bottom: 6px; }
+    .res-val { font-size: 1.45rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
+    .res-val.coral { color: var(--coral); }
+    .res-val.teal { color: var(--teal); }
+    .res-val.green { color: #4ade80; }
+    .res-val.red { color: #f87171; }
+
+    .cta-row { background: linear-gradient(120deg, rgba(255,95,80,.14) 0%, rgba(30,164,164,.14) 100%); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 20px 24px; margin-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .cta-row-text h4 { font-size: 0.97rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .cta-row-text p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+    .cta-row a { background: var(--coral); color: #fff; padding: 11px 22px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.88rem; white-space: nowrap; transition: opacity .15s; }
+    .cta-row a:hover { opacity: .88; }
+
+    .res-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
+    /* ── Live toggle ── */
+    .live-toggle-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .toggle { position: relative; width: 42px; height: 23px; flex-shrink: 0; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; inset: 0; background: #ccc; border-radius: 100px; cursor: pointer; transition: .2s; }
+    .slider::before { content: ''; position: absolute; height: 17px; width: 17px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+    .toggle input:checked + .slider { background: var(--teal); }
+    .toggle input:checked + .slider::before { transform: translateX(19px); }
+    .toggle-lbl { font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+    .live-section { display: none; }
+    .live-section.show { display: block; }
+
+    /* ── Success ── */
+    .success { background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); border-radius: 8px; padding: 13px 18px; color: #15803d; font-size: 0.88rem; font-weight: 600; display: none; margin-top: 14px; }
+    .success.show { display: block; }
+
+    @media (max-width: 680px) {
+      .row-2, .row-3 { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .cta-row { flex-direction: column; align-items: flex-start; }
+      .portal-header { padding: 14px 16px; }
+      .portal-body { padding: 24px 14px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PASSWORD GATE ── -->
+<div id="gate">
+  <div class="gate-logo">
+    <img src="/assets/logos/Untitled%20(14).png" alt="Junglee">
+    <span>Studios</span>
+  </div>
+  <div class="gate-card">
+    <div class="gate-title">Margin Calculator</div>
+    <div class="gate-sub">Enter your access code to continue.</div>
+    <input type="password" class="gate-input" id="pwInput" placeholder="Access code" autocomplete="off">
+    <button class="gate-btn" onclick="checkPw()">Enter</button>
+    <div class="gate-error" id="gateErr">Incorrect code — please try again.</div>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="portal-header">
+  <a class="header-logo" href="/">
+    <img src="/assets/logos/Untitled%20(14).png" alt="Junglee">
+    <span>Studios</span>
+  </a>
+  <div class="header-badge">Margin Calculator</div>
+</header>
+
+<div class="portal-body">
+  <div class="section-title">Margin Calculator</div>
+  <div class="section-sub">Enter your numbers to see your all-in costs and margins working with Junglee Studios. Everything updates in real time.</div>
+
+  <!-- Program + Units -->
+  <div class="form-card">
+    <div class="card-label">Setup</div>
+    <div class="row row-2">
+      <div class="field">
+        <label>Program</label>
+        <select id="c-program" onchange="calc()">
+          <option value="5000">Junglee TSP Growth Program — $5,000/mo</option>
+          <option value="7500">Junglee TSP Scale Program — $7,500/mo</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Estimated Monthly Units Sold</label>
+        <input type="number" id="c-units" value="100" min="1" oninput="calc()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Level -->
+  <div class="form-card">
+    <div class="card-label teal">Product Level</div>
+    <div class="row row-3">
+      <div class="field"><label>Product Name</label><input type="text" id="c-product" placeholder="e.g. Hero SKU" oninput="calc()"></div>
+      <div class="field"><label>Category (sets platform fee %)</label>
+        <select id="c-cat" onchange="calc()">
+          <option value="6">Beauty & Personal Care — 6%</option>
+          <option value="6">Health & Wellness — 6%</option>
+          <option value="6">Clothing & Accessories — 6%</option>
+          <option value="6">Home & Kitchen — 6%</option>
+          <option value="6">Electronics & Accessories — 6%</option>
+          <option value="6">Toys & Games — 6%</option>
+          <option value="6">Sports & Outdoors — 6%</option>
+          <option value="6">Pet Supplies — 6%</option>
+          <option value="8">Food & Beverages — 8%</option>
+          <option value="6">Collectibles — 6%</option>
+          <option value="6">Other — 6%</option>
+        </select>
+      </div>
+      <div class="field"><label>Retail Price</label><div class="pfx dollar"><input type="number" id="c-retail" value="50" min="0" step="0.01" oninput="calc()"></div></div>
+    </div>
+    <div class="row row-3">
+      <div class="field"><label>COGS (per unit)</label><div class="pfx dollar"><input type="number" id="c-cogs" value="15" min="0" step="0.01" oninput="calc()"></div></div>
+      <div class="field"><label>Shipping Cost (per unit)</label><div class="pfx dollar"><input type="number" id="c-ship" value="5" min="0" step="0.01" oninput="calc()"></div></div>
+      <div class="field"><label>TikTok Shop Platform Fee</label><div class="pfx dollar"><input type="number" id="c-platform" readonly></div></div>
+    </div>
+    <div class="row row-3">
+      <div class="field"><label>Junglee Agency Fee (5%)</label><div class="pfx dollar"><input type="number" id="c-agency" readonly></div></div>
+      <div class="field"><label>Retainer per Unit</label><div class="pfx dollar"><input type="number" id="c-retainer-unit" readonly></div></div>
+      <div class="field"><label>Product Gross Margin</label><div class="pfx dollar"><input type="number" id="c-gross" readonly></div></div>
+    </div>
+  </div>
+
+  <!-- Monthly Levers -->
+  <div class="form-card">
+    <div class="card-label teal">Monthly Levers</div>
+    <div class="row row-3">
+      <div class="field"><label>Ads Budget / month</label><div class="pfx dollar"><input type="number" id="c-ads" value="1000" min="0" step="100" oninput="calc()"></div></div>
+      <div class="field"><label>Campaign / Coupon Discount</label><div class="pfx pct"><input type="number" id="c-discount" value="6" min="0" max="100" step="0.5" oninput="calc()"></div><span class="hint">TikTok requires a minimum of 6% on platform campaigns</span></div>
+      <div class="field"><label>Affiliate Commission Rate</label><div class="pfx pct"><input type="number" id="c-affiliate" value="10" min="0" max="100" step="0.5" oninput="calc()"></div></div>
+    </div>
+  </div>
+
+  <!-- LIVE Add-On -->
+  <div class="form-card">
+    <div class="live-toggle-row">
+      <label class="toggle"><input type="checkbox" id="live-chk" onchange="toggleLive()"><span class="slider"></span></label>
+      <span class="toggle-lbl">Add LIVE Selling</span>
+    </div>
+    <div class="live-section" id="live-section">
+      <div class="card-label teal">LIVE Selling Add-On</div>
+      <div class="row row-3">
+        <div class="field"><label>LIVE Hours / month</label><input type="number" id="c-live-hrs" value="8" min="0" oninput="calc()"></div>
+        <div class="field"><label>Estimated LIVE GMV / month</label><div class="pfx dollar"><input type="number" id="c-live-gmv" value="5000" min="0" step="100" oninput="calc()"></div></div>
+        <div class="field"><label>Host Cost ($50/hr)</label><div class="pfx dollar"><input type="number" id="c-live-host" readonly></div></div>
+      </div>
+      <div class="row row-3">
+        <div class="field"><label>5% Commission on LIVE GMV</label><div class="pfx dollar"><input type="number" id="c-live-comm" readonly></div></div>
+        <div class="field"><label>Total LIVE Cost / month</label><div class="pfx dollar"><input type="number" id="c-live-cost" readonly></div></div>
+        <div class="field"><label>LIVE Net Revenue</label><div class="pfx dollar"><input type="number" id="c-live-net" readonly></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="results-box">
+    <h3>Your Results</h3>
+    <div class="results-grid">
+      <div class="res-stat"><div class="res-label">Monthly Revenue</div><div class="res-val" id="r-rev">$0</div></div>
+      <div class="res-stat"><div class="res-label">Total Monthly Costs</div><div class="res-val coral" id="r-cost">$0</div></div>
+      <div class="res-stat"><div class="res-label">Monthly Profit</div><div class="res-val green" id="r-profit">$0</div></div>
+      <div class="res-stat"><div class="res-label">Profit Margin %</div><div class="res-val teal" id="r-margin">0%</div></div>
+      <div class="res-stat"><div class="res-label">All-In Cost per Unit</div><div class="res-val" id="r-unit-cost">$0</div></div>
+      <div class="res-stat"><div class="res-label">Unit Margin %</div><div class="res-val" id="r-unit-margin">0%</div></div>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta-row-text">
+        <h4>Numbers looking good? Let's get your TikTok Shop live.</h4>
+        <p>Sign up through Junglee Studios and we'll handle setup from day one.</p>
+      </div>
+      <a href="https://seller-us.tiktok.com/account/register?channel=pc_7558536177658431246_us_l2l" target="_blank" rel="noreferrer">Sign Up for TikTok Shop →</a>
+    </div>
+
+    <div class="res-actions">
+      <button class="btn btn-teal" onclick="sendCalc()">Email Results to Junglee</button>
+      <button class="btn btn-outline-light" onclick="resetCalc()">Reset Calculator</button>
+    </div>
+    <div class="success" id="calc-success" style="margin-top:12px;">Results sent to info@jungleestudios.com!</div>
+  </div>
+
+  <!-- Hidden calc submit form -->
+  <form id="calc-form" style="display:none">
+    <input type="hidden" name="_subject" value="Calculator Results — Junglee Studios">
+    <input type="hidden" name="form_type" value="Calculator Results">
+    <input type="hidden" name="results" id="calc-data">
+  </form>
+</div>
+
+<script>
+const PW = 'BeJungleeCalculator';
+function checkPw() {
+  if (document.getElementById('pwInput').value === PW) {
+    document.getElementById('gate').classList.add('hidden');
+    sessionStorage.setItem('js_calc_auth','1');
+  } else {
+    document.getElementById('gateErr').style.display = 'block';
+    document.getElementById('pwInput').value = '';
+  }
+}
+document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
+if (sessionStorage.getItem('js_calc_auth') === '1') document.getElementById('gate').classList.add('hidden');
+
+const FORMSPREE_URL = 'https://formspree.io/f/xeebapww';
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const fmtPct = n => n.toFixed(1) + '%';
+const v = id => parseFloat($(id).value) || 0;
+
+function calc() {
+  const retail    = v('c-retail');
+  const cogs      = v('c-cogs');
+  const ship      = v('c-ship');
+  const units     = Math.max(1, v('c-units'));
+  const retainer  = v('c-program');
+  const ttFee     = v('c-cat') / 100;
+  const ads       = v('c-ads');
+  const discPct   = v('c-discount') / 100;
+  const affPct    = v('c-affiliate') / 100;
+
+  const platformFee  = retail * ttFee;
+  const agencyFee    = retail * 0.05;
+  const retUnit      = retainer / units;
+  const discAmt      = retail * discPct;
+  const affAmt       = retail * affPct;
+  const adsUnit      = ads / units;
+
+  const totalCostUnit = cogs + ship + platformFee + agencyFee + retUnit + discAmt + affAmt + adsUnit;
+  const grossUnit     = retail - cogs - ship - platformFee - agencyFee - retUnit;
+  const profitUnit    = retail - totalCostUnit;
+  const marginUnit    = retail > 0 ? (profitUnit / retail) * 100 : 0;
+
+  $('c-platform').value      = platformFee.toFixed(2);
+  $('c-agency').value        = agencyFee.toFixed(2);
+  $('c-retainer-unit').value = retUnit.toFixed(2);
+  $('c-gross').value         = grossUnit.toFixed(2);
+
+  const revenue    = retail * units;
+  const totalCostM = totalCostUnit * units;
+
+  const liveOn   = $('live-chk').checked;
+  const liveHrs  = liveOn ? v('c-live-hrs') : 0;
+  const liveGMV  = liveOn ? v('c-live-gmv') : 0;
+  const liveHost = liveHrs * 50;
+  const liveComm = liveGMV * 0.05;
+  const liveCost = liveHost + liveComm;
+  const liveNet  = liveGMV - liveCost;
+
+  if (liveOn) {
+    $('c-live-host').value = liveHost.toFixed(2);
+    $('c-live-comm').value = liveComm.toFixed(2);
+    $('c-live-cost').value = liveCost.toFixed(2);
+    $('c-live-net').value  = liveNet.toFixed(2);
+  }
+
+  const totalRev   = revenue + (liveOn ? liveGMV : 0);
+  const totalCosts = totalCostM + (liveOn ? liveCost : 0);
+  const profit     = totalRev - totalCosts;
+  const margin     = totalRev > 0 ? (profit / totalRev) * 100 : 0;
+
+  $('r-rev').textContent         = fmt(totalRev);
+  $('r-cost').textContent        = fmt(totalCosts);
+  $('r-profit').textContent      = fmt(profit);
+  $('r-profit').className        = 'res-val ' + (profit >= 0 ? 'green' : 'red');
+  $('r-margin').textContent      = fmtPct(margin);
+  $('r-unit-cost').textContent   = fmt(totalCostUnit);
+  $('r-unit-margin').textContent = fmtPct(marginUnit);
+}
+
+function toggleLive() {
+  $('live-section').classList.toggle('show', $('live-chk').checked);
+  calc();
+}
+
+function resetCalc() {
+  $('c-retail').value = 50; $('c-cogs').value = 15; $('c-ship').value = 5;
+  $('c-units').value = 100; $('c-ads').value = 1000;
+  $('c-discount').value = 6; $('c-affiliate').value = 10;
+  $('c-live-hrs').value = 8; $('c-live-gmv').value = 5000;
+  $('live-chk').checked = false;
+  $('live-section').classList.remove('show');
+  calc();
+}
+
+function sendCalc() {
+  const data = {
+    product: $('c-product').value || 'N/A',
+    retail_price: $('c-retail').value,
+    cogs: $('c-cogs').value,
+    units_per_month: $('c-units').value,
+    program: $('c-program').options[$('c-program').selectedIndex].text,
+    ads_budget: $('c-ads').value,
+    affiliate_rate: $('c-affiliate').value + '%',
+    discount_rate: $('c-discount').value + '%',
+    monthly_revenue: $('r-rev').textContent,
+    total_monthly_costs: $('r-cost').textContent,
+    monthly_profit: $('r-profit').textContent,
+    profit_margin: $('r-margin').textContent,
+    live_selling: $('live-chk').checked ? 'Yes' : 'No',
+    live_gmv: $('live-chk').checked ? $('c-live-gmv').value : 'N/A',
+  };
+  $('calc-data').value = JSON.stringify(data, null, 2);
+  const form = $('calc-form');
+  form.action = FORMSPREE_URL;
+  fetch(FORMSPREE_URL, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { Accept: 'application/json' }
+  }).then(r => {
+    if (r.ok) showSuccess('calc-success');
+    else alert('Could not send — please screenshot your results.');
+  }).catch(() => alert('Could not send — please screenshot your results.'));
+}
+
+function showSuccess(id) {
+  const el = document.getElementById(id);
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 9000);
+}
+
+calc();
+</script>
+</body>
+</html>
