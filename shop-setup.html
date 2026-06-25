@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Setup — Junglee Studios</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-J.png">
+  <style>
+    :root {
+      --coral: #ff5f50;
+      --teal: #1ea4a4;
+      --charcoal: #0e0f12;
+      --ink: #1a1c20;
+      --smoke: #f1f2f4;
+      --border: rgba(0,0,0,0.09);
+      --font: 'Inter', system-ui, sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--smoke); color: var(--ink); min-height: 100vh; }
+
+    /* ── Gate ── */
+    #gate { position: fixed; inset: 0; background: var(--charcoal); display: flex; align-items: center; justify-content: center; z-index: 1000; flex-direction: column; gap: 20px; }
+    #gate.hidden { display: none; }
+    .gate-logo { display: flex; align-items: center; gap: 10px; }
+    .gate-logo img { height: 42px; }
+    .gate-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
+    .gate-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; width: 100%; max-width: 380px; text-align: center; }
+    .gate-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .gate-sub { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+    .gate-input { width: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 1rem; font-family: var(--font); text-align: center; letter-spacing: 0.08em; outline: none; margin-bottom: 12px; }
+    .gate-input::placeholder { color: rgba(255,255,255,0.25); }
+    .gate-btn { width: 100%; padding: 14px; background: var(--coral); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: var(--font); transition: opacity .2s; }
+    .gate-btn:hover { opacity: .88; }
+    .gate-error { color: var(--coral); font-size: 0.82rem; margin-top: 10px; display: none; }
+
+    /* ── Header ── */
+    .portal-header { background: var(--charcoal); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .header-logo img { height: 34px; }
+    .header-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
+    .header-badge { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 5px 13px; }
+
+    /* ── Body ── */
+    .portal-body { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; }
+
+    .section-title { font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+    .section-sub { font-size: 0.92rem; color: rgba(0,0,0,0.5); margin-bottom: 32px; line-height: 1.6; max-width: 640px; }
+
+    /* ── Cards ── */
+    .form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 18px; box-shadow: var(--shadow); }
+    .card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .card-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,95,80,0.12); }
+
+    /* ── Fields ── */
+    .row { display: grid; gap: 14px; margin-bottom: 14px; }
+    .row-2 { grid-template-columns: 1fr 1fr; }
+    .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .row-1 { grid-template-columns: 1fr; }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 0.78rem; font-weight: 600; color: rgba(0,0,0,0.55); }
+    .req { color: var(--coral); }
+    .field input, .field select, .field textarea { padding: 10px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.92rem; font-family: var(--font); color: var(--ink); outline: none; transition: border-color .15s; background: #fff; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--coral); }
+    .field textarea { resize: vertical; min-height: 80px; }
+
+    /* ── Buttons ── */
+    .btn { padding: 12px 26px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: var(--font); border: none; transition: opacity .15s; }
+    .btn-coral { background: var(--coral); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+    .btn:hover { opacity: .85; }
+    .form-actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+
+    /* ── Instructions ── */
+    .instructions { background: var(--smoke); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+    .instructions h4 { font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .instructions ol { padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .instructions ol li { font-size: 0.86rem; color: rgba(0,0,0,0.6); line-height: 1.55; }
+    .instructions ol li strong { color: var(--ink); }
+
+    /* ── Success ── */
+    .success { background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); border-radius: 8px; padding: 13px 18px; color: #15803d; font-size: 0.88rem; font-weight: 600; display: none; margin-top: 14px; }
+    .success.show { display: block; }
+
+    @media (max-width: 680px) {
+      .row-2, .row-3 { grid-template-columns: 1fr; }
+      .portal-header { padding: 14px 16px; }
+      .portal-body { padding: 24px 14px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PASSWORD GATE ── -->
+<div id="gate">
+  <div class="gate-logo">
+    <img src="/assets/logos/Untitled%20(14).png" alt="Junglee">
+    <span>Studios</span>
+  </div>
+  <div class="gate-card">
+    <div class="gate-title">Shop Setup</div>
+    <div class="gate-sub">Enter your access code to continue.</div>
+    <input type="password" class="gate-input" id="pwInput" placeholder="Access code" autocomplete="off">
+    <button class="gate-btn" onclick="checkPw()">Enter</button>
+    <div class="gate-error" id="gateErr">Incorrect code — please try again.</div>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="portal-header">
+  <a class="header-logo" href="/">
+    <img src="/assets/logos/Untitled%20(14).png" alt="Junglee">
+    <span>Studios</span>
+  </a>
+  <div class="header-badge">Shop Setup</div>
+</header>
+
+<div class="portal-body">
+  <div class="section-title">TikTok Shop Setup</div>
+  <div class="section-sub">Complete this form so we can set up and optimize your TikTok Shop. Have your business documents ready before starting — we'll reference what's needed inside.</div>
+
+  <form id="setup-form" onsubmit="submitForm(event)">
+    <input type="hidden" name="_subject" value="New Shop Setup Form — Junglee Studios">
+    <input type="hidden" name="form_type" value="Shop Setup">
+
+    <div class="form-card">
+      <div class="card-label">Brand Information</div>
+      <div class="row row-2">
+        <div class="field"><label>Brand / Company Name <span class="req">*</span></label><input type="text" name="brand_name" required></div>
+        <div class="field"><label>Website URL</label><input type="url" name="website" placeholder="https://"></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Primary Contact Name <span class="req">*</span></label><input type="text" name="contact_name" required></div>
+        <div class="field"><label>Contact Email <span class="req">*</span></label><input type="email" name="contact_email" required></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Contact Phone</label><input type="tel" name="phone"></div>
+        <div class="field"><label>Business Type <span class="req">*</span></label>
+          <select name="business_type" required>
+            <option value="">Select…</option>
+            <option>Brand / Manufacturer</option>
+            <option>Reseller / Distributor</option>
+            <option>Private Label</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="row row-1">
+        <div class="field"><label>What products do you sell? <span class="req">*</span></label><textarea name="products" placeholder="Describe your product line, categories, price range…" required></textarea></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="card-label">TikTok Shop Account</div>
+      <div class="row row-2">
+        <div class="field"><label>Do you have an existing TikTok Shop? <span class="req">*</span></label>
+          <select name="has_shop" required>
+            <option value="">Select…</option>
+            <option>Yes — active and selling</option>
+            <option>Yes — set up but not selling</option>
+            <option>No — need to create one</option>
+          </select>
+        </div>
+        <div class="field"><label>TikTok Shop Seller ID (if existing)</label><input type="text" name="seller_id" placeholder="Found in Seller Center"></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>TikTok Handle</label><input type="text" name="tiktok_handle" placeholder="@yourbrand"></div>
+        <div class="field"><label>Primary Product Category <span class="req">*</span></label>
+          <select name="category" required>
+            <option value="">Select…</option>
+            <option>Beauty & Personal Care</option>
+            <option>Health & Wellness</option>
+            <option>Clothing & Accessories</option>
+            <option>Home & Kitchen</option>
+            <option>Electronics & Accessories</option>
+            <option>Toys & Games</option>
+            <option>Sports & Outdoors</option>
+            <option>Pet Supplies</option>
+            <option>Food & Beverages</option>
+            <option>Collectibles</option>
+            <option>Books & Media</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="row row-1">
+        <div class="field"><label>Additional categories (if applicable)</label><input type="text" name="additional_categories"></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="card-label">Business & Legal Information</div>
+      <div class="row row-2">
+        <div class="field"><label>Legal Business Name <span class="req">*</span></label><input type="text" name="legal_name" required></div>
+        <div class="field"><label>EIN / Federal Tax ID <span class="req">*</span></label><input type="text" name="ein" required></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Business Address <span class="req">*</span></label><input type="text" name="address" required></div>
+        <div class="field"><label>State of Incorporation</label><input type="text" name="state"></div>
+      </div>
+      <div class="row row-3">
+        <div class="field"><label>Business bank account? <span class="req">*</span></label>
+          <select name="bank_account" required><option value="">Select…</option><option>Yes</option><option>No</option></select>
+        </div>
+        <div class="field"><label>Registered trademark / IP?</label>
+          <select name="trademark"><option value="">Select…</option><option>Yes — registered</option><option>Yes — pending</option><option>No</option></select>
+        </div>
+        <div class="field"><label>Product liability insurance?</label>
+          <select name="insurance"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not sure</option></select>
+        </div>
+      </div>
+
+      <div class="instructions">
+        <h4>Required Documents — email to info@jungleestudios.com after submitting</h4>
+        <ol>
+          <li><strong>Government-issued ID</strong> — passport or driver's license of account owner</li>
+          <li><strong>Business registration</strong> — LLC/Corp filing or Articles of Incorporation</li>
+          <li><strong>IRS EIN Letter</strong> — CP 575 or 147C</li>
+          <li><strong>Voided check or bank letter</strong> — for payment setup in Seller Center</li>
+          <li><strong>Product images</strong> — minimum 4 angles per hero SKU, white background preferred</li>
+          <li><strong>Product compliance / certifications</strong> — FDA, CPSC, UL, or category-specific docs if applicable</li>
+          <li><strong>Brand assets</strong> — logo files (SVG or high-res PNG), brand guidelines if available</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="card-label">Product & Catalog</div>
+      <div class="row row-3">
+        <div class="field"><label>Number of SKUs <span class="req">*</span></label><input type="number" name="sku_count" min="1" required></div>
+        <div class="field"><label>Average retail price</label><input type="text" name="avg_price" placeholder="$0.00"></div>
+        <div class="field"><label>Warehouse / fulfillment location</label><input type="text" name="warehouse" placeholder="City, State"></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Do you use a 3PL?</label>
+          <select name="threePL"><option value="">Select…</option><option>Yes</option><option>No — self-fulfilled</option></select>
+        </div>
+        <div class="field"><label>Do you currently sell on Amazon?</label>
+          <select name="amazon"><option value="">Select…</option><option>Yes</option><option>No</option></select>
+        </div>
+      </div>
+      <div class="row row-1">
+        <div class="field"><label>Anything else we should know?</label><textarea name="notes" placeholder="Special requirements, brand restrictions, existing partnerships…"></textarea></div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-coral">Submit Setup Form</button>
+      <button type="reset" class="btn btn-outline">Clear</button>
+    </div>
+    <div class="success" id="setup-success">Form submitted! We'll be in touch within 1 business day. Don't forget to email your documents to info@jungleestudios.com.</div>
+  </form>
+</div>
+
+<script>
+const PW = 'BeJungleeSetup';
+function checkPw() {
+  if (document.getElementById('pwInput').value === PW) {
+    document.getElementById('gate').classList.add('hidden');
+    sessionStorage.setItem('js_setup_auth','1');
+  } else {
+    document.getElementById('gateErr').style.display = 'block';
+    document.getElementById('pwInput').value = '';
+  }
+}
+document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
+if (sessionStorage.getItem('js_setup_auth') === '1') document.getElementById('gate').classList.add('hidden');
+
+const FORMSPREE_URL = 'https://formspree.io/f/xeebapww';
+
+function submitForm(e) {
+  e.preventDefault();
+  const form = document.getElementById('setup-form');
+  fetch(FORMSPREE_URL, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { Accept: 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      const el = document.getElementById('setup-success');
+      el.classList.add('show');
+      form.reset();
+      setTimeout(() => el.classList.remove('show'), 9000);
+    } else { alert('Submission failed. Please email info@jungleestudios.com directly.'); }
+  }).catch(() => alert('Submission failed. Please email info@jungleestudios.com directly.'));
+}
+</script>
+</body>
+</html>
