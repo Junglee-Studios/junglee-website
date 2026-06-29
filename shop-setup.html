@@ -47,14 +47,15 @@
 
     /* ── Body ── */
     .portal-body { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; }
-
     .section-title { font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
-    .section-sub { font-size: 0.92rem; color: rgba(0,0,0,0.5); margin-bottom: 32px; line-height: 1.6; max-width: 640px; }
+    .section-sub { font-size: 0.92rem; color: rgba(0,0,0,0.5); margin-bottom: 32px; line-height: 1.6; max-width: 680px; }
 
     /* ── Cards ── */
     .form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 18px; box-shadow: var(--shadow); }
     .card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
     .card-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,95,80,0.12); }
+    .card-label.teal { color: var(--teal); }
+    .card-label.teal::after { background: rgba(30,164,164,0.15); }
 
     /* ── Fields ── */
     .row { display: grid; gap: 14px; margin-bottom: 14px; }
@@ -68,6 +69,7 @@
     .field input, .field select, .field textarea { padding: 10px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.92rem; font-family: var(--font); color: var(--ink); outline: none; transition: border-color .15s; background: #fff; }
     .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--coral); }
     .field textarea { resize: vertical; min-height: 80px; }
+    .hint { font-size: 0.74rem; color: rgba(0,0,0,0.38); margin-top: 3px; }
 
     /* ── Buttons ── */
     .btn { padding: 12px 26px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: var(--font); border: none; transition: opacity .15s; }
@@ -76,6 +78,23 @@
     .btn:hover { opacity: .85; }
     .form-actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
 
+    /* ── Step box (TTS signup instructions) ── */
+    .step-box { background: var(--charcoal); border-radius: var(--radius); padding: 26px 28px; margin-bottom: 20px; }
+    .step-box-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px; }
+    .steps { display: flex; flex-direction: column; gap: 14px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--coral); color: #fff; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-body { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+    .step-body strong { color: #fff; }
+    .step-body a { color: var(--teal); text-decoration: none; font-weight: 600; }
+    .step-body a:hover { text-decoration: underline; }
+    .step-body code { background: rgba(255,255,255,0.1); border-radius: 4px; padding: 1px 6px; font-size: 0.82rem; color: rgba(255,255,255,0.9); font-family: 'Courier New', monospace; }
+
+    /* ── Alert banner ── */
+    .alert { border-radius: 10px; padding: 14px 18px; margin-bottom: 18px; font-size: 0.86rem; line-height: 1.6; }
+    .alert-teal { background: rgba(30,164,164,0.08); border: 1px solid rgba(30,164,164,0.25); color: #0e6e6e; }
+    .alert-teal strong { color: #0a5252; }
+
     /* ── Instructions ── */
     .instructions { background: var(--smoke); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
     .instructions h4 { font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
@@ -83,14 +102,38 @@
     .instructions ol li { font-size: 0.86rem; color: rgba(0,0,0,0.6); line-height: 1.55; }
     .instructions ol li strong { color: var(--ink); }
 
+    /* ── Additional contacts ── */
+    .contact-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 10px; padding: 14px; background: var(--smoke); border-radius: 8px; position: relative; }
+    .contact-row .remove-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; cursor: pointer; color: rgba(0,0,0,0.3); font-size: 1rem; line-height: 1; transition: color .15s; }
+    .contact-row .remove-btn:hover { color: var(--coral); }
+    .add-contact-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 600; color: var(--coral); background: none; border: 1px dashed rgba(255,95,80,0.35); border-radius: 7px; padding: 8px 14px; cursor: pointer; font-family: var(--font); margin-top: 6px; transition: background .15s; }
+    .add-contact-btn:hover { background: rgba(255,95,80,0.05); }
+
+    /* ── Comms table ── */
+    .comms-table { width: 100%; border-collapse: collapse; }
+    .comms-table th { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(0,0,0,0.4); padding: 0 12px 10px; text-align: left; }
+    .comms-table th.center { text-align: center; }
+    .comms-table td { padding: 7px 12px; border-top: 1px solid var(--border); vertical-align: middle; }
+    .comms-table tr:first-child td { border-top: none; }
+    .comms-table .ch-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+    .comms-table .ch-name input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--coral); cursor: pointer; flex-shrink: 0; }
+    .comms-table .ch-name input[type="checkbox"]:disabled + span { color: rgba(0,0,0,0.3); }
+    .priority-sel { padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.82rem; font-family: var(--font); color: var(--ink); background: #fff; outline: none; width: 80px; }
+    .priority-sel:focus { border-color: var(--coral); }
+    .comms-note { font-size: 0.74rem; color: rgba(0,0,0,0.38); margin-top: 12px; }
+
     /* ── Success ── */
     .success { background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); border-radius: 8px; padding: 13px 18px; color: #15803d; font-size: 0.88rem; font-weight: 600; display: none; margin-top: 14px; }
     .success.show { display: block; }
 
     @media (max-width: 680px) {
       .row-2, .row-3 { grid-template-columns: 1fr; }
+      .contact-row { grid-template-columns: 1fr; }
       .portal-header { padding: 14px 16px; }
       .portal-body { padding: 24px 14px 60px; }
+      .comms-table, .comms-table tbody, .comms-table tr, .comms-table td { display: block; }
+      .comms-table thead { display: none; }
+      .comms-table td { border: none; padding: 4px 0; }
     }
   </style>
 </head>
@@ -122,12 +165,48 @@
 
 <div class="portal-body">
   <div class="section-title">TikTok Shop Setup</div>
-  <div class="section-sub">Complete this form so we can set up and optimize your TikTok Shop. Have your business documents ready before starting — we'll reference what's needed inside.</div>
+  <div class="section-sub">Complete the steps below and fill out this form. We'll use your information to get your TikTok Shop approved and ready to sell. Have your business documents on hand before you begin.</div>
+
+  <!-- ── STEP 1: Create admin email ── -->
+  <div class="step-box">
+    <div class="step-box-title">Before You Begin — Complete These Steps First</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Create a dedicated admin email for your TikTok Shop.</strong> This should be a company-controlled address — not tied to any individual employee — so your business always has access regardless of staff changes.<br>
+          <span style="color:rgba(255,255,255,0.45);font-size:0.82rem;margin-top:4px;display:block;">Example format: <code>YourBrand_TTS@yourdomain.com</code> &nbsp;·&nbsp; e.g. <code>JungleeTTS_US@jungleestudios.com</code></span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Use a unique password</strong> for this email — different from your TikTok app login. Store it somewhere secure (e.g. a company password manager or shared vault) so multiple authorized team members can access it.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Register your TikTok Shop account using that admin email and our referral link.</strong> This connects your shop to Junglee Studios from day one and ensures we can support your setup immediately.<br>
+          <a href="https://seller-us.tiktok.com/account/register?channel=pc_7558536177658431246_us_l2l" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--coral);color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;">
+            Register for TikTok Shop →
+          </a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Once registered, come back and complete this form.</strong> Provide the admin email you used so we have it on file — we'll need it to manage your Seller Center on your behalf.
+        </div>
+      </div>
+    </div>
+  </div>
 
   <form id="setup-form" onsubmit="submitForm(event)">
     <input type="hidden" name="_subject" value="New Shop Setup Form — Junglee Studios">
     <input type="hidden" name="form_type" value="Shop Setup">
 
+    <!-- ── 1. Brand Information ── -->
     <div class="form-card">
       <div class="card-label">Brand Information</div>
       <div class="row row-2">
@@ -136,10 +215,10 @@
       </div>
       <div class="row row-2">
         <div class="field"><label>Primary Contact Name <span class="req">*</span></label><input type="text" name="contact_name" required></div>
-        <div class="field"><label>Contact Email <span class="req">*</span></label><input type="email" name="contact_email" required></div>
+        <div class="field"><label>Primary Contact Email <span class="req">*</span></label><input type="email" name="contact_email" required></div>
       </div>
       <div class="row row-2">
-        <div class="field"><label>Contact Phone</label><input type="tel" name="phone"></div>
+        <div class="field"><label>Primary Contact Phone</label><input type="tel" name="phone"></div>
         <div class="field"><label>Business Type <span class="req">*</span></label>
           <select name="business_type" required>
             <option value="">Select…</option>
@@ -150,26 +229,39 @@
           </select>
         </div>
       </div>
-      <div class="row row-1">
-        <div class="field"><label>What products do you sell? <span class="req">*</span></label><textarea name="products" placeholder="Describe your product line, categories, price range…" required></textarea></div>
+
+      <!-- Additional contacts -->
+      <div style="margin-top:18px;">
+        <div style="font-size:0.78rem;font-weight:600;color:rgba(0,0,0,0.55);margin-bottom:10px;">Additional Team Contacts</div>
+        <div id="extra-contacts"></div>
+        <button type="button" class="add-contact-btn" onclick="addContact()">+ Add Team Member</button>
       </div>
     </div>
 
+    <!-- ── 2. TikTok Shop Account ── -->
     <div class="form-card">
       <div class="card-label">TikTok Shop Account</div>
+
+      <div class="alert alert-teal">
+        <strong>Important:</strong> Use the admin email you created in Step 1 above when registering. Enter that same email here so we have it on record.
+      </div>
+
       <div class="row row-2">
+        <div class="field"><label>TikTok Shop Admin Email <span class="req">*</span></label><input type="email" name="tts_admin_email" required placeholder="e.g. YourBrand_TTS@yourdomain.com"></div>
         <div class="field"><label>Do you have an existing TikTok Shop? <span class="req">*</span></label>
           <select name="has_shop" required>
             <option value="">Select…</option>
-            <option>Yes — active and selling</option>
-            <option>Yes — set up but not selling</option>
-            <option>No — need to create one</option>
+            <option>Yes — registered via referral link above</option>
+            <option>Yes — already had an active shop</option>
+            <option>Yes — had a shop but not selling</option>
           </select>
         </div>
-        <div class="field"><label>TikTok Shop Seller ID (if existing)</label><input type="text" name="seller_id" placeholder="Found in Seller Center"></div>
       </div>
       <div class="row row-2">
-        <div class="field"><label>TikTok Handle</label><input type="text" name="tiktok_handle" placeholder="@yourbrand"></div>
+        <div class="field"><label>TikTok Shop Seller ID (if existing)</label><input type="text" name="seller_id" placeholder="Found in Seller Center dashboard"></div>
+        <div class="field"><label>TikTok Handle / @username</label><input type="text" name="tiktok_handle" placeholder="@yourbrand"></div>
+      </div>
+      <div class="row row-2">
         <div class="field"><label>Primary Product Category <span class="req">*</span></label>
           <select name="category" required>
             <option value="">Select…</option>
@@ -187,25 +279,24 @@
             <option>Other</option>
           </select>
         </div>
-      </div>
-      <div class="row row-1">
-        <div class="field"><label>Additional categories (if applicable)</label><input type="text" name="additional_categories"></div>
+        <div class="field"><label>Additional categories (if applicable)</label><input type="text" name="additional_categories" placeholder="e.g. Health & Wellness, Home & Kitchen"></div>
       </div>
     </div>
 
+    <!-- ── 3. Business & Legal ── -->
     <div class="form-card">
       <div class="card-label">Business & Legal Information</div>
       <div class="row row-2">
         <div class="field"><label>Legal Business Name <span class="req">*</span></label><input type="text" name="legal_name" required></div>
-        <div class="field"><label>EIN / Federal Tax ID <span class="req">*</span></label><input type="text" name="ein" required></div>
+        <div class="field"><label>EIN / Federal Tax ID <span class="req">*</span></label><input type="text" name="ein" required placeholder="XX-XXXXXXX"></div>
       </div>
       <div class="row row-2">
         <div class="field"><label>Business Address <span class="req">*</span></label><input type="text" name="address" required></div>
-        <div class="field"><label>State of Incorporation</label><input type="text" name="state"></div>
+        <div class="field"><label>State of Incorporation</label><input type="text" name="state" placeholder="e.g. Delaware"></div>
       </div>
       <div class="row row-3">
         <div class="field"><label>Business bank account? <span class="req">*</span></label>
-          <select name="bank_account" required><option value="">Select…</option><option>Yes</option><option>No</option></select>
+          <select name="bank_account" required><option value="">Select…</option><option>Yes</option><option>No — need to open one</option></select>
         </div>
         <div class="field"><label>Registered trademark / IP?</label>
           <select name="trademark"><option value="">Select…</option><option>Yes — registered</option><option>Yes — pending</option><option>No</option></select>
@@ -218,46 +309,59 @@
       <div class="instructions">
         <h4>Required Documents — email to info@jungleestudios.com after submitting</h4>
         <ol>
-          <li><strong>Government-issued ID</strong> — passport or driver's license of account owner</li>
+          <li><strong>Government-issued ID</strong> — passport or driver's license of the TikTok Shop account owner</li>
           <li><strong>Business registration</strong> — LLC/Corp filing or Articles of Incorporation</li>
-          <li><strong>IRS EIN Letter</strong> — CP 575 or 147C</li>
+          <li><strong>IRS EIN Letter</strong> — CP 575 or 147C confirmation letter</li>
           <li><strong>Voided check or bank letter</strong> — for payment setup in Seller Center</li>
           <li><strong>Product images</strong> — minimum 4 angles per hero SKU, white background preferred</li>
-          <li><strong>Product compliance / certifications</strong> — FDA, CPSC, UL, or category-specific docs if applicable</li>
+          <li><strong>Product compliance / certifications</strong> — FDA, CPSC, UL, or any category-specific certifications</li>
           <li><strong>Brand assets</strong> — logo files (SVG or high-res PNG), brand guidelines if available</li>
         </ol>
       </div>
     </div>
 
+    <!-- ── 4. Communication Preferences ── -->
     <div class="form-card">
-      <div class="card-label">Product & Catalog</div>
-      <div class="row row-3">
-        <div class="field"><label>Number of SKUs <span class="req">*</span></label><input type="number" name="sku_count" min="1" required></div>
-        <div class="field"><label>Average retail price</label><input type="text" name="avg_price" placeholder="$0.00"></div>
-        <div class="field"><label>Warehouse / fulfillment location</label><input type="text" name="warehouse" placeholder="City, State"></div>
-      </div>
-      <div class="row row-2">
-        <div class="field"><label>Do you use a 3PL?</label>
-          <select name="threePL"><option value="">Select…</option><option>Yes</option><option>No — self-fulfilled</option></select>
-        </div>
-        <div class="field"><label>Do you currently sell on Amazon?</label>
-          <select name="amazon"><option value="">Select…</option><option>Yes</option><option>No</option></select>
-        </div>
-      </div>
+      <div class="card-label">Preferred Communication Methods</div>
+      <p style="font-size:0.86rem;color:rgba(0,0,0,0.5);margin-bottom:18px;">Check every channel you use and set a priority (1 = primary, 2 = secondary, etc.) so we know the best way to reach you.</p>
+
+      <table class="comms-table">
+        <thead>
+          <tr>
+            <th style="width:55%;">Channel</th>
+            <th class="center">Use This</th>
+            <th>Priority</th>
+            <th style="width:35%;">Handle / Number</th>
+          </tr>
+        </thead>
+        <tbody id="comms-body">
+          <!-- rows injected by JS -->
+        </tbody>
+      </table>
+      <p class="comms-note">Priority 1 = your preferred first point of contact. Leave blank if not applicable.</p>
+
+      <!-- hidden field to collect serialized comms data -->
+      <input type="hidden" name="communication_preferences" id="comms-hidden">
+    </div>
+
+    <!-- ── 5. Notes ── -->
+    <div class="form-card">
+      <div class="card-label">Additional Notes</div>
       <div class="row row-1">
-        <div class="field"><label>Anything else we should know?</label><textarea name="notes" placeholder="Special requirements, brand restrictions, existing partnerships…"></textarea></div>
+        <div class="field"><label>Anything else we should know before we begin setup?</label><textarea name="notes" placeholder="Special requirements, upcoming launches, timeline needs, existing partnerships…"></textarea></div>
       </div>
     </div>
 
     <div class="form-actions">
       <button type="submit" class="btn btn-coral">Submit Setup Form</button>
-      <button type="reset" class="btn btn-outline">Clear</button>
+      <button type="button" class="btn btn-outline" onclick="resetForm()">Clear</button>
     </div>
     <div class="success" id="setup-success">Form submitted! We'll be in touch within 1 business day. Don't forget to email your documents to info@jungleestudios.com.</div>
   </form>
 </div>
 
 <script>
+// ── Password ──
 const PW = 'BeJungleeSetup';
 function checkPw() {
   if (document.getElementById('pwInput').value === PW) {
@@ -271,10 +375,94 @@ function checkPw() {
 document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
 if (sessionStorage.getItem('js_setup_auth') === '1') document.getElementById('gate').classList.add('hidden');
 
+// ── Additional contacts ──
+let contactCount = 0;
+function addContact() {
+  contactCount++;
+  const id = contactCount;
+  const div = document.createElement('div');
+  div.className = 'contact-row';
+  div.id = 'cr-' + id;
+  div.innerHTML = `
+    <div class="field"><label>Full Name</label><input type="text" name="extra_contact_name_${id}" placeholder="Full name"></div>
+    <div class="field"><label>Email</label><input type="email" name="extra_contact_email_${id}" placeholder="email@company.com"></div>
+    <div class="field"><label>Role / Title</label><input type="text" name="extra_contact_role_${id}" placeholder="e.g. Marketing Manager"></div>
+    <button type="button" class="remove-btn" onclick="removeContact(${id})">✕</button>
+  `;
+  document.getElementById('extra-contacts').appendChild(div);
+}
+function removeContact(id) {
+  const el = document.getElementById('cr-' + id);
+  if (el) el.remove();
+}
+
+// ── Communication channels ──
+const CHANNELS = [
+  { key: 'email',       label: 'Email',        placeholder: 'your@email.com' },
+  { key: 'text',        label: 'Text / SMS',   placeholder: '+1 (555) 000-0000' },
+  { key: 'phone',       label: 'Phone Call',   placeholder: '+1 (555) 000-0000' },
+  { key: 'whatsapp',    label: 'WhatsApp',     placeholder: '+1 (555) 000-0000' },
+  { key: 'slack',       label: 'Slack',        placeholder: '@handle or workspace' },
+  { key: 'discord',     label: 'Discord',      placeholder: 'username#0000' },
+  { key: 'telegram',    label: 'Telegram',     placeholder: '@username' },
+  { key: 'lark',        label: 'Lark / Feishu',placeholder: 'username or email' },
+  { key: 'gchat',       label: 'Google Chat',  placeholder: 'your@email.com' },
+  { key: 'teams',       label: 'Microsoft Teams', placeholder: 'your@email.com' },
+  { key: 'zoom',        label: 'Zoom',         placeholder: 'Zoom email or ID' },
+  { key: 'wechat',      label: 'WeChat',       placeholder: 'WeChat ID' },
+  { key: 'signal',      label: 'Signal',       placeholder: '+1 (555) 000-0000' },
+  { key: 'instagram',   label: 'Instagram DM', placeholder: '@handle' },
+  { key: 'linkedin',    label: 'LinkedIn',     placeholder: 'linkedin.com/in/…' },
+];
+
+function buildCommsTable() {
+  const tbody = document.getElementById('comms-body');
+  CHANNELS.forEach(ch => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><div class="ch-name"><input type="checkbox" id="ch-${ch.key}" onchange="toggleRow(this,'${ch.key}')"><span>${ch.label}</span></div></td>
+      <td style="text-align:center;"><label for="ch-${ch.key}" style="cursor:pointer;font-size:0.78rem;color:var(--coral);font-weight:600;">Select</label></td>
+      <td><select class="priority-sel" id="pri-${ch.key}" disabled>
+        <option value="">—</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select></td>
+      <td><input type="text" style="width:100%;padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:0.82rem;font-family:var(--font);background:#f8f8f8;color:rgba(0,0,0,0.35);pointer-events:none;" id="hdl-${ch.key}" placeholder="${ch.placeholder}" disabled></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function toggleRow(chk, key) {
+  const pri = document.getElementById('pri-' + key);
+  const hdl = document.getElementById('hdl-' + key);
+  pri.disabled = !chk.checked;
+  hdl.disabled = !chk.checked;
+  hdl.style.background = chk.checked ? '#fff' : '#f8f8f8';
+  hdl.style.color = chk.checked ? 'var(--ink)' : 'rgba(0,0,0,0.35)';
+  hdl.style.pointerEvents = chk.checked ? 'auto' : 'none';
+}
+
+function serializeComms() {
+  const results = [];
+  CHANNELS.forEach(ch => {
+    const chk = document.getElementById('ch-' + ch.key);
+    if (chk && chk.checked) {
+      const pri = document.getElementById('pri-' + ch.key).value || '—';
+      const hdl = document.getElementById('hdl-' + ch.key).value || '';
+      results.push(`${ch.label} (Priority: ${pri}${hdl ? ', ' + hdl : ''})`);
+    }
+  });
+  document.getElementById('comms-hidden').value = results.join(' | ') || 'None selected';
+}
+
+buildCommsTable();
+
+// ── Form submit ──
 const FORMSPREE_URL = 'https://formspree.io/f/xeebapww';
 
 function submitForm(e) {
   e.preventDefault();
+  serializeComms();
   const form = document.getElementById('setup-form');
   fetch(FORMSPREE_URL, {
     method: 'POST',
@@ -285,9 +473,29 @@ function submitForm(e) {
       const el = document.getElementById('setup-success');
       el.classList.add('show');
       form.reset();
+      resetComms();
+      document.getElementById('extra-contacts').innerHTML = '';
       setTimeout(() => el.classList.remove('show'), 9000);
     } else { alert('Submission failed. Please email info@jungleestudios.com directly.'); }
   }).catch(() => alert('Submission failed. Please email info@jungleestudios.com directly.'));
+}
+
+function resetComms() {
+  CHANNELS.forEach(ch => {
+    const chk = document.getElementById('ch-' + ch.key);
+    if (chk) chk.checked = false;
+    toggleRow({ checked: false }, ch.key);
+    const pri = document.getElementById('pri-' + ch.key);
+    if (pri) pri.value = '';
+    const hdl = document.getElementById('hdl-' + ch.key);
+    if (hdl) hdl.value = '';
+  });
+}
+
+function resetForm() {
+  document.getElementById('setup-form').reset();
+  resetComms();
+  document.getElementById('extra-contacts').innerHTML = '';
 }
 </script>
 </body>
