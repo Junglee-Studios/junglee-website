@@ -294,16 +294,21 @@
         <div class="field"><label>Business Address <span class="req">*</span></label><input type="text" name="address" required></div>
         <div class="field"><label>State of Incorporation</label><input type="text" name="state" placeholder="e.g. Delaware"></div>
       </div>
-      <div class="row row-3">
+      <div class="row row-2">
         <div class="field"><label>Business bank account? <span class="req">*</span></label>
           <select name="bank_account" required><option value="">Select…</option><option>Yes</option><option>No — need to open one</option></select>
         </div>
         <div class="field"><label>Registered trademark / IP?</label>
           <select name="trademark"><option value="">Select…</option><option>Yes — registered</option><option>Yes — pending</option><option>No</option></select>
         </div>
-        <div class="field"><label>Product liability insurance?</label>
-          <select name="insurance"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not sure</option></select>
+      </div>
+      <div class="row row-2">
+        <div class="field">
+          <label>Trademark Registration Number <span style="font-size:0.72rem;font-weight:500;color:rgba(0,0,0,0.38);">(if registered or pending)</span></label>
+          <input type="text" name="trademark_number" placeholder="e.g. 12345678">
+          <span class="hint">Not sure? <a href="https://www.uspto.gov/trademarks/search" target="_blank" rel="noreferrer" style="color:var(--coral);font-weight:600;text-decoration:none;">Search the USPTO trademark database →</a></span>
         </div>
+        <div class="field"><label>Trademark Classes / Goods &amp; Services</label><input type="text" name="trademark_class" placeholder="e.g. Class 25 — Clothing"></div>
       </div>
 
       <div class="instructions">
@@ -313,7 +318,7 @@
           <li><strong>Business registration</strong> — LLC/Corp filing or Articles of Incorporation</li>
           <li><strong>IRS EIN Letter</strong> — CP 575 or 147C confirmation letter</li>
           <li><strong>Voided check or bank letter</strong> — for payment setup in Seller Center</li>
-          <li><strong>Product images</strong> — minimum 4 angles per hero SKU, white background preferred</li>
+          <li><strong>Utility bill</strong> — recent gas, electric, or water bill showing business name and address</li>
           <li><strong>Product compliance / certifications</strong> — FDA, CPSC, UL, or any category-specific certifications</li>
           <li><strong>Brand assets</strong> — logo files (SVG or high-res PNG), brand guidelines if available</li>
         </ol>
