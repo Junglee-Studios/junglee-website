@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TSP Program — Junglee Studios</title>
+  <title>Welcome to the Program — Junglee Studios</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,30 +45,46 @@
     .header-logo span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding-left: 8px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,0.15); }
     .header-badge { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 5px 13px; }
 
-    /* ── Body ── */
-    .portal-body { max-width: 960px; margin: 0 auto; padding: 36px 24px 80px; }
+    /* ── Welcome hero ── */
+    .welcome-hero { background: linear-gradient(135deg, var(--charcoal) 0%, #1a2830 100%); padding: 52px 32px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .welcome-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); margin-bottom: 14px; }
+    .welcome-title { font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.15; }
+    .welcome-title span { color: var(--coral); }
+    .welcome-sub { font-size: 1rem; color: rgba(255,255,255,0.55); max-width: 560px; margin: 0 auto; line-height: 1.7; }
 
-    .section-title { font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
-    .section-sub { font-size: 0.92rem; color: rgba(0,0,0,0.5); margin-bottom: 32px; line-height: 1.6; max-width: 640px; }
+    /* ── Body ── */
+    .portal-body { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── Section heading ── */
+    .sec-heading { font-size: 1.15rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+    .sec-sub { font-size: 0.88rem; color: rgba(0,0,0,0.45); margin-bottom: 22px; line-height: 1.6; }
 
     /* ── Cards ── */
     .form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 18px; box-shadow: var(--shadow); }
     .card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
     .card-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,95,80,0.12); }
+    .card-label.teal { color: var(--teal); }
+    .card-label.teal::after { background: rgba(30,164,164,0.15); }
 
     /* ── Fields ── */
     .row { display: grid; gap: 14px; margin-bottom: 14px; }
     .row-2 { grid-template-columns: 1fr 1fr; }
     .row-3 { grid-template-columns: 1fr 1fr 1fr; }
     .row-1 { grid-template-columns: 1fr; }
-
     .field { display: flex; flex-direction: column; gap: 5px; }
     .field label { font-size: 0.78rem; font-weight: 600; color: rgba(0,0,0,0.55); }
     .req { color: var(--coral); }
     .field input, .field select, .field textarea { padding: 10px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.92rem; font-family: var(--font); color: var(--ink); outline: none; transition: border-color .15s; background: #fff; }
     .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--coral); }
     .field textarea { resize: vertical; min-height: 80px; }
-    .hint { font-size: 0.74rem; color: rgba(0,0,0,0.38); }
+    .hint { font-size: 0.74rem; color: rgba(0,0,0,0.38); margin-top: 3px; }
+
+    /* ── Prefix fields ── */
+    .pfx { position: relative; }
+    .pfx.dollar::before { content: '$'; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 0.88rem; color: rgba(0,0,0,0.38); pointer-events: none; }
+    .pfx.dollar input { padding-left: 22px; }
+    .pfx.pct::before { content: '%'; position: absolute; right: 11px; top: 50%; transform: translateY(-50%); font-size: 0.88rem; color: rgba(0,0,0,0.38); pointer-events: none; }
+    .pfx.pct input { padding-right: 26px; }
 
     /* ── Buttons ── */
     .btn { padding: 12px 26px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: var(--font); border: none; transition: opacity .15s; }
@@ -77,12 +93,28 @@
     .btn:hover { opacity: .85; }
     .form-actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
 
+    /* ── Step box ── */
+    .step-box { background: var(--charcoal); border-radius: var(--radius); padding: 26px 28px; margin-bottom: 20px; }
+    .step-box-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px; }
+    .steps { display: flex; flex-direction: column; gap: 16px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--coral); color: #fff; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .step-body { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.65; }
+    .step-body strong { color: #fff; }
+    .step-body code { background: rgba(255,255,255,0.1); border-radius: 4px; padding: 1px 6px; font-size: 0.82rem; color: rgba(255,255,255,0.9); font-family: 'Courier New', monospace; }
+
     /* ── Instructions ── */
     .instructions { background: var(--smoke); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
     .instructions h4 { font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
     .instructions ol { padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
     .instructions ol li { font-size: 0.86rem; color: rgba(0,0,0,0.6); line-height: 1.55; }
     .instructions ol li strong { color: var(--ink); }
+
+    /* ── Program badge on confirmed card ── */
+    .prog-confirmed { display: flex; align-items: center; gap: 16px; background: rgba(255,95,80,0.04); border: 1.5px solid rgba(255,95,80,0.2); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 18px; }
+    .prog-confirmed-badge { background: var(--coral); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 6px; padding: 4px 9px; white-space: nowrap; }
+    .prog-confirmed-name { font-size: 1rem; font-weight: 800; color: var(--ink); }
+    .prog-confirmed-price { font-size: 0.88rem; font-weight: 600; color: rgba(0,0,0,0.4); margin-top: 2px; }
 
     /* ── Program cards ── */
     .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
@@ -98,13 +130,58 @@
     .prog-features li { font-size: 0.83rem; color: rgba(0,0,0,0.6); padding-left: 16px; position: relative; }
     .prog-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
+    /* ── Add-on cards ── */
+    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+    .addon-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 20px; position: relative; cursor: pointer; transition: all .2s; }
+    .addon-card:hover { border-color: rgba(30,164,164,0.4); }
+    .addon-card.selected { border-color: var(--teal); background: rgba(30,164,164,0.03); }
+    .addon-card input[type="checkbox"] { position: absolute; top: 18px; right: 18px; width: 16px; height: 16px; accent-color: var(--teal); cursor: pointer; }
+    .addon-title { font-size: 0.92rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; padding-right: 28px; }
+    .addon-price { font-size: 1.1rem; font-weight: 900; color: var(--teal); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .addon-price span { font-size: 0.78rem; font-weight: 500; color: rgba(0,0,0,0.4); }
+    .addon-details { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .addon-details li { font-size: 0.8rem; color: rgba(0,0,0,0.55); padding-left: 14px; position: relative; line-height: 1.4; }
+    .addon-details li::before { content: '·'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+    /* ── Timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 0; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+    .tl-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--coral); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tl-dot svg { width: 16px; height: 16px; fill: #fff; }
+    .tl-line { width: 2px; flex: 1; background: rgba(255,95,80,0.15); margin: 4px 0; min-height: 20px; }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content { padding: 0 0 28px 20px; flex: 1; }
+    .tl-period { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 6px; }
+    .tl-title { font-size: 1rem; font-weight: 800; color: var(--ink); margin-bottom: 10px; }
+    .tl-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .tl-items li { font-size: 0.86rem; color: rgba(0,0,0,0.6); padding-left: 16px; position: relative; line-height: 1.5; }
+    .tl-items li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; font-size: 0.82rem; }
+    .tl-scale-extra { margin-top: 8px; padding: 10px 14px; background: rgba(30,164,164,0.06); border-left: 2px solid var(--teal); border-radius: 0 6px 6px 0; }
+    .tl-scale-extra-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+    .tl-scale-extra ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .tl-scale-extra ul li { font-size: 0.82rem; color: rgba(0,0,0,0.55); padding-left: 14px; position: relative; }
+    .tl-scale-extra ul li::before { content: '+'; position: absolute; left: 0; color: var(--teal); font-weight: 800; font-size: 0.75rem; }
+
+    /* ── TSP value section ── */
+    .value-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 4px; }
+    .value-card { background: var(--smoke); border-radius: 10px; padding: 18px; }
+    .value-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .value-title { font-size: 0.82rem; font-weight: 800; color: var(--ink); margin-bottom: 5px; }
+    .value-desc { font-size: 0.78rem; color: rgba(0,0,0,0.5); line-height: 1.5; }
+
+    /* ── Divider ── */
+    .section-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
     /* ── Success ── */
     .success { background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); border-radius: 8px; padding: 13px 18px; color: #15803d; font-size: 0.88rem; font-weight: 600; display: none; margin-top: 14px; }
     .success.show { display: block; }
 
     @media (max-width: 680px) {
+      .welcome-title { font-size: 1.6rem; }
+      .welcome-hero { padding: 36px 20px; }
       .row-2, .row-3 { grid-template-columns: 1fr; }
-      .program-grid { grid-template-columns: 1fr; }
+      .program-grid, .addon-grid, .value-grid { grid-template-columns: 1fr; }
       .portal-header { padding: 14px 16px; }
       .portal-body { padding: 24px 14px 60px; }
     }
@@ -119,7 +196,7 @@
     <span>Studios</span>
   </div>
   <div class="gate-card">
-    <div class="gate-title">TSP Program</div>
+    <div class="gate-title">Welcome to the Program</div>
     <div class="gate-sub">Enter your access code to continue.</div>
     <input type="password" class="gate-input" id="pwInput" placeholder="Access code" autocomplete="off">
     <button class="gate-btn" onclick="checkPw()">Enter</button>
@@ -136,26 +213,104 @@
   <div class="header-badge">TSP Program</div>
 </header>
 
+<!-- ── WELCOME HERO ── -->
+<div class="welcome-hero">
+  <div class="welcome-eyebrow">You're officially in.</div>
+  <div class="welcome-title">Welcome to <span>Junglee Studios</span></div>
+  <div class="welcome-sub">Your TikTok Shop growth journey starts here. This page walks you through your first steps, what to expect, and how to complete your program setup so we can hit the ground running.</div>
+</div>
+
 <div class="portal-body">
-  <div class="section-title">Select Your TSP Program</div>
-  <div class="section-sub">Choose your program, complete your budget allocation, and submit. We'll send the official partner approval request through TikTok's Partner Center and you'll receive an approval notification in Seller Center.</div>
 
+  <!-- ════ GETTING STARTED ════ -->
+  <div class="sec-heading">Getting Started</div>
+  <div class="sec-sub">Complete these two steps before filling out the form below — they give us the access we need to manage your shop on day one.</div>
+
+  <div class="step-box">
+    <div class="step-box-title">Step 1 — Share Your Shop Code</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          Log in to <strong>TikTok Shop Seller Center</strong> at seller-us.tiktok.com using your admin email.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          Click your account name (top right) → <strong>Account → Shop Info</strong>. Your <strong>Shop Code</strong> starts with a <strong>U</strong> (e.g. <code>U1234567890</code>) and appears at the top of that page.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          Enter your Shop Code in the form below. We'll use this to submit our TSP partner request and connect your shop to Junglee Studios in TikTok's Partner Center.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-box" style="margin-bottom:32px;">
+    <div class="step-box-title">Step 2 — Add Junglee Studios as an Admin in Seller Center</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          Log in to <strong>TikTok Shop Seller Center</strong> → go to <strong>My Account → Staff Management</strong> (or search "Staff" in the top bar).
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          Click <strong>Invite Staff Member</strong> and enter the Junglee Studios email assigned to your brand — this was included in your welcome email in the format <code>yourbrand@jungleestudios.com</code>.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          Set the role to <strong>Admin / Operator</strong> and grant full permissions including: shop management, product management, order management, affiliate access, and ads access.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          Click <strong>Send Invitation</strong>. We'll accept it from our end and notify you once we're in — typically within a few hours.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ PROGRAM FORM ════ -->
   <form id="program-form" onsubmit="submitForm(event)">
-    <input type="hidden" name="_subject" value="New TSP Program Enrollment — Junglee Studios">
-    <input type="hidden" name="form_type" value="TSP Program">
+    <input type="hidden" name="_subject" value="TSP Program Onboarding — Junglee Studios">
+    <input type="hidden" name="form_type" value="TSP Onboarding">
 
+    <!-- Brand -->
     <div class="form-card">
-      <div class="card-label">Brand</div>
+      <div class="card-label">Your Brand</div>
       <div class="row row-2">
         <div class="field"><label>Brand Name <span class="req">*</span></label><input type="text" name="brand_name" required></div>
-        <div class="field"><label>Contact Email <span class="req">*</span></label><input type="email" name="contact_email" required></div>
+        <div class="field"><label>Primary Contact Email <span class="req">*</span></label><input type="email" name="contact_email" required></div>
+      </div>
+      <div class="row row-2">
+        <div class="field">
+          <label>TikTok Shop Code <span class="req">*</span></label>
+          <input type="text" name="shop_code" required placeholder="e.g. U1234567890">
+          <span class="hint">Starts with a U — found in Seller Center → Account → Shop Info</span>
+        </div>
+        <div class="field"><label>Seller Center Login Email <span class="req">*</span></label><input type="email" name="seller_email" required placeholder="Email used to log in to Seller Center"></div>
+      </div>
+      <div class="row row-2">
+        <div class="field"><label>Store Name in Seller Center <span class="req">*</span></label><input type="text" name="store_name" required></div>
+        <div class="field"><label>Junglee Studios Brand Email</label><input type="email" name="junglee_brand_email" placeholder="yourbrand@jungleestudios.com"><span class="hint">Provided in your welcome email — enter exactly as given</span></div>
       </div>
     </div>
 
+    <!-- Program confirmation -->
     <div class="form-card">
-      <div class="card-label">Choose Your Program</div>
+      <div class="card-label">Your Program</div>
       <div class="program-grid">
-        <label class="prog-card" id="prog-growth" onclick="selectProg(this)">
+        <label class="prog-card" id="prog-growth" onclick="selectProg(this,'growth')">
           <input type="radio" name="program" value="Junglee TSP Growth Program — $5,000/mo" required>
           <div class="prog-badge">Growth</div>
           <div class="prog-name">Junglee TSP Growth Program</div>
@@ -169,7 +324,7 @@
             <li>Weekly performance reporting</li>
           </ul>
         </label>
-        <label class="prog-card" id="prog-scale" onclick="selectProg(this)">
+        <label class="prog-card" id="prog-scale" onclick="selectProg(this,'scale')">
           <input type="radio" name="program" value="Junglee TSP Scale Program — $7,500/mo" required>
           <div class="prog-badge">Scale</div>
           <div class="prog-name">Junglee TSP Scale Program</div>
@@ -186,61 +341,324 @@
       </div>
     </div>
 
+    <!-- Monthly Budget Allocation -->
     <div class="form-card">
-      <div class="card-label">Approve Us in Seller Center</div>
-      <div class="instructions">
-        <h4>How to approve Junglee Studios as your TikTok Shop Service Partner</h4>
-        <ol>
-          <li>Log in to <strong>TikTok Shop Seller Center</strong> at seller-us.tiktok.com</li>
-          <li>Go to <strong>My Account → Service Providers</strong> (or search "Service Providers" in the top bar)</li>
-          <li>You'll see a pending approval request from <strong>Junglee Studios</strong> — we submit this from our Partner Center once you enroll</li>
-          <li>Click <strong>Approve</strong> on the Junglee Studios request</li>
-          <li>Select the permissions requested (shop management, affiliate access, ads access as applicable to your program)</li>
-          <li>Click <strong>Confirm</strong> — you'll receive a confirmation email and we'll be notified immediately</li>
-        </ol>
+      <div class="card-label">Monthly Budget Allocation</div>
+      <p style="font-size:0.86rem;color:rgba(0,0,0,0.5);margin-bottom:20px;">Tell us how you'd like to allocate your budget across the key growth levers. These are starting points — we'll optimize together as we scale.</p>
+
+      <div class="row row-2">
+        <div class="field">
+          <label>Product Seeding Budget / month <span class="req">*</span></label>
+          <div class="pfx dollar"><input type="text" name="seeding_budget" placeholder="2,000" required></div>
+          <span class="hint">Budget for sending products to creators for organic content</span>
+        </div>
+        <div class="field">
+          <label>Affiliate Commission Rate <span class="req">*</span></label>
+          <div class="pfx pct"><input type="number" name="affiliate_commission" value="20" min="20" max="60" step="0.5" required></div>
+          <span class="hint">Minimum 20% · Recommended 25% for stronger creator recruitment</span>
+        </div>
       </div>
       <div class="row row-2">
-        <div class="field"><label>Seller Center Login Email <span class="req">*</span></label><input type="email" name="seller_email" required placeholder="Email used to log in"></div>
-        <div class="field"><label>Store Name in Seller Center <span class="req">*</span></label><input type="text" name="store_name" required></div>
+        <div class="field">
+          <label>Ads Budget / month <span class="req">*</span></label>
+          <div class="pfx dollar"><input type="text" name="ads_budget" placeholder="1,500" required></div>
+          <span class="hint">GMV Max &amp; Spark Ads spend</span>
+        </div>
+        <div class="field">
+          <label>Campaign / Coupon Discount</label>
+          <div class="pfx pct"><input type="number" name="campaign_discount" value="6" min="6" max="50" step="0.5"></div>
+          <span class="hint">TikTok requires a minimum of 6% on platform campaigns</span>
+        </div>
+      </div>
+      <div class="row row-2">
+        <div class="field">
+          <label>Monthly GMV Target</label>
+          <div class="pfx dollar"><input type="text" name="gmv_target" placeholder="50,000"></div>
+        </div>
+        <div class="field">
+          <label>Campaign / Coupon Budget / month</label>
+          <div class="pfx dollar"><input type="text" name="campaign_budget" placeholder="500"></div>
+        </div>
       </div>
     </div>
 
+    <!-- Add-ons -->
     <div class="form-card">
-      <div class="card-label">Monthly Budget Allocation</div>
-      <p style="font-size:0.86rem;color:rgba(0,0,0,0.5);margin-bottom:18px;">Tell us how you'd like to allocate your budget across the key levers. These can be adjusted as we scale together.</p>
-      <div class="row row-2">
-        <div class="field"><label>Product Seeding Budget / month <span class="req">*</span></label><input type="text" name="seeding_budget" placeholder="e.g. $2,000" required></div>
-        <div class="field"><label>Affiliate Commission Rate <span class="req">*</span></label><input type="text" name="affiliate_commission" placeholder="e.g. 10%" required></div>
-      </div>
-      <div class="row row-2">
-        <div class="field"><label>Ads Budget / month <span class="req">*</span></label><input type="text" name="ads_budget" placeholder="e.g. $1,500" required></div>
-        <div class="field"><label>Campaign / Coupon Budget / month</label><input type="text" name="campaign_budget" placeholder="$ or %"></div>
-      </div>
-      <div class="row row-2">
-        <div class="field"><label>Monthly GMV Target</label><input type="text" name="gmv_target" placeholder="e.g. $50,000"></div>
-        <div class="field"><label>Add-ons interested in</label>
-          <select name="addons" multiple style="height:82px;">
-            <option>Live Shopping & Real-Time Commerce</option>
-            <option>Content Production</option>
-            <option>Live Host Services</option>
-          </select>
-          <span class="hint">Hold Ctrl / Cmd to select multiple</span>
+      <div class="card-label teal">Add-On Services</div>
+      <p style="font-size:0.86rem;color:rgba(0,0,0,0.5);margin-bottom:20px;">Select any add-ons you'd like to include in your program. These are billed separately from your monthly retainer.</p>
+
+      <div class="addon-grid">
+        <div class="addon-card" id="addon-tts" onclick="toggleAddon(this,'addon_live_tts')">
+          <input type="checkbox" name="addon_live_tts" value="TikTok Shop LIVE Host — $75/hr + 5% commission">
+          <div class="addon-title">TikTok Shop LIVE Host</div>
+          <div class="addon-price">$75<span>/hr</span> + 5% <span>commission on LIVE GMV</span></div>
+          <ul class="addon-details">
+            <li>Professional on-camera TikTok Shop LIVE host</li>
+            <li>Minimum 2-hour LIVE session per booking</li>
+            <li>Includes 30 min setup + 30 min teardown per session</li>
+            <li>5% commission on all GMV generated during the LIVE</li>
+            <li>Script &amp; show flow provided by Junglee</li>
+          </ul>
+        </div>
+        <div class="addon-card" id="addon-nontts" onclick="toggleAddon(this,'addon_live_non_tts')">
+          <input type="checkbox" name="addon_live_non_tts" value="Non-TikTok LIVE Host — $100/hr">
+          <div class="addon-title">Non-TikTok LIVE Host</div>
+          <div class="addon-price">$100<span>/hr</span></div>
+          <ul class="addon-details">
+            <li>LIVE host for YouTube, Instagram, Amazon, or brand-owned channels</li>
+            <li>Minimum 2-hour LIVE session per booking</li>
+            <li>Includes 30 min setup + 30 min teardown per session</li>
+            <li>Flat hourly rate — no commission</li>
+            <li>Script &amp; show flow provided by Junglee</li>
+          </ul>
         </div>
       </div>
+
+      <div class="row row-2" style="margin-top:6px;">
+        <div class="field">
+          <label>Estimated LIVE sessions / month</label>
+          <input type="number" name="live_sessions_per_month" placeholder="e.g. 4" min="0">
+        </div>
+        <div class="field">
+          <label>Estimated hours per LIVE session</label>
+          <input type="number" name="live_hours_per_session" placeholder="e.g. 2" min="2">
+          <span class="hint">Minimum 2 hours per session (not including setup/teardown)</span>
+        </div>
+      </div>
+
+      <div class="row row-1" style="margin-top:4px;">
+        <div class="field"><label>Content Production interest</label>
+          <select name="content_production">
+            <option value="">Not interested at this time</option>
+            <option>Yes — short-form video production</option>
+            <option>Yes — product photography</option>
+            <option>Yes — both video &amp; photography</option>
+            <option>Tell me more about this</option>
+          </select>
+        </div>
+      </div>
+
       <div class="row row-1">
-        <div class="field"><label>Notes or questions</label><textarea name="notes"></textarea></div>
+        <div class="field"><label>Notes on add-ons or special requests</label><textarea name="addon_notes" placeholder="Let us know any specifics — preferred LIVE dates, product focus, guest talent, etc."></textarea></div>
       </div>
     </div>
 
     <div class="form-actions">
-      <button type="submit" class="btn btn-coral">Submit Program Enrollment</button>
-      <button type="reset" class="btn btn-outline" onclick="document.querySelectorAll('.prog-card').forEach(c=>c.classList.remove('selected'))">Clear</button>
+      <button type="submit" class="btn btn-coral">Complete My Onboarding</button>
+      <button type="button" class="btn btn-outline" onclick="resetForm()">Clear</button>
     </div>
-    <div class="success" id="program-success">Enrollment submitted! We'll send the partner approval request within 1 business day — watch for the notification in your TikTok Seller Center.</div>
+    <div class="success" id="program-success">You're all set! Our team will reach out within 1 business day to confirm your setup and kick off your first 30 days.</div>
   </form>
-</div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════ WHAT TO EXPECT ════ -->
+  <div class="sec-heading">What to Expect</div>
+  <div class="sec-sub" id="timeline-sub">Your roadmap from launch to a fully scaled TikTok Shop channel. Select your program above to see your specific milestones.</div>
+
+  <!-- Growth timeline (shown by default) -->
+  <div id="timeline-growth">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Days 1–30</div>
+          <div class="tl-title">Foundation &amp; Launch</div>
+          <ul class="tl-items">
+            <li>Full TikTok Shop audit — listings, pricing, images, and SEO optimization</li>
+            <li>Affiliate program setup and first creator outreach begins</li>
+            <li>Campaign structure built — first GMV Max ads and platform campaigns go live</li>
+            <li>Content strategy and posting cadence established</li>
+            <li>Weekly performance check-in cadence starts</li>
+            <li>TSP partner approval confirmed in Seller Center</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Months 1–3</div>
+          <div class="tl-title">Momentum &amp; Optimization</div>
+          <ul class="tl-items">
+            <li>Affiliate network growing — 20–50+ active creators promoting your products</li>
+            <li>Ad performance data in — ROAS optimized and budgets reallocated</li>
+            <li>First LIVE selling strategy tested and measured</li>
+            <li>GMV trending up month over month</li>
+            <li>Campaign calendar established for recurring promotions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Months 3–6</div>
+          <div class="tl-title">Scale &amp; Consistency</div>
+          <ul class="tl-items">
+            <li>Established affiliate ecosystem driving consistent organic GMV</li>
+            <li>Predictable monthly revenue channel on TikTok Shop</li>
+            <li>Ad strategy refined — sustainable ROAS and cost-per-acquisition</li>
+            <li>LIVE selling cadence in place and generating repeat buyers</li>
+            <li>Monthly reporting rhythm with clear KPIs and forward planning</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Month 6–Year 1</div>
+          <div class="tl-title">Market Presence &amp; Authority</div>
+          <ul class="tl-items">
+            <li>TikTok Shop as a core, predictable revenue channel for your brand</li>
+            <li>Affiliate army of 100+ creators producing ongoing content</li>
+            <li>Full campaign calendar running — seasonal pushes, flash sales, hero product launches</li>
+            <li>Brand authority established within your TikTok category</li>
+            <li>Data-backed roadmap for year two</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scale timeline (hidden by default, shown when scale selected) -->
+  <div id="timeline-scale" style="display:none;">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Days 1–30</div>
+          <div class="tl-title">Foundation &amp; Launch</div>
+          <ul class="tl-items">
+            <li>Full TikTok Shop audit — listings, pricing, images, and SEO optimization</li>
+            <li>Affiliate program setup and first creator outreach begins</li>
+            <li>Campaign structure built — first GMV Max ads and platform campaigns go live</li>
+            <li>Content strategy and posting cadence established</li>
+            <li>Weekly performance check-in cadence starts</li>
+            <li>TSP partner approval confirmed in Seller Center</li>
+          </ul>
+          <div class="tl-scale-extra">
+            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <ul>
+              <li>Dedicated account strategist assigned on day one</li>
+              <li>Custom brand playbook build begins — positioning, creator brief, content pillars</li>
+              <li>Priority onboarding — faster turnaround on all setup tasks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Months 1–3</div>
+          <div class="tl-title">Momentum &amp; Optimization</div>
+          <ul class="tl-items">
+            <li>Affiliate network growing — 20–50+ active creators promoting your products</li>
+            <li>Ad performance data in — ROAS optimized and budgets reallocated</li>
+            <li>First LIVE selling strategy tested and measured</li>
+            <li>GMV trending up month over month</li>
+            <li>Campaign calendar established for recurring promotions</li>
+          </ul>
+          <div class="tl-scale-extra">
+            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <ul>
+              <li>Access to Junglee's advanced affiliate network — premium and macro creators</li>
+              <li>First in-house LIVE host sessions booked and executed</li>
+              <li>Team training sessions underway — internal team aligned on TikTok best practices</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Months 3–6</div>
+          <div class="tl-title">Scale &amp; Consistency</div>
+          <ul class="tl-items">
+            <li>Established affiliate ecosystem driving consistent organic GMV</li>
+            <li>Predictable monthly revenue channel on TikTok Shop</li>
+            <li>Ad strategy refined — sustainable ROAS and cost-per-acquisition</li>
+            <li>LIVE selling cadence in place and generating repeat buyers</li>
+            <li>Monthly reporting rhythm with clear KPIs and forward planning</li>
+          </ul>
+          <div class="tl-scale-extra">
+            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <ul>
+              <li>Full LIVE commerce cadence — regular scheduled LIVE sessions with Junglee host</li>
+              <li>Brand playbook complete and handed off to your team</li>
+              <li>Priority support — faster response and proactive strategy adjustments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-period">Month 6–Year 1</div>
+          <div class="tl-title">Market Leadership</div>
+          <ul class="tl-items">
+            <li>TikTok Shop as a core, predictable revenue channel for your brand</li>
+            <li>Affiliate army of 100+ creators producing ongoing content</li>
+            <li>Full campaign calendar running — seasonal pushes, flash sales, hero product launches</li>
+            <li>Brand authority established within your TikTok category</li>
+            <li>Data-backed roadmap for year two</li>
+          </ul>
+          <div class="tl-scale-extra">
+            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <ul>
+              <li>Category leadership position built through advanced affiliate &amp; LIVE strategy</li>
+              <li>Internal team fully capable of supporting TikTok Shop operations</li>
+              <li>Expanded creator network including top-tier talent and brand ambassadors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════ HOW A TSP SCALES YOUR BRAND ════ -->
+  <div class="sec-heading">How a TikTok Shop Service Partner Scales Your Brand</div>
+  <div class="sec-sub">As your TSP, Junglee Studios operates as a full extension of your team — managing the platform so you can focus on your products.</div>
+
+  <div class="form-card" style="padding:24px 28px;">
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">🛍️</div>
+        <div class="value-title">Full Shop Management</div>
+        <div class="value-desc">We handle listings, pricing strategy, SEO, inventory flags, customer reviews, and Seller Center compliance so nothing falls through the cracks.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <div class="value-title">Affiliate Ecosystem</div>
+        <div class="value-desc">We recruit, brief, and manage creators at scale. From micro-influencers to macro names — your affiliate army works 24/7 to drive organic sales.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📣</div>
+        <div class="value-title">Paid Growth</div>
+        <div class="value-desc">GMV Max, Spark Ads, and platform campaigns — we manage your ad spend with a focus on ROAS and scaling what's working.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📺</div>
+        <div class="value-title">LIVE Commerce</div>
+        <div class="value-desc">LIVE selling is TikTok's highest-converting format. We build your LIVE strategy, host sessions, and optimize for conversion in real time.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📊</div>
+        <div class="value-title">Data &amp; Reporting</div>
+        <div class="value-desc">Weekly performance reports with clear metrics — GMV, ROAS, affiliate ROI, LIVE performance — plus forward-looking recommendations.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <div class="value-title">Platform Access &amp; Intelligence</div>
+        <div class="value-desc">As a certified TSP, we have direct access to TikTok's partner tools, early campaign opportunities, and platform insights not available to self-managed shops.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /portal-body -->
 
 <script>
+// ── Password ──
 const PW = 'BeJungleeProgram';
 function checkPw() {
   if (document.getElementById('pwInput').value === PW) {
@@ -254,11 +672,28 @@ function checkPw() {
 document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); });
 if (sessionStorage.getItem('js_tsp_auth') === '1') document.getElementById('gate').classList.add('hidden');
 
-function selectProg(card) {
+// ── Program selection ──
+let selectedProgram = null;
+function selectProg(card, type) {
   document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
   card.classList.add('selected');
+  selectedProgram = type;
+  // Show correct timeline
+  document.getElementById('timeline-growth').style.display = type === 'growth' ? 'block' : 'none';
+  document.getElementById('timeline-scale').style.display = type === 'scale' ? 'block' : 'none';
+  document.getElementById('timeline-sub').textContent = type === 'growth'
+    ? 'Your Growth Program roadmap — from launch to a fully scaled TikTok Shop channel.'
+    : 'Your Scale Program roadmap — everything in Growth, accelerated with dedicated strategy, advanced affiliate access, and in-house LIVE host sessions.';
 }
 
+// ── Add-on toggle ──
+function toggleAddon(card, name) {
+  const chk = card.querySelector('input[type="checkbox"]');
+  chk.checked = !chk.checked;
+  card.classList.toggle('selected', chk.checked);
+}
+
+// ── Form submit ──
 const FORMSPREE_URL = 'https://formspree.io/f/xeebapww';
 
 function submitForm(e) {
@@ -274,9 +709,16 @@ function submitForm(e) {
       el.classList.add('show');
       form.reset();
       document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
-      setTimeout(() => el.classList.remove('show'), 9000);
+      document.querySelectorAll('.addon-card').forEach(c => { c.classList.remove('selected'); c.querySelector('input').checked = false; });
+      setTimeout(() => el.classList.remove('show'), 12000);
     } else { alert('Submission failed. Please email info@jungleestudios.com directly.'); }
   }).catch(() => alert('Submission failed. Please email info@jungleestudios.com directly.'));
+}
+
+function resetForm() {
+  document.getElementById('program-form').reset();
+  document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.addon-card').forEach(c => { c.classList.remove('selected'); c.querySelector('input').checked = false; });
 }
 </script>
 </body>
