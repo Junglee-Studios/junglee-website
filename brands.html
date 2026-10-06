@@ -32,6 +32,8 @@
   <script src="js/animations.js" defer></script>
 
   <style>
+    .faq-item__body ul{margin:10px 0 12px;padding:0 22px 0 42px;display:grid;gap:8px;line-height:1.55;}
+    @media (max-width: 760px){ #scope .svc[style*="grid-template-columns"]{grid-template-columns:1fr!important;} }
     .challenge-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -546,7 +548,7 @@
         <div class="kicker"><i></i> For Brands</div>
         <h1>Turn TikTok Shop Into a <span class="accent">Real Revenue Channel.</span></h1>
         <p class="lead">
-          Whether you're launching your first TikTok Shop or scaling one that's already selling, we run the whole channel with you — shop, creators and affiliates, content, LIVE, and ads — and train your team to own it.
+          Whether you're launching your first TikTok Shop or scaling one that's already selling, we run your shop operations, affiliate program, campaigns, and ads with you, build the content and LIVE playbooks your team executes, and train your team to own it.
         </p>
         <div class="actions">
           <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
@@ -698,7 +700,7 @@
       <p class="lead" style="font-size: 1.12rem;">
         Junglee Studios was founded by Jatin “JT” Patel — on the founding team at TikTok Shop's U.S. launch, where he co-led the Collectibles category build and led Countdown Bidding from concept to live launch. Brands work with Junglee because we replace platform guesswork with a clear operating model their team can run — backed by people who shaped the playbooks the platform still runs on.
       </p>
-      <p class="lead" style="font-size: 1.02rem; margin-top: 14px;">On Junglee Managed Services you get a senior dedicated team covering strategy, affiliates &amp; creators, LIVE, and content — the same people every week, working inside your brand standards.</p>
+      <p class="lead" style="font-size: 1.02rem; margin-top: 14px;">On Junglee Managed Services you get a senior dedicated team covering strategy, shop operations, affiliates, and campaigns — plus content and LIVE playbooks built for your products — the same people every week, working inside your brand standards.</p>
       <div class="actions" style="margin-top: 28px;">
         <a class="btn white" href="/about-junglee.html#team">Meet the team</a>
       </div>
@@ -742,11 +744,11 @@
         <div class="svc stagger-item" style="display: flex; flex-direction: column;">
           <div class="svc-head"><span class="num">Launching</span><span class="badge" style="background: rgba(255,95,80,0.10); color: var(--color-coral);">New to TikTok Shop</span></div>
           <h3>Launch it right the first time.</h3>
-          <p>No shop yet, or a shop that hasn't taken off. We set up and optimize the storefront and listings, then switch on creators, content, and LIVE in focused waves, so the channel is built to convert from day one.</p>
+          <p>No shop yet, or a shop that hasn't taken off. We set up and optimize the storefront and listings, build your affiliate program, and give your team content and LIVE playbooks built for your products, so the channel is built to convert from day one.</p>
           <ul style="margin-bottom:20px;">
             <li>Shop setup, catalog, and listing optimization</li>
             <li>First creator and affiliate wave, with samples managed</li>
-            <li>Content engine and first LIVE shows</li>
+            <li>Content &amp; LIVE playbooks for your team</li>
           </ul>
           <a class="btn" href="#what-we-do" style="align-self:flex-start;margin-top:auto;">Junglee Managed Services &rarr;</a>
         </div>
@@ -770,12 +772,8 @@
     <div class="container">
       <div class="kicker"><i></i> Junglee Managed Services</div>
       <h2>Everything your TikTok Shop needs — in one program.</h2>
-      <p class="lead" style="max-width: 66ch;">As a certified TikTok Shop Full-Service Management Partner, we run the entire operation. Shop, affiliates, content, campaigns, ads, and reporting — all included. No piecemeal. No gaps.</p>
-      <p style="margin-top: 14px; font-weight: 700;">$7,500/mo + 5% of shop GMV · 12-month engagement with a 90-day review · everything below included</p>
-      <div style="margin-top: 16px; padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid rgba(30,164,164,0.35); background: rgba(30,164,164,0.06); max-width: 820px;">
-        <p style="margin: 0; font-weight: 700;">Compared with building this team yourself, from scratch</p>
-        <p style="margin: 6px 0 0; font-size: 0.95rem; line-height: 1.55;">An affiliate manager, LIVE producer, content lead, and shop operations manager typically cost $25K+ a month in US salaries — before benefits, tools, and the months it takes to hire and ramp them. With Junglee, we run the work while your team gets up to speed: we help you hire the roles you need, train the staff you already have, and within a year your team runs everything without depending on an agency.</p>
-      </div>
+      <p class="lead" style="max-width: 66ch;">As a certified TikTok Shop Full-Service Management Partner, we run your shop operations, affiliate program, campaigns, ads, and reporting — and build the content and LIVE playbooks your team executes, with the metrics and targets to run them.</p>
+
 
       <div class="service-block service-block--with-video" id="services">
         <div class="svc svc--with-video stagger-item">
@@ -796,7 +794,8 @@
               <li>Shop design &amp; storefront architecture</li>
               <li>Product catalog &amp; listing optimization</li>
               <li>Offer sequencing &amp; promotion calendar</li>
-              <li>CRM &amp; customer management</li>
+              <li>TikTok Shop AI customer service setup</li>
+              <li>Fulfillment playbook for strong shipping &amp; shop-health scores</li>
             </ul>
           </div>
         </div>
@@ -833,15 +832,16 @@
           <div class="svc__body">
             <div class="svc-head">
               <span class="num">03 / Content</span>
-              <span class="badge">Included</span>
+              <span class="badge">Playbook included</span>
             </div>
-            <h3>Content &amp; Conversion Framework</h3>
-            <p>Scalable content frameworks built for the discovery feed — with the volume and iteration speed TikTok Shop demands.</p>
+            <h3>Content Playbook</h3>
+            <p>We don't produce your videos — we give your team the playbook to: what to make for your products, how to structure it, how often to post, and the numbers to hit.</p>
             <ul>
-              <li>Content &amp; conversion strategy</li>
-              <li>Scalable frameworks to increase volume &amp; conversion</li>
-              <li>Hook, structure &amp; CTA optimization</li>
-              <li>Posting cadence &amp; iteration loops</li>
+              <li>Content strategy built around your products &amp; audience</li>
+              <li>Hook, structure &amp; CTA frameworks</li>
+              <li>Posting cadence, metrics &amp; targets</li>
+              <li>Creator briefs for your affiliate campaigns</li>
+              <li><a href="/brands/content-creation">Want us to produce it? Content Creation add-on &rarr;</a></li>
             </ul>
           </div>
         </div>
@@ -855,16 +855,16 @@
           <div class="svc__body">
             <div class="svc-head">
               <span class="num">04 / LIVE</span>
-              <span class="badge">Included</span>
+              <span class="badge">Playbook included</span>
             </div>
-            <h3>Live Commerce Strategy &amp; Management</h3>
-            <p>Live commerce strategy, optimization, and performance iteration — built from the team that invented Countdown Bidding on TikTok Shop.</p>
+            <h3>LIVE Playbook &amp; Strategy</h3>
+            <p>From the team that built Countdown Bidding on TikTok Shop: the LIVE strategy, show formats, and metrics your team needs to sell live. Hosts and show production are available as add-ons.</p>
             <ul>
-              <li>Live commerce strategy &amp; performance iteration</li>
-              <li>Stream cadence, show structure &amp; run-of-show</li>
-              <li>In-house team training on LIVE operations</li>
-              <li>Auction strategies (Countdown Bidding)</li>
-              <li>Real-time analytics &amp; conversion tuning</li>
+              <li>LIVE strategy, cadence &amp; run-of-show templates</li>
+              <li>Auction strategies (Countdown Bidding) where they fit</li>
+              <li>Training your team or hosts on LIVE selling</li>
+              <li>Performance metrics, targets &amp; show reviews</li>
+              <li><a href="/brands/branded-live-selling">Want hosted shows? LIVE add-ons &rarr;</a></li>
             </ul>
           </div>
         </div>
@@ -917,11 +917,60 @@
   </section>
 
   <!-- Add-On Services -->
+
+  <section class="section section-smoke reveal" id="scope">
+    <div class="container">
+      <div class="kicker"><i></i> Clear scope</div>
+      <h2>What's included — and what stays with your team.</h2>
+      <p class="lead" style="max-width: 66ch;">Junglee Managed Services runs your TikTok Shop strategy, operations, affiliate program, and growth. Customer support, order fulfillment, content production, and LIVE hosting stay in-house, and we give your team the playbook to run each one well — or add our content and LIVE services.</p>
+      <div class="service-block" style="margin-top: 32px;">
+        <div class="svc stagger-item" style="display:flex;flex-direction:column;">
+          <div class="svc-head"><span class="num">We run it</span><span class="badge" style="background: rgba(30,164,164,0.10); color: var(--color-teal);">Included</span></div>
+          <h3>Junglee Managed Services</h3>
+          <ul>
+            <li>Shop setup, listings &amp; storefront optimization</li>
+            <li>Affiliate program build, creator briefs &amp; campaigns</li>
+            <li>Campaign calendar, promotions &amp; ads (GMV Max, Spark Ads)</li>
+            <li>Content &amp; LIVE playbooks, metrics &amp; targets for your brand</li>
+            <li>TikTok Shop AI customer service setup</li>
+            <li>Weekly reporting &amp; monthly business reviews</li>
+            <li>Hiring support &amp; training for your team</li>
+          </ul>
+        </div>
+        <div class="svc stagger-item" style="display:flex;flex-direction:column;">
+          <div class="svc-head"><span class="num">Your team runs it</span><span class="badge" style="background: rgba(255,95,80,0.10); color: var(--color-coral);">With our playbooks</span></div>
+          <h3>Not part of Managed Services</h3>
+          <ul>
+            <li><b>Customer support</b> — buyer and audience questions. We set up TikTok Shop's automated AI customer service for you.</li>
+            <li><b>Order fulfillment &amp; inventory</b> — your 3PL or warehouse ships orders. We give you the playbook for strong shipping and shop-health scores.</li>
+            <li><b>Content production</b> — your team or creators make the videos from our playbook, or add our <a href="/brands/content-creation">Content Creation</a> service.</li>
+            <li><b>LIVE hosting</b> — your team or hosts go live using our playbook, or add <a href="/brands/branded-live-selling">Branded Live Selling</a> or <a href="/brands/live-specialist-support">LIVE Specialist Support</a>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc" style="margin-top: 20px; display:grid; grid-template-columns: minmax(240px, 1fr) 2fr; gap: 28px; align-items: center; border-top: 5px solid var(--color-coral);">
+        <div>
+          <div class="kicker" style="margin-bottom: 8px;"><i></i> Pricing</div>
+          <div style="font-size: clamp(2.4rem, 4.4vw, 3.2rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1;">$7,500<span style="font-size: 1rem; font-weight: 600; opacity: .6;">/mo</span></div>
+          <p style="margin: 8px 0 0; font-weight: 700;">+ 5% of shop GMV + performance kicker</p>
+          <p style="margin: 4px 0 0; font-size: 0.92rem; opacity: .75;">12-month program · 90-day review</p>
+          <p style="margin: 10px 0 0; font-size: 0.86rem; line-height: 1.5; opacity: .75;">The kicker is a premium rate on GMV above your trailing 90-day baseline only — we earn it only on growth we help create.</p>
+          <a class="btn primary" style="margin-top: 16px; display: inline-block;" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+        </div>
+        <div style="padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid rgba(30,164,164,0.35); background: rgba(30,164,164,0.06);">
+          <p style="margin: 0; font-weight: 700;">Compared with building this team yourself, from scratch</p>
+          <p style="margin: 6px 0 0; font-size: 0.95rem; line-height: 1.55;">A TikTok Shop manager, affiliate manager, campaign and ads specialist, and channel strategist typically cost $25K+ a month in US salaries — before benefits, tools, and the months it takes to hire and ramp them. With Junglee, we run the work while your team gets up to speed: we help you hire the roles you need, train the staff you already have, and within a year your team runs everything without depending on an agency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-smoke reveal" id="capabilities">
     <div class="container">
       <div class="kicker"><i></i> Add-on services</div>
       <h2>Add-ons &amp; standalone services.</h2>
-      <p class="lead" style="max-width: 66ch;">Junglee Managed Services covers strategy, management, and operations. Need more firepower, or just one piece? Add hosted LIVE shows, LIVE specialists, or content production to your program — or start with any of these on its own, including standalone Affiliate Management.</p>
+      <p class="lead" style="max-width: 66ch;">Content production and LIVE shows aren't part of Managed Services — add them when you want us to do the work, not just plan it. Or start with any of these on its own, including standalone Affiliate Management.</p>
 
       <div class="service-block" style="margin-top: 36px;">
         <div class="svc stagger-item" style="display: flex; flex-direction: column;">
@@ -1000,8 +1049,8 @@
   <section class="section section-light reveal" id="first-12-months">
     <div class="container">
       <div class="kicker"><i></i> Your first 12 months</div>
-      <h2>What happens after you sign.</h2>
-      <p class="lead" style="max-width: 66ch;">Scaling on TikTok Shop takes time, and it depends on your products, category, and how much your team can lean in. We build a playbook around your products and audience, grow organically first to keep costs low, and add ads once organic is working. Your team works alongside ours from day one, so by the end of the year the playbooks, creator relationships, and LIVE cadence are yours.</p>
+      <h2>Your first year with Junglee.</h2>
+      <p class="lead" style="max-width: 66ch;">Every brand starts somewhere different. Here's how the year typically unfolds — whether you're launching from zero or already selling and ready to grow.</p>
 
       <div class="service-block" style="margin-top: 36px;">
         <div class="svc stagger-item" style="display: flex; flex-direction: column;">
@@ -1010,11 +1059,11 @@
             <span class="badge" style="background: rgba(255,95,80,0.10); color: var(--color-coral);">Launch &amp; foundation</span>
           </div>
           <h3>Get the engine running.</h3>
-          <p>Audit or set up the shop, then build a playbook around your products and audience — creators, content, and, where it fits your brand, LIVE.</p>
+          <p>What these months look like depends on where you start. Launching brands get the shop built and the first affiliate campaigns live. Brands already selling get an audit of what is limiting growth and a plan to scale what already works.</p>
           <ul>
-            <li>Shop audit or setup, listings &amp; promotion calendar</li>
-            <li>Creator-tier mapping and first affiliate &amp; sample wave</li>
-            <li>Content rhythm and first LIVE shows</li>
+            <li><b>Launching:</b> shop setup, listings &amp; first affiliate campaigns</li>
+            <li><b>Already selling:</b> growth audit, fixes &amp; scaling affiliate campaigns</li>
+            <li>Content &amp; LIVE playbooks built for your products</li>
             <li>Your team trained alongside ours from week one</li>
           </ul>
         </div>
@@ -1039,7 +1088,7 @@
             <span class="badge" style="background: rgba(255,95,80,0.10); color: var(--color-coral);">Scale &amp; build</span>
           </div>
           <h3>Scale what works. Build your playbooks.</h3>
-          <p>Double down on the creators, content, and shows that sell, while your team takes on more of the work with documented playbooks.</p>
+          <p>Double down on the products, creators, and campaigns that sell, while your team takes on more of the work with documented playbooks.</p>
           <ul>
             <li>Scale winning creators, offers &amp; LIVE cadence</li>
             <li>Ads (GMV Max, Spark Ads) layered in once organic is performing</li>
@@ -1055,7 +1104,7 @@
           <h3>Your team runs it — you choose what is next.</h3>
           <p>Your trained team runs TikTok Shop in-house with our support, or you keep Junglee running it on a renewal that is earned, not locked in.</p>
           <ul>
-            <li>Systems, playbooks &amp; creator network handed over</li>
+            <li>Systems, playbooks &amp; your affiliate program handed over</li>
             <li>Your team running day-to-day operations</li>
             <li>Optional: keep Junglee as your ongoing team</li>
           </ul>
@@ -1098,21 +1147,21 @@
         <details class="faq-item">
           <summary>How much does it cost?</summary>
           <div class="faq-item__body">
-            <p>Junglee Managed Services is $7,500/mo plus 5% of shop GMV on a 12-month engagement, with everything on this page included. Add-ons are priced separately: Branded Live Selling w/Host Program is $3,500/mo + 5% of LIVE GMV, LIVE Specialist Support is $3,500/mo + 7% commission, Content Creation is custom-quoted, and standalone Affiliate Management is $4,000/mo + 5% of affiliate GMV.</p>
+            <p>Junglee Managed Services is $7,500/mo plus 5% of shop GMV on a 12-month program, plus a performance kicker: a premium rate that applies only to GMV above your trailing 90-day baseline, so we earn it only on growth we help create. Content production and LIVE shows are add-ons, priced separately: Branded Live Selling w/Host Program is $3,500/mo + 5% of LIVE GMV, LIVE Specialist Support is $3,500/mo + 7% commission, and Content Creation is custom-quoted. Standalone Affiliate Management is $4,000/mo + 5% of affiliate GMV.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>How long does it take to see results?</summary>
           <div class="faq-item__body">
-            <p>Growth on TikTok Shop is real but it takes time, and the pace depends on your category, products, inventory, campaigns, and how much your team can collaborate. Not every brand sells the same way — some lean into LIVE or auctions, others grow through affiliates and video. That is why we build a playbook around your brand instead of promising a standard growth curve. At day 90 we review with your leadership what is gaining traction and adjust the playbook, and you see weekly reporting the whole way.</p>
+            <p>Growth on TikTok Shop is real but it takes time, and the pace depends on your category, products, inventory, campaigns, and how much your team can collaborate. Not every brand sells the same way — some lean into LIVE or auctions, others grow through affiliates and video. That is why we build a playbook around your brand instead of promising a standard growth curve — and why Junglee Managed Services is a 12-month program: lasting results on TikTok Shop come from compounding work over time, not a 90-day sprint. At day 90 we review with your leadership what is gaining traction and adjust the playbook, and you see weekly reporting the whole way.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>We don't have a TikTok Shop yet. Can you help us launch?</summary>
           <div class="faq-item__body">
-            <p>Yes. Launches are a core part of Junglee Managed Services: shop setup, catalog and listing optimization, then creators, content, and LIVE switched on in focused waves. Starting right avoids the policy issues, weak listings, and wasted samples that slow most new shops down.</p>
+            <p>Yes. Launches are a core part of Junglee Managed Services: shop setup, catalog and listing optimization, your first affiliate campaigns, and content and LIVE playbooks for your team. Starting right avoids the policy issues, weak listings, and wasted samples that slow most new shops down.</p>
           </div>
         </details>
 
@@ -1133,21 +1182,21 @@
         <details class="faq-item">
           <summary>What does working with Junglee actually look like?</summary>
           <div class="faq-item__body">
-            <p>We work alongside your team for a full 12-month engagement, building playbooks tailored to your brand and operating the program together — shop optimization, creator commerce, content production, and LIVE selling. We don't run a black-box service; we share what we're doing, how, and why, so your team can eventually own the program. By the end, you have a documented operating model and a team that knows how to run it.</p>
+            <p>We work alongside your team for a full 12-month program, building playbooks tailored to your brand and running the strategy and operations together — shop operations, affiliate campaigns, promotions, and ads, plus content and LIVE playbooks your team executes. We don't run a black-box service; we share what we're doing, how, and why, so your team can own the program. By the end, you have a documented operating model and a team that knows how to run it.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What does the first 90 days look like?</summary>
           <div class="faq-item__body">
-            <p>Month 1 is shop and content audit, creator-tier mapping, and infrastructure setup — getting the foundation right before we go live with creator and LIVE programs at scale. Month 2 is creator activation and content rhythm: matching your brand with creators who fit your audience and category, briefing campaigns, and starting LIVE. Month 3 is optimization — measuring what's working, doubling down on the winners, and starting the documented playbooks your team will eventually own.</p>
+            <p>It depends on where you start. <b>If you are launching</b>, the first 90 days are about building the foundation: shop setup, listings, policy and fulfillment readiness, AI customer service, and your first affiliate campaigns, with content and LIVE playbooks for your team. <b>If you are already selling</b> — say $50K a month — we start with an audit of what is driving and limiting sales, then focus on scaling what already works: affiliate campaigns, promotions, and the content and LIVE formats converting for you. Either way, at day 90 we review with your leadership what is gaining traction and adjust the plan for the rest of the year.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What happens at the end of the 12-month engagement?</summary>
           <div class="faq-item__body">
-            <p>Your team owns it. The whole engagement is designed around handing over a working program, not building a permanent dependency. Most brands extend with us into a smaller advisory or LIVE-production retainer, but the core operations — shop, creators, content rhythm — should be running inside your team. If we've done it right, you don't need us the way you did at the start.</p>
+            <p>Your team owns it. The whole program is designed around handing over a working channel, not building a permanent dependency: playbooks, systems, and an affiliate program that belongs to your brand. Some brands keep us on an advisory retainer or for add-on services, but the core operations should be running inside your team.</p>
           </div>
         </details>
 
@@ -1161,22 +1210,30 @@
         <details class="faq-item">
           <summary>How does Junglee work with creators on behalf of our brand?</summary>
           <div class="faq-item__body">
-            <p>Junglee operates both sides of the marketplace — full-service brand management AND a coached creator roster through Junglee Academy. That means your campaigns get matched to creators we know, coach, and can actually deliver against a brief. Brands working with Junglee aren't pitching cold to a list of handles; they're getting matched into a network of vetted, trained affiliate creators who already understand TikTok Shop selling.</p>
-            <p>Beyond our own network, we have the ability to conduct targeted and mass outreach across TikTok's creator marketplace — reaching established, proven, and high-performing creators outside our roster to match your brand with the right talent at the right scale.</p>
+            <p>Junglee Managed Services includes full affiliate management, built specifically for your brand and products — not a generic creator list. Here's what that covers:</p>
+            <ul>
+              <li><b>Program design.</b> Commission structure, open and targeted plans, and which products to lead with — set by your margins, price points, and category.</li>
+              <li><b>Creator research.</b> We find creators already selling similar products or in your category, and vet them on real sales performance, audience fit, and posting consistency — not follower counts.</li>
+              <li><b>Outreach &amp; collaborations.</b> Targeted collaborations, invitations, and a creator brief for each product: the hooks, talking points, and proof that make your product sell on video and LIVE.</li>
+              <li><b>Sample strategy.</b> Samples go to creators likely to post and convert, and we track every one until it turns into content — so samples are an investment, not a giveaway.</li>
+              <li><b>Campaign activation.</b> Commission boosts, promotions, and TikTok campaign moments that turn sampled creators into a steady stream of sales.</li>
+              <li><b>Weekly optimization.</b> We double down on the creators and content driving sales, re-engage those who've gone quiet, and retire what isn't working — reported to you weekly.</li>
+            </ul>
+            <p>Everything is built inside your TikTok Shop and stays tied to your brand: your creators, your relationships, your data. We don't own your affiliate program — we build it for you, document how it runs, and train your team so they can take it over once it's scaled.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>Do you only do the 12-month build program, or can you just run our TikTok Shop ongoing?</summary>
           <div class="faq-item__body">
-            <p>Both. The 12-month program is designed for brands who want to end up owning TikTok Shop in-house — we run it with you while transferring ownership. But if you'd rather have a long-term agency partner with no internal build required, we work that way too. We call it the extension model — we run shop, affiliate, content, and LIVE as a managed service on an ongoing basis, with monthly reporting. Most brands know which they want before the first call; we'll confirm together.</p>
+            <p>Both. The 12-month program is designed for brands who want to end up owning TikTok Shop in-house — we run it with you while transferring ownership. If you'd rather keep a long-term partner, we can continue running shop operations, affiliates, campaigns, and ads after the first year, with monthly reporting. We'll confirm what fits on the first call.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What reporting and insights do we get?</summary>
           <div class="faq-item__body">
-            <p>Every brand engagement includes monthly performance reporting covering GMV, affiliate channel metrics, content benchmarks, LIVE performance, and growth signals. We don't just run the program and hand you a dashboard — we interpret what's happening, where the growth levers are, and what we're doing about them. Brands on the full-service program get real-time visibility into affiliate campaigns, creator performance, and shop ops throughout the month.</p>
+            <p>Every brand engagement includes monthly performance reporting covering GMV, affiliate channel metrics, content benchmarks, LIVE performance, and growth signals. We don't just run the program and hand you a dashboard — we interpret what's happening, where the growth levers are, and what we're doing about them. Brands on Junglee Managed Services get real-time visibility into affiliate campaigns, creator performance, and shop ops throughout the month.</p>
           </div>
         </details>
 
@@ -1186,108 +1243,108 @@
 
   <!-- FAQPage schema for SEO. Mirrors the visible accordions above. -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does it take to see results?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Growth on TikTok Shop is real but it takes time, and the pace depends on your category, products, inventory, campaigns, and how much your team can collaborate. Not every brand sells the same way \u2014 some lean into LIVE or auctions, others grow through affiliates and video. That is why we build a playbook around your brand instead of promising a standard growth curve. At day 90 we review with your leadership what is gaining traction and adjust the playbook, and you see weekly reporting the whole way."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does it cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Junglee Managed Services is $7,500/mo plus 5% of shop GMV on a 12-month engagement. Add-ons: Branded Live Selling w/Host Program $3,500/mo + 5% of LIVE GMV; LIVE Specialist Support $3,500/mo + 7% commission; Content Creation custom-quoted; standalone Affiliate Management $4,000/mo + 5% of affiliate GMV."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "We don't have a TikTok Shop yet. Can you help us launch?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Launches are a core part of Junglee Managed Services: shop setup, catalog and listing optimization, then creators, content, and LIVE switched on in focused waves."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can we hire you for just one part, like affiliates or LIVE?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Affiliate Management, Branded Live Selling w/Host Program, LIVE Specialist Support, and Content Creation are each available as standalone services for brands already running their shop."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who is Junglee built for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Established brands ready to treat TikTok Shop as a real revenue channel, not a side experiment. Typically D2C-native or D2C-ready, with product-market fit, inventory capacity, and the willingness to lean in aggressively. Smaller brands with the capability and ambition to invest meaningfully are absolutely a fit — what matters is readiness to scale, not a fixed revenue floor."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does working with Junglee actually look like?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We work alongside your team for a full 12-month engagement, building playbooks tailored to your brand and operating the program together — shop optimization, creator commerce, content production, and LIVE selling. We don't run a black-box service; we share what we're doing, how, and why, so your team can eventually own the program. By the end, you have a documented operating model and a team that knows how to run it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does the first 90 days look like?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Month 1 is shop and content audit, creator-tier mapping, and infrastructure setup — getting the foundation right before we go live with creator and LIVE programs at scale. Month 2 is creator activation and content rhythm: matching your brand with creators who fit your audience and category, briefing campaigns, and starting LIVE. Month 3 is optimization — measuring what's working, doubling down on the winners, and starting the documented playbooks your team will eventually own."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What happens at the end of the 12-month engagement?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Your team owns it. The whole engagement is designed around handing over a working program, not building a permanent dependency. Most brands extend with us into a smaller advisory or LIVE-production retainer, but the core operations — shop, creators, content rhythm — should be running inside your team. If we've done it right, you don't need us the way you did at the start."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What certifications does Junglee hold?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Junglee Studios is a TikTok Shop Certified Full-Service Management Partner. Junglee was founded by Jatin 'JT' Patel, who served on the founding team at TikTok Shop's U.S. launch, where he co-led the build of the Collectibles category from zero and led Countdown Bidding from concept to live. The team brings insider knowledge of how the platform actually rewards brands and creators, not third-party guesswork."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does Junglee work with creators on behalf of our brand?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Junglee operates both sides of the marketplace — full-service brand management AND a coached creator roster through Junglee Academy. That means your campaigns get matched to creators we know, coach, and can actually deliver against a brief. Brands working with Junglee aren't pitching cold to a list of handles; they're getting matched into a network of vetted, trained affiliate creators who already understand TikTok Shop selling. Beyond our own network, we have the ability to conduct targeted and mass outreach across TikTok's creator marketplace — reaching established, proven, and high-performing creators outside our roster to match your brand with the right talent at the right scale."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you only do the 12-month build program, or can you just run our TikTok Shop ongoing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Both. The 12-month program is designed for brands who want to end up owning TikTok Shop in-house — we run it with you while transferring ownership. But if you'd rather have a long-term agency partner with no internal build required, we work that way too. We call it the extension model — we run shop, affiliate, content, and LIVE as a managed service on an ongoing basis, with monthly reporting."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What reporting and insights do we get?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every brand engagement includes monthly performance reporting covering GMV, affiliate channel metrics, content benchmarks, LIVE performance, and growth signals. We interpret what's happening, where the growth levers are, and what we're doing about them. Brands on the full-service program get real-time visibility into affiliate campaigns, creator performance, and shop ops throughout the month."
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Junglee Managed Services is $7,500/mo plus 5% of shop GMV on a 12-month program, plus a performance kicker: a premium rate that applies only to GMV above your trailing 90-day baseline, so we earn it only on growth we help create. Content production and LIVE shows are add-ons, priced separately: Branded Live Selling w/Host Program is $3,500/mo + 5% of LIVE GMV, LIVE Specialist Support is $3,500/mo + 7% commission, and Content Creation is custom-quoted. Standalone Affiliate Management is $4,000/mo + 5% of affiliate GMV."
       }
-    ]
-  }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Growth on TikTok Shop is real but it takes time, and the pace depends on your category, products, inventory, campaigns, and how much your team can collaborate. Not every brand sells the same way — some lean into LIVE or auctions, others grow through affiliates and video. That is why we build a playbook around your brand instead of promising a standard growth curve — and why Junglee Managed Services is a 12-month program: lasting results on TikTok Shop come from compounding work over time, not a 90-day sprint. At day 90 we review with your leadership what is gaining traction and adjust the playbook, and you see weekly reporting the whole way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We don't have a TikTok Shop yet. Can you help us launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Launches are a core part of Junglee Managed Services: shop setup, catalog and listing optimization, your first affiliate campaigns, and content and LIVE playbooks for your team. Starting right avoids the policy issues, weak listings, and wasted samples that slow most new shops down."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we hire you for just one part, like affiliates or LIVE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Affiliate Management, Branded Live Selling w/Host Program, LIVE Specialist Support, and Content Creation are each available as standalone services for brands already running their shop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Junglee built for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Established brands ready to treat TikTok Shop as a real revenue channel, not a side experiment. Typically D2C-native or D2C-ready, with product-market fit, inventory capacity, and the willingness to lean in aggressively. Smaller brands with the capability and ambition to invest meaningfully are absolutely a fit — what matters is readiness to scale, not a fixed revenue floor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does working with Junglee actually look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work alongside your team for a full 12-month program, building playbooks tailored to your brand and running the strategy and operations together — shop operations, affiliate campaigns, promotions, and ads, plus content and LIVE playbooks your team executes. We don't run a black-box service; we share what we're doing, how, and why, so your team can own the program. By the end, you have a documented operating model and a team that knows how to run it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the first 90 days look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on where you start. If you are launching, the first 90 days are about building the foundation: shop setup, listings, policy and fulfillment readiness, AI customer service, and your first affiliate campaigns, with content and LIVE playbooks for your team. If you are already selling — say $50K a month — we start with an audit of what is driving and limiting sales, then focus on scaling what already works: affiliate campaigns, promotions, and the content and LIVE formats converting for you. Either way, at day 90 we review with your leadership what is gaining traction and adjust the plan for the rest of the year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens at the end of the 12-month engagement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your team owns it. The whole program is designed around handing over a working channel, not building a permanent dependency: playbooks, systems, and an affiliate program that belongs to your brand. Some brands keep us on an advisory retainer or for add-on services, but the core operations should be running inside your team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications does Junglee hold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Junglee Studios is a TikTok Shop Certified Full-Service Management Partner — the badge you see on every page of this site. Junglee was founded by Jatin \"JT\" Patel, who served on the founding team at TikTok Shop's U.S. launch, where he co-led the build of the Collectibles category from zero and led Countdown Bidding from concept to live. The team brings insider knowledge of how the platform actually rewards brands and creators, not third-party guesswork."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Junglee work with creators on behalf of our brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Junglee Managed Services includes full affiliate management, built specifically for your brand and products — not a generic creator list. Here's what that covers: Program design. Commission structure, open and targeted plans, and which products to lead with — set by your margins, price points, and category. Creator research. We find creators already selling similar products or in your category, and vet them on real sales performance, audience fit, and posting consistency — not follower counts. Outreach & collaborations. Targeted collaborations, invitations, and a creator brief for each product: the hooks, talking points, and proof that make your product sell on video and LIVE. Sample strategy. Samples go to creators likely to post and convert, and we track every one until it turns into content — so samples are an investment, not a giveaway. Campaign activation. Commission boosts, promotions, and TikTok campaign moments that turn sampled creators into a steady stream of sales. Weekly optimization. We double down on the creators and content driving sales, re-engage those who've gone quiet, and retire what isn't working — reported to you weekly. Everything is built inside your TikTok Shop and stays tied to your brand: your creators, your relationships, your data. We don't own your affiliate program — we build it for you, document how it runs, and train your team so they can take it over once it's scaled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you only do the 12-month build program, or can you just run our TikTok Shop ongoing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. The 12-month program is designed for brands who want to end up owning TikTok Shop in-house — we run it with you while transferring ownership. If you'd rather keep a long-term partner, we can continue running shop operations, affiliates, campaigns, and ads after the first year, with monthly reporting. We'll confirm what fits on the first call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What reporting and insights do we get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every brand engagement includes monthly performance reporting covering GMV, affiliate channel metrics, content benchmarks, LIVE performance, and growth signals. We don't just run the program and hand you a dashboard — we interpret what's happening, where the growth levers are, and what we're doing about them. Brands on Junglee Managed Services get real-time visibility into affiliate campaigns, creator performance, and shop ops throughout the month."
+      }
+    }
+  ]
+}
   </script>
 
 
