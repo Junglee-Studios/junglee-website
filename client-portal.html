@@ -362,34 +362,22 @@
       </div>
 
       <div class="form-card">
-        <div class="card-label">Choose Your Program</div>
+        <div class="card-label">Your Program</div>
         <div class="program-grid">
-          <label class="prog-card" id="prog-growth" onclick="selectProg(this)">
-            <input type="radio" name="program" value="Junglee TSP Growth Program — $5,000/mo" required>
-            <div class="prog-badge">Growth</div>
-            <div class="prog-name">Junglee TSP Growth Program</div>
-            <div class="prog-price">$5,000 <span>/ month</span></div>
+          <label class="prog-card selected" id="prog-managed" style="grid-column:1/-1;">
+            <input type="radio" name="program" value="Junglee Managed Services — $7,500/mo + 5% GMV" required checked>
+            <div class="prog-badge">Managed</div>
+            <div class="prog-name">Junglee Managed Services</div>
+            <div class="prog-price">$7,500 <span>/ month + 5% of GMV</span></div>
             <ul class="prog-features">
-              <li>Full TikTok Shop management</li>
-              <li>Affiliate program management</li>
-              <li>Content & conversion strategy</li>
-              <li>LIVE selling strategy</li>
-              <li>Campaigns & GMV Max ads</li>
-              <li>Weekly performance reporting</li>
-            </ul>
-          </label>
-          <label class="prog-card" id="prog-scale" onclick="selectProg(this)">
-            <input type="radio" name="program" value="Junglee TSP Scale Program — $7,500/mo" required>
-            <div class="prog-badge">Scale</div>
-            <div class="prog-name">Junglee TSP Scale Program</div>
-            <div class="prog-price">$7,500 <span>/ month</span></div>
-            <ul class="prog-features">
-              <li>Everything in Growth, plus:</li>
-              <li>Dedicated account strategist</li>
-              <li>Advanced affiliate network access</li>
-              <li>In-house LIVE host sessions</li>
-              <li>Team training & playbook build</li>
-              <li>Priority support</li>
+              <li>Full TikTok Shop management by a senior dedicated team</li>
+              <li>Affiliate &amp; creator program management</li>
+              <li>Content &amp; conversion strategy</li>
+              <li>LIVE selling program, playbooks &amp; host training</li>
+              <li>Campaigns &amp; GMV Max ads</li>
+              <li>Weekly reporting + executive business reviews</li>
+              <li>In-house team buildout &amp; playbook handover</li>
+              <li>Full Academy Hub access for your team</li>
             </ul>
           </label>
         </div>
@@ -443,7 +431,7 @@
 
       <div class="form-actions">
         <button type="submit" class="btn btn-coral">Submit Program Enrollment</button>
-        <button type="reset" class="btn btn-outline" onclick="document.querySelectorAll('.prog-card').forEach(c=>c.classList.remove('selected'))">Clear</button>
+        <button type="reset" class="btn btn-outline" onclick="document.querySelectorAll('.prog-card').forEach(c=>c.classList.add('selected'))">Clear</button>
       </div>
       <div class="success" id="program-success">Enrollment submitted! We'll send the partner approval request within 1 business day — watch for the notification in your TikTok Seller Center.</div>
     </form>
@@ -463,8 +451,7 @@
         <div class="field">
           <label>Program</label>
           <select id="c-program" onchange="calc()">
-            <option value="5000">Junglee TSP Growth Program — $5,000/mo</option>
-            <option value="7500">Junglee TSP Scale Program — $7,500/mo</option>
+            <option value="7500">Junglee Managed Services — $7,500/mo</option>
           </select>
         </div>
         <div class="field">
@@ -620,7 +607,7 @@ function submitForm(e, formId, successId) {
     if (r.ok) {
       showSuccess(successId);
       form.reset();
-      document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.prog-card').forEach(c => c.classList.add('selected'));
     } else { alert('Submission failed. Please email info@jungleestudios.com directly.'); }
   }).catch(() => alert('Submission failed. Please email info@jungleestudios.com directly.'));
 }

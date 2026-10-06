@@ -310,34 +310,22 @@
     <div class="form-card">
       <div class="card-label">Your Program</div>
       <div class="program-grid">
-        <label class="prog-card" id="prog-growth" onclick="selectProg(this,'growth')">
-          <input type="radio" name="program" value="Junglee TSP Growth Program — $5,000/mo" required>
-          <div class="prog-badge">Growth</div>
-          <div class="prog-name">Junglee TSP Growth Program</div>
-          <div class="prog-price">$5,000 <span>/ month</span></div>
-          <ul class="prog-features">
-            <li>Full TikTok Shop management</li>
-            <li>Affiliate program management</li>
-            <li>Content & conversion strategy</li>
-            <li>LIVE selling strategy</li>
-            <li>Campaigns & GMV Max ads</li>
-            <li>Weekly performance reporting</li>
-          </ul>
-        </label>
-        <label class="prog-card" id="prog-scale" onclick="selectProg(this,'scale')">
-          <input type="radio" name="program" value="Junglee TSP Scale Program — $7,500/mo" required>
-          <div class="prog-badge">Scale</div>
-          <div class="prog-name">Junglee TSP Scale Program</div>
-          <div class="prog-price">$7,500 <span>/ month</span></div>
-          <ul class="prog-features">
-            <li>Everything in Growth, plus:</li>
-            <li>Dedicated account strategist</li>
-            <li>Advanced affiliate network access</li>
-            <li>In-house LIVE host sessions</li>
-            <li>Team training & playbook build</li>
-            <li>Priority support</li>
-          </ul>
-        </label>
+          <label class="prog-card selected" id="prog-managed" style="grid-column:1/-1;">
+            <input type="radio" name="program" value="Junglee Managed Services — $7,500/mo + 5% GMV" required checked>
+            <div class="prog-badge">Managed</div>
+            <div class="prog-name">Junglee Managed Services</div>
+            <div class="prog-price">$7,500 <span>/ month + 5% of GMV</span></div>
+            <ul class="prog-features">
+              <li>Full TikTok Shop management by a senior dedicated team</li>
+              <li>Affiliate &amp; creator program management</li>
+              <li>Content &amp; conversion strategy</li>
+              <li>LIVE selling program, playbooks &amp; host training</li>
+              <li>Campaigns &amp; GMV Max ads</li>
+              <li>Weekly reporting + executive business reviews</li>
+              <li>In-house team buildout &amp; playbook handover</li>
+              <li>Full Academy Hub access for your team</li>
+            </ul>
+          </label>
       </div>
     </div>
 
@@ -454,10 +442,10 @@
 
   <!-- ════ WHAT TO EXPECT ════ -->
   <div class="sec-heading">What to Expect</div>
-  <div class="sec-sub" id="timeline-sub">Your roadmap from launch to a fully scaled TikTok Shop channel. Select your program above to see your specific milestones.</div>
+  <div class="sec-sub" id="timeline-sub">Your Junglee Managed Services roadmap — from launch to a fully scaled TikTok Shop channel your team owns.</div>
 
-  <!-- Growth timeline (shown by default) -->
-  <div id="timeline-growth">
+  <!-- Legacy timeline (unused) -->
+  <div id="timeline-growth" style="display:none;">
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div class="tl-line"></div></div>
@@ -519,8 +507,8 @@
     </div>
   </div>
 
-  <!-- Scale timeline (hidden by default, shown when scale selected) -->
-  <div id="timeline-scale" style="display:none;">
+  <!-- Junglee Managed Services timeline -->
+  <div id="timeline-scale">
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div class="tl-line"></div></div>
@@ -536,7 +524,7 @@
             <li>TSP partner approval confirmed in Seller Center</li>
           </ul>
           <div class="tl-scale-extra">
-            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <div class="tl-scale-extra-label">Managed Services</div>
             <ul>
               <li>Dedicated account strategist assigned on day one</li>
               <li>Custom brand playbook build begins — positioning, creator brief, content pillars</li>
@@ -558,7 +546,7 @@
             <li>Campaign calendar established for recurring promotions</li>
           </ul>
           <div class="tl-scale-extra">
-            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <div class="tl-scale-extra-label">Managed Services</div>
             <ul>
               <li>Access to Junglee's advanced affiliate network — premium and macro creators</li>
               <li>First in-house LIVE host sessions booked and executed</li>
@@ -580,7 +568,7 @@
             <li>Monthly reporting rhythm with clear KPIs and forward planning</li>
           </ul>
           <div class="tl-scale-extra">
-            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <div class="tl-scale-extra-label">Managed Services</div>
             <ul>
               <li>Full LIVE commerce cadence — regular scheduled LIVE sessions with Junglee host</li>
               <li>Brand playbook complete and handed off to your team</li>
@@ -602,7 +590,7 @@
             <li>Data-backed roadmap for year two</li>
           </ul>
           <div class="tl-scale-extra">
-            <div class="tl-scale-extra-label">Scale Advantage</div>
+            <div class="tl-scale-extra-label">Managed Services</div>
             <ul>
               <li>Category leadership position built through advanced affiliate &amp; LIVE strategy</li>
               <li>Internal team fully capable of supporting TikTok Shop operations</li>
@@ -673,7 +661,7 @@ document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key 
 if (sessionStorage.getItem('js_tsp_auth') === '1') document.getElementById('gate').classList.add('hidden');
 
 // ── Program selection ──
-let selectedProgram = null;
+let selectedProgram = 'scale';
 function selectProg(card, type) {
   document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
   card.classList.add('selected');
@@ -681,9 +669,6 @@ function selectProg(card, type) {
   // Show correct timeline
   document.getElementById('timeline-growth').style.display = type === 'growth' ? 'block' : 'none';
   document.getElementById('timeline-scale').style.display = type === 'scale' ? 'block' : 'none';
-  document.getElementById('timeline-sub').textContent = type === 'growth'
-    ? 'Your Growth Program roadmap — from launch to a fully scaled TikTok Shop channel.'
-    : 'Your Scale Program roadmap — everything in Growth, accelerated with dedicated strategy, advanced affiliate access, and in-house LIVE host sessions.';
 }
 
 // ── Add-on toggle ──
@@ -708,7 +693,7 @@ function submitForm(e) {
       const el = document.getElementById('program-success');
       el.classList.add('show');
       form.reset();
-      document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.prog-card').forEach(c => c.classList.add('selected'));
       document.querySelectorAll('.addon-card').forEach(c => { c.classList.remove('selected'); c.querySelector('input').checked = false; });
       setTimeout(() => el.classList.remove('show'), 12000);
     } else { alert('Submission failed. Please email info@jungleestudios.com directly.'); }
@@ -717,7 +702,7 @@ function submitForm(e) {
 
 function resetForm() {
   document.getElementById('program-form').reset();
-  document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.prog-card').forEach(c => c.classList.add('selected'));
   document.querySelectorAll('.addon-card').forEach(c => { c.classList.remove('selected'); c.querySelector('input').checked = false; });
 }
 </script>
