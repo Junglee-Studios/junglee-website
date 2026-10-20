@@ -39,7 +39,8 @@
     />
     <link rel="stylesheet" href="styles/base.css" />
     <script src="partials/loader.js" defer></script>
-    <script src="js/animations.js" defer></script>
+    <script src="/js/site-stats.js" defer></script>
+  <script src="js/animations.js" defer></script>
     <style>
       @media (max-width: 760px) {
         #why-we-exist .container > div { grid-template-columns: 1fr !important; gap: 24px !important; }
@@ -100,20 +101,20 @@
 
           <div class="stat-grid" aria-label="Junglee Studios track record">
             <div class="stat-cell">
-              <div class="stat-num coral" data-count-to="1.3" data-count-prefix="$" data-count-suffix="B+" data-count-decimals="1">$1.3B+</div>
-              <div class="stat-label">D2C Sales Operated</div>
+              <div class="stat-num coral" data-stat="sales" data-count-to="1.3" data-count-prefix="$" data-count-suffix="B+" data-count-decimals="1">$1.3B+</div>
+              <div class="stat-label" data-stat-label="sales">D2C Sales Operated</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-num teal" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
-              <div class="stat-label">LIVE GMV</div>
+              <div class="stat-num teal" data-stat="live" data-count-to="500" data-count-prefix="$" data-count-suffix="M+" data-count-decimals="0">$500M+</div>
+              <div class="stat-label" data-stat-label="live">LIVE GMV</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-num" data-count-to="400" data-count-suffix="+" data-count-decimals="0">400+</div>
-              <div class="stat-label">Brands Scaled</div>
+              <div class="stat-num" data-stat="brands" data-count-to="400" data-count-suffix="+" data-count-decimals="0">400+</div>
+              <div class="stat-label" data-stat-label="brands">Brands Scaled</div>
             </div>
             <div class="stat-cell">
-              <div class="stat-num" data-count-to="300" data-count-suffix="+" data-count-decimals="0">300+</div>
-              <div class="stat-label">Creators Supported</div>
+              <div class="stat-num" data-stat="creators" data-count-to="300" data-count-suffix="+" data-count-decimals="0">300+</div>
+              <div class="stat-label" data-stat-label="creators">Creators Supported</div>
             </div>
           </div>
           <p class="source-note">Numbers reflect our leadership team's experience at TikTok Shop and Junglee Studios combined.</p>
