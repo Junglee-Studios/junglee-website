@@ -54,15 +54,17 @@
     }
     #paths .path-card:hover { transform: none; }
     /* Hero headline: "We help [word]" on line 1 sized to fit the longest word */
-    body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1.08; }
+    body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.08; }
+    body[data-page="home"] .hero { padding-top: clamp(64px, 7vw, 100px); }
     @media (min-width: 981px) {
-      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.7fr) !important; }
-      body[data-page="home"] .hero-content { max-width: 690px; }
+      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important; }
+      body[data-page="home"] .hero-content { max-width: 620px; }
+      body[data-page="home"] .hero-visual { max-width: 480px; }
     }
     @media (min-width: 480px) { .hero h1 .accent { white-space: nowrap; } }
     #paths .path-card.brand h3 { color: var(--color-white); }
     .hero-line { white-space: nowrap; }
-    @media (min-width: 1024px) { .hero-partner-line { white-space: nowrap; font-size: 0.66rem; letter-spacing: 0.12em; } }
+    @media (min-width: 1200px) { .hero-partner-line { white-space: nowrap; font-size: 0.64rem; letter-spacing: 0.11em; } }
     /* Path cards: both dark; brand accents coral, creator accents teal */
     #paths .path-card.brand { background: var(--color-charcoal); border: 1px solid rgba(255,255,255,0.14); }
     #paths .path-card.brand .path-label { color: var(--color-coral); }
@@ -97,6 +99,11 @@
     @media (max-width: 760px) { .creator-steps { grid-template-columns: 1fr; } }
     #for-creators .kicker { color: var(--color-teal); } #for-creators .kicker i { background: var(--color-teal); }
     #for-creators .creator-btn { background: var(--color-teal); border-color: var(--color-teal); color: #fff; }
+    .foot--centered { flex-direction: column; justify-content: center; text-align: center; gap: 14px; padding: 8px 0; }
+    .foot-tagline { margin: 0; font-weight: 800; letter-spacing: 0.04em; font-size: 0.95rem; color: var(--color-white); }
+    .foot-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; font-size: 0.74rem; color: rgba(255,255,255,0.5); }
+    .foot-meta a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .foot-meta a:hover { color: #fff; }
   </style>
 </head>
 
@@ -151,9 +158,9 @@
               Book a Strategy Call
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy</a>
+            <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply as a Creator</a>
           </div>
-          <p class="source-note" style="margin-top: 10px;">For brands: <a href="/brands">Junglee Managed Services</a> &middot; For creators: <a href="/creators">how the Academy works</a> &middot; Already a member? <a href="https://academy.jungleestudios.com/#/login">Log in</a></p>
+          <p class="source-note" style="margin-top: 10px;">For brands: <a href="/brands">Junglee Managed Services</a> &middot; For creators: <a href="/creators">Junglee Academy for Creators</a> &middot; Already a member? <a href="https://academy.jungleestudios.com/#/login">Log in</a></p>
 
           <p class="stat-caption" style="margin: 34px 0 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6);">Our founding team's track record</p>
           <div class="stat-grid" style="margin-top: 0;" aria-label="Junglee founding team track record">
@@ -221,18 +228,6 @@
     </section>
 
     <!-- 2. CHOOSE YOUR PATH (directly under hero) -->
-    <!-- Term marquee (restrained) -->
-    <div class="term-marquee term-marquee--coral reveal" aria-hidden="true">
-      <div class="term-marquee-track" data-marquee>
-        <span>Social commerce</span><span class="dot"></span>
-        <span>Discovery commerce</span><span class="dot"></span>
-        <span>Product discovery</span><span class="dot"></span>
-        <span>Live selling</span><span class="dot"></span>
-        <span>Content that converts</span><span class="dot"></span>
-        <span>Creator commerce</span><span class="dot"></span>
-      </div>
-    </div>
-
     <!-- 8. LOGOS -->
     <section class="section section-light reveal trusted-strip" id="trusted-by">
       <div class="container">
@@ -276,7 +271,7 @@
               <p>Whether you're launching or scaling, there's a level of support that fits your team, from self-managed to fully managed.</p>
               <ul class="path-bullets">
                 <li><strong>Junglee Managed Services</strong> &mdash; we build and scale your channel with your team</li>
-                <li><strong>Brand Academy</strong> &mdash; self-managed plans with our playbooks and tools (launching soon)</li>
+                <li><strong>Junglee Academy for Brands</strong> &mdash; self-managed plans with our playbooks and tools (launching soon)</li>
                 <li><strong>Add-on services</strong> &mdash; affiliate management, LIVE, and content creation</li>
                 <li><strong>Shop Setup &amp; Account Health</strong> &mdash; launch your shop or fix account issues</li>
               </ul>
@@ -304,10 +299,10 @@
                 <li>Off-platform deals, Creator Rewards &amp; LIVE gifts stay 100% yours</li>
               </ul>
               <div class="actions" style="margin-top: 20px;">
-                <a class="btn primary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy</a>
+                <a class="btn primary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy for Creators</a>
               </div>
               <a class="arrow" href="/creators" style="color: var(--color-teal);">
-                How the Academy works
+                How Junglee Academy for Creators works
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -595,6 +590,18 @@
       </div>
     </section>
 
+    <!-- Term marquee (restrained) -->
+    <div class="term-marquee term-marquee--coral reveal" aria-hidden="true">
+      <div class="term-marquee-track" data-marquee>
+        <span>Social commerce</span><span class="dot"></span>
+        <span>Discovery commerce</span><span class="dot"></span>
+        <span>Product discovery</span><span class="dot"></span>
+        <span>Live selling</span><span class="dot"></span>
+        <span>Content that converts</span><span class="dot"></span>
+        <span>Creator commerce</span><span class="dot"></span>
+      </div>
+    </div>
+
     <!-- 6. 12-MONTH OWNERSHIP / HANDOVER -->
     <section class="section section-smoke reveal" id="why-junglee">
       <div class="container" style="max-width: 880px;">
@@ -625,7 +632,7 @@
           <div><span class="step-n">3</span><h3>Grow with coaching and tools</h3><p>Stage-based coaching, your earnings dashboard, and product matches. You keep 80% of your commissions.</p></div>
         </div>
         <div class="actions" style="justify-content:center; margin-top: 28px;">
-          <a class="btn primary creator-btn" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy</a>
+          <a class="btn primary creator-btn" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy for Creators</a>
           <a class="btn secondary" href="/creators">How it works for creators</a>
         </div>
       </div>
@@ -648,30 +655,21 @@
             <span class="cta-path__chip">Creators</span>
             <h3 class="cta-path__title">5K+ followers and selling on TikTok Shop?</h3>
             <p class="cta-path__sub">No sign-up fee. Under 5K? Start with our <a href="/creators" style="color: inherit; text-decoration: underline;">free starter lesson</a> and come back at 5K.</p>
-            <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy</a>
+            <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy for Creators</a>
           </article>
         </div>
 
         <p class="source-note" style="margin-top: 28px;">
           Or email us at <a href="mailto:info@jungleestudios.com" style="color: var(--color-coral);">info@jungleestudios.com</a>
         </p>
-        <p class="tagline" style="margin-top: 22px; font-weight: 800; letter-spacing: 0.02em;"><span class="be-junglee">BE JUNGLEE.</span> <span style="font-weight: 600;">Playing it safe never changed the game.</span> <span class="be-wild">BE WILD.</span></p>
       </div>
     </section>
 
 
     <footer id="site-footer">
 <div class="container">
-  <div class="foot">
-    <a class="foot-brand" href="/" aria-label="Junglee Studios home">
-      <img src="/assets/logos/Untitled%20(14).png" alt="Junglee Studios" width="1918" height="729" />
-    </a>
-    <div class="fine">&copy; <span id="year"></span> Junglee Studios. All rights reserved.</div>
-    <div class="foot-legal">
-      <a href="/terms">Terms of Service</a>
-      <span class="foot-sep">&middot;</span>
-      <a href="/privacy">Privacy Policy</a>
-    </div>
+  <div class="foot foot--centered">
+    <p class="tagline foot-tagline"><span class="be-junglee">BE JUNGLEE.</span> Playing it safe never changed the game. <span class="be-wild">BE WILD.</span></p>
     <div class="social" aria-label="Social links">
       <a class="icon" href="https://www.instagram.com/jungleestudios/" target="_blank" rel="noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.26.07 1.64.07 4.84s0 3.58-.07 4.84c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.26.06-1.64.07-4.84.07s-3.58 0-4.84-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.58.07-4.84c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.95c-3.15 0-3.52 0-4.76.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.04C2.65 9.93 2.65 10.3 2.65 12c0 1.7 0 2.07.07 3.31.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.04.38 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.04.06-1.24.07-1.61.07-3.31s0-2.07-.07-3.31c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.04-.38C15.52 4.15 15.15 4.15 12 4.15zm0 3.32a4.53 4.53 0 1 1 0 9.06 4.53 4.53 0 0 1 0-9.06zm0 1.95a2.58 2.58 0 1 0 0 5.16 2.58 2.58 0 0 0 0-5.16zm5.78-2.16a1.06 1.06 0 1 1-2.12 0 1.06 1.06 0 0 1 2.12 0z"/></svg>
@@ -685,6 +683,13 @@
       <a class="icon" href="https://www.linkedin.com/company/jungleestudios" target="_blank" rel="noreferrer" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg>
       </a>
+    </div>
+    <div class="foot-meta">
+      <span>&copy; <span id="year"></span> Junglee Studios</span>
+      <span class="foot-sep">&middot;</span>
+      <a href="/terms">Terms of Service</a>
+      <span class="foot-sep">&middot;</span>
+      <a href="/privacy">Privacy Policy</a>
     </div>
   </div>
 </div>
