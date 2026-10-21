@@ -81,16 +81,33 @@
       return;
     }
 
+    // Reserve the width of the longest word so nothing on the line moves
+    // while a word is typed or erased.
+    var probe = el.cloneNode(false);
+    probe.style.cssText = 'position:absolute;visibility:hidden;border:0;padding:0;animation:none;white-space:nowrap;';
+    el.parentNode.appendChild(probe);
+    var maxW = 0;
+    words.forEach(function (w) { probe.textContent = w; maxW = Math.max(maxW, probe.getBoundingClientRect().width); });
+    probe.parentNode.removeChild(probe);
+    var slot = document.createElement('span');
+    slot.style.display = 'inline-block';
+    slot.style.minWidth = Math.ceil(maxW + 4) + 'px';
+    slot.style.textAlign = 'left';
+    el.parentNode.insertBefore(slot, el);
+    slot.appendChild(el);
+
     var wordIndex = 0;
     var isDeleting = true;
     var charIndex = words[0].length;
     el.textContent = words[0];
+    // A zero-width space keeps the line height and baseline when a word is fully erased.
+    function show(t) { el.textContent = t || '\u200b'; }
 
     function tick() {
       var currentWord = words[wordIndex];
       if (isDeleting) {
         charIndex--;
-        el.textContent = currentWord.substring(0, charIndex);
+        show(currentWord.substring(0, charIndex));
         if (charIndex === 0) {
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
@@ -100,7 +117,7 @@
         setTimeout(tick, deletingSpeed);
       } else {
         charIndex++;
-        el.textContent = currentWord.substring(0, charIndex);
+        show(currentWord.substring(0, charIndex));
         if (charIndex === currentWord.length) {
           isDeleting = true;
           setTimeout(tick, holdTime);
