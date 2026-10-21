@@ -8,7 +8,7 @@
   var STATS = {
     sales:    { prefix: '$', value: 1.3, suffix: 'B+', decimals: 1, label: 'D2C Sales Operated' },
     live:     { prefix: '$', value: 500, suffix: 'M+', decimals: 0, label: 'LIVE GMV' },
-    brands:   { prefix: '',  value: 400, suffix: '+',  decimals: 0, label: 'Brands Scaled' },
+    brands:   { prefix: '',  value: 400, suffix: '+',  decimals: 0, label: 'Brands Supported by Our Team' },
     creators: { prefix: '',  value: 300, suffix: '+',  decimals: 0, label: 'Creators Supported' }
   };
   window.JUNGLEE_STATS = STATS;

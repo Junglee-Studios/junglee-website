@@ -88,3 +88,21 @@ Content production and LIVE shows are **add-ons**. The brand owns its affiliate 
 
 ## Terms
 Use "Junglee Managed Services", "add-on", "standalone service", "playbook", "you own your affiliate program", "LIVE" (capitalized), "TikTok Shop".
+
+## Partner status (approved wording)
+Junglee Studios is an **Official TikTok Shop Full-Service Management Partner**, which covers TikTok Shop Partner (TSP), Creator Agency Partner (CAP), TikTok Affiliate Partner (TAP), and Multi-Channel Network (MCN) status. Junglee is approved to use TikTok partner badging and logos. Use the full name on first mention; "official TikTok Shop partner" is fine after that.
+
+## Headline stats
+- Edit numbers ONLY in `js/site-stats.js`. Mark any element that shows a stat with `data-stat="sales|live|brands|creators"` (and `data-stat-label="…"` for its label). The website stat strips and the partner deck read from that file.
+- These are the founding team's career totals, not Junglee client results. The brands stat label is "Brands Supported by Our Team". Never word them as client outcomes.
+
+## Creators and Junglee Academy (creator side)
+- Audience: TikTok Shop affiliate creators ready to scale. Minimum to join the Academy: **5,000+ followers** (past TikTok's Creator Pilot Program limits). Creators under 5K get a free public starter lesson and are invited back at 5K.
+- The deal: free to join. Creators link Junglee as their TikTok Shop agency. Junglee receives **20% of the TikTok Shop affiliate commission** on sales through the TikTok Shop creator program; the creator keeps 80%. TikTok pays each side directly. Brand commissions typically run 10–30% depending on the product.
+- Not included in the 20%: off-platform brand deals, flat fees, Creator Rewards, LIVE gifts — 100% the creator's.
+- Month-to-month. Ending the agency link ends Academy access. Not exclusive to brands; TikTok allows one agency per creator on its platform.
+- Junglee coaches creators on working with brands but does not manage brand relationships unless a separate agency-management deal is agreed. Junglee currently manages TikTok only (other platforms are future plans — do not advertise them).
+- Do not claim an existing brand network or negotiated rates. Say Junglee is building its brand partner list and matched opportunities appear in the creator portal as they open.
+
+## Tagline
+"BE JUNGLEE. Playing it safe never changed the game." is the sign-off for brand-facing pages and the deck. The full "…Be wild." version is reserved for creator-facing pages. "Junglee" means wild in Hindi — use that origin story on About.
