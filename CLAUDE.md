@@ -108,5 +108,5 @@ Junglee Studios is an **Official TikTok Shop Full-Service Management Partner**, 
 Always the full line: "BE JUNGLEE. Playing it safe never changed the game. BE WILD." "Junglee" means wild in Hindi. Our wild = helping brands and creators grow into independence instead of agency dependence, and going all in on video, LIVE, and affiliate selling (where commerce is now and where it's headed).
 
 ## Brand offering structure (keep consistent)
-Brands: Junglee Managed Services (done-with-you), Brand Academy self-managed plans (2 tiers, launching soon — do not publish pricing until finalized), add-on and standalone services, Shop Setup & Account Health. Creators: Creator Academy.
+Brands: Junglee Managed Services (done-with-you), Junglee Academy for Brands self-managed plans (2 tiers, launching soon — do not publish pricing until finalized), add-on and standalone services, Shop Setup & Account Health. Creators: Junglee Academy for Creators. Umbrella name: Junglee Academy. Short buttons may say "Apply as a Creator".
 Never say we "hand it over" or "hand off". Say we build and scale the channel with the brand's team and make sure they can keep scaling it on their own.
