@@ -54,11 +54,15 @@
     }
     #paths .path-card:hover { transform: none; }
     /* Hero headline: "We help [word]" on line 1 sized to fit the longest word */
-    body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.08; }
+    body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.08; }
     body[data-page="home"] .hero { padding-top: clamp(64px, 7vw, 100px); }
     @media (min-width: 981px) {
-      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important; }
-      body[data-page="home"] .hero-content { max-width: 620px; }
+      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1fr) 400px !important; gap: 48px !important; }
+      body[data-page="home"] .hero-content { max-width: none; }
+      body[data-page="home"] .hero-visual { max-width: 400px; }
+    }
+    @media (min-width: 1200px) {
+      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1fr) 480px !important; }
       body[data-page="home"] .hero-visual { max-width: 480px; }
     }
     @media (min-width: 480px) { .hero h1 .accent { white-space: nowrap; } }
@@ -99,9 +103,20 @@
     @media (max-width: 760px) { .creator-steps { grid-template-columns: 1fr; } }
     #for-creators .kicker { color: var(--color-teal); } #for-creators .kicker i { background: var(--color-teal); }
     #for-creators .creator-btn { background: var(--color-teal); border-color: var(--color-teal); color: #fff; }
-    .foot--centered { flex-direction: column; justify-content: center; text-align: center; gap: 14px; padding: 8px 0; }
-    .foot-tagline { margin: 0; font-weight: 800; letter-spacing: 0.04em; font-size: 0.95rem; color: var(--color-white); }
-    .foot-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; font-size: 0.74rem; color: rgba(255,255,255,0.5); }
+    .foot--centered { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; padding: 6px 0; }
+    .foot--centered .social { justify-self: start; order: 1; }
+    .foot--centered .foot-tagline { order: 2; text-align: center; }
+    .foot--centered .foot-meta { justify-self: end; order: 3; }
+    .foot--centered { grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); }
+    .foot-tagline { font-size: 0.86rem !important; }
+    @media (max-width: 1199px) {
+      .foot--centered { grid-template-columns: 1fr 1fr; row-gap: 14px; }
+      .foot--centered .foot-tagline { grid-column: 1 / -1; order: 0; }
+    }
+    @media (max-width: 640px) { .foot--centered { grid-template-columns: 1fr; justify-items: center; text-align: center; } .foot--centered .social, .foot--centered .foot-meta { justify-self: center; } }
+    .foot-tagline { margin: 0; font-weight: 800; letter-spacing: 0.04em; color: var(--color-white); }
+    .foot-meta { display: flex; flex-wrap: nowrap; white-space: nowrap; justify-content: center; gap: 6px; font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+    @media (max-width: 900px) { .foot-meta { flex-wrap: wrap; white-space: normal; } }
     .foot-meta a { color: rgba(255,255,255,0.6); text-decoration: none; }
     .foot-meta a:hover { color: #fff; }
   </style>
@@ -294,8 +309,7 @@
               <p>Stage-based coaching, tools, and product matching for TikTok Shop affiliate creators ready to scale their earnings.</p>
               <ul class="path-bullets">
                 <li>5,000+ followers to join</li>
-                <li>No sign-up fee, month-to-month</li>
-                <li>You keep 80% of your TikTok Shop affiliate commissions; Junglee earns 20%. TikTok pays each of us directly</li>
+                <li>Month-to-month. Our fee is 20% of your TikTok Shop affiliate commissions; you keep 80%, and TikTok pays each of us directly</li>
                 <li>Off-platform deals, Creator Rewards &amp; LIVE gifts stay 100% yours</li>
               </ul>
               <div class="actions" style="margin-top: 20px;">
@@ -628,7 +642,7 @@
         <h2>Earn more on TikTok Shop, with a team that knows the platform.</h2>
         <div class="creator-steps">
           <div><span class="step-n">1</span><h3>Reach 5K and apply</h3><p>Past TikTok's Creator Pilot limits, you're ready for the Academy.</p></div>
-          <div><span class="step-n">2</span><h3>Link Junglee as your agency</h3><p>Approve the link inside TikTok. Month-to-month, no sign-up fee.</p></div>
+          <div><span class="step-n">2</span><h3>Link Junglee as your agency</h3><p>Approve the link inside TikTok. Month-to-month, and our fee is 20% of your TikTok Shop commissions.</p></div>
           <div><span class="step-n">3</span><h3>Grow with coaching and tools</h3><p>Stage-based coaching, your earnings dashboard, and product matches. You keep 80% of your commissions.</p></div>
         </div>
         <div class="actions" style="justify-content:center; margin-top: 28px;">
@@ -654,7 +668,7 @@
           <article class="cta-path cta-path--creator">
             <span class="cta-path__chip">Creators</span>
             <h3 class="cta-path__title">5K+ followers and selling on TikTok Shop?</h3>
-            <p class="cta-path__sub">No sign-up fee. Under 5K? Start with our <a href="/creators" style="color: inherit; text-decoration: underline;">free starter lesson</a> and come back at 5K.</p>
+            <p class="cta-path__sub">You keep 80% of your TikTok Shop commissions. Under 5K? Start with our <a href="/creators" style="color: inherit; text-decoration: underline;">free starter lesson</a> and come back at 5K.</p>
             <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy for Creators</a>
           </article>
         </div>
@@ -687,9 +701,9 @@
     <div class="foot-meta">
       <span>&copy; <span id="year"></span> Junglee Studios</span>
       <span class="foot-sep">&middot;</span>
-      <a href="/terms">Terms of Service</a>
+      <a href="/terms">Terms</a>
       <span class="foot-sep">&middot;</span>
-      <a href="/privacy">Privacy Policy</a>
+      <a href="/privacy">Privacy</a>
     </div>
   </div>
 </div>

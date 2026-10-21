@@ -98,7 +98,7 @@ Junglee Studios is an **Official TikTok Shop Full-Service Management Partner**, 
 
 ## Creators and Junglee Academy (creator side)
 - Audience: TikTok Shop affiliate creators ready to scale. Minimum to join the Academy: **5,000+ followers** (past TikTok's Creator Pilot Program limits). Creators under 5K get a free public starter lesson and are invited back at 5K.
-- The deal: free to join. Creators link Junglee as their TikTok Shop agency. Junglee receives **20% of the TikTok Shop affiliate commission** on sales through the TikTok Shop creator program; the creator keeps 80%. TikTok pays each side directly. Brand commissions typically run 10–30% depending on the product.
+- The deal: never say "free" or "no sign-up fee". Junglee's fee is 20% of the creator's TikTok Shop affiliate commissions (they keep 80%). Creators link Junglee as their TikTok Shop agency. Junglee receives **20% of the TikTok Shop affiliate commission** on sales through the TikTok Shop creator program; the creator keeps 80%. TikTok pays each side directly. Brand commissions typically run 10–30% depending on the product.
 - Not included in the 20%: off-platform brand deals, flat fees, Creator Rewards, LIVE gifts — 100% the creator's.
 - Month-to-month. Ending the agency link ends Academy access. Not exclusive to brands; TikTok allows one agency per creator on its platform.
 - Junglee coaches creators on working with brands but does not manage brand relationships unless a separate agency-management deal is agreed. Junglee currently manages TikTok only (other platforms are future plans — do not advertise them).
