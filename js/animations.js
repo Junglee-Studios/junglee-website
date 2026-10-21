@@ -81,9 +81,20 @@
       return;
     }
 
-    // The rotating word sits on its own line, so the rest of the headline
-    // never reflows while a word is typed or erased.
-    el.style.display = 'table';
+    // Reserve the width of the longest word so nothing on the line moves
+    // while a word is typed or erased.
+    var probe = el.cloneNode(false);
+    probe.style.cssText = 'position:absolute;visibility:hidden;border:0;padding:0;animation:none;white-space:nowrap;';
+    el.parentNode.appendChild(probe);
+    var maxW = 0;
+    words.forEach(function (w) { probe.textContent = w; maxW = Math.max(maxW, probe.getBoundingClientRect().width); });
+    probe.parentNode.removeChild(probe);
+    var slot = document.createElement('span');
+    slot.style.display = 'inline-block';
+    slot.style.minWidth = Math.ceil(maxW + 4) + 'px';
+    slot.style.textAlign = 'left';
+    el.parentNode.insertBefore(slot, el);
+    slot.appendChild(el);
 
     var wordIndex = 0;
     var isDeleting = true;

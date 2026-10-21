@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Junglee Studios | Official TikTok Shop Partner for Brands and Creators</title>
-    <meta name="description" content="Junglee Studios is an Official TikTok Shop Full-Service Management Partner. Brands: we build your TikTok Shop channel with your team and hand it over. Creators with 5K+ followers: join Junglee Academy free." />
+    <meta name="description" content="Junglee Studios is an Official TikTok Shop Full-Service Management Partner. Brands: we build and scale your TikTok Shop channel with your team. Creators with 5K+ followers: earn more with stage-based coaching and tools." />
     <link rel="canonical" href="https://jungleestudios.com/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
@@ -53,6 +53,28 @@
       #paths .path-card-body { height: auto; overflow: visible; justify-content: center; }
     }
     #paths .path-card:hover { transform: none; }
+    /* Hero headline: "We help [word]" on line 1 sized to fit the longest word */
+    body[data-page="home"] .hero h1 { font-size: clamp(1.95rem, 4.2vw, 3.5rem); }
+    @media (min-width: 480px) { .hero h1 .accent { white-space: nowrap; } }
+    #paths .path-card.brand h3 { color: var(--color-white); }
+    .hero-line { white-space: nowrap; }
+    @media (min-width: 1024px) { .hero-partner-line { white-space: nowrap; font-size: 0.66rem; letter-spacing: 0.12em; } }
+    /* Path cards: both dark; brand accents coral, creator accents teal */
+    #paths .path-card.brand { background: var(--color-charcoal); border: 1px solid rgba(255,255,255,0.14); }
+    #paths .path-card.brand .path-label { color: var(--color-coral); }
+    #paths .path-card.brand .path-bullets li::before { background: var(--color-coral); box-shadow: 0 0 0 3px rgba(255,95,80,0.25); }
+    #paths .path-card.brand .btn { background: var(--color-coral); color: #fff; border-color: var(--color-coral); }
+    #paths .path-card.brand .arrow { color: var(--color-coral) !important; }
+    #paths .path-card.creator .btn { background: var(--color-teal); color: #fff; border-color: var(--color-teal); }
+    #paths > .container > .kicker, #paths > .container > h2 { text-align: center; justify-content: center; }
+    /* Managed Services section centered */
+    #what-we-unlock > .container > .kicker, #what-we-unlock > .container > h2 { text-align: center; justify-content: center; margin-left: auto; margin-right: auto; }
+    #what-we-unlock > .container > .lead { text-align: center; margin-left: auto; margin-right: auto; }
+    #what-we-unlock .actions { justify-content: center; }
+    /* More room between the founder video and the credential cards */
+    #inside-knowledge .inside-row { margin-top: 56px; }
+    .tagline .be-junglee { color: var(--color-coral); }
+    .tagline .be-wild { color: var(--color-teal); }
   </style>
 </head>
 
@@ -95,9 +117,9 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-          <p class="kicker" style="color: rgba(255,255,255,0.72);"><i style="background: rgba(255,255,255,0.72);"></i> Official TikTok Shop Full-Service Management Partner (TSP &middot; CAP &middot; TAP &middot; MCN)</p>
+          <p class="kicker hero-partner-line" style="color: rgba(255,255,255,0.72);"><i style="background: rgba(255,255,255,0.72);"></i> Official TikTok Shop Full-Service Management Partner (TSP &middot; CAP &middot; TAP &middot; MCN)</p>
           <h1>
-            We help <span class="typewriter-word" aria-hidden="true">Brands</span><span class="visually-hidden">Brands and Creators</span> win on <span class="accent">TikTok Shop</span>.
+            <span class="hero-line">We help <span class="typewriter-word" aria-hidden="true">Brands</span><span class="visually-hidden">Brands and Creators</span></span><br>win on <span class="accent">TikTok Shop</span>
           </h1>
           <p class="lead">
             Junglee Studios is an official full-service TikTok Shop partner, helping brands and creators grow in social commerce through shop management, affiliate programs, content that converts, and live selling.
@@ -210,7 +232,7 @@
                 <li><strong>Shop Setup &amp; Account Health</strong> &mdash; launch your shop or fix account issues</li>
               </ul>
               <div class="actions" style="margin-top: 20px;">
-                <a class="btn secondary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+                <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
               </div>
               <a class="arrow" href="/brands" style="color: inherit;">
                 See brand services
@@ -224,12 +246,12 @@
             </figure>
             <div class="path-card-body">
               <span class="path-label">For Creators</span>
-              <h3>Creator Academy</h3>
+              <h3>Earn as a Creator</h3>
               <p>Stage-based coaching, tools, and product matching for TikTok Shop affiliate creators ready to scale their earnings.</p>
               <ul class="path-bullets">
                 <li>5,000+ followers to join</li>
-                <li>Free to join, month-to-month</li>
-                <li>Junglee receives 20% of your TikTok Shop affiliate commission; you keep 80%, paid by TikTok</li>
+                <li>No sign-up fee, month-to-month</li>
+                <li>You keep 80% of your TikTok Shop affiliate commissions; Junglee earns 20%. TikTok pays each of us directly</li>
                 <li>Off-platform deals, Creator Rewards &amp; LIVE gifts stay 100% yours</li>
               </ul>
               <div class="actions" style="margin-top: 20px;">
@@ -262,10 +284,10 @@
           </div>
         </div>
         <div style="margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--color-border); text-align: center;">
-          <p style="font-size: 1.08rem; color: var(--color-ink); font-weight: 600; line-height: 1.55; margin: 0 auto; max-width: 68ch;">
+          <p style="font-size: 1.08rem; color: var(--color-ink); font-weight: 600; line-height: 1.55; margin: 0 auto;">
             <em>Junglee</em> means wild in Hindi. Our wild is helping brands and creators grow into independence instead of dependence on an agency, and going all in on video, LIVE, and affiliate selling &mdash; where commerce is now, and where it's headed.
           </p>
-          <p style="margin-top: 14px; font-size: 0.95rem; font-weight: 800; letter-spacing: 0.04em; color: var(--color-ink);">BE JUNGLEE. Playing it safe never changed the game. BE WILD.</p>
+          <p class="tagline" style="margin-top: 14px; font-size: 0.95rem; font-weight: 800; letter-spacing: 0.04em; color: var(--color-ink);"><span class="be-junglee">BE JUNGLEE.</span> Playing it safe never changed the game. <span class="be-wild">BE WILD.</span></p>
           <div class="actions" style="margin-top: 24px; justify-content: center;">
             <a class="btn primary" href="/about-junglee.html">Our story</a>
           </div>
@@ -585,7 +607,7 @@
           <article class="cta-path cta-path--creator">
             <span class="cta-path__chip">Creators</span>
             <h3 class="cta-path__title">5K+ followers and selling on TikTok Shop?</h3>
-            <p class="cta-path__sub">Free to join. Under 5K? Start with our <a href="/creators" style="color: inherit; text-decoration: underline;">free starter lesson</a> and come back at 5K.</p>
+            <p class="cta-path__sub">No sign-up fee. Under 5K? Start with our <a href="/creators" style="color: inherit; text-decoration: underline;">free starter lesson</a> and come back at 5K.</p>
             <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply">Apply to Junglee Academy</a>
           </article>
         </div>
@@ -593,7 +615,7 @@
         <p class="source-note" style="margin-top: 28px;">
           Or email us at <a href="mailto:info@jungleestudios.com" style="color: var(--color-coral);">info@jungleestudios.com</a>
         </p>
-        <p style="margin-top: 22px; font-weight: 800; letter-spacing: 0.02em;">BE JUNGLEE. <span style="font-weight: 600;">Playing it safe never changed the game. BE WILD.</span></p>
+        <p class="tagline" style="margin-top: 22px; font-weight: 800; letter-spacing: 0.02em;"><span class="be-junglee">BE JUNGLEE.</span> <span style="font-weight: 600;">Playing it safe never changed the game.</span> <span class="be-wild">BE WILD.</span></p>
       </div>
     </section>
 
