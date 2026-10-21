@@ -81,16 +81,22 @@
       return;
     }
 
+    // The rotating word sits on its own line, so the rest of the headline
+    // never reflows while a word is typed or erased.
+    el.style.display = 'table';
+
     var wordIndex = 0;
     var isDeleting = true;
     var charIndex = words[0].length;
     el.textContent = words[0];
+    // A zero-width space keeps the line height and baseline when a word is fully erased.
+    function show(t) { el.textContent = t || '\u200b'; }
 
     function tick() {
       var currentWord = words[wordIndex];
       if (isDeleting) {
         charIndex--;
-        el.textContent = currentWord.substring(0, charIndex);
+        show(currentWord.substring(0, charIndex));
         if (charIndex === 0) {
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
@@ -100,7 +106,7 @@
         setTimeout(tick, deletingSpeed);
       } else {
         charIndex++;
-        el.textContent = currentWord.substring(0, charIndex);
+        show(currentWord.substring(0, charIndex));
         if (charIndex === currentWord.length) {
           isDeleting = true;
           setTimeout(tick, holdTime);
