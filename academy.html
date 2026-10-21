@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Junglee Academy | Junglee Studios — Stage-Based TikTok Shop Coaching for Creators</title>
-  <meta name="description" content="Junglee Academy is stage-based coaching for creators on TikTok and TikTok Shop. Modules unlock as you grow through TikTok creator tiers and performance signals." />
+  <meta name="description" content="Junglee Academy is free, stage-based coaching for TikTok Shop affiliates with 5,000+ followers. Lessons unlock as your TikTok creator tier grows. Junglee earns 20% of your TikTok Shop affiliate commission; you keep 80%." />
   <link rel="canonical" href="https://jungleestudios.com/academy" />
 
   <!-- PUBLIC — marketing front door for the Academy program. -->
@@ -633,7 +633,7 @@
       <a href="/brands" data-page="brands">Brands</a>
       <a href="/creators" data-page="creators">Creators</a>
       <a href="/academy" data-page="academy" aria-current="page">Academy</a>
-      <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+      <a class="btn primary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener noreferrer">Apply to Junglee Academy</a>
     </div>
     <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><span></span></button>
   </nav>
@@ -645,7 +645,7 @@
     <a href="/planner" data-page="planner">Planner</a>
     <a href="/academy" data-page="academy">Academy</a>
     <div class="mobile-cta">
-      <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+      <a class="btn primary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener noreferrer">Apply to Junglee Academy</a>
     </div>
   </div>
 </div>
@@ -655,7 +655,12 @@
        Mirrors academy.jungleestudios.com SPA pattern. Pure client-side
        toggle, no URL change. Creators active by default; Brands tab
        shows a polished "Coming Soon" with email capture. ============ -->
-  <div class="audience-toggle-wrap reveal">
+  <!-- BRAND TAB HIDDEN (pre-launch): the Creators/Brands toggle below and the
+       "HERO — BRAND" section are hidden so this page speaks only to creators.
+       To restore at Brand Academy launch: remove the `hidden` attribute and
+       inline display:none from .audience-toggle-wrap and .hero--brand.
+       The toggle JS and body[data-audience] CSS are still in place. -->
+  <div class="audience-toggle-wrap reveal" hidden style="display:none">
     <div class="container audience-toggle-row">
       <div class="audience-toggle" role="tablist" aria-label="Choose your audience">
         <button type="button" class="audience-toggle__btn" role="tab" aria-selected="true" data-audience-tab="creator">
@@ -688,21 +693,27 @@
         <div class="hero-text">
         <div class="kicker"><i></i> Junglee Academy</div>
         <h1>
-          Your TikTok affiliate playbook.<br>
-          <span class="accent">Stage by stage.</span>
+          Your TikTok Shop playbook,<br>
+          <span class="accent">stage by stage.</span>
         </h1>
         <p class="lead">
-          Stage-based coaching for creators on TikTok and TikTok Shop. Modules unlock as you grow through TikTok creator tiers and performance signals — so you only see what matters for where you are now.
+          Free coaching for TikTok Shop affiliates with 5,000+ followers. Lessons unlock as your TikTok creator tier grows, and product matches show up as brand partners join. Junglee earns 20% of your TikTok Shop affiliate commission — you keep 80%, paid directly by TikTok.
         </p>
         <p class="lead" style="font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-top: -8px;">
           Built by the team that was on the ground floor of TikTok Shop.
         </p>
         <div class="actions">
-          <a class="btn primary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener">Apply for access
+          <a class="btn primary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener">Apply free
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a class="btn secondary" href="https://academy.jungleestudios.com/#/login" target="_blank" rel="noopener">Member login</a>
         </div>
+        <p style="font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-top: 14px; line-height: 1.55;">
+          Applications reviewed in 1–2 business days. Already a member? <a href="https://academy.jungleestudios.com/#/login" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Member login</a>
+        </p>
+        <p style="font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-top: 6px; line-height: 1.55;">
+          <strong style="color: var(--color-white);">Who can apply:</strong> 5,000+ followers and an active TikTok Shop affiliate account.
+          Under 5,000 followers? <a href="https://academy.jungleestudios.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Start with our free starter lesson</a> and apply when you reach 5K.
+        </p>
         </div><!-- /.hero-text -->
 
         <!-- Phone-frame visual — single device, rotating reels.
@@ -747,8 +758,8 @@
     </div>
   </section>
 
-  <!-- HERO — BRAND (Cinematic Coming Soon teaser) -->
-  <section class="hero hero--academy hero--brand reveal" data-audience-only="brand">
+  <!-- HERO — BRAND (Cinematic Coming Soon teaser) — HIDDEN pre-launch, see BRAND TAB HIDDEN note above -->
+  <section class="hero hero--academy hero--brand reveal" data-audience-only="brand" hidden style="display:none">
     <div class="container">
       <div class="brand-stage" aria-label="Brand Academy teaser">
         <div class="brand-phone" role="img" aria-label="Phone showing a Brand Academy unboxing teaser">
@@ -806,7 +817,8 @@
     <div class="container">
       <div class="kicker"><i></i> How it works</div>
       <h2>Modules unlock as you grow.</h2>
-      <p class="lead" style="max-width: 64ch;">Every creator starts at Stage 1. As you progress through TikTok creator tiers and demonstrate consistent performance, new modules unlock — giving you exactly what you need for where you are now, not a firehose of content you're not ready for.</p>
+      <p class="lead" style="max-width: 64ch;">Stages follow TikTok's own creator tiers (L1 through L4 and higher) plus consistent activity. As you move up, new modules unlock — so you get what you need for where you are now, not everything at once.</p>
+      <p style="max-width: 64ch; font-weight: 600; color: var(--color-ink);">Already earning? You'll be placed at your stage — not Stage 1.</p>
 
       <div class="stages-grid">
         <div class="stage-tier">
@@ -817,17 +829,17 @@
         <div class="stage-tier">
           <div class="stage-tier__num">Stage 02</div>
           <h4 class="stage-tier__title">Growing</h4>
-          <p class="stage-tier__gate">First sales, content engine, sample campaigns, hashtag formula. Unlocks as you gain TikTok creator tier and demonstrate consistent activity.</p>
+          <p class="stage-tier__gate">First sales, content systems, sample campaigns, hashtag formula. Unlocks as you move up from your starting TikTok creator tier with consistent activity.</p>
         </div>
         <div class="stage-tier">
           <div class="stage-tier__num">Stage 03</div>
           <h4 class="stage-tier__title">Established</h4>
-          <p class="stage-tier__gate">LIVE selling, the TikTok LIVE algorithm, sample-to-LIVE workflow. Unlocks at higher TikTok creator tier and proven content rhythm.</p>
+          <p class="stage-tier__gate">LIVE selling, the TikTok LIVE algorithm, sample-to-LIVE workflow. Unlocks at higher TikTok creator tiers on the way to L4, with a steady content rhythm.</p>
         </div>
         <div class="stage-tier">
           <div class="stage-tier__num">Stage 04+</div>
           <h4 class="stage-tier__title">Top Performer</h4>
-          <p class="stage-tier__gate">Scaling, advanced LIVE, post-LIVE review, multi-stream monetization. The L4+ tier — where consistent earning compounds.</p>
+          <p class="stage-tier__gate">Scaling, advanced LIVE, post-LIVE review, multiple income streams. For creators at TikTok creator tier L4 and above.</p>
         </div>
       </div>
 
@@ -841,15 +853,16 @@
   <section class="section section-charcoal reveal" data-audience-only="creator">
     <div class="container">
       <div class="kicker"><i></i> Inside the Academy</div>
-      <h2>An immersive home for everything you need to earn on TikTok.</h2>
-      <p class="lead" style="max-width: 64ch;">A members-only environment built around how creators actually grow on TikTok Shop — learn the platform end-to-end, unlock multiple ways to earn, track every milestone, and stay ahead of what's changing inside the app.</p>
+      <h2>Everything in the Academy, in one portal.</h2>
+      <p class="lead" style="max-width: 64ch;">A members-only portal built around how creators grow on TikTok Shop: learn the platform, track your stage, and keep up with what's changing inside the app.</p>
+      <p style="margin-top: 8px; color: rgba(255,255,255,0.75); font-size: 0.95rem; max-width: 60ch;">All included for accepted creators — no upsells, no separate course purchases.</p>
 
       <div class="grid3" style="margin-top: 36px;">
 
         <div class="card">
           <div class="num" style="font-family: var(--font-mono); color: var(--color-coral); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;">Stage Playbooks</div>
           <h3>Frameworks for your exact stage.</h3>
-          <p>Foundation setup, content systems, sample campaigns, LIVE selling, and growth — written for where you are right now, not a firehose of everything at once. New plays unlock as you graduate stages.</p>
+          <p>Foundation setup, content systems, sample campaigns, LIVE selling, and growth — written for where you are now. New plays unlock as you move up stages.</p>
         </div>
 
         <div class="card">
@@ -861,30 +874,29 @@
         <div class="card">
           <div class="num" style="font-family: var(--font-mono); color: var(--color-coral); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;">Multiple Ways to Earn</div>
           <h3>Beyond affiliate commissions.</h3>
-          <p>Gifted product, paid brand collabs, sample-to-content programs, and LIVE selling opportunities — all surfaced inside the portal as you qualify. One platform, several income streams running in parallel.</p>
+          <p>We coach you on affiliate sales, samples, LIVE selling, Creator Rewards, and working with brands directly. Income outside TikTok Shop affiliate commission stays 100% yours.</p>
         </div>
 
         <div class="card">
           <div class="num" style="font-family: var(--font-mono); color: var(--color-teal); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;">Progress &amp; Milestones</div>
           <h3>See your growth, not your gaps.</h3>
-          <p>Track your stage, content output, and unlock progress in one view. Hit milestones, surface the next move, and know exactly what graduates you to the next tier — no guessing what good looks like.</p>
+          <p>Track your stage, content output, and unlock progress in one view, and see what moves you to the next stage.</p>
         </div>
 
         <div class="card">
           <div class="num" style="font-family: var(--font-mono); color: var(--color-coral); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;">Brand &amp; Product Matchmaking</div>
-          <h3>Curated brands, sent to you.</h3>
-          <p>Access to the Junglee brand network with weekly product picks matchmade to your niche, audience, and stage. Skip the cold pitching — the brands come to your portal.</p>
+          <h3>Product matches as brands join.</h3>
+          <p>We're building our brand partner list now. As opportunities open, the ones that fit your niche, audience, and stage appear in your portal.</p>
         </div>
 
         <div class="card">
           <div class="num" style="font-family: var(--font-mono); color: var(--color-teal); font-size: 0.74rem; letter-spacing: 0.18em; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;">Live Platform Updates</div>
           <h3>Know what's working right now.</h3>
-          <p>Algorithm signals, policy shifts, new features, and category trends — pushed to your portal as they happen. The team that helped build TikTok Shop's playbooks tells you what to do about each one.</p>
+          <p>Algorithm signals, policy shifts, new features, and category trends, posted in your portal with what to do about each one — from the team that helped build TikTok Shop's playbooks.</p>
         </div>
 
       </div>
 
-      <p style="margin-top: 28px; color: rgba(255,255,255,0.55); font-size: 0.9rem; max-width: 60ch;">All of it included with Academy access for accepted creators — no upsells, no separate course purchases.</p>
     </div>
   </section>
 
@@ -917,7 +929,7 @@
       <div class="kicker"><i></i> Why Junglee</div>
       <h2 style="max-width: 28ch;">Built by the team that was on the ground floor of TikTok Shop.</h2>
       <p class="lead" style="max-width: 64ch;">
-        Junglee Studios was founded by Jatin "JT" Patel and a team that helped develop many of the playbooks and strategies inside TikTok Shop, and launched key tools and features — including co-leading the build of the Collectibles category from zero and leading Countdown Bidding from concept to live. Junglee Studios is a TikTok Shop Certified Full-Service Management Partner.
+        Junglee Studios was founded by Jatin "JT" Patel, who was on TikTok Shop's US founding team. He co-led the build of the Collectibles category ($780M in under two years, 1.2K sellers, growing the team from 3 to 18+), led Countdown Bidding and the US launch of Auctions, and developed foundational playbooks for LIVE selling, video selling, ShopTab, campaigns, and content. Junglee Studios is an Official TikTok Shop Full-Service Management Partner.
       </p>
       <div class="actions" style="margin-top: 28px;">
         <a class="btn primary btn-meet-team" href="/about-junglee.html#team">Meet the team
@@ -936,47 +948,53 @@
 
       <div class="faq-list">
         <details class="faq-item">
-          <summary>What's the difference between Junglee Studios and Junglee Academy?</summary>
+          <summary>What does it cost?</summary>
           <div class="faq-item__body">
-            <p>Junglee Studios is the parent agency — a TikTok Shop Certified Full-Service Management Partner. Junglee Academy is the coaching arm: stage-based playbooks for affiliate creators, with brand matchmaking and platform support layered in. Same team, same insider knowledge.</p>
+            <p>The Academy is free to join — no subscription, no upsells, no paywalled content. You link Junglee as your TikTok Shop agency, and Junglee receives 20% of your TikTok Shop affiliate commission. You keep 80%. TikTok pays each side directly, so nothing comes out of your pocket.</p>
+            <p>The 20% applies only to TikTok Shop affiliate commission. Off-platform brand deals, flat fees, Creator Rewards, and LIVE gifts are 100% yours.</p>
+            <p>It's month-to-month. If you remove the agency link, your Academy access ends. TikTok allows one agency per creator, and joining doesn't make you exclusive to any brand. Full details are in the <a href="https://academy.jungleestudios.com/#/creator-terms" target="_blank" rel="noopener">Creator Terms</a>.</p>
           </div>
         </details>
 
         <details class="faq-item">
-          <summary>What does it cost to join the Academy as a creator?</summary>
+          <summary>Who can apply?</summary>
           <div class="faq-item__body">
-            <p>The Academy itself is free — no subscription, no upsell, no paywalled content. Junglee earns only when you earn on TikTok Shop: a flat 20% commission on product sales you drive through video, Shop Tab, and LIVE as part of your Junglee partnerships.</p>
-            <p>Everything else is 100% yours — gifted product, TikTok platform rewards (Creator Rewards, Effect Creator, etc.), off-platform brand deals, paid sponsorships, your own non-Junglee affiliate links, and any other income you create on or off TikTok. We don't touch it.</p>
-            <p><strong>And we still coach you on all of it.</strong> The Academy teaches you how to earn across every opportunity available to TikTok creators — qualifying for platform rewards, growing income streams off-platform, and getting the most out of every gift, sample, and collab that comes your way — even though we only earn on Shop sales. We're invested in your full creator business, not just the slice we get paid on.</p>
-            <p>If you don't earn on Shop, we don't earn. Simple.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What follower count do I need to apply?</summary>
-          <div class="faq-item__body">
-            <p>You must already be signed up as a TikTok Shop Creator Affiliate (the free TikTok program separate from Junglee). 1,000+ followers gets you into TikTok Shop's pilot affiliate program; 5,000+ unlocks the full creator program. Apply through the Academy either way — we'll learn your niche, audience, and the brands you want to work with.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>How are stages unlocked?</summary>
-          <div class="faq-item__body">
-            <p>Stages unlock based on TikTok creator tier progression and performance signals — not a single GMV number. TikTok itself assigns creators tiers (L1 through L4 and higher), and our stage system maps to that progression along with consistent activity, content quality, and earning. The goal is to coach our creators to L4+ — where consistent earning compounds. As we add new playbooks and stages, members get them automatically when they qualify.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Is the Academy content protected?</summary>
-          <div class="faq-item__body">
-            <p>Yes. All Academy content is watermarked with the member's name. Downloads are disabled, copy-paste is restricted, and printing is blocked. Your coaching content stays yours, and our IP stays ours.</p>
+            <p>Creators with 5,000+ followers and an active TikTok Shop affiliate account (TikTok's free program, separate from Junglee). Under 5,000 followers? <a href="https://academy.jungleestudios.com/" target="_blank" rel="noopener">Start with our free starter lesson</a> and apply when you reach 5K.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>How long does application review take?</summary>
           <div class="faq-item__body">
-            <p>Applications are reviewed within 1–2 business days. Our team reviews every application personally — once you're approved, Academy access unlocks automatically.</p>
+            <p>1–2 business days. Our team reviews every application, and Academy access unlocks once you're approved.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How are stages unlocked?</summary>
+          <div class="faq-item__body">
+            <p>Stages follow TikTok's creator tiers (L1 through L4 and higher) along with consistent activity and content quality — not a single GMV number. If you're already earning, you're placed at your current stage rather than Stage 1. New playbooks and stages are added over time, and members get them automatically when they qualify.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will Junglee manage my brand deals?</summary>
+          <div class="faq-item__body">
+            <p>We coach you on working with brands, but we don't manage your brand relationships unless we agree a separate agency-management deal. We're building our brand partner list now; matched opportunities appear in your portal as they open.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between Junglee Studios and Junglee Academy?</summary>
+          <div class="faq-item__body">
+            <p>Junglee Studios is the parent agency — an Official TikTok Shop Full-Service Management Partner. Junglee Academy is its creator coaching program: stage-based playbooks for TikTok Shop affiliates. Same team.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is the Academy content protected?</summary>
+          <div class="faq-item__body">
+            <p>Yes. All Academy content is watermarked with the member's name. Downloads are disabled, copy-paste is restricted, and printing is blocked.</p>
           </div>
         </details>
       </div>
@@ -988,13 +1006,13 @@
     <div class="container">
       <div class="cta-block__inner">
         <div class="kicker"><i></i> Get Started</div>
-        <h2>Your TikTok earning era starts inside the Academy.</h2>
-        <p class="lead">Apply to join the Junglee Network — built for creators serious about turning TikTok Shop into real income. Our team reviews every application personally; once you're in, the Academy unlocks immediately and you start earning your way up through the stages.</p>
+        <h2>Apply to Junglee Academy.</h2>
+        <p class="lead">Free for TikTok Shop affiliates with 5,000+ followers. Our team reviews every application; once you're approved, the Academy unlocks at your stage.</p>
         <div class="actions" style="justify-content: center; flex-wrap: wrap; gap: 12px;">
-          <a class="btn primary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener">Apply for access</a>
-          <a class="btn secondary" href="https://academy.jungleestudios.com/#/login" target="_blank" rel="noopener">Member login</a>
+          <a class="btn primary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener">Apply free</a>
         </div>
-        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 18px;">Applications reviewed within 1–2 business days.</p>
+        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 18px;">Reviewed in 1–2 business days. Already a member? <a href="https://academy.jungleestudios.com/#/login" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Member login</a></p>
+        <p style="margin-top: 22px; font-weight: 700; letter-spacing: 0.04em; color: var(--color-white);">BE JUNGLEE. Playing it safe never changed the game. Be wild.</p>
       </div>
     </div>
   </section>
@@ -1062,7 +1080,7 @@
       // window is stretched to ~3.5s for a slower, more dramatic feel.
       var pctEl = document.getElementById('brandLoadingPct');
       var fillEl = document.querySelector('.brand-phone__loading-fill');
-      if (pctEl && fillEl) {
+      if (pctEl && fillEl && !fillEl.closest('[hidden]')) {
         var loopMs = 12000;
         // Slowed: fill animates 38% → 67% of the loop (≈ 3.48s)
         var startPctOfLoop = 0.38;
