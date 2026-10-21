@@ -54,15 +54,16 @@
     }
     #paths .path-card:hover { transform: none; }
     /* Hero headline: "We help [word]" on line 1 sized to fit the longest word */
-    body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.08; }
+    body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 5.4vw, 4.25rem); line-height: 1.08; letter-spacing: -0.05em; }
     body[data-page="home"] .hero { padding-top: clamp(64px, 7vw, 100px); }
+    @media (max-width: 1199px) { body[data-page="home"] .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); } }
     @media (min-width: 981px) {
       body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1fr) 400px !important; gap: 48px !important; }
       body[data-page="home"] .hero-content { max-width: none; }
       body[data-page="home"] .hero-visual { max-width: 400px; }
     }
     @media (min-width: 1200px) {
-      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1fr) 480px !important; }
+      body[data-page="home"] .hero-grid { grid-template-columns: minmax(0, 1fr) 480px !important; gap: 16px !important; }
       body[data-page="home"] .hero-visual { max-width: 480px; }
     }
     @media (min-width: 480px) { .hero h1 .accent { white-space: nowrap; } }
@@ -108,6 +109,7 @@
     .foot--centered .foot-tagline { order: 2; text-align: center; }
     .foot--centered .foot-meta { justify-self: end; order: 3; }
     .foot--centered { grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); }
+    footer#site-footer { padding: 16px 0 14px; }
     .foot-tagline { font-size: 0.86rem !important; }
     @media (max-width: 1199px) {
       .foot--centered { grid-template-columns: 1fr 1fr; row-gap: 14px; }
