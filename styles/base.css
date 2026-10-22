@@ -346,11 +346,20 @@ header#site-header::after {
 
 /* --- Sections --- */
 .section {
-  padding: clamp(56px, 7vw, var(--space-2xl)) 0;
+  padding: clamp(48px, 5vw, 64px) 0;
   position: relative;
 }
 .section.tight-bottom { padding-bottom: var(--radius-xl); }
 .section.tight-top { padding-top: var(--radius-xl); }
+
+/* Consistent rhythm: when two sections share a background, the second one's
+   top padding collapses so the page doesn't show a double-height gap. */
+.section-light + .section-light,
+.section-smoke + .section-smoke,
+.section-charcoal + .section-charcoal,
+.section-teal + .section-teal,
+.section-light + span:empty + .section-light,
+.section-smoke + span:empty + .section-smoke { padding-top: clamp(16px, 2vw, 24px); }
 
 .section-light { background: var(--color-white); color: var(--color-ink); }
 .section-smoke { background: var(--color-smoke); color: var(--color-ink); }
@@ -1394,7 +1403,7 @@ footer#site-footer { padding: 16px 0 14px; }
 .cta-block {
   background: var(--color-charcoal);
   color: var(--color-white);
-  padding: clamp(56px, 7vw, 96px) 0;
+  padding: clamp(48px, 5vw, 72px) 0;
   position: relative;
   overflow: hidden;
   border-top: 4px solid var(--color-coral);
@@ -3077,3 +3086,7 @@ footer#site-footer { padding: 16px 0 14px; }
   }
 }
 
+
+/* Section rhythm: no stray margins at the top/bottom edge of a section. */
+.section > .container > :first-child, .cta-block > .container > :first-child { margin-top: 0; }
+.section > .container > :last-child, .cta-block > .container > :last-child { margin-bottom: 0; }
