@@ -110,3 +110,10 @@ Always the full line: "BE JUNGLEE. Playing it safe never changed the game. BE WI
 ## Brand offering structure (keep consistent)
 Brands: Junglee Managed Services (done-with-you), Junglee Academy for Brands self-managed plans (2 tiers, launching soon — do not publish pricing until finalized), add-on and standalone services, Shop Setup & Account Health. Creators: Junglee Academy for Creators. Umbrella name: Junglee Academy. Short buttons may say "Apply as a Creator".
 Never say we "hand it over" or "hand off". Say we build and scale the channel with the brand's team and make sure they can keep scaling it on their own.
+
+## Brand plans ladder (Academy page)
+Every brand plan includes Junglee Academy; access, tools, support and meetings scale by plan.
+- Academy Core, $499/mo, month-to-month: brands launching or running their own shop on a small budget. AI chat support, no meetings.
+- Academy Pro, $999/mo, month-to-month: self-managed brands pushing to scale. Adds deeper diagnostics, GMV Max/ads coaching, creator matchmaking, monthly live group office hours, community.
+- Junglee Managed Services: established brands adding or scaling TikTok Shop. By application only; 5-10 brands a year (exclusivity, hands-on team). Weekly-to-monthly meetings, business reviews and planning. Natural next step once a self-managed brand reaches about $50K/mo GMV.
+- Alumni ($149/mo) is unlisted, for brands that finish Managed Services.

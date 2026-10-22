@@ -678,6 +678,17 @@
       .ac-compare__heads { grid-template-columns: 1fr; }
       .ac-table { min-width: 640px; }
     }
+    .ac-tiers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
+    .ac-tier { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .ac-tier h3 { margin: 4px 0 0; font-size: 1.2rem; }
+    .ac-tier .ac-plan__link, .ac-tier .btn { margin-top: auto; align-self: flex-start; }
+    .ac-tier--managed { border: 2px solid var(--color-coral); background: #fff; box-shadow: 0 14px 34px rgba(255,95,80,0.12); }
+    .ac-tier__price { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; color: var(--color-ink); }
+    .ac-tier__price span { font-size: 0.85rem; font-weight: 600; color: var(--color-text-secondary); margin-left: 4px; }
+    .ac-table--3 thead th:first-child, .ac-table--3 th[scope="row"] { width: 190px; }
+    .ac-table--3 td:nth-child(2) { background: transparent; }
+    .ac-table--3 td:nth-child(4) { background: rgba(255,95,80,0.05); }
+    @media (max-width: 900px) { .ac-tiers { grid-template-columns: 1fr; } .ac-table--3 { min-width: 760px; } }
   </style>
 </head>
 
@@ -803,47 +814,56 @@
     </div>
   </div>
 
-  <!-- FOR BRANDS -->
+  <!-- FOR BRANDS — one ladder: Core → Pro → Managed Services -->
   <section class="section section-smoke reveal" id="for-brands">
     <div class="container">
       <div class="kicker"><i></i> For brands</div>
-      <h2>Your shop, your playbooks and your team's training, in one place.</h2>
-      <p class="lead">Every brand that works with Junglee gets the Academy. The difference is who runs the channel: our team with yours, or your team on its own with our system.</p>
-      <div class="ac-compare">
-        <div class="ac-compare__heads">
-          <article class="ac-plan ac-plan--now">
-            <span class="ac-plan__chip">Available now</span>
-            <h3>Junglee Managed Services</h3>
-            <p class="ac-plan__best"><b>Best for:</b> brands that want experts to build and scale the channel with them, while their team learns to run it.</p>
-            <div class="ac-plan__cta"><a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a class="ac-plan__link" href="/brands">See Managed Services</a></div>
-          </article>
-          <article class="ac-plan">
-            <span class="ac-plan__chip ac-plan__chip--soon">Coming soon</span>
-            <h3>Junglee Academy for Brands</h3>
-            <p class="ac-plan__best"><b>Best for:</b> brands with an in-house team and the time to run TikTok Shop themselves, who want our system without an agency.</p>
-            <div class="ac-plan__cta"><a class="ac-plan__link" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Talk to us about early access</a></div>
-          </article>
-        </div>
-        <div class="ac-table-wrap">
-        <table class="ac-table">
-          <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Managed Services</th><th scope="col">Academy for Brands</th></tr></thead>
+      <h2>Every brand gets the Academy. Your plan decides how far it goes.</h2>
+      <p class="lead">Start self-managed with Academy Core or Pro and grow your own shop. When you reach around $50K a month in GMV, Junglee Managed Services can be your next step, with our team running the channel alongside yours.</p>
+      <div class="ac-tiers">
+        <article class="ac-tier">
+          <span class="ac-plan__chip ac-plan__chip--soon">Self-managed &middot; coming soon</span>
+          <h3>Academy Core</h3>
+          <p class="ac-tier__price">$499<span>/mo</span></p>
+          <p class="ac-plan__best"><b>Best for:</b> brands launching, or running their own shop on a small budget.</p>
+          <a class="ac-plan__link" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Ask about early access</a>
+        </article>
+        <article class="ac-tier">
+          <span class="ac-plan__chip ac-plan__chip--soon">Self-managed &middot; coming soon</span>
+          <h3>Academy Pro</h3>
+          <p class="ac-tier__price">$999<span>/mo</span></p>
+          <p class="ac-plan__best"><b>Best for:</b> brands running their own shop and pushing to scale.</p>
+          <a class="ac-plan__link" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Ask about early access</a>
+        </article>
+        <article class="ac-tier ac-tier--managed">
+          <span class="ac-plan__chip">By application &middot; 5&ndash;10 brands a year</span>
+          <h3>Junglee Managed Services</h3>
+          <p class="ac-tier__price">$7,500<span>/mo + 5% of GMV + kicker</span></p>
+          <p class="ac-plan__best"><b>Best for:</b> established brands ready to add TikTok Shop as a channel or scale the one they have, with our team directly involved.</p>
+          <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Apply for Managed Services</a>
+        </article>
+      </div>
+      <div class="ac-table-wrap">
+        <table class="ac-table ac-table--3">
+          <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Academy Core</th><th scope="col">Academy Pro</th><th scope="col">Managed Services</th></tr></thead>
           <tbody>
-          <tr><th scope="row">Who runs the channel</th><td>Our team, working alongside yours</td><td>Your team</td></tr>
-          <tr><th scope="row">Strategy</th><td>Built for your brand by our team</td><td>Weekly automated coaching: what&rsquo;s working, what isn&rsquo;t, what&rsquo;s next</td></tr>
-          <tr><th scope="row">Affiliate program</th><td>We build, recruit, brief and manage it</td><td>You run it, with coaching on affiliates, video, LIVE and ShopTab</td></tr>
-          <tr><th scope="row">Campaigns, promotions &amp; ads</th><td>Planned and run by us (GMV Max, Spark Ads)</td><td>You run them, with campaign and ads coaching</td></tr>
-          <tr><th scope="row">Playbooks</th><td>Custom, written for your products</td><td>Seller playbooks: setup, listings, fulfillment, support tickets</td></tr>
-          <tr><th scope="row">Training</th><td>Hands-on training, plus hiring support</td><td>Self-paced curriculum, AI chat support and a tool vault</td></tr>
-          <tr><th scope="row">Academy dashboard</th><td>Included</td><td>Included</td></tr>
-          <tr><th scope="row">Shop protection</th><td>Alerts in the Academy, plus our team watching your shop health</td><td>Shop health and policy alerts in the Academy</td></tr>
-          <tr><th scope="row">Reporting &amp; meetings</th><td>Live dashboard, plus business reviews, business planning and weekly-to-monthly meetings with our team</td><td>Live dashboard</td></tr>
-          <tr><th scope="row">Commitment</th><td>12-month program, 90-day review</td><td>Month-to-month</td></tr>
-          <tr><th scope="row">Price</th><td>$7,500/mo + 5% of shop GMV + performance kicker</td><td>Announced at launch</td></tr>
+          <tr><th scope="row">Who it&rsquo;s for</th><td>Brands launching, or running their own shop on a small budget</td><td>Brands running their own shop and pushing to scale</td><td>Established brands adding TikTok Shop as a channel or scaling one that&rsquo;s selling</td></tr>
+          <tr><th scope="row">How you join</th><td>Sign up</td><td>Sign up</td><td>By application. We take on 5&ndash;10 brands a year</td></tr>
+          <tr><th scope="row">Who runs the channel</th><td>Your team</td><td>Your team</td><td>Our team, working alongside yours</td></tr>
+          <tr><th scope="row">Academy access</th><td>Core</td><td>Everything in Core, plus Pro tools</td><td>Full access, plus custom playbooks for your products</td></tr>
+          <tr><th scope="row">Coaching</th><td>Weekly automated coaching: what&rsquo;s working, what isn&rsquo;t, what&rsquo;s next</td><td>Deeper diagnostics: campaigns, creative and per-SKU profitability</td><td>Strategy built and run for your brand by our team</td></tr>
+          <tr><th scope="row">Selling</th><td>Coaching on all four ways to sell: ShopTab, video, LIVE and affiliate</td><td>Plus GMV Max and paid-ads coaching, and creator matchmaking</td><td>Affiliate program, campaigns, promotions and ads run by us</td></tr>
+          <tr><th scope="row">Shop protection</th><td>Shop health and policy alerts</td><td>Plus early warnings before your shop score is hit</td><td>Alerts, plus our team watching your shop health</td></tr>
+          <tr><th scope="row">Playbooks &amp; tools</th><td>Seller playbooks, margin and pricing calculator, starter tool vault</td><td>Full tool vault</td><td>Custom playbooks written for your products and audience</td></tr>
+          <tr><th scope="row">Support</th><td>AI chat support</td><td>AI chat support and community</td><td>A dedicated Junglee team</td></tr>
+          <tr><th scope="row">Meetings</th><td>&mdash;</td><td>Monthly live group office hours</td><td>Weekly-to-monthly meetings, business reviews and business planning</td></tr>
+          <tr><th scope="row">Team training</th><td>Self-paced curriculum</td><td>Self-paced curriculum</td><td>Hands-on training, plus hiring support</td></tr>
+          <tr><th scope="row">Commitment</th><td>Month-to-month</td><td>Month-to-month</td><td>12-month program, 90-day review</td></tr>
+          <tr><th scope="row">Price</th><td>$499/mo</td><td>$999/mo</td><td>$7,500/mo + 5% of shop GMV + performance kicker</td></tr>
           </tbody>
         </table>
-        </div>
-        <p class="ac-compare__note">Not sure which fits? Many brands start with Managed Services, and their team keeps using the Academy after the program.</p>
       </div>
+      <p class="ac-compare__note">Managed Services is limited to 5&ndash;10 brands a year so our team stays directly involved with every one.</p>
     </div>
   </section>
 
@@ -977,7 +997,7 @@
         <details class="faq-item"><summary>Is Junglee Academy approved by TikTok?</summary><div class="faq-item__body"><p>Yes. Before TikTok gave us access to its official TikTok Shop APIs, we submitted the full app and a live demo for their review. Junglee Academy is also listed in the apps section of TikTok Shop Seller Center.</p></div></details>
         <details class="faq-item"><summary>Is it an app I download?</summary><div class="faq-item__body"><p>No. Junglee Academy is a web app, so you log in from your browser. There is nothing to install.</p></div></details>
         <details class="faq-item"><summary>Where does the data come from?</summary><div class="faq-item__body"><p>Straight from TikTok, through TikTok Shop's official APIs. Your sales, commissions and performance show up without spreadsheets or manual exports.</p></div></details>
-        <details class="faq-item"><summary>How do brands get access?</summary><div class="faq-item__body"><p>Brands on Junglee Managed Services get the Academy as part of the program. Self-managed plans (Junglee Academy for Brands) are coming soon. <a href="/brands" style="text-decoration: underline;">See brand services</a>.</p></div></details>
+        <details class="faq-item"><summary>How do brands get access?</summary><div class="faq-item__body"><p>Every brand plan includes the Academy. Self-managed brands sign up for Academy Core ($499/mo) or Academy Pro ($999/mo), coming soon. Junglee Managed Services is by application, and we take on 5&ndash;10 brands a year. <a href="/brands" style="text-decoration: underline;">See brand services</a>.</p></div></details>
         <details class="faq-item"><summary>How do creators get access?</summary><div class="faq-item__body"><p>Creators with 5,000+ followers apply, and once approved, link Junglee as their TikTok Shop agency inside TikTok. Our fee is 20% of your TikTok Shop affiliate commission and you keep 80%. <a href="/creators" style="text-decoration: underline;">See the creator deal</a>.</p></div></details>
         <details class="faq-item">
           <summary>Is the Academy content protected?</summary>
@@ -996,7 +1016,7 @@
       <div class="cta-block__inner">
         <div class="kicker"><i></i> Get started</div>
         <h2>Get into Junglee Academy.</h2>
-        <p class="lead">Brands get the Academy with Junglee Managed Services. Creators get it when they sign with Junglee as their TikTok Shop agency.</p>
+        <p class="lead">Brands get the Academy on every plan, from Academy Core to Junglee Managed Services. Creators get it when they sign with Junglee as their TikTok Shop agency.</p>
         <div class="actions">
           <a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
           <a class="btn secondary" href="https://academy.jungleestudios.com/#/apply" target="_blank" rel="noopener">Apply as a Creator</a>
