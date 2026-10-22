@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junglee Academy | The TikTok-Approved App for Brands and Creators</title>
+  <title>Junglee Academy | The App for Growing on TikTok Shop</title>
   <meta name="description" content="Junglee Academy is a TikTok-approved web app connected to TikTok Shop through official APIs: shop dashboards, playbooks and team training for brands; stage-based lessons, earnings tracking and product matches for creators." />
   <link rel="canonical" href="https://jungleestudios.com/academy" />
 
@@ -689,6 +689,10 @@
     .ac-table--3 td:nth-child(2) { background: transparent; }
     .ac-table--3 td:nth-child(4) { background: rgba(255,95,80,0.05); }
     @media (max-width: 900px) { .ac-tiers { grid-template-columns: 1fr; } .ac-table--3 { min-width: 760px; } }
+    .ac-hero-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; max-width: 640px; }
+    .ac-hero-list li { position: relative; padding-left: 24px; color: rgba(255,255,255,0.82); font-size: 0.98rem; line-height: 1.5; }
+    .ac-hero-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--color-teal); font-weight: 800; }
+    .ac-hero-list b { color: #fff; }
   </style>
 </head>
 
@@ -748,12 +752,17 @@
         <div class="hero-text">
         <div class="kicker"><i></i> Junglee Academy</div>
         <h1>
-          The TikTok-approved app for<br>
-          <span class="accent">growing on TikTok Shop.</span>
+          Everything you need to grow<br>
+          <span class="accent">on TikTok Shop, in one app.</span>
         </h1>
         <p class="lead">
-          Junglee Academy is the web app that comes with signing with Junglee. It connects to TikTok Shop through TikTok's official APIs, so brands can track their shop and train their team, and creators can learn, track their earnings and find products, all in one place.
+          Junglee Academy puts your TikTok Shop data, playbooks, coaching and tools in one web app, built by the team that helped build TikTok Shop.
         </p>
+        <ul class="ac-hero-list">
+          <li><b>Brands:</b> track your shop, get coaching on what to do next, and train your team.</li>
+          <li><b>Creators:</b> learn by stage, track your earnings, and find products to sell.</li>
+          <li><b>Live data:</b> sales and performance pulled straight from TikTok Shop, no spreadsheets.</li>
+        </ul>
         <div class="actions">
           <a class="btn primary" href="#for-brands">For brands</a>
           <a class="btn secondary" href="#for-creators">For creators</a>
