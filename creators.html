@@ -570,6 +570,19 @@
     #why-creators-join .actions { justify-content: center; }
     #why-creators-join > .container > .lead { text-wrap: pretty; }
     #why-creators-join > .container > h2 { text-wrap: wrap; }
+    #contact .cta-block__inner { max-width: none; }
+    #contact h2 { max-width: none; text-wrap: balance; }
+    #contact .lead { max-width: 900px; text-wrap: pretty; }
+    #ways-to-earn > .container > .kicker { display: flex; justify-content: center; }
+    #ways-to-earn > .container > h2, #ways-to-earn > .container > .lead { text-align: center; margin-left: auto; margin-right: auto; max-width: none; text-wrap: balance; }
+    .earn-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    @media (max-width: 1000px) { .earn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .earn-grid { grid-template-columns: 1fr; } }
+    .earn-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+    .earn-card__tag { align-self: flex-start; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-teal); background: rgba(30,164,164,0.10); padding: 4px 10px; border-radius: 999px; }
+    .earn-card h3 { margin: 4px 0 0; font-size: 1.08rem; }
+    .earn-card p { margin: 0; color: var(--color-text-secondary); font-size: 0.94rem; line-height: 1.55; }
+    .earn-note { text-align: center; margin: 18px 0 0; font-size: 0.85rem; color: var(--color-text-secondary); }
   </style>
 </head>
 
@@ -957,6 +970,22 @@
   </section>
 
   <!-- Slim ticker. -->
+  <!-- WAYS TO EARN — income beyond the TikTok Shop creator program; all 100% the creator's, coached in the Academy -->
+  <section class="section section-light reveal" id="ways-to-earn">
+    <div class="container">
+      <div class="kicker"><i></i> Ways to earn</div>
+      <h2>More ways to earn, with coaching for each one.</h2>
+      <p class="lead">Junglee&rsquo;s 20% fee only applies to your TikTok Shop affiliate commission. Everything below is 100% yours, and Junglee Academy for Creators coaches you on it too.</p>
+      <div class="earn-grid">
+        <article class="earn-card"><span class="earn-card__tag">100% yours</span><h3>Off-platform brand deals</h3><p>Sponsorships and flat-fee deals you land outside TikTok Shop. We coach you on pitching, pricing and negotiating them.</p></article>
+        <article class="earn-card"><span class="earn-card__tag">100% yours</span><h3>LIVE gifts &amp; subscriptions</h3><p>Viewer gifts and subscriptions while you&rsquo;re LIVE. We coach you on running LIVEs that earn from gifts and sales together.</p></article>
+        <article class="earn-card"><span class="earn-card__tag">100% yours</span><h3>Creator Rewards Program</h3><p>TikTok pays eligible creators for qualifying videos. We coach you on the requirements and the content that qualifies.</p></article>
+        <article class="earn-card"><span class="earn-card__tag">100% yours</span><h3>TikTok Go &amp; other programs</h3><p>TikTok Go and other platform programs that fit your niche. We help you understand which ones you qualify for and how to use them.</p></article>
+      </div>
+      <p class="earn-note">Eligibility and availability for each program are set by TikTok.</p>
+    </div>
+  </section>
+
   <div class="term-marquee term-marquee--slim reveal" aria-hidden="true">
     <div class="term-marquee-track" data-marquee>
       <span>20% Fee, You Keep 80%</span><span class="dot"></span>
