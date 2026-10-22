@@ -29,6 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/base.css?v=20261022" />
   <script src="/partials/loader.js" defer></script>
+  <script src="/js/site-stats.js?v=20261022" defer></script>
   <script src="/js/animations.js" defer></script>
 
   <style>
@@ -52,6 +53,32 @@
   .other-svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px;}
   .other-svcs a{display:block;padding:16px 18px;border-radius:14px;border:1px solid rgba(0,0,0,.1);background:#fff;font-weight:700;text-decoration:none;color:inherit;}
   .other-svcs a span{display:block;font-weight:500;opacity:.6;font-size:.88rem;margin-top:4px;}
+  .other-svcs__main { grid-column: 1 / -1; }
+  section.section-smoke > .container > .kicker { display: flex; justify-content: center; }
+  .cta-block--center > .container { text-align: center; }
+  .cta-block--center .kicker { display: flex; justify-content: center; }
+  .cta-block--center h2, .cta-block--center .lead { margin-left: auto; margin-right: auto; max-width: none; text-wrap: balance; }
+  .cta-block--center .actions { justify-content: center; }
+  .svc-hero > .container { text-align: center; }
+  .svc-hero .kicker { display: flex; justify-content: center; }
+  .svc-hero h1, .svc-hero .lead { margin-left: auto; margin-right: auto; max-width: 1040px; text-wrap: balance; }
+  .svc-hero .actions { justify-content: center; }
+  #hosts > .container > .kicker { display: flex; justify-content: center; }
+  #hosts > .container > h2 { text-align: center; }
+  .host-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 900px; margin: 28px auto 0; }
+  @media (max-width: 760px) { .host-grid { grid-template-columns: 1fr; } }
+  .host-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+  .host-card .tm-photo { aspect-ratio: 4 / 3.4; overflow: hidden; background: #eee; }
+  .host-card .tm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .host-card .tm-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .host-card .tm-role { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-coral); }
+  .host-card .tm-name { margin: 0; font-size: 1.2rem; }
+  .host-card .tm-bio { margin: 0; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.55; }
+  .host-card .tm-unlock { display: none; }
+  .host-card .tm-link { margin-top: auto; color: var(--color-coral); font-weight: 700; font-size: 0.9rem; }
+  .host-card .tm-photo img { transform: none !important; margin-top: 0 !important; object-position: center 20% !important; }
+  #hosts .host-card .tm-photo { aspect-ratio: 1 / 1.12; }
+  .host-card .tm-photo img[src*="jt-patel"] { object-position: center 80% !important; }
 </style>
 </head>
 <body data-page="brands">
@@ -90,7 +117,7 @@
     <div class="container">
       <div class="kicker"><i></i> Add-on service</div>
       <h1>Make the LIVE shows you already run sell more.</h1>
-      <p class="lead" style="max-width:66ch;">For brands with their own hosts or LIVE team. Our specialists have supported 100+ sellers and 50+ mega LIVEs, with 24% average month-over-month LIVE GMV growth — and they bring that experience to your shows.</p>
+      <p class="lead">For brands with their own hosts or LIVE team. Our specialists are behind $600M+ in LIVE GMV, have supported 100+ sellers and 50+ mega LIVEs — and they bring that experience to your shows.</p>
       <div class="actions" style="margin-top:24px;"><a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a class="btn secondary" href="#pricing">See pricing</a></div>
     </div>
   </section>
@@ -132,6 +159,50 @@
     </div>
   </section>
 
+
+  <section class="section section-light reveal" id="hosts">
+    <div class="container">
+      <div class="kicker"><i></i> Meet your specialists</div>
+      <h2>The LIVE team behind your shows.</h2>
+      <div class="host-grid">
+<article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/logos/assets/jt-patel-v4.jpg" alt="Jatin Patel (JT), Founder of Junglee Studios" class="shift-down" style="margin-top: -18%;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">CEO &amp; Founder</span>
+            <h3 class="tm-name">Jatin Patel "JT"</h3>
+            <p class="tm-bio">
+              TikTok Shop U.S. founding team. Co-led the Collectibles category, about 98% LIVE selling, to $780M in under two years, building its LIVE playbooks and coaching its top sellers. Also led Countdown Bidding and the U.S. Auctions launch, and developed foundational playbooks for LIVE, video, ShopTab, and campaigns. Built marketplace strategy at Amazon before that.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">Platform-grade strategy &amp; brand scaling</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/jatinjtpatel" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
+<article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/logos/assets/jason-termechi-v4.jpg" alt="Jason Termechi, Live Commerce Strategist" style="object-position: center 20%; transform: scale(1.33); transform-origin: center 20%;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">Live Commerce Strategist</span>
+            <h3 class="tm-name">Jason Termechi</h3>
+            <p class="tm-bio">
+              Former TikTok Live Account Manager. 10+ years in live commerce across BIGO, Amazon Live, and TikTok Shop. Operated $14M+ in LIVE GMV and 50+ mega LIVE events.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">LIVE playbooks &amp; LIVE Specialist Support</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/jasontermechi/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-smoke reveal">
     <div class="container">
       <div class="kicker"><i></i> How it works</div>
@@ -157,10 +228,11 @@
       <div>
         <div class="kicker"><i></i> Other ways to work with us</div>
         <div class="other-svcs">
-        <a href="/brands/affiliate-management">Affiliate Management<span>$4,000/mo + 5% of affiliate-attributed GMV</span></a>
+        <a class="other-svcs__main" href="/brands">Junglee Managed Services<span>$7,500/mo + 5% of GMV + kicker — strategy, operations &amp; affiliates, run with your team</span></a>
+        <a href="/brands/shop-setup">Shop Setup &amp; Account Health<span>$3,000 one-time</span></a>
+        <a href="/brands/affiliate-management">Affiliate Management<span>$4,000/mo + 5% of affiliate GMV</span></a>
         <a href="/brands/branded-live-selling">Branded Live Selling w/Host Program<span>$3,500/mo + 5% of LIVE GMV</span></a>
-        <a href="/brands/content-creation">Content Creation<span>Custom · custom packages</span></a>
-        <a href="/brands">Junglee Managed Services<span>$7,500/mo + 5% of GMV + kicker — strategy, operations &amp; affiliates, run with your team</span></a>
+        <a href="/brands/content-creation">Content Creation<span>Listing from $1,000 · social from $4,500/mo</span></a>
         </div>
       </div>
     </div>
