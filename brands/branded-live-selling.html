@@ -29,6 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/base.css?v=20261022" />
   <script src="/partials/loader.js" defer></script>
+  <script src="/js/site-stats.js" defer></script>
   <script src="/js/animations.js" defer></script>
 
   <style>
@@ -52,6 +53,29 @@
   .other-svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px;}
   .other-svcs a{display:block;padding:16px 18px;border-radius:14px;border:1px solid rgba(0,0,0,.1);background:#fff;font-weight:700;text-decoration:none;color:inherit;}
   .other-svcs a span{display:block;font-weight:500;opacity:.6;font-size:.88rem;margin-top:4px;}
+  .other-svcs__main { grid-column: 1 / -1; }
+  section.section-smoke > .container > .kicker { display: flex; justify-content: center; }
+  .cta-block--center > .container { text-align: center; }
+  .cta-block--center .kicker { display: flex; justify-content: center; }
+  .cta-block--center h2, .cta-block--center .lead { margin-left: auto; margin-right: auto; max-width: none; text-wrap: balance; }
+  .cta-block--center .actions { justify-content: center; }
+  .svc-hero > .container { text-align: center; }
+  .svc-hero .kicker { display: flex; justify-content: center; }
+  .svc-hero h1, .svc-hero .lead { margin-left: auto; margin-right: auto; max-width: 1040px; text-wrap: balance; }
+  .svc-hero .actions { justify-content: center; }
+  #hosts > .container > .kicker { display: flex; justify-content: center; }
+  #hosts > .container > h2 { text-align: center; }
+  .host-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 900px; margin: 28px auto 0; }
+  @media (max-width: 760px) { .host-grid { grid-template-columns: 1fr; } }
+  .host-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+  .host-card .tm-photo { aspect-ratio: 4 / 3.4; overflow: hidden; background: #eee; }
+  .host-card .tm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .host-card .tm-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .host-card .tm-role { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-coral); }
+  .host-card .tm-name { margin: 0; font-size: 1.2rem; }
+  .host-card .tm-bio { margin: 0; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.55; }
+  .host-card .tm-unlock { display: none; }
+  .host-card .tm-link { margin-top: auto; color: var(--color-coral); font-weight: 700; font-size: 0.9rem; }
 </style>
 </head>
 <body data-page="brands">
@@ -90,7 +114,7 @@
     <div class="container">
       <div class="kicker"><i></i> Add-on service</div>
       <h1>A LIVE selling channel for your brand — without building a studio.</h1>
-      <p class="lead" style="max-width:66ch;">LIVE is one of TikTok Shop's highest-converting surfaces, but it takes hosts, production, and a steady schedule. We run branded shows for you with broadcast-trained hosts who learn your products before they go on camera.</p>
+      <p class="lead">LIVE is one of TikTok Shop's highest-converting surfaces, but it takes hosts, production, and a steady schedule. We run branded shows for you with broadcast-trained hosts who learn your products before they go on camera.</p>
       <div class="actions" style="margin-top:24px;"><a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a class="btn secondary" href="#pricing">See pricing</a></div>
     </div>
   </section>
@@ -99,7 +123,7 @@
     <div class="container">
       <div class="kicker"><i></i> The problem we solve</div>
       <div class="svc-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
-        <div class="svc-tile"><h3>Hiring hosts is hard</h3><p>Good on-camera sellers are rare, and most influencers read a card.</p></div>
+        <div class="svc-tile"><h3>Hiring hosts is hard</h3><p>Good on-camera sellers are rare, and many influencers just read a card.</p></div>
         <div class="svc-tile"><h3>Production takes time</h3><p>Sets, run of show, and pinned-product ops pull your team off other work.</p></div>
         <div class="svc-tile"><h3>Inconsistent shows don't sell</h3><p>LIVE rewards a steady cadence that most teams can't sustain.</p></div>
       </div>
@@ -126,8 +150,55 @@
         <div class="kicker" style="margin-bottom:10px;"><i></i> Pricing</div>
         <div class="amt">$3,500<span>/mo</span></div>
         <div class="sub">+ 5% of LIVE GMV</div>
-        <p style="margin-top:14px;opacity:.7;font-size:.92rem;line-height:1.5;">Additional shows: $145/hr + 5% commission. Track record across our LIVE team: $500M+ LIVE GMV, 400+ brands and sellers supported.</p>
+        <p style="margin-top:14px;opacity:.7;font-size:.92rem;line-height:1.5;">Additional shows: $145/hr + 5% commission. Our team's career totals: <span data-stat="live">$500M+</span> LIVE GMV, <span data-stat="brands">400+</span> brands supported.</p>
         <a class="btn primary" style="margin-top:18px;display:inline-block;" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-light reveal" id="hosts">
+    <div class="container">
+      <div class="kicker"><i></i> Meet your hosts</div>
+      <h2>The people on camera and behind the show.</h2>
+      <div class="host-grid">
+        <article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/photos/about/justine-santaniello.jpg" alt="Justine Santaniello, LIVE Host & Executive Producer" style="object-position: center 48%; transform: scale(1.5); transform-origin: center 48%;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">LIVE Host &amp; Executive Producer</span>
+            <h3 class="tm-name">Justine Santaniello</h3>
+            <p class="tm-bio">
+              Hosts and produces shows for the Branded Live Selling add-on. Lifestyle host with 1,000+ TV appearances, including Access Hollywood Live, Inside Edition, Fox &amp; Friends, and QVC. Founder of JustHaves.com and host of the nationally syndicated show Lifestyle Today.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">Branded Live Selling add-on: hosting &amp; production</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/justinesantaniello/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
+
+        <article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/photos/about/christina-boniello.jpg" alt="Christina Boniello, LIVE Operations & Show Producer" style="object-position: 93% 42%; transform: scale(1.28); transform-origin: 93% 42%;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">LIVE Operations &amp; Show Producer</span>
+            <h3 class="tm-name">Christina Boniello</h3>
+            <p class="tm-bio">
+              Runs show production for the Branded Live Selling add-on and supports Content Creation shoots: talent coaching, set styling, scripts, and end-to-end production for branded content.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">Branded Live Selling &amp; Content Creation add-ons</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/christina-boniello-7a22b2153/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
+      </div>
+
       </div>
     </div>
   </section>
@@ -157,10 +228,11 @@
       <div>
         <div class="kicker"><i></i> Other ways to work with us</div>
         <div class="other-svcs">
-        <a href="/brands/affiliate-management">Affiliate Management<span>$4,000/mo + 5% of affiliate-attributed GMV</span></a>
+        <a class="other-svcs__main" href="/brands">Junglee Managed Services<span>$7,500/mo + 5% of GMV + kicker — strategy, operations &amp; affiliates, run with your team</span></a>
+        <a href="/brands/shop-setup">Shop Setup &amp; Account Health<span>$3,000 one-time</span></a>
+        <a href="/brands/affiliate-management">Affiliate Management<span>$4,000/mo + 5% of affiliate GMV</span></a>
         <a href="/brands/live-specialist-support">LIVE Specialist Support<span>$3,500/mo + 7% commission</span></a>
-        <a href="/brands/content-creation">Content Creation<span>Custom · custom packages</span></a>
-        <a href="/brands">Junglee Managed Services<span>$7,500/mo + 5% of GMV + kicker — strategy, operations &amp; affiliates, run with your team</span></a>
+        <a href="/brands/content-creation">Content Creation<span>Listing from $1,000 · social from $4,500/mo</span></a>
         </div>
       </div>
     </div>
