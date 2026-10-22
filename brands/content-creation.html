@@ -79,6 +79,16 @@
   .host-card .tm-unlock { display: none; }
   .host-card .tm-link { margin-top: auto; color: var(--color-coral); font-weight: 700; font-size: 0.9rem; }
   .host-card .tm-photo img.shift-down { height: auto; min-height: 100%; width: 100%; object-fit: unset; }
+  .host-grid--solo { grid-template-columns: minmax(0, 780px); }
+  .host-grid--solo .host-card { flex-direction: row; }
+  .host-grid--solo .host-card .tm-photo { width: 320px; height: 320px; flex-shrink: 0; }
+  .host-grid--solo .host-card .tm-photo img { height: 100%; }
+  .host-grid--solo .host-card .tm-link { margin-top: 8px; }
+  .host-grid--solo .host-card .tm-body { justify-content: center; padding: 28px 32px; }
+  @media (max-width: 760px) {
+    .host-grid--solo .host-card { flex-direction: column; }
+    .host-grid--solo .host-card .tm-photo { width: 100%; height: 320px; }
+  }
 </style>
 </head>
 <body data-page="brands">
@@ -187,7 +197,7 @@
     <div class="container">
       <div class="kicker"><i></i> Meet your content lead</div>
       <h2>The person behind your content.</h2>
-      <div class="host-grid" style="grid-template-columns: minmax(0, 373px);">
+      <div class="host-grid host-grid--solo">
 <article class="host-card">
           <div class="tm-photo">
             <img src="/assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" style="object-position: center top; transform: scale(1.25); transform-origin: center top;" loading="lazy">
