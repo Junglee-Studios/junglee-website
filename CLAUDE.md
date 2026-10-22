@@ -83,8 +83,8 @@ Content production and LIVE shows are **add-ons**. The brand owns its affiliate 
 - Junglee Managed Services: $7,500/mo + 5% of shop GMV + performance kicker (a premium rate only on GMV above the trailing 90-day baseline). 12-month program.
 - Branded Live Selling w/Host Program: $3,500/mo + 5% of LIVE GMV. 8 shows a month; extra shows $145/hr + 5%.
 - LIVE Specialist Support: $3,500/mo + 7% commission.
-- Content Creation: custom package pricing.
-- Affiliate Management (standalone): $4,000/mo + 5% of affiliate-attributed GMV, 6-month minimum. Included in Managed Services.
+- Content Creation: starting-at pricing. Listing packages from $1,000 one-time (Starter $1,000, Growth $2,000, larger catalogs custom); social packages from $4,500/mo (Starter $4,500, Accelerator $8,700, higher volume custom). Short form: "Listing from $1,000 · Social from $4,500/mo".
+- Affiliate Management (standalone): $4,000/mo + 5% of affiliate GMV, 6-month minimum (time to build momentum). Included in Managed Services.
 
 ## Terms
 Use "Junglee Managed Services", "add-on", "standalone service", "playbook", "you own your affiliate program", "LIVE" (capitalized), "TikTok Shop".
