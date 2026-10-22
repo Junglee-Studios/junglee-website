@@ -235,14 +235,14 @@
       <div class="why-exists-row">
         <div class="why-exists-text">
           <div class="kicker"><i></i> Why Junglee exists</div>
-          <h2 style="max-width: 28ch;">Inside knowledge, brought out into the open.</h2>
-          <p class="lead" style="max-width: 62ch; font-size: 1.08rem;">
+          <h2>Inside knowledge, brought out into the open.</h2>
+          <p class="lead" style="font-size: 1.08rem;">
             Junglee Studios was founded by Jatin "JT" Patel. At TikTok Shop's U.S. launch, JT was on the founding team. He co-led the Collectibles category build to $780M in under two years with 1.2K sellers, growing that team from 3 to 18+. He led Countdown Bidding and launched Auctions in the U.S., and developed foundational playbooks for LIVE selling, video selling, ShopTab, campaigns, content, and auctions.
           </p>
-          <p style="max-width: 62ch; font-size: 1.02rem; color: rgba(255,255,255,0.92); line-height: 1.6;">
+          <p style="font-size: 1.02rem; color: rgba(255,255,255,0.92); line-height: 1.6;">
             From the inside, the gap was clear. Capable brands and creators were working hard without the platform context to know what drives discovery, ranking, and conversion on TikTok Shop. Junglee exists to close that gap: we build and scale the channel with a brand's own team and make sure they can keep scaling it on their own, and we coach creators through each stage of growing on the platform.
           </p>
-          <p style="max-width: 62ch; font-size: 1.02rem; color: rgba(255,255,255,0.92); line-height: 1.6;">
+          <p style="font-size: 1.02rem; color: rgba(255,255,255,0.92); line-height: 1.6;">
             <strong>Why "Junglee"?</strong> It means wild in Hindi. Bold, a little untamed, and built to move fast on platforms that move fast.
           </p>
         </div>
@@ -586,7 +586,7 @@
   <section class="cta-block reveal" id="contact">
     <div class="container" style="max-width: 980px;">
       <div class="kicker" style="color: var(--color-coral);"><i></i> Get started</div>
-      <h2 style="font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 12px;">Work with the team that helped build it.</h2>
+      <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-top: 12px;">Work with the team that helped build it.</h2>
       <p class="lead" style="margin-bottom: 28px;">
         Pick the side you're on.
       </p>
@@ -1464,6 +1464,12 @@
     .cta-block .btn.creator-apply { background: var(--color-teal); border-color: var(--color-teal); color: #fff; }
     .cta-block .btn.creator-apply:hover { filter: brightness(1.08); }
     .cta-path__login { color: #fff; font-size: 0.9rem; text-decoration: underline; text-underline-offset: 3px; }
+    #about-stats .stat-strip__head { text-align: center; }
+    #about-stats .stat-strip__head .kicker { display: flex; justify-content: center; }
+    #about-stats .stat-cell { text-align: center; align-items: center; }
+    #contact > .container > h2 { text-wrap: nowrap; }
+    @media (max-width: 760px) { #contact > .container > h2 { text-wrap: balance; } }
+    #why-exists .why-exists-text .lead, #why-exists .why-exists-text h2 { max-width: none; }
   </style>
 
   <!-- Lazy-load embed video on scroll (mirrors homepage behavior) -->
