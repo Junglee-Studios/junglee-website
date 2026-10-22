@@ -29,6 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/base.css?v=20261022" />
   <script src="/partials/loader.js" defer></script>
+  <script src="/js/site-stats.js?v=20261022" defer></script>
   <script src="/js/animations.js" defer></script>
 
   <style>
@@ -52,6 +53,42 @@
   .other-svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px;}
   .other-svcs a{display:block;padding:16px 18px;border-radius:14px;border:1px solid rgba(0,0,0,.1);background:#fff;font-weight:700;text-decoration:none;color:inherit;}
   .other-svcs a span{display:block;font-weight:500;opacity:.6;font-size:.88rem;margin-top:4px;}
+  .other-svcs__main { grid-column: 1 / -1; }
+  section.section-smoke > .container > .kicker { display: flex; justify-content: center; }
+  .cta-block--center > .container { text-align: center; }
+  .cta-block--center .kicker { display: flex; justify-content: center; }
+  .cta-block--center h2, .cta-block--center .lead { margin-left: auto; margin-right: auto; max-width: none; text-wrap: balance; }
+  .cta-block--center .actions { justify-content: center; }
+  .svc-hero > .container { text-align: center; }
+  .svc-hero .kicker { display: flex; justify-content: center; }
+  .svc-hero h1, .svc-hero .lead { margin-left: auto; margin-right: auto; max-width: 1040px; text-wrap: balance; }
+  .svc-hero .actions { justify-content: center; }
+  #packages > .container > .kicker { display: flex; justify-content: center; }
+  #packages > .container > h2, #packages > .container > .lead, #packages > .container > p { text-align: center; margin-left: auto; margin-right: auto; max-width: none; text-wrap: balance; }
+  #hosts > .container > .kicker { display: flex; justify-content: center; }
+  #hosts > .container > h2 { text-align: center; }
+  .host-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 373px)); justify-content: center; gap: 22px; margin: 28px auto 0; }
+  @media (max-width: 800px) { .host-grid { grid-template-columns: minmax(0, 373px); } }
+  .host-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+  .host-card .tm-photo { height: 320px; overflow: hidden; background: #eee; }
+  .host-card .tm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .host-card .tm-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .host-card .tm-role { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-coral); }
+  .host-card .tm-name { margin: 0; font-size: 1.2rem; }
+  .host-card .tm-bio { margin: 0; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.55; }
+  .host-card .tm-unlock { display: none; }
+  .host-card .tm-link { margin-top: auto; color: var(--color-coral); font-weight: 700; font-size: 0.9rem; }
+  .host-card .tm-photo img.shift-down { height: auto; min-height: 100%; width: 100%; object-fit: unset; }
+  .host-grid--solo { grid-template-columns: minmax(0, 780px); }
+  .host-grid--solo .host-card { flex-direction: row; }
+  .host-grid--solo .host-card .tm-photo { width: 320px; height: 320px; flex-shrink: 0; }
+  .host-grid--solo .host-card .tm-photo img { height: 100%; }
+  .host-grid--solo .host-card .tm-link { margin-top: 8px; }
+  .host-grid--solo .host-card .tm-body { justify-content: center; padding: 28px 32px; }
+  @media (max-width: 760px) {
+    .host-grid--solo .host-card { flex-direction: column; }
+    .host-grid--solo .host-card .tm-photo { width: 100%; height: 320px; }
+  }
 </style>
 </head>
 <body data-page="brands">
@@ -90,7 +127,7 @@
     <div class="container">
       <div class="kicker"><i></i> Add-on service</div>
       <h1>Shoppable video that sells — produced for you.</h1>
-      <p class="lead" style="max-width:66ch;">TikTok Shop rewards a steady flow of product video, and most teams can't produce enough of it. We produce shoppable video and UGC-style content built for conversion and deliver it ready to post.</p>
+      <p class="lead">TikTok Shop rewards a steady flow of product video, and most teams can't produce enough of it. We produce shoppable video and UGC-style content built for conversion and deliver it ready to post.</p>
       <div class="actions" style="margin-top:24px;"><a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a class="btn secondary" href="#pricing">See pricing</a></div>
     </div>
   </section>
@@ -123,10 +160,61 @@
       </div>
       <div class="price-card" style="border-top:5px solid var(--color-teal);">
         <div class="kicker" style="margin-bottom:10px;"><i></i> Pricing</div>
-        <div class="amt">Custom<span></span></div>
-        <div class="sub">Package pricing scoped to volume and format</div>
-        <p style="margin-top:14px;opacity:.7;font-size:.92rem;line-height:1.5;">We scope a package on the strategy call around your posting cadence and product focus.</p>
+        <div class="amt">From $1,000<span></span></div>
+        <div class="sub">Listing from $1,000 · Social from $4,500/mo</div>
+        <p style="margin-top:14px;opacity:.7;font-size:.92rem;line-height:1.5;">See the packages below. Larger catalogs and higher monthly volume are scoped as custom packages.</p>
         <a class="btn primary" style="margin-top:18px;display:inline-block;" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-smoke reveal" id="packages">
+    <div class="container">
+      <div class="kicker"><i></i> Product listing content</div>
+      <h2>Listing visuals that convert on the product page.</h2>
+      <p class="lead">For brands launching or upgrading product listings on TikTok Shop, Shopify, Amazon, and other marketplaces. Product-focused assets, not built for social posting.</p>
+      <div class="svc-grid" style="margin-top:24px;">
+        <div class="price-card" style=""><div class="kicker" style="margin-bottom:8px;"><i></i> Listing Starter</div><div class="amt">$1,000<span> one-time</span></div><ul class="checklist" style="margin-top:12px;"><li>10 product photos</li><li>2 product videos (10–15s each)</li><li>Best for a hero product or small launch</li></ul></div>
+        <div class="price-card" style="border-top:5px solid var(--color-teal);"><div class="kicker" style="margin-bottom:8px;"><i></i> Listing Growth</div><div class="amt">$2,000<span> one-time</span></div><ul class="checklist" style="margin-top:12px;"><li>25 product photos</li><li>4 product videos (15–30s each)</li><li>Best for a core product line</li></ul></div>
+        <div class="price-card" style=""><div class="kicker" style="margin-bottom:8px;"><i></i> Larger catalogs</div><div class="amt">Custom<span></span></div><ul class="checklist" style="margin-top:12px;"><li>40+ photos and 8+ videos</li><li>Scoped to your catalog</li><li>Best for multi-line launches</li></ul></div>
+      </div>
+      <p style="margin-top:16px;opacity:.75;">Every listing package includes white-background product imagery, 360° product spin, color correction, and full retouching and professional editing.</p>
+
+      <div class="kicker" style="margin-top:48px;"><i></i> Social content</div>
+      <h2>A steady flow of social content, without building a studio.</h2>
+      <p class="lead">Monthly social-first photo and short-form video for organic and creator-style posting, produced in your brand voice and delivered ready to post.</p>
+      <div class="svc-grid" style="margin-top:24px;">
+        <div class="price-card" style=""><div class="kicker" style="margin-bottom:8px;"><i></i> Social Starter</div><div class="amt">$4,500<span>/mo</span></div><ul class="checklist" style="margin-top:12px;"><li>30 ready-to-post pieces a month (1 a day)</li><li>1 two-hour shoot a month</li></ul></div>
+        <div class="price-card" style="border-top:5px solid var(--color-teal);"><div class="kicker" style="margin-bottom:8px;"><i></i> Social Accelerator</div><div class="amt">$8,700<span>/mo</span></div><ul class="checklist" style="margin-top:12px;"><li>60 ready-to-post pieces a month (2 a day)</li><li>2 two-hour shoots a month</li><li>Everything in Social Starter</li></ul></div>
+        <div class="price-card" style=""><div class="kicker" style="margin-bottom:8px;"><i></i> Higher volume</div><div class="amt">Custom<span></span></div><ul class="checklist" style="margin-top:12px;"><li>90+ pieces a month (3+ a day)</li><li>3+ shoots a month</li><li>For daily, high-volume visibility</li></ul></div>
+      </div>
+      <p style="margin-top:16px;opacity:.75;">Every social package includes professional lifestyle photo and video, carousels and UGC-style content, campaign development and creative direction, a monthly strategy call, shot lists, captions in your brand voice, 2 rounds of revisions, 7–10 day turnaround, and full usage rights.</p>
+    </div>
+  </section>
+
+  <section class="section section-light reveal" id="hosts">
+    <div class="container">
+      <div class="kicker"><i></i> Meet your content lead</div>
+      <h2>The person behind your content.</h2>
+      <div class="host-grid host-grid--solo">
+<article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/logos/assets/4EAA16C8-A82D-46E2-AA30-EFFF08ACF2E0.jpeg" alt="Lara Maria Nnoli, Director of Client Media" style="object-position: center top; transform: scale(1.25); transform-origin: center top;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">Director of Client Media</span>
+            <h3 class="tm-name">Lara Maria Nnoli</h3>
+            <p class="tm-bio">
+              Leads content strategy and creative, including the Content Creation add-on. Builds content playbooks designed for how TikTok Shop surfaces and converts video, drawing on work across TikTok Shop, Amazon, and Shopify.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">Content playbooks &amp; Content Creation add-on</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/larannoli/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -137,7 +225,7 @@
       <div class="svc-grid">
         <div class="svc-tile"><h3>Brief</h3><p>Start from your bestsellers, reviews, and what already converts in your category.</p></div>
         <div class="svc-tile"><h3>Produce</h3><p>Short-form video built around strong hooks and clear calls to action.</p></div>
-        <div class="svc-tile"><h3>Deliver</h3><p>Edited, captioned, and ready to post or hand to affiliates.</p></div>
+        <div class="svc-tile"><h3>Deliver</h3><p>Edited, captioned, and ready to post or share with your affiliates.</p></div>
         <div class="svc-tile"><h3>Learn</h3><p>Performance shapes the next batch so each round converts better.</p></div>
       </div>
     </div>
@@ -156,10 +244,11 @@
       <div>
         <div class="kicker"><i></i> Other ways to work with us</div>
         <div class="other-svcs">
-        <a href="/brands/affiliate-management">Affiliate Management<span>$4,000/mo + 5% of affiliate-attributed GMV</span></a>
+        <a class="other-svcs__main" href="/brands">Junglee Managed Services<span>$7,500/mo + 5% of GMV + kicker — strategy, operations &amp; affiliates, run with your team</span></a>
+        <a href="/brands/shop-setup">Shop Setup &amp; Account Health<span>$3,000 one-time</span></a>
+        <a href="/brands/affiliate-management">Affiliate Management<span>$4,000/mo + 5% of affiliate GMV</span></a>
         <a href="/brands/branded-live-selling">Branded Live Selling w/Host Program<span>$3,500/mo + 5% of LIVE GMV</span></a>
         <a href="/brands/live-specialist-support">LIVE Specialist Support<span>$3,500/mo + 7% commission</span></a>
-        <a href="/brands">Junglee Managed Services<span>$7,500/mo + 5% of GMV + kicker — strategy, operations &amp; affiliates, run with your team</span></a>
         </div>
       </div>
     </div>
