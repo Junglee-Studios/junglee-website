@@ -654,6 +654,30 @@
     #contact .lead { max-width: 900px; margin-left: auto; margin-right: auto; }
     #contact .actions { justify-content: center; }
     @media (max-width: 900px) { .ac-trust, .ac-plans { grid-template-columns: 1fr; } }
+    .ac-strip { background: #f4f5f7; border-bottom: 1px solid var(--color-border); }
+    .ac-strip__row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; padding: 16px 0; }
+    .ac-strip__item { font-size: 0.88rem; color: var(--color-text-secondary); }
+    .ac-strip__item b { color: var(--color-ink); }
+    .ac-strip__item::before { content: "\2713"; color: var(--color-teal); font-weight: 800; margin-right: 8px; }
+    .ac-compare { margin-top: 28px; }
+    .ac-compare__heads { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .ac-plan__best { margin: 0; color: var(--color-text-secondary); font-size: 0.94rem; line-height: 1.55; }
+    .ac-plan h3 { margin: 4px 0 0; font-size: 1.25rem; }
+    .ac-table-wrap { overflow-x: auto; margin-top: 16px; }
+    .ac-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .ac-table col:first-child, .ac-table th[scope="row"] { width: 220px; }
+    .ac-table th, .ac-table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--color-border); font-size: 0.94rem; line-height: 1.5; vertical-align: top; }
+    .ac-table tbody tr:last-child th, .ac-table tbody tr:last-child td { border-bottom: 0; }
+    .ac-table thead th { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-secondary); background: #fafafa; }
+    .ac-table thead th:first-child { width: 220px; }
+    .ac-table th[scope="row"] { color: var(--color-ink); font-weight: 700; }
+    .ac-table td:nth-child(2) { background: rgba(255,95,80,0.04); }
+    .ac-compare__note { text-align: center; margin: 16px 0 0; font-size: 0.9rem; color: var(--color-text-secondary); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    @media (max-width: 900px) {
+      .ac-compare__heads { grid-template-columns: 1fr; }
+      .ac-table { min-width: 640px; }
+    }
   </style>
 </head>
 
@@ -770,49 +794,54 @@
     </div>
   </section>
 
-  <!-- TRUST: approved by TikTok -->
-  <section class="section section-light reveal" id="approved">
-    <div class="container">
-      <div class="kicker"><i></i> Approved by TikTok</div>
-      <h2>Reviewed and approved by TikTok.</h2>
-      <p class="lead">Before TikTok gave us access to its official TikTok Shop APIs, we submitted the full app and a live demo for their review.</p>
-      <div class="ac-trust">
-        <article class="ac-trust__card"><span class="ac-trust__tag">TikTok-approved</span><h3>Reviewed by TikTok</h3><p>The full build and a live demo went through TikTok's review before we were given API access.</p></article>
-        <article class="ac-trust__card"><span class="ac-trust__tag">Seller Center</span><h3>Listed inside TikTok Shop</h3><p>Junglee Academy is listed in the apps section of TikTok Shop Seller Center.</p></article>
-        <article class="ac-trust__card"><span class="ac-trust__tag">Official APIs</span><h3>Data straight from TikTok</h3><p>Sales, commissions and performance come through TikTok's official APIs. No spreadsheets or manual exports.</p></article>
-      </div>
+  <!-- TRUST STRIP: approved by TikTok -->
+  <div class="ac-strip" id="approved">
+    <div class="container ac-strip__row">
+      <span class="ac-strip__item"><b>TikTok-approved app</b> &middot; full build and live demo reviewed by TikTok</span>
+      <span class="ac-strip__item"><b>Listed in TikTok Shop Seller Center</b></span>
+      <span class="ac-strip__item"><b>Official TikTok Shop APIs</b> &middot; no manual exports</span>
     </div>
-  </section>
-
+  </div>
 
   <!-- FOR BRANDS -->
   <section class="section section-smoke reveal" id="for-brands">
     <div class="container">
       <div class="kicker"><i></i> For brands</div>
       <h2>Your shop, your playbooks and your team's training, in one place.</h2>
-      <p class="lead">Every brand that works with Junglee gets the Academy. How much we run for you depends on the plan.</p>
-      <div class="ac-plans">
-        <article class="ac-plan ac-plan--now">
-          <div class="ac-plan__head"><span class="ac-plan__chip">Available now</span><h3>Junglee Managed Services</h3><p>We run strategy and operations with your team, and the Academy is where your team follows along and learns.</p></div>
-          <ul>
-            <li>Shop performance dashboard: GMV, affiliates, creators and LIVE</li>
-            <li>Playbooks built for your products and audience</li>
-            <li>Step-by-step training for your team</li>
-            <li>Weekly reporting and monthly business reviews</li>
-            <li>Your Junglee team running the channel with you</li>
-          </ul>
-          <div class="ac-plan__cta"><a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a class="ac-plan__link" href="/brands">See Managed Services</a></div>
-        </article>
-        <article class="ac-plan">
-          <div class="ac-plan__head"><span class="ac-plan__chip ac-plan__chip--soon">Coming soon</span><h3>Junglee Academy for Brands</h3><p>Self-managed plans for teams that want to run TikTok Shop themselves, with our playbooks and tools.</p></div>
-          <ul>
-            <li>Shop performance dashboard</li>
-            <li>Our playbooks, adapted to your category</li>
-            <li>Step-by-step training for your team</li>
-            <li>You run the channel; we provide the system</li>
-          </ul>
-          <div class="ac-plan__cta"><span class="ac-plan__note">Plans and pricing announced at launch.</span><a class="ac-plan__link" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Talk to us about early access</a></div>
-        </article>
+      <p class="lead">Every brand that works with Junglee gets the Academy. The difference is who runs the channel: our team with yours, or your team on its own with our system.</p>
+      <div class="ac-compare">
+        <div class="ac-compare__heads">
+          <article class="ac-plan ac-plan--now">
+            <span class="ac-plan__chip">Available now</span>
+            <h3>Junglee Managed Services</h3>
+            <p class="ac-plan__best"><b>Best for:</b> brands that want experts to build and scale the channel with them, while their team learns to run it.</p>
+            <div class="ac-plan__cta"><a class="btn primary" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a><a class="ac-plan__link" href="/brands">See Managed Services</a></div>
+          </article>
+          <article class="ac-plan">
+            <span class="ac-plan__chip ac-plan__chip--soon">Coming soon</span>
+            <h3>Junglee Academy for Brands</h3>
+            <p class="ac-plan__best"><b>Best for:</b> brands with an in-house team and the time to run TikTok Shop themselves, who want our system without an agency.</p>
+            <div class="ac-plan__cta"><a class="ac-plan__link" href="https://calendar.app.google/wNeddQ4QkH4hKmYS8" target="_blank" rel="noopener noreferrer">Talk to us about early access</a></div>
+          </article>
+        </div>
+        <div class="ac-table-wrap">
+        <table class="ac-table">
+          <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Managed Services</th><th scope="col">Academy for Brands</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Who runs the channel</th><td>Our team, working alongside yours</td><td>Your team</td></tr>
+          <tr><th scope="row">Strategy</th><td>Built for your brand by our team</td><td>Our playbooks; your team applies them</td></tr>
+          <tr><th scope="row">Affiliate program</th><td>We build, recruit, brief and manage it</td><td>You run it using our affiliate playbook</td></tr>
+          <tr><th scope="row">Campaigns, promotions &amp; ads</th><td>Planned and run by us (GMV Max, Spark Ads)</td><td>You plan them with our templates</td></tr>
+          <tr><th scope="row">Playbooks</th><td>Custom, written for your products</td><td>Playbook library for your category</td></tr>
+          <tr><th scope="row">Training</th><td>Hands-on training, plus hiring support</td><td>Step-by-step courses at your own pace</td></tr>
+          <tr><th scope="row">Academy dashboard</th><td>Included</td><td>Included</td></tr>
+          <tr><th scope="row">Reporting</th><td>Weekly reports and monthly business reviews with us</td><td>Live dashboard you read yourself</td></tr>
+          <tr><th scope="row">Commitment</th><td>12-month program, 90-day review</td><td>Details at launch</td></tr>
+          <tr><th scope="row">Price</th><td>$7,500/mo + 5% of shop GMV + performance kicker</td><td>Announced at launch</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="ac-compare__note">Not sure which fits? Many brands start with Managed Services, and their team keeps using the Academy after the program.</p>
       </div>
     </div>
   </section>
@@ -919,7 +948,7 @@
       #why-junglee .btn-meet-team svg { color: currentColor; }
       /* Centered section intros (matches the rest of the site) */
     #why-junglee > .container > .kicker { display: flex; justify-content: center; }
-    #why-junglee > .container > h2, #why-junglee > .container > .lead { text-align: center; margin-left: auto; margin-right: auto; max-width: none; text-wrap: balance; }
+    #why-junglee > .container > h2, #why-junglee > .container > .lead { text-align: center; margin-left: auto; margin-right: auto; max-width: none; text-wrap: pretty; }
     #why-junglee .actions { justify-content: center; }
     #faq > .container > .kicker { justify-content: flex-start; }
     #faq > .container > h2, #faq > .container > p { text-align: left; margin-left: 0; }
