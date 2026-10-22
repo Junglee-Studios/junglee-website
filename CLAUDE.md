@@ -57,7 +57,7 @@ Founders, CEOs, CMOs, and ecommerce directors deciding whether to hire Junglee. 
 
 ## Positioning
 - One program: **Junglee Managed Services**. Never mention "TSP Growth" or "TSP Scale" (retired; some clients are grandfathered in the admin Hub only).
-- The promise: we build the channel *with* the brand's team and hand it over. Within a year their team runs it without depending on an agency. We help them hire and train their existing staff.
+- The promise: we build and scale the channel *with* the brand's team and make sure they can keep scaling it on their own. Within a year their team runs it without depending on an agency. We help them hire and train their existing staff.
 - Playbooks are custom to each brand's products and audience. Organic first to keep costs low; ads (GMV Max, Spark Ads) once organic is performing.
 - 12-month program with a 90-day review (a review of what is gaining traction and how the playbook adjusts, not a check against targets).
 
@@ -77,7 +77,7 @@ Not included (the brand's team handles these, with our playbooks):
 - content production
 - LIVE hosting
 
-Content production and LIVE shows are **add-ons**. The brand owns its affiliate program. Junglee builds it, documents it, and hands it over. Junglee is still building its own creator network, so do not claim an existing roster.
+Content production and LIVE shows are **add-ons**. The brand owns its affiliate program. Junglee builds and documents it with the brand's team. Junglee is still building its own creator network, so do not claim an existing roster.
 
 ## Pricing (state it plainly and consistently)
 - Junglee Managed Services: $7,500/mo + 5% of shop GMV + performance kicker (a premium rate only on GMV above the trailing 90-day baseline). 12-month program.
