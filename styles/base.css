@@ -3090,3 +3090,8 @@ footer#site-footer { padding: 16px 0 14px; }
 /* Section rhythm: no stray margins at the top/bottom edge of a section. */
 .section > .container > :first-child, .cta-block > .container > :first-child { margin-top: 0; }
 .section > .container > :last-child, .cta-block > .container > :last-child { margin-bottom: 0; }
+
+/* A dark closing band right above the dark footer: trim its bottom padding so
+   the two read as one block instead of leaving a double gap. */
+.cta-block:not(.cta-block--teal):has(+ footer#site-footer),
+.cta-block:not(.cta-block--teal):has(+ * + footer#site-footer) { padding-bottom: clamp(28px, 3vw, 40px); }
