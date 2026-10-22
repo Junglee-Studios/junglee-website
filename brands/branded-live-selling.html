@@ -63,6 +63,19 @@
   .svc-hero .kicker { display: flex; justify-content: center; }
   .svc-hero h1, .svc-hero .lead { margin-left: auto; margin-right: auto; max-width: 1040px; text-wrap: balance; }
   .svc-hero .actions { justify-content: center; }
+  #hosts > .container > .kicker { display: flex; justify-content: center; }
+  #hosts > .container > h2 { text-align: center; }
+  .host-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 900px; margin: 28px auto 0; }
+  @media (max-width: 760px) { .host-grid { grid-template-columns: 1fr; } }
+  .host-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+  .host-card .tm-photo { aspect-ratio: 4 / 3.4; overflow: hidden; background: #eee; }
+  .host-card .tm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .host-card .tm-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .host-card .tm-role { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-coral); }
+  .host-card .tm-name { margin: 0; font-size: 1.2rem; }
+  .host-card .tm-bio { margin: 0; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.55; }
+  .host-card .tm-unlock { display: none; }
+  .host-card .tm-link { margin-top: auto; color: var(--color-coral); font-weight: 700; font-size: 0.9rem; }
 </style>
 </head>
 <body data-page="brands">
@@ -143,6 +156,52 @@
     </div>
   </section>
 
+
+  <section class="section section-light reveal" id="hosts">
+    <div class="container">
+      <div class="kicker"><i></i> Meet your hosts</div>
+      <h2>The people on camera and behind the show.</h2>
+      <div class="host-grid">
+        <article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/photos/about/justine-santaniello.jpg" alt="Justine Santaniello, LIVE Host & Executive Producer" style="object-position: center 48%; transform: scale(1.5); transform-origin: center 48%;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">LIVE Host &amp; Executive Producer</span>
+            <h3 class="tm-name">Justine Santaniello</h3>
+            <p class="tm-bio">
+              Hosts and produces shows for the Branded Live Selling add-on. Lifestyle host with 1,000+ TV appearances, including Access Hollywood Live, Inside Edition, Fox &amp; Friends, and QVC. Founder of JustHaves.com and host of the nationally syndicated show Lifestyle Today.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">Branded Live Selling add-on: hosting &amp; production</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/justinesantaniello/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
+
+        <article class="host-card">
+          <div class="tm-photo">
+            <img src="/assets/photos/about/christina-boniello.jpg" alt="Christina Boniello, LIVE Operations & Show Producer" style="object-position: 93% 42%; transform: scale(1.28); transform-origin: 93% 42%;" loading="lazy">
+          </div>
+          <div class="tm-body">
+            <span class="tm-role">LIVE Operations &amp; Show Producer</span>
+            <h3 class="tm-name">Christina Boniello</h3>
+            <p class="tm-bio">
+              Runs show production for the Branded Live Selling add-on and supports Content Creation shoots: talent coaching, set styling, scripts, and end-to-end production for branded content.
+            </p>
+            <div class="tm-unlock">
+              <span class="label">Unlocks</span>
+              <span style="font-size: 0.88rem; font-weight: 600; color: var(--color-ink);">Branded Live Selling &amp; Content Creation add-ons</span>
+            </div>
+            <a class="tm-link" href="https://www.linkedin.com/in/christina-boniello-7a22b2153/" target="_blank" rel="noreferrer">LinkedIn &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      </div>
+    </div>
+  </section>
 
   <section class="section section-smoke reveal">
     <div class="container">
