@@ -80,10 +80,12 @@ Not included (the brand's team handles these, with our playbooks):
 Content production and LIVE shows are **add-ons**. The brand owns its affiliate program. Junglee builds it, documents it, and hands it over. Junglee is still building its own creator network, so do not claim an existing roster.
 
 ## Pricing (state it plainly and consistently)
-- Junglee Managed Services: $7,500/mo + 5% of shop GMV + performance kicker (a premium rate only on GMV above the trailing 90-day baseline). 12-month program.
+- Junglee Managed Services: $7,500/mo + 5% of shop GMV. 12-month program with a 90-day review. There is no performance kicker; never mention one.
+- Shop Setup & Account Health: $3,000 one-time, included with Junglee Managed Services.
+- Academy Hub after graduation (alumni): $399/mo, optional.
 - Branded Live Selling w/Host Program: $3,500/mo + 5% of LIVE GMV. 8 shows a month; extra shows $145/hr + 5%.
 - LIVE Specialist Support: $3,500/mo + 7% commission.
-- Content Creation: custom package pricing.
+- Content Creation: listing content from $1,000 one-time; social content from $4,500/mo; larger volumes custom.
 - Affiliate Management (standalone): $4,000/mo + 5% of affiliate-attributed GMV, 6-month minimum. Included in Managed Services.
 
 ## Terms
