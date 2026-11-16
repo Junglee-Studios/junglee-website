@@ -617,6 +617,23 @@
       letter-spacing: 0.05em;
     }
   </style>
+  <style>
+    /* Centered section intros (matches Home, About, Brands, Creators) */
+    section.section[data-audience-only="creator"]:not(#faq) > .container > .kicker { display: flex; justify-content: center; }
+    section.section[data-audience-only="creator"]:not(#faq) > .container > h2,
+    section.section[data-audience-only="creator"]:not(#faq) > .container > .lead,
+    section.section[data-audience-only="creator"]:not(#faq) > .container > p {
+      text-align: center; margin-left: auto !important; margin-right: auto !important; max-width: none !important; text-wrap: balance;
+    }
+    section.section[data-audience-only="creator"]:not(#faq) > .container > .actions { justify-content: center; }
+    /* Centered closing CTA (same as Creators) */
+    .cta-block--center .container { text-align: center; }
+    .cta-block--center .cta-block__inner { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+    .cta-block--center .kicker { justify-content: center; color: var(--color-coral); }
+    .cta-block--center h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 12px auto 0; max-width: 22ch; text-align: center; }
+    .cta-block--center .lead { max-width: 56ch; margin: 14px auto 28px; text-align: center; }
+    .cta-block--center .actions { justify-content: center; flex-wrap: wrap; gap: 12px; }
+  </style>
 </head>
 
 <body data-page="academy" data-audience="creator">
